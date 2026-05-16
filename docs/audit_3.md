@@ -196,7 +196,6 @@ SECTION E — ACHIEVEMENT TRACKING GAPS
   FRONTEND: MISSING (The UI does not proactively disable inputs or the "Log" button when a window is closed; relies entirely on backend 422 HTTP responses).
   FORMULA CORRECT: N/A
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION F — CHECK-IN GAPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -225,7 +224,6 @@ SECTION F — CHECK-IN GAPS
   FRONTEND: IMPLEMENTED (`app.index.tsx` for Admin; Manager sees check-ins in Reports page)
   MISALIGNED: no
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION G — CYCLE & WINDOW ENFORCEMENT GAPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -241,7 +239,6 @@ SECTION G — CYCLE & WINDOW ENFORCEMENT GAPS
 - **Frontend shows current phase/window:** yes (Visible on Dashboard `CycleCard`)
 - **Frontend disables write actions when closed:** no (Users can still click actions, resulting in unhandled 422 server responses).
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION H — REPORTS & EXPORTS GAPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -266,7 +263,6 @@ SECTION H — REPORTS & EXPORTS GAPS
   FRONTEND surface: MISSING (There is no UI page, modal, or button for Admins or HR to view the fetched audit logs).
   Export format correct: N/A
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION I — AUDIT TRAIL GAPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -285,7 +281,6 @@ SECTION I — AUDIT TRAIL GAPS
   File/function: `app/api/v1/goal_sheets.py` completely lacks any call to `write_audit_log` inside `submit_sheet`, `approve_sheet`, or `return_sheet`.
   All fields present?: no (Not implemented at all).
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION J — ADMIN CAPABILITY GAPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -319,7 +314,6 @@ SECTION J — ADMIN CAPABILITY GAPS
   FRONTEND: IMPLEMENTED
   Reachable in UI without API calls?: yes
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION K — FRONTEND UI/UX GAPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -343,7 +337,6 @@ SECTION K — FRONTEND UI/UX GAPS
 - Reports/export page: EXISTS | COMPLETE | CONNECTED | GUARDED
 - Audit Log view: MISSING
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION L — EVALUATION RUBRIC COMPLIANCE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -389,7 +382,6 @@ SECTION L — EVALUATION RUBRIC COMPLIANCE
    Evidence: Backend API `/reports/audit/{goal_id}` works, but Admin frontend has zero UI implemented to view it.
    Risk to score: MEDIUM
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION M — MISALIGNMENT MATRIX
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -417,7 +409,6 @@ SECTION M — MISALIGNMENT MATRIX
   Impact: Confusing UX.
   PRD req: 4.3
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION N — PRIORITY FIX LIST
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -429,7 +420,6 @@ SECTION N — PRIORITY FIX LIST
 6. **[PRIORITY: P1] [Section I] Backend `goal_sheets.py`** — Add `write_audit_log` imports and execution logic within the `submit_sheet`, `approve_sheet`, and `return_sheet` transitions. (Compliance gap).
 7. **[PRIORITY: P2] [Section G/M] Frontend All Tracking Forms** — Map cycle configurations to button disable states to proactively block writes outside active windows instead of relying purely on 422 HTTP responses. (UX Improvement).
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SECTION O — SUMMARY SCORECARD
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

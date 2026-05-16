@@ -9,9 +9,31 @@ from app.db.session import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from app.models.user import User
-from app.schemas.user import UserOut
+from app.schemas.user import UserOut, UserUpdate, UserCreate
 
 router = APIRouter()
+
+@router.post("/profiles")
+@require_roles("admin")
+async def create_user_profile(payload: UserCreate, request: Request, db: AsyncSession = Depends(get_db)):
+    """Demo: Create a user profile locally for hierarchy. (Does not create Supabase auth)."""
+    import uuid
+    new_user = User(
+        id=uuid.uuid4(),
+        email=payload.email,
+        full_name=payload.full_name,
+        role=payload.role,
+        department_id=payload.department_id,
+        manager_id=payload.manager_id
+    )
+    db.add(new_user)
+    try:
+        await db.commit()
+        await db.refresh(new_user)
+    except Exception as e:
+        await db.rollback()
+        return err("CREATE_FAILED", "Email might already exist or invalid data.", 400)
+    return ok(UserOut.model_validate(new_user).model_dump(mode="json"), 201)
 
 @router.get("/me")
 @require_roles("employee", "manager", "admin")
@@ -58,3 +80,21 @@ async def get_team(user_id: UUID, request: Request, db: AsyncSession = Depends(g
     team = result.scalars().all()
     
     return ok([UserOut.model_validate(u).model_dump(mode="json") for u in team])
+
+@router.patch("/{user_id}")
+@require_roles("admin")
+async def update_user(user_id: UUID, payload: UserUpdate, request: Request, db: AsyncSession = Depends(get_db)):
+    """Admin: update user role, manager, or department."""
+    result = await db.execute(select(User).where(User.id == user_id))
+    user = result.scalar_one_or_none()
+    
+    if not user:
+        return err("NOT_FOUND", "User not found", 404)
+        
+    update_data = payload.model_dump(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(user, key, value)
+        
+    await db.commit()
+    await db.refresh(user)
+    return ok(UserOut.model_validate(user).model_dump(mode="json"))

@@ -6,7 +6,7 @@ export const goalFormSchema = z.object({
   title: z.string().trim().min(1, "Required").max(200),
   description: z.string().trim().max(2000).optional().or(z.literal("")),
   uom_type: z.enum(UOM_TYPES),
-  target: z.string().trim().min(1, "Required").max(120),
+  target: z.number({ invalid_type_error: "Required" }).min(0.01, "Target must be a positive number"),
   weightage: z
     .number({ invalid_type_error: "Required" })
     .int("Must be a whole number")

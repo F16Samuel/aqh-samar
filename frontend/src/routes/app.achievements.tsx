@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useAuthStore } from "@/store/auth.store";
-import { useMyGoalSheets, useGoalsBySheet, useAchievementsByGoal, useCreateAchievement, useUpdateAchievement } from "@/hooks/api";
+import { useMyGoalSheets, useGoalsBySheet, useAchievementsByGoal, useCreateAchievement, useUpdateAchievement, useActiveCycle } from "@/hooks/api";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,12 @@ function AchievementsPage() {
   const activeSheet = sheets?.find((s) => String(s.status).toLowerCase() === "approved" || String(s.status).toLowerCase() === "locked") ?? sheets?.[0];
   const { data: goals, isLoading: gLoad } = useGoalsBySheet(activeSheet?.id);
 
+  const { data: activeCycle } = useActiveCycle();
+  const today = new Date().toISOString().split('T')[0];
+  const windowIsOpen = activeCycle?.is_active && activeCycle.window_open && activeCycle.window_close
+    ? today >= activeCycle.window_open && today <= activeCycle.window_close
+    : false;
+
   if (!me) return null;
   return (
     <div className="space-y-6">
@@ -36,13 +42,20 @@ function AchievementsPage() {
       ) : (
         <Card>
           <CardHeader>
-            <CardTitle className="text-base">Sheet · {activeSheet.id.slice(0, 8)}</CardTitle>
+            <CardTitle className="text-base">
+              Sheet · {activeCycle ? `${activeCycle.year} ${activeCycle.phase}` : activeSheet.id.slice(0, 8)}
+            </CardTitle>
             <CardDescription>Status: {String(activeSheet.status)}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
+            {!windowIsOpen && (
+              <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive border border-destructive/20">
+                <strong>Window closed.</strong> Achievement tracking is currently closed.
+              </div>
+            )}
             {gLoad ? <Skeleton className="h-24" /> : !goals?.length ? <EmptyState title="No goals" /> : (
               <ul className="space-y-3">
-                {goals.map((g) => <GoalAchievementRow key={g.id} goal={g} />)}
+                {goals.map((g) => <GoalAchievementRow key={g.id} goal={g} windowIsOpen={windowIsOpen} />)}
               </ul>
             )}
           </CardContent>
@@ -52,7 +65,7 @@ function AchievementsPage() {
   );
 }
 
-function GoalAchievementRow({ goal }: { goal: GoalOut }) {
+function GoalAchievementRow({ goal, windowIsOpen }: { goal: GoalOut; windowIsOpen: boolean }) {
   const { data: achs } = useAchievementsByGoal(goal.id);
   const create = useCreateAchievement(goal.id);
   const update = useUpdateAchievement(goal.id);
@@ -72,17 +85,22 @@ function GoalAchievementRow({ goal }: { goal: GoalOut }) {
         <Badge variant="outline">Weight {goal.weightage}%</Badge>
       </div>
       <div className="mt-3 grid gap-2 sm:grid-cols-[120px_1fr_180px_auto]">
-        <Select value={quarter} onValueChange={setQuarter}>
+        <Select value={quarter} onValueChange={setQuarter} disabled={!windowIsOpen}>
           <SelectTrigger><SelectValue /></SelectTrigger>
           <SelectContent>{QUARTERS.map((q) => <SelectItem key={q} value={q}>{q}</SelectItem>)}</SelectContent>
         </Select>
-        <Input placeholder={existing?.actual ?? "Actual value"} value={actual} onChange={(e) => setActual(e.target.value)} />
-        <Select value={status} onValueChange={(v) => setStatus(v as AchievementStatus)}>
+        <Input 
+          placeholder={!windowIsOpen ? "Window closed" : (existing?.actual ?? "Actual value")} 
+          value={actual} 
+          onChange={(e) => setActual(e.target.value)} 
+          disabled={!windowIsOpen} 
+        />
+        <Select value={status} onValueChange={(v) => setStatus(v as AchievementStatus)} disabled={!windowIsOpen}>
           <SelectTrigger><SelectValue /></SelectTrigger>
           <SelectContent>{ACHIEVEMENT_STATUSES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
         </Select>
         <Button
-          disabled={create.isPending || update.isPending}
+          disabled={create.isPending || update.isPending || !windowIsOpen}
           onClick={() => {
             const body = { actual: actual || null, status, quarter, goal_id: goal.id };
             if (existing) update.mutate({ id: existing.id, body: { actual: body.actual, status, quarter } });
@@ -97,7 +115,11 @@ function GoalAchievementRow({ goal }: { goal: GoalOut }) {
         <ul className="mt-3 flex flex-wrap gap-2">
           {achs.map((a) => (
             <li key={a.id}>
-              <Badge variant="secondary">{a.quarter}: {a.status}{a.actual ? ` · ${a.actual}` : ""}</Badge>
+              <Badge variant="secondary">
+                {a.quarter}: {a.status}
+                {a.actual ? ` · ${a.actual}` : ""}
+                {a.progress_score !== undefined && a.progress_score !== null ? ` · ${Number(a.progress_score).toFixed(0)}%` : ""}
+              </Badge>
             </li>
           ))}
         </ul>

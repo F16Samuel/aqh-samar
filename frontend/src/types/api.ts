@@ -23,6 +23,10 @@ export interface UserOut {
   department_id: string | null;
 }
 
+export type UserCreate = Omit<UserOut, "id">;
+
+export type UserUpdate = Partial<Pick<UserOut, "role" | "manager_id" | "department_id">>;
+
 export interface CycleOut {
   id: string;
   year: number;
@@ -132,4 +136,15 @@ export interface CompletionReport {
 
 export interface EscalationItem {
   [k: string]: unknown;
+}
+
+export interface AuditLogOut {
+  id: string;
+  goal_id: string;
+  changed_by: string;
+  changed_by_name: string;
+  field_name: string;
+  old_value: string | null;
+  new_value: string | null;
+  changed_at: string;
 }

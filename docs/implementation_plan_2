@@ -1,0 +1,59 @@
+# Implementation Plan: UI/UX Fixes & Demo Prep
+
+This plan addresses the bugs and UX friction points you identified during your testing, specifically targeting the 500 error on the Admin cycle toggle, simplifying the Admin workflows, replacing raw JSON with polished UI dashboards, and making the goal setting process easier to demonstrate.
+
+## User Review Required
+
+> [!WARNING]  
+> **Auth Constraint (Create Users)**
+> You requested that admins can create new users and assign temporary passwords. Because this project uses **Supabase** for authentication, creating an authenticated user with a password requires the `SUPABASE_SERVICE_ROLE_KEY`, which is not safely exposed to the frontend and typically isn't configured in the backend `.env` for this repo.
+> 
+> **Proposed Solution**: I will build the "Create User" UI in `app.admin.users.tsx` and a backend endpoint `POST /api/v1/users/demo-create` that writes the user directly to the PostgreSQL `users` table so they appear in the system hierarchy for your demo. However, they **will not be able to actually log in** unless you separately create them in the Supabase Dashboard. If this is purely for demonstrating the hierarchy feature, this should suffice.
+
+## Open Questions
+
+> [!IMPORTANT]
+> - Do you want me to keep the `app.admin.unlock` and `app.admin.shared-goals` separate pages, but upgrade them to use Dropdowns instead of UUID text inputs? **Or** should I move those actions (Unlock and Share) directly onto the individual Goal cards in the Goal Sheet view so an Admin can just click "Unlock" or "Share" right where they see the goal?
+
+## Proposed Changes
+
+### Backend Fixes
+
+#### [MODIFY] `backend/app/api/v1/cycles.py`
+- **Fix 500 Error**: The `@require_roles` decorator requires the endpoint signature to include `request: Request`. I will add this to `update_cycle` so the cycle active toggle stops throwing 500 errors.
+
+#### [MODIFY] `backend/app/api/v1/users.py`
+- **Demo Create User**: Add a `POST /demo-create` endpoint to insert a user directly into the database without touching Supabase Auth, satisfying the UI requirement for the demo.
+
+---
+
+### Frontend Enhancements
+
+#### [MODIFY] `frontend/src/routes/app.admin.cycles.tsx`
+- Add an "Open Window Now" button to any cycle that instantly updates `window_open` and `window_close` to encompass today, making it extremely easy to demonstrate the goal setting window.
+
+#### [MODIFY] `frontend/src/routes/app.admin.users.tsx`
+- Add a "Create User" dialog with a dummy "Temporary Password" field that calls the new backend endpoint. 
+- Change Department to a predefined dropdown list instead of raw text.
+
+#### [MODIFY] `frontend/src/routes/app.achievements.tsx`
+- Update the sheet title from `Sheet · 12345678` to `Sheet · {cycle.year} {cycle.phase}` for better readability.
+
+#### [MODIFY] `frontend/src/routes/app.reports.tsx`
+- Completely replace the raw JSON output with a dynamic `Table` and `Cards` to display the `Completion Dashboard`.
+
+#### [MODIFY] `frontend/src/routes/app.admin.escalations.tsx`
+- Replace the raw JSON list of escalated sheets with a dynamic `Table` displaying Employee Name, Submission Date, and Days Escalated.
+
+#### [MODIFY] `frontend/src/routes/app.admin.unlock.tsx` & `app.admin.shared-goals.tsx`
+- Replace the UUID text inputs with asynchronous `<Select>` comboboxes that allow the Admin to search and pick users by Name and Goals by Title. 
+
+#### [MODIFY] `frontend/src/routes/app.team.tsx` (or dashboard)
+- Surface a "Pending Approvals" widget for Managers that specifically filters sheets in the `submitted` state, allowing them to quickly jump into review mode.
+
+## Verification Plan
+
+### Manual Verification
+1. Click the cycle toggle in Admin -> Cycles; verify it succeeds without a 500 error.
+2. Create a user via Admin -> Users; verify it appears in the table.
+3. Check Reports and Escalations to verify JSON has been replaced by styled UI tables.

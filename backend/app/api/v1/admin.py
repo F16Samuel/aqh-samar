@@ -7,7 +7,7 @@ from sqlalchemy import select
 from app.core.responses import ok, err
 from app.core.security import require_roles
 from app.db.session import get_db
-from app.models.goal import Goal, GoalSheet
+from app.models.goal import Goal, GoalSheet, AuditLog
 from app.core.audit import write_audit_log
 from datetime import datetime, timedelta
 
@@ -61,4 +61,31 @@ async def get_escalations(request: Request, db: AsyncSession = Depends(get_db)):
             "submitted_at": s.submitted_at.isoformat() if s.submitted_at else None
         }
         for s in sheets
+    ])
+
+@router.get("/audit-logs")
+@require_roles("admin")
+async def get_audit_logs(request: Request, db: AsyncSession = Depends(get_db)):
+    """Admin: view system audit logs (last 100)."""
+    res = await db.execute(select(AuditLog).order_by(AuditLog.changed_at.desc()).limit(100))
+    logs = res.scalars().all()
+    
+    # We can also fetch user details here but for simplicity we return raw logs
+    # Alternatively we can join User to get full_name, but the UI can just show raw info or map it.
+    from app.models.user import User
+    users_res = await db.execute(select(User))
+    users_map = {u.id: u.full_name for u in users_res.scalars().all()}
+    
+    return ok([
+        {
+            "id": str(log.id),
+            "goal_id": str(log.goal_id),
+            "changed_by": str(log.changed_by),
+            "changed_by_name": users_map.get(log.changed_by, "Unknown"),
+            "field_name": log.field_name,
+            "old_value": log.old_value,
+            "new_value": log.new_value,
+            "changed_at": log.changed_at.isoformat()
+        }
+        for log in logs
     ])

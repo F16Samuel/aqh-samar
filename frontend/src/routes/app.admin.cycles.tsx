@@ -15,7 +15,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { cycleFormSchema, type CycleFormValues } from "@/schemas/forms";
-import { Plus } from "lucide-react";
+import { Plus, Unlock } from "lucide-react";
+import { format, addDays, subDays } from "date-fns";
 
 export const Route = createFileRoute("/app/admin/cycles")({
   component: CyclesPage,
@@ -51,6 +52,7 @@ function CyclesPage() {
                   <TableHead>Open</TableHead>
                   <TableHead>Close</TableHead>
                   <TableHead>Active</TableHead>
+                  <TableHead></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -66,6 +68,25 @@ function CyclesPage() {
                         onCheckedChange={(v) => update.mutate({ id: c.id, body: { is_active: v } })}
                       />
                       {c.is_active && <Badge className="ml-2">Active</Badge>}
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        disabled={update.isPending}
+                        onClick={() => {
+                          const today = new Date();
+                          update.mutate({
+                            id: c.id,
+                            body: {
+                              window_open: format(subDays(today, 1), "yyyy-MM-dd"),
+                              window_close: format(addDays(today, 30), "yyyy-MM-dd"),
+                            },
+                          });
+                        }}
+                      >
+                        <Unlock className="mr-2 h-3 w-3" /> Force Open
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}

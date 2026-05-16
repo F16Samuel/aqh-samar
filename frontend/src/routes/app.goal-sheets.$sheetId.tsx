@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   useGoalsBySheet,
   useMyGoalSheets,
+  useActiveCycle,
   useCreateGoal,
   useUpdateGoal,
   useSubmitSheet,
@@ -12,6 +13,9 @@ import {
   useReturnSheet,
   useCheckinsBySheet,
   useCreateCheckin,
+  useUnlockGoal,
+  useShareGoal,
+  useUsers,
 } from "@/hooks/api";
 import { useAuthStore } from "@/store/auth.store";
 import {
@@ -54,7 +58,7 @@ import {
 } from "@/components/ui/table";
 import { goalFormSchema, validateSheetForSubmission, type GoalFormValues } from "@/schemas/forms";
 import { QUARTERS, UOM_TYPES, GOAL_LIMITS } from "@/constants/rbac";
-import { Lock, Plus, ArrowLeft, Share2, Send, RotateCcw, CheckCircle2 } from "lucide-react";
+import { Lock, Plus, ArrowLeft, Share2, Send, RotateCcw, CheckCircle2, Unlock as UnlockIcon } from "lucide-react";
 import { SheetStatusBadge } from "@/components/goals/SheetStatusBadge";
 import { EmptyState } from "@/components/feedback/EmptyState";
 import { toast } from "sonner";
@@ -72,13 +76,20 @@ function SheetDetail() {
   const submit = useSubmitSheet();
   const approve = useApproveSheet();
   const returnFn = useReturnSheet();
+  const unlockGoal = useUnlockGoal();
 
   const weightages = (goals ?? []).map((g) => g.weightage);
   const totalW = weightages.reduce((a, b) => a + b, 0);
   const submitCheck = validateSheetForSubmission(weightages);
   const status = String(sheet?.status ?? "").toLowerCase();
+  const { data: activeCycle } = useActiveCycle();
+  const today = new Date().toISOString().split('T')[0];
+  const windowIsOpen = activeCycle?.is_active && activeCycle.window_open && activeCycle.window_close
+    ? today >= activeCycle.window_open && today <= activeCycle.window_close
+    : false;
+
   const isLocked = status === "approved" || status === "locked" || (goals ?? []).every((g) => g.is_locked);
-  const canEdit = !isLocked && (status === "draft" || status === "returned" || !sheet);
+  const canEdit = !isLocked && (status === "draft" || status === "returned" || ((me?.role === "manager" || me?.role === "admin") && status === "submitted") || !sheet);
 
   return (
     <div className="space-y-6">
@@ -104,7 +115,7 @@ function SheetDetail() {
                   }
                   submit.mutate(sheetId);
                 }}
-                disabled={submit.isPending || !submitCheck.ok}
+                disabled={submit.isPending || !submitCheck.ok || !windowIsOpen}
               >
                 <Send className="mr-2 h-4 w-4" /> Submit for review
               </Button>
@@ -127,6 +138,12 @@ function SheetDetail() {
           </div>
         </div>
       </div>
+      
+      {!windowIsOpen && (
+        <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive border border-destructive/20">
+          <strong>Window closed.</strong> You cannot add goals or submit sheets at this time.
+        </div>
+      )}
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between gap-3 space-y-0">
@@ -152,7 +169,7 @@ function SheetDetail() {
             <CardTitle className="text-base">Goals</CardTitle>
             <CardDescription>From /goals?sheet_id=…</CardDescription>
           </div>
-          {canEdit && (goals ?? []).length < GOAL_LIMITS.MAX_GOALS && (
+          {canEdit && (goals ?? []).length < GOAL_LIMITS.MAX_GOALS && windowIsOpen && (
             <GoalDialog sheetId={sheetId} />
           )}
         </CardHeader>
@@ -163,7 +180,7 @@ function SheetDetail() {
             <EmptyState
               title="No goals yet"
               description="Add up to 8 goals with weightages that total 100%."
-              action={canEdit ? <GoalDialog sheetId={sheetId} /> : undefined}
+              action={canEdit && windowIsOpen ? <GoalDialog sheetId={sheetId} /> : undefined}
             />
           ) : (
             <Table>
@@ -203,9 +220,19 @@ function SheetDetail() {
                     <TableCell>{g.target}</TableCell>
                     <TableCell>{g.weightage}%</TableCell>
                     <TableCell className="text-right">
-                      {!g.is_locked && canEdit && (
-                        <GoalDialog sheetId={sheetId} goal={g} sharedReadonly={!!g.shared_from} />
-                      )}
+                      <div className="flex items-center justify-end gap-2">
+                        {me?.role === "admin" && g.is_locked && (
+                          <Button variant="outline" size="sm" onClick={() => unlockGoal.mutate(g.id)} disabled={unlockGoal.isPending}>
+                            <UnlockIcon className="mr-2 h-3 w-3" /> Unlock
+                          </Button>
+                        )}
+                        {me?.role === "admin" && !g.is_locked && (
+                          <ShareGoalDialog goal={g} />
+                        )}
+                        {!g.is_locked && canEdit && windowIsOpen && (
+                          <GoalDialog sheetId={sheetId} goal={g} sharedReadonly={!!g.shared_from} />
+                        )}
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -215,7 +242,7 @@ function SheetDetail() {
         </CardContent>
       </Card>
 
-      <CheckinsCard sheetId={sheetId} canPost={me?.role === "manager" || me?.role === "admin"} />
+      <CheckinsCard sheetId={sheetId} canPost={me?.role === "manager" || me?.role === "admin"} windowIsOpen={windowIsOpen} />
     </div>
   );
 }
@@ -240,7 +267,7 @@ function GoalDialog({
           title: goal.title,
           description: goal.description ?? "",
           uom_type: goal.uom_type,
-          target: goal.target,
+          target: Number(goal.target),
           weightage: goal.weightage,
         }
       : {
@@ -248,7 +275,7 @@ function GoalDialog({
           title: "",
           description: "",
           uom_type: "min",
-          target: "",
+          target: undefined as unknown as number,
           weightage: 10,
         },
   });
@@ -323,7 +350,7 @@ function GoalDialog({
             </div>
             <div className="space-y-1">
               <Label>Target</Label>
-              <Input disabled={sharedReadonly} {...form.register("target")} />
+              <Input type="number" step="0.01" min="0.01" disabled={sharedReadonly} {...form.register("target", { valueAsNumber: true })} />
               {form.formState.errors.target && (
                 <p className="text-xs text-destructive">{form.formState.errors.target.message}</p>
               )}
@@ -390,7 +417,61 @@ function ReturnDialog({ onSubmit, pending }: { onSubmit: (c: string) => void; pe
   );
 }
 
-function CheckinsCard({ sheetId, canPost }: { sheetId: string; canPost: boolean }) {
+function ShareGoalDialog({ goal }: { goal: import("@/types/api").GoalOut }) {
+  const [open, setOpen] = useState(false);
+  const [employeeIds, setEmployeeIds] = useState<string[]>([]);
+  const { data: users } = useUsers(true);
+  const share = useShareGoal();
+
+  const handleShare = async () => {
+    if (!employeeIds.length) return;
+    await share.mutateAsync({
+      source_goal_id: goal.id,
+      employee_ids: employeeIds,
+    });
+    setOpen(false);
+    setEmployeeIds([]);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline" size="sm"><Share2 className="mr-2 h-3 w-3" /> Share</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Share Goal</DialogTitle>
+          <DialogDescription>Assign this goal to other employees (they can only edit weightage).</DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4 py-4">
+          <div className="space-y-2">
+            <Label>Target Employees</Label>
+            <div className="max-h-48 overflow-y-auto rounded-md border p-2 space-y-2">
+              {users?.map(u => (
+                <label key={u.id} className="flex items-center gap-2 text-sm">
+                  <input 
+                    type="checkbox" 
+                    checked={employeeIds.includes(u.id)}
+                    onChange={(e) => {
+                      if (e.target.checked) setEmployeeIds(prev => [...prev, u.id]);
+                      else setEmployeeIds(prev => prev.filter(id => id !== u.id));
+                    }}
+                  />
+                  {u.full_name} ({u.email})
+                </label>
+              ))}
+            </div>
+          </div>
+        </div>
+        <DialogFooter>
+          <Button onClick={handleShare} disabled={!employeeIds.length || share.isPending}>Share</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function CheckinsCard({ sheetId, canPost, windowIsOpen }: { sheetId: string; canPost: boolean; windowIsOpen: boolean }) {
   const { data, isLoading } = useCheckinsBySheet(sheetId);
   const create = useCreateCheckin(sheetId);
   const [quarter, setQuarter] = useState<string>(QUARTERS[0]);
@@ -431,12 +512,13 @@ function CheckinsCard({ sheetId, canPost }: { sheetId: string; canPost: boolean 
               </SelectContent>
             </Select>
             <Input
-              placeholder="Add a check-in comment"
+              placeholder={!windowIsOpen ? "Check-in window is closed" : "Add a check-in comment"}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
+              disabled={!windowIsOpen}
             />
             <Button
-              disabled={!comment.trim() || create.isPending}
+              disabled={!comment.trim() || create.isPending || !windowIsOpen}
               onClick={() => {
                 create.mutate(
                   { sheet_id: sheetId, quarter, comment: comment.trim() },

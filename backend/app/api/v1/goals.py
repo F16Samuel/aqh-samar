@@ -12,6 +12,7 @@ from app.models.cycle import Cycle
 from app.schemas.goal import GoalCreate, GoalUpdate, GoalSharedCreate, GoalOut
 from app.core.validators import validate_weightage
 from app.core.audit import write_audit_log
+from app.core.utils import is_window_open
 from fastapi import HTTPException
 
 router = APIRouter()
@@ -45,6 +46,13 @@ async def get_goals_by_sheet(sheet_id: UUID, request: Request, db: AsyncSession 
 async def create_goal(payload: GoalCreate, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
     
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    cycle = cycle_res.scalar_one_or_none()
+    if not cycle:
+        return err("NO_ACTIVE_CYCLE", "There is no active cycle for goal setting.", 400)
+    if not is_window_open(cycle, "goal_setting"):
+        return err("WINDOW_CLOSED", "Goal setting window is closed.", 422)
+        
     res = await db.execute(select(GoalSheet).where(GoalSheet.id == payload.sheet_id))
     sheet = res.scalar_one_or_none()
     
@@ -92,6 +100,13 @@ async def create_goal(payload: GoalCreate, request: Request, db: AsyncSession = 
 async def update_goal(goal_id: UUID, payload: GoalUpdate, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
     
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    cycle = cycle_res.scalar_one_or_none()
+    if not cycle:
+        return err("NO_ACTIVE_CYCLE", "There is no active cycle for goal setting.", 400)
+    if not is_window_open(cycle, "goal_setting"):
+        return err("WINDOW_CLOSED", "Goal setting window is closed.", 422)
+        
     res = await db.execute(select(Goal).where(Goal.id == goal_id))
     goal = res.scalar_one_or_none()
     
@@ -157,6 +172,14 @@ async def update_goal(goal_id: UUID, payload: GoalUpdate, request: Request, db: 
 @require_roles("employee", "manager", "admin")
 async def delete_goal(goal_id: UUID, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
+    
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    cycle = cycle_res.scalar_one_or_none()
+    if not cycle:
+        return err("NO_ACTIVE_CYCLE", "There is no active cycle for goal setting.", 400)
+    if not is_window_open(cycle, "goal_setting"):
+        return err("WINDOW_CLOSED", "Goal setting window is closed.", 422)
+        
     res = await db.execute(select(Goal).where(Goal.id == goal_id))
     goal = res.scalar_one_or_none()
     

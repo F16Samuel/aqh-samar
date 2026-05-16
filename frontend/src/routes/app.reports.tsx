@@ -13,6 +13,9 @@ import { downloadBlob } from "@/utils/download";
 import { toast } from "sonner";
 import { errorMessage } from "@/utils/errors";
 import { QUARTERS } from "@/constants/rbac";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { EmptyState } from "@/components/feedback/EmptyState";
 
 export const Route = createFileRoute("/app/reports")({
   component: ReportsPage,
@@ -81,7 +84,7 @@ function ReportsPage() {
                 <SelectTrigger><SelectValue placeholder="All departments" /></SelectTrigger>
                 <SelectContent>
                   {depts.map((d) => (
-                    <SelectItem key={d} value={d}>{d.slice(0, 8)}</SelectItem>
+                    <SelectItem key={d} value={d}>{d}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -113,10 +116,31 @@ function ReportsPage() {
           <CardDescription>Live data from /reports/completion</CardDescription>
         </CardHeader>
         <CardContent>
-          {isLoading ? <Skeleton className="h-32" /> : (
-            <pre className="max-h-96 overflow-auto rounded-md bg-muted p-3 text-xs">
-              {JSON.stringify(completion ?? {}, null, 2)}
-            </pre>
+          {isLoading ? <Skeleton className="h-32" /> : !completion?.length ? <EmptyState title="No data available" /> : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Employee</TableHead>
+                  <TableHead>Manager</TableHead>
+                  <TableHead>Sheet Status</TableHead>
+                  <TableHead>Check-ins Completed</TableHead>
+                  <TableHead>Check-ins Pending</TableHead>
+                  <TableHead>Last Check-in</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {completion.map((row: any) => (
+                  <TableRow key={row.employee_id}>
+                    <TableCell className="font-medium">{row.employee_name}</TableCell>
+                    <TableCell>{row.manager_name || "-"}</TableCell>
+                    <TableCell><Badge variant="outline">{row.sheet_status}</Badge></TableCell>
+                    <TableCell>{row.checkins_completed}</TableCell>
+                    <TableCell>{row.checkins_pending > 0 ? <span className="text-amber-600 font-medium">{row.checkins_pending}</span> : 0}</TableCell>
+                    <TableCell className="text-muted-foreground">{row.last_checkin_at ? new Date(row.last_checkin_at).toLocaleDateString() : "Never"}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           )}
         </CardContent>
       </Card>

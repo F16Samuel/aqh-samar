@@ -1,6 +1,8 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
 import { useAuthStore } from "@/store/auth.store";
-import { useTeam } from "@/hooks/api";
+import { useTeam, useCompletionReport, useActiveCycle } from "@/hooks/api";
+import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/feedback/EmptyState";
@@ -16,6 +18,11 @@ function TeamPage() {
   if (!me) return null;
   if (me.role !== "manager" && me.role !== "admin") return <Navigate to="/app" />;
   const { data, isLoading } = useTeam(me.id);
+  const { data: cycle } = useActiveCycle();
+  const { data: completion, isLoading: isCompletionLoading } = useCompletionReport({ cycle_id: cycle?.id }, true);
+  
+  const pendingApprovals = completion?.filter((c: any) => c.sheet_status === "submitted" && c.manager_name === me.full_name) ?? [];
+
   return (
     <div className="space-y-6">
       <header>
@@ -52,9 +59,41 @@ function TeamPage() {
           )}
         </CardContent>
       </Card>
-      <p className="text-xs text-muted-foreground">
-        Open a team member's submitted goal sheet from <code>/app/goal-sheets/&lt;sheetId&gt;</code> to approve, return, or check in.
-      </p>
+      
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base text-amber-600">Pending Approvals</CardTitle>
+          <CardDescription>Goal sheets awaiting your review.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {isCompletionLoading ? <Skeleton className="h-32" /> : !pendingApprovals.length ? (
+            <EmptyState title="All caught up" description="No goal sheets are currently awaiting your approval." />
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Employee</TableHead>
+                  <TableHead>Submitted On</TableHead>
+                  <TableHead>Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {pendingApprovals.map((p: any) => (
+                  <TableRow key={p.employee_id}>
+                    <TableCell className="font-medium">{p.employee_name}</TableCell>
+                    <TableCell className="text-muted-foreground">{p.last_checkin_at ? new Date(p.last_checkin_at).toLocaleDateString() : "Recently"}</TableCell>
+                    <TableCell>
+                      <Button variant="outline" size="sm" asChild>
+                        <Link to="/app/goal-sheets">Go to Sheets</Link>
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 }

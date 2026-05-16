@@ -49,7 +49,7 @@ async def create_cycle(payload: CycleCreate, request: Request, db: AsyncSession 
 
 @router.patch("/{cycle_id}")
 @require_roles("admin")
-async def update_cycle(cycle_id: UUID, payload: CycleUpdate, db: AsyncSession = Depends(get_db)):
+async def update_cycle(cycle_id: UUID, payload: CycleUpdate, request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: update an existing cycle."""
     result = await db.execute(select(Cycle).where(Cycle.id == cycle_id))
     cycle = result.scalar_one_or_none()

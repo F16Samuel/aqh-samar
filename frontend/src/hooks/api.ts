@@ -77,6 +77,9 @@ export const useAchievementsByGoal = (goalId?: string) =>
 export const useEscalations = (enabled = false) =>
   useQuery({ queryKey: qk.admin.escalations, queryFn: () => adminService.escalations(), enabled });
 
+export const useAuditLogs = (enabled = true) =>
+  useQuery({ queryKey: ["admin", "auditLogs"], queryFn: () => adminService.auditLogs(), enabled });
+
 export const useCompletionReport = (
   params: { cycle_id?: string; quarter?: string } = {},
   enabled = true,
@@ -234,6 +237,31 @@ export const useUnlockGoal = () => {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: qk.goals.all });
       toast.success("Goal unlocked");
+    },
+    onError: onErr,
+  });
+};
+
+export const useUpdateUser = () => {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, body }: { id: string; body: import("@/types/api").UserUpdate }) =>
+      usersService.update(id, body),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: qk.users.list() });
+      toast.success("User updated successfully");
+    },
+    onError: onErr,
+  });
+};
+
+export const useCreateProfile = () => {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (body: import("@/types/api").UserCreate) => usersService.createProfile(body),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: qk.users.list() });
+      toast.success("User profile created. Supabase sign-up required for login.");
     },
     onError: onErr,
   });

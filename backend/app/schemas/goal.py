@@ -1,7 +1,7 @@
 from typing import Optional, List
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class GoalBase(BaseModel):
@@ -9,8 +9,19 @@ class GoalBase(BaseModel):
     title: str
     description: Optional[str] = None
     uom_type: str  # min, max, timeline, zero
-    target: str
+    target: float = Field(gt=0)
     weightage: int
+
+    @field_validator('target', mode='before')
+    @classmethod
+    def coerce_target(cls, v):
+        try:
+            val = float(v)
+            if val <= 0:
+                return 0.01
+            return val
+        except (ValueError, TypeError):
+            return 0.01
 
 
 class GoalCreate(GoalBase):
@@ -22,7 +33,7 @@ class GoalUpdate(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
     uom_type: Optional[str] = None
-    target: Optional[str] = None
+    target: Optional[float] = Field(default=None, gt=0)
     weightage: Optional[int] = None
 
 

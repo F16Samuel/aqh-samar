@@ -13,6 +13,8 @@ from app.models.cycle import Cycle
 from app.schemas.goal_sheet import GoalSheetOut, ReturnPayload
 from app.core.validators import validate_weightage
 from app.core.notifications import notify_manager
+from app.core.utils import is_window_open
+from app.core.audit import write_audit_log
 
 router = APIRouter()
 
@@ -27,6 +29,9 @@ async def create_goal_sheet(request: Request, db: AsyncSession = Depends(get_db)
     
     if not cycle:
         return err("NO_ACTIVE_CYCLE", "There is no active cycle for goal setting.", 400)
+        
+    if not is_window_open(cycle, "goal_setting"):
+        return err("WINDOW_CLOSED", "Goal setting window is closed.", 422)
         
     sheet_res = await db.execute(
         select(GoalSheet).where(
@@ -101,6 +106,14 @@ async def get_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depends
 @require_roles("employee", "manager", "admin")
 async def submit_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
+    
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    cycle = cycle_res.scalar_one_or_none()
+    if not cycle:
+        return err("NO_ACTIVE_CYCLE", "There is no active cycle for goal setting.", 400)
+    if not is_window_open(cycle, "goal_setting"):
+        return err("WINDOW_CLOSED", "Goal setting window is closed.", 422)
+        
     res = await db.execute(select(GoalSheet).where(GoalSheet.id == sheet_id))
     sheet = res.scalar_one_or_none()
     
@@ -125,6 +138,9 @@ async def submit_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depe
         
     sheet.status = "submitted"
     sheet.submitted_at = datetime.utcnow()
+    
+    for goal in goals:
+        await write_audit_log(db, goal.id, user.id, "status", "draft", "submitted")
     
     # Notify manager
     from app.models.user import User
@@ -169,6 +185,11 @@ async def approve_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Dep
     # Lock all goals
     await db.execute(update(Goal).where(Goal.sheet_id == sheet.id).values(is_locked=True))
     
+    goals_res = await db.execute(select(Goal).where(Goal.sheet_id == sheet.id))
+    goals = goals_res.scalars().all()
+    for goal in goals:
+        await write_audit_log(db, goal.id, user.id, "status", "submitted", "approved")
+    
     await db.commit()
     await db.refresh(sheet)
     return ok(GoalSheetOut.model_validate(sheet).model_dump(mode="json"))
@@ -205,6 +226,11 @@ async def return_sheet(sheet_id: UUID, payload: ReturnPayload, request: Request,
     
     # Ensure goals are unlocked
     await db.execute(update(Goal).where(Goal.sheet_id == sheet.id).values(is_locked=False))
+    
+    goals_res = await db.execute(select(Goal).where(Goal.sheet_id == sheet.id))
+    goals = goals_res.scalars().all()
+    for goal in goals:
+        await write_audit_log(db, goal.id, user.id, "status", "submitted", "rework")
     
     await db.commit()
     await db.refresh(sheet)

@@ -18,10 +18,12 @@ import { Route as AppReportsRouteImport } from './routes/app.reports'
 import { Route as AppAchievementsRouteImport } from './routes/app.achievements'
 import { Route as AppGoalSheetsIndexRouteImport } from './routes/app.goal-sheets.index'
 import { Route as AppGoalSheetsSheetIdRouteImport } from './routes/app.goal-sheets.$sheetId'
+import { Route as AppAdminUsersRouteImport } from './routes/app.admin.users'
 import { Route as AppAdminUnlockRouteImport } from './routes/app.admin.unlock'
 import { Route as AppAdminSharedGoalsRouteImport } from './routes/app.admin.shared-goals'
 import { Route as AppAdminEscalationsRouteImport } from './routes/app.admin.escalations'
 import { Route as AppAdminCyclesRouteImport } from './routes/app.admin.cycles'
+import { Route as AppAdminAuditRouteImport } from './routes/app.admin.audit'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -68,6 +70,11 @@ const AppGoalSheetsSheetIdRoute = AppGoalSheetsSheetIdRouteImport.update({
   path: '/goal-sheets/$sheetId',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAdminUsersRoute = AppAdminUsersRouteImport.update({
+  id: '/admin/users',
+  path: '/admin/users',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAdminUnlockRoute = AppAdminUnlockRouteImport.update({
   id: '/admin/unlock',
   path: '/admin/unlock',
@@ -88,6 +95,11 @@ const AppAdminCyclesRoute = AppAdminCyclesRouteImport.update({
   path: '/admin/cycles',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAdminAuditRoute = AppAdminAuditRouteImport.update({
+  id: '/admin/audit',
+  path: '/admin/audit',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -97,10 +109,12 @@ export interface FileRoutesByFullPath {
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
   '/app/': typeof AppIndexRoute
+  '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
   '/app/admin/shared-goals': typeof AppAdminSharedGoalsRoute
   '/app/admin/unlock': typeof AppAdminUnlockRoute
+  '/app/admin/users': typeof AppAdminUsersRoute
   '/app/goal-sheets/$sheetId': typeof AppGoalSheetsSheetIdRoute
   '/app/goal-sheets/': typeof AppGoalSheetsIndexRoute
 }
@@ -111,10 +125,12 @@ export interface FileRoutesByTo {
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
   '/app': typeof AppIndexRoute
+  '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
   '/app/admin/shared-goals': typeof AppAdminSharedGoalsRoute
   '/app/admin/unlock': typeof AppAdminUnlockRoute
+  '/app/admin/users': typeof AppAdminUsersRoute
   '/app/goal-sheets/$sheetId': typeof AppGoalSheetsSheetIdRoute
   '/app/goal-sheets': typeof AppGoalSheetsIndexRoute
 }
@@ -127,10 +143,12 @@ export interface FileRoutesById {
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
   '/app/': typeof AppIndexRoute
+  '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
   '/app/admin/shared-goals': typeof AppAdminSharedGoalsRoute
   '/app/admin/unlock': typeof AppAdminUnlockRoute
+  '/app/admin/users': typeof AppAdminUsersRoute
   '/app/goal-sheets/$sheetId': typeof AppGoalSheetsSheetIdRoute
   '/app/goal-sheets/': typeof AppGoalSheetsIndexRoute
 }
@@ -144,10 +162,12 @@ export interface FileRouteTypes {
     | '/app/reports'
     | '/app/team'
     | '/app/'
+    | '/app/admin/audit'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
     | '/app/admin/shared-goals'
     | '/app/admin/unlock'
+    | '/app/admin/users'
     | '/app/goal-sheets/$sheetId'
     | '/app/goal-sheets/'
   fileRoutesByTo: FileRoutesByTo
@@ -158,10 +178,12 @@ export interface FileRouteTypes {
     | '/app/reports'
     | '/app/team'
     | '/app'
+    | '/app/admin/audit'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
     | '/app/admin/shared-goals'
     | '/app/admin/unlock'
+    | '/app/admin/users'
     | '/app/goal-sheets/$sheetId'
     | '/app/goal-sheets'
   id:
@@ -173,10 +195,12 @@ export interface FileRouteTypes {
     | '/app/reports'
     | '/app/team'
     | '/app/'
+    | '/app/admin/audit'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
     | '/app/admin/shared-goals'
     | '/app/admin/unlock'
+    | '/app/admin/users'
     | '/app/goal-sheets/$sheetId'
     | '/app/goal-sheets/'
   fileRoutesById: FileRoutesById
@@ -252,6 +276,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppGoalSheetsSheetIdRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/admin/users': {
+      id: '/app/admin/users'
+      path: '/admin/users'
+      fullPath: '/app/admin/users'
+      preLoaderRoute: typeof AppAdminUsersRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/admin/unlock': {
       id: '/app/admin/unlock'
       path: '/admin/unlock'
@@ -280,6 +311,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAdminCyclesRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/admin/audit': {
+      id: '/app/admin/audit'
+      path: '/admin/audit'
+      fullPath: '/app/admin/audit'
+      preLoaderRoute: typeof AppAdminAuditRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
@@ -288,10 +326,12 @@ interface AppRouteChildren {
   AppReportsRoute: typeof AppReportsRoute
   AppTeamRoute: typeof AppTeamRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppAdminAuditRoute: typeof AppAdminAuditRoute
   AppAdminCyclesRoute: typeof AppAdminCyclesRoute
   AppAdminEscalationsRoute: typeof AppAdminEscalationsRoute
   AppAdminSharedGoalsRoute: typeof AppAdminSharedGoalsRoute
   AppAdminUnlockRoute: typeof AppAdminUnlockRoute
+  AppAdminUsersRoute: typeof AppAdminUsersRoute
   AppGoalSheetsSheetIdRoute: typeof AppGoalSheetsSheetIdRoute
   AppGoalSheetsIndexRoute: typeof AppGoalSheetsIndexRoute
 }
@@ -301,10 +341,12 @@ const AppRouteChildren: AppRouteChildren = {
   AppReportsRoute: AppReportsRoute,
   AppTeamRoute: AppTeamRoute,
   AppIndexRoute: AppIndexRoute,
+  AppAdminAuditRoute: AppAdminAuditRoute,
   AppAdminCyclesRoute: AppAdminCyclesRoute,
   AppAdminEscalationsRoute: AppAdminEscalationsRoute,
   AppAdminSharedGoalsRoute: AppAdminSharedGoalsRoute,
   AppAdminUnlockRoute: AppAdminUnlockRoute,
+  AppAdminUsersRoute: AppAdminUsersRoute,
   AppGoalSheetsSheetIdRoute: AppGoalSheetsSheetIdRoute,
   AppGoalSheetsIndexRoute: AppGoalSheetsIndexRoute,
 }

@@ -157,6 +157,8 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
         { title: "Escalations", url: "/app/admin/escalations", icon: AlertTriangle },
         { title: "Shared Goals", url: "/app/admin/shared-goals", icon: Share2 },
         { title: "Goal Unlock", url: "/app/admin/unlock", icon: Unlock },
+        { title: "User Mgmt", url: "/app/admin/users", icon: Users },
+        { title: "Audit Logs", url: "/app/admin/audit", icon: Settings },
       ],
     });
   }
