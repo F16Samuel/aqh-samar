@@ -11,6 +11,32 @@ from sqlalchemy import select
 import json
 from fastapi.responses import JSONResponse
 
+import httpx
+import time
+from app.models.user import User
+from sqlalchemy import select
+
+_JWKS_CACHE = None
+_JWKS_LAST_FETCH = 0
+
+async def get_jwks():
+    global _JWKS_CACHE, _JWKS_LAST_FETCH
+    now = time.time()
+    if _JWKS_CACHE and (now - _JWKS_LAST_FETCH < 3600):
+        return _JWKS_CACHE
+    
+    try:
+        url = f"{settings.SUPABASE_URL}/auth/v1/.well-known/jwks.json"
+        async with httpx.AsyncClient() as client:
+            r = await client.get(url, timeout=5)
+            if r.status_code == 200:
+                _JWKS_CACHE = r.json()
+                _JWKS_LAST_FETCH = now
+                return _JWKS_CACHE
+    except Exception:
+        pass
+    return None
+
 class AuthMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         request.state.user = None
@@ -19,21 +45,46 @@ class AuthMiddleware(BaseHTTPMiddleware):
         if auth_header and auth_header.startswith("Bearer "):
             token = auth_header.split(" ")[1]
             try:
-                # Supabase recently migrated to ES256. For simplicity in this hackathon context,
-                # we bypass local signature verification and trust the token passed over HTTPS.
-                # In strict production, fetch JWKS from /auth/v1/.well-known/jwks.json and verify.
-                payload = jwt.decode(
-                    token, 
-                    "", 
-                    options={"verify_signature": False, "verify_aud": False}
-                )
-                user_id = payload.get("sub")
-                if user_id:
-                    # Open a quick session to fetch user
-                    async with AsyncSessionLocal() as session:
-                        result = await session.execute(select(User).where(User.id == user_id))
-                        user = result.scalar_one_or_none()
-                        request.state.user = user
+                # 1. Peek at the algorithm
+                header = jwt.get_unverified_header(token)
+                algo = header.get("alg")
+                
+                payload = None
+                if algo == "HS256":
+                    # Legacy HS256 using the secret
+                    payload = jwt.decode(
+                        token, 
+                        settings.SUPABASE_JWT_SECRET, 
+                        algorithms=["HS256"],
+                        options={"verify_aud": False}
+                    )
+                elif algo == "ES256":
+                    # Modern ECC using Public Keys (JWKS)
+                    jwks = await get_jwks()
+                    if jwks:
+                        kid = header.get("kid")
+                        key_to_use = None
+                        for k in jwks.get("keys", []):
+                            if k.get("kid") == kid:
+                                key_to_use = k
+                                break
+                        
+                        if key_to_use:
+                            payload = jwt.decode(
+                                token,
+                                key_to_use,
+                                algorithms=["ES256"],
+                                options={"verify_aud": False}
+                            )
+                
+                if payload:
+                    user_id = payload.get("sub")
+                    if user_id:
+                        # Open a quick session to fetch user
+                        async with AsyncSessionLocal() as session:
+                            result = await session.execute(select(User).where(User.id == user_id))
+                            user = result.scalar_one_or_none()
+                            request.state.user = user
             except JWTError:
                 # Invalid token, ignore and leave state.user as None
                 pass

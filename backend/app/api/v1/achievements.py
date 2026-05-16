@@ -51,12 +51,24 @@ async def _auto_sync_shared_goals(db: AsyncSession, source_goal_id: UUID, quarte
 async def list_achievements(goal_id: UUID, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
     
-    # Validation logic for permissions omitted for brevity, assumes user has access
+    goal_res = await db.execute(select(Goal).where(Goal.id == goal_id))
+    goal = goal_res.scalar_one_or_none()
+    if not goal:
+        return err("NOT_FOUND", "Goal not found", 404)
+        
+    sheet_res = await db.execute(select(GoalSheet).where(GoalSheet.id == goal.sheet_id))
+    sheet = sheet_res.scalar_one()
+    
+    # Permission check: self, manager, or admin
+    if user.role != "admin" and sheet.employee_id != user.id:
+        from app.models.user import User
+        emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
+        emp = emp_res.scalar_one()
+        if emp.manager_id != user.id:
+            return err("FORBIDDEN", "You do not have access to these achievements", 403)
+            
     res = await db.execute(select(Achievement).where(Achievement.goal_id == goal_id).order_by(Achievement.quarter))
     achievements = res.scalars().all()
-    
-    goal_res = await db.execute(select(Goal).where(Goal.id == goal_id))
-    goal = goal_res.scalar_one()
     
     result_list = []
     for a in achievements:

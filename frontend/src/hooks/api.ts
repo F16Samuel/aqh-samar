@@ -28,12 +28,12 @@ export const useMe = () =>
   useQuery({
     queryKey: qk.me,
     queryFn: () => authService.me(),
-    staleTime: 5 * 60_000,
+    staleTime: 10 * 60_000,
     retry: false,
   });
 
 export const useUsers = (enabled = true) =>
-  useQuery({ queryKey: qk.users.list(), queryFn: () => usersService.list(), enabled, staleTime: 5 * 60_000 });
+  useQuery({ queryKey: qk.users.list(), queryFn: () => usersService.list(), enabled, staleTime: 10 * 60_000 });
 
 export const useTeam = (userId?: string) =>
   useQuery({
@@ -44,10 +44,10 @@ export const useTeam = (userId?: string) =>
   });
 
 export const useActiveCycle = () =>
-  useQuery({ queryKey: qk.cycles.active, queryFn: () => cyclesService.active(), staleTime: 5 * 60_000, retry: false });
+  useQuery({ queryKey: qk.cycles.active, queryFn: () => cyclesService.active(), staleTime: 10 * 60_000, retry: false });
 
 export const useCycles = (enabled = true) =>
-  useQuery({ queryKey: qk.cycles.list(), queryFn: () => cyclesService.list(), enabled, staleTime: 5 * 60_000 });
+  useQuery({ queryKey: qk.cycles.list(), queryFn: () => cyclesService.list(), enabled, staleTime: 10 * 60_000 });
 
 export const useMyGoalSheets = () =>
   useQuery({ queryKey: qk.goalSheets.mine, queryFn: () => goalSheetsService.mine(), staleTime: 30_000 });
@@ -74,7 +74,7 @@ export const useAchievementsByGoal = (goalId?: string) =>
     enabled: !!goalId,
   });
 
-export const useEscalations = (enabled = false) =>
+export const useEscalations = (enabled = true) =>
   useQuery({ queryKey: qk.admin.escalations, queryFn: () => adminService.escalations(), enabled });
 
 export const useAuditLogs = (enabled = true) =>
@@ -88,6 +88,23 @@ export const useCompletionReport = (
     queryKey: qk.reports.completion(params),
     queryFn: () => reportsService.completion(params),
     enabled,
+    staleTime: 10 * 60_000,
+  });
+
+export const useDepartments = (enabled = true) =>
+  useQuery({
+    queryKey: ["admin", "departments"],
+    queryFn: () => usersService.listDepartments(),
+    enabled,
+    staleTime: 10 * 60_000,
+  });
+
+export const useAllGoalsAdmin = (enabled = true) =>
+  useQuery({
+    queryKey: ["admin", "allGoals"],
+    queryFn: () => goalsService.listAllAdmin(),
+    enabled,
+    staleTime: 10 * 60_000,
   });
 
 // ----- Mutations -----

@@ -9,9 +9,18 @@ from app.db.session import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from app.models.user import User
+from app.models.department import Department
 from app.schemas.user import UserOut, UserUpdate, UserCreate
 
 router = APIRouter()
+
+@router.get("/departments")
+@require_roles("admin")
+async def list_departments(request: Request, db: AsyncSession = Depends(get_db)):
+    """Admin: list all departments for hierarchy management."""
+    result = await db.execute(select(Department).order_by(Department.name))
+    depts = result.scalars().all()
+    return ok([{"id": str(d.id), "name": d.name} for d in depts])
 
 @router.post("/profiles")
 @require_roles("admin")

@@ -6,4 +6,5 @@ export const goalsService = {
   update: (id: string, body: GoalUpdate) => http.patch<GoalOut>(`/goals/${id}`, body),
   bySheet: (sheetId: string) => http.get<GoalOut[]>(`/goals/sheet/${sheetId}`),
   share: (body: GoalSharedCreate) => http.post<GoalOut[]>("/goals/shared", body),
+  listAllAdmin: () => http.get<{id: string, label: string}[]>("/goals/admin/all"),
 };

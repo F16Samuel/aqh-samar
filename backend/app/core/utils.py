@@ -16,10 +16,17 @@ def is_window_open(cycle: Cycle, action_type: Optional[str] = None) -> bool:
         return False
         
     if action_type == "goal_setting":
-        if cycle.phase != "goal_setting":
+        if cycle.phase != "Phase 1 - Goal Setting":
             return False
     elif action_type in ["q1", "q2", "q3", "q4"]:
-        if cycle.phase != action_type:
+        # Map q1 to "Q1 Check-in"
+        phase_map = {
+            "q1": "Q1 Check-in",
+            "q2": "Q2 Check-in",
+            "q3": "Q3 Check-in",
+            "q4": "Q4 / Annual"
+        }
+        if cycle.phase != phase_map.get(action_type):
             return False
             
     return True

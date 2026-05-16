@@ -51,34 +51,26 @@ async def department_report(request: Request, db: AsyncSession = Depends(get_db)
     goals_res = await db.execute(select(Goal).where(Goal.sheet_id.in_(sheet_ids)))
     goals = goals_res.scalars().all()
     
-    total_score = 0.0
-    total_weight = 0
-    
-    for g in goals:
-        # Get latest achievement
+    # Batch fetch latest achievements to avoid N+1
+    from app.models.goal import Achievement
+    goal_ids = [g.id for g in goals]
+    achievements_by_goal = {}
+    if goal_ids:
         ach_res = await db.execute(
-            select(Achievement).where(Achievement.goal_id == g.id).order_by(Achievement.updated_at.desc())
+            select(Achievement)
+            .where(Achievement.goal_id.in_(goal_ids))
+            .order_by(Achievement.goal_id, Achievement.updated_at.desc())
         )
-        latest_ach = ach_res.scalars().first()
-        
-        actual = latest_ach.actual if latest_ach else None
-        score = compute_progress_score(g.uom_type, g.target, actual)
-        
-        # Weighted score contribution
-        total_score += (score * g.weightage / 100)
-        total_weight += g.weightage
-        
-    avg = total_score / (len(goals)) if goals else 0.0
-    # Wait, the weighted score per goal adds up to max 100 per sheet. 
-    # Average score across the department would be (sum of sheet scores) / number of sheets.
-    # We can approximate by taking average of the weighted contributions. 
-    # But a proper way is calculate each sheet's total score, then average those.
-    # Let's simplify:
+        all_achs = ach_res.scalars().all()
+        # Map goal_id to its latest achievement
+        for a in all_achs:
+            if a.goal_id not in achievements_by_goal:
+                achievements_by_goal[a.goal_id] = a
+
     sheet_scores = {sid: 0.0 for sid in sheet_ids}
     for g in goals:
-        ach_res = await db.execute(select(Achievement).where(Achievement.goal_id == g.id).order_by(Achievement.updated_at.desc()))
-        latest_ach = ach_res.scalars().first()
-        actual = latest_ach.actual if latest_ach else None
+        ach = achievements_by_goal.get(g.id)
+        actual = ach.actual if ach else None
         score = compute_progress_score(g.uom_type, g.target, actual)
         sheet_scores[g.sheet_id] += (score * g.weightage / 100)
         
@@ -109,11 +101,24 @@ async def company_report(request: Request, db: AsyncSession = Depends(get_db)):
     goals_res = await db.execute(select(Goal).where(Goal.sheet_id.in_(sheet_ids)))
     goals = goals_res.scalars().all()
     
+    # Batch fetch latest achievements to avoid N+1
+    from app.models.goal import Achievement
+    goal_ids = [g.id for g in goals]
+    achievements_by_goal = {}
+    if goal_ids:
+        ach_res = await db.execute(
+            select(Achievement)
+            .where(Achievement.goal_id.in_(goal_ids))
+            .order_by(Achievement.goal_id, Achievement.updated_at.desc())
+        )
+        for a in ach_res.scalars().all():
+            if a.goal_id not in achievements_by_goal:
+                achievements_by_goal[a.goal_id] = a
+
     sheet_scores = {sid: 0.0 for sid in sheet_ids}
     for g in goals:
-        ach_res = await db.execute(select(Achievement).where(Achievement.goal_id == g.id).order_by(Achievement.updated_at.desc()))
-        latest_ach = ach_res.scalars().first()
-        actual = latest_ach.actual if latest_ach else None
+        ach = achievements_by_goal.get(g.id)
+        actual = ach.actual if ach else None
         score = compute_progress_score(g.uom_type, g.target, actual)
         sheet_scores[g.sheet_id] += (score * g.weightage / 100)
         
@@ -193,6 +198,7 @@ async def get_achievement_report(
     headers = [
         "Employee Name", "Employee Email", "Department", "Goal Title", "Thrust Area",
         "UoM Type", "Target", "Q1 Actual", "Q2 Actual", "Q3 Actual", "Q4 Actual",
+        "Q1 Score (%)", "Q2 Score (%)", "Q3 Score (%)", "Q4 Score (%)",
         "Q1 Status", "Q2 Status", "Q3 Status", "Q4 Status", "Weightage"
     ]
     
@@ -204,6 +210,11 @@ async def get_achievement_report(
             
         achs = achievements_by_goal.get(goal.id, {})
         
+        def get_score(q):
+            ach = achs.get(q)
+            if not ach or not ach.actual: return ""
+            return round(compute_progress_score(goal.uom_type, goal.target, ach.actual), 1)
+
         output_data.append([
             usr.full_name,
             usr.email,
@@ -216,6 +227,10 @@ async def get_achievement_report(
             achs.get("q2").actual if achs.get("q2") else "",
             achs.get("q3").actual if achs.get("q3") else "",
             achs.get("q4").actual if achs.get("q4") else "",
+            get_score("q1"),
+            get_score("q2"),
+            get_score("q3"),
+            get_score("q4"),
             achs.get("q1").status if achs.get("q1") else "",
             achs.get("q2").status if achs.get("q2") else "",
             achs.get("q3").status if achs.get("q3") else "",

@@ -61,7 +61,7 @@ async def async_main():
             is_active = (year == current_year)
             c = Cycle(
                 year=year,
-                phase="Goal Setting" if is_active else "Completed",
+                phase="Phase 1 - Goal Setting" if is_active else "Q4 / Annual",
                 window_open=date(year, 1, 1),
                 window_close=date(year, 12, 31),
                 is_active=is_active

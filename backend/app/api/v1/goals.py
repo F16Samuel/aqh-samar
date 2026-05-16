@@ -10,7 +10,7 @@ from app.db.session import get_db
 from app.models.goal import GoalSheet, Goal
 from app.models.cycle import Cycle
 from app.schemas.goal import GoalCreate, GoalUpdate, GoalSharedCreate, GoalOut
-from app.core.validators import validate_weightage
+from app.core.validators import validate_goal_limits
 from app.core.audit import write_audit_log
 from app.core.utils import is_window_open
 from fastapi import HTTPException
@@ -85,10 +85,10 @@ async def create_goal(payload: GoalCreate, request: Request, db: AsyncSession = 
     res_all_goals = await db.execute(select(Goal).where(Goal.sheet_id == sheet.id))
     all_goals = res_all_goals.scalars().all()
     
-    errors = validate_weightage(all_goals)
+    errors = validate_goal_limits(all_goals)
     if errors:
         await db.rollback()
-        raise HTTPException(status_code=422, detail={"data": None, "error": {"code": "WEIGHTAGE_INVALID", "message": "Weightage validation failed", "details": errors}})
+        raise HTTPException(status_code=422, detail={"data": None, "error": {"code": "LIMIT_EXCEEDED", "message": "Goal limits validation failed", "details": errors}})
         
     await db.commit()
     await db.refresh(goal)
@@ -134,8 +134,8 @@ async def update_goal(goal_id: UUID, payload: GoalUpdate, request: Request, db: 
     update_data = payload.model_dump(exclude_unset=True)
     
     if goal.shared_from is not None:
-        if "title" in update_data or "target" in update_data:
-            return err("READ_ONLY", "Title and Target are read-only for shared goals", 400)
+        if "title" in update_data or "target" in update_data or "thrust_area" in update_data:
+            return err("READ_ONLY", "Title, Target, and Thrust Area are read-only for shared goals", 400)
             
     old_values = {}
     for key in update_data.keys():
@@ -148,14 +148,14 @@ async def update_goal(goal_id: UUID, payload: GoalUpdate, request: Request, db: 
     res_all_goals = await db.execute(select(Goal).where(Goal.sheet_id == goal.sheet_id))
     all_goals = res_all_goals.scalars().all()
     
-    errors = validate_weightage(all_goals)
+    errors = validate_goal_limits(all_goals)
     if errors:
         await db.rollback()
-        raise HTTPException(status_code=422, detail={"data": None, "error": {"code": "WEIGHTAGE_INVALID", "message": "Weightage validation failed", "details": errors}})
+        raise HTTPException(status_code=422, detail={"data": None, "error": {"code": "LIMIT_EXCEEDED", "message": "Goal limits validation failed", "details": errors}})
         
     await db.commit()
     
-    if goal.is_locked:
+    if sheet.status in ("approved", "locked"):
         for key, value in update_data.items():
             await write_audit_log(
                 session=db,
@@ -191,6 +191,9 @@ async def delete_goal(goal_id: UUID, request: Request, db: AsyncSession = Depend
     
     if sheet.employee_id != user.id and user.role != "admin":
         return err("FORBIDDEN", "Only the sheet owner can delete goals", 403)
+        
+    if goal.shared_from is not None and user.role != "admin":
+        return err("READ_ONLY", "Shared goals cannot be deleted by employees", 403)
         
     if goal.is_locked and user.role != "admin":
         return err("LOCKED", "Goal is locked and cannot be deleted", 400)
@@ -248,3 +251,26 @@ async def share_goal(payload: GoalSharedCreate, request: Request, db: AsyncSessi
         
     await db.commit()
     return ok({"message": f"Shared goal with {len(shared_goals)} employees"})
+
+@router.get("/admin/all")
+@require_roles("admin")
+async def get_all_goals_admin(request: Request, db: AsyncSession = Depends(get_db)):
+    """Admin-only: fetch all goals with cycle info for selection dropdowns."""
+    from sqlalchemy.orm import joinedload
+    res = await db.execute(
+        select(Goal).options(joinedload(Goal.sheet).joinedload(GoalSheet.cycle))
+    )
+    goals = res.scalars().all()
+    
+    out = []
+    for g in goals:
+        cycle = g.sheet.cycle
+        label = f"{g.title} - {cycle.phase} - {cycle.year}"
+        out.append({
+            "id": str(g.id),
+            "label": label,
+            "title": g.title,
+            "phase": cycle.phase,
+            "year": cycle.year
+        })
+    return ok(out)

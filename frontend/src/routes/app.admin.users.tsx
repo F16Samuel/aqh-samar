@@ -1,7 +1,7 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAuthStore } from "@/store/auth.store";
-import { useUsers, useUpdateUser, useCreateProfile } from "@/hooks/api";
+import { useUsers, useUpdateUser, useCreateProfile, useDepartments } from "@/hooks/api";
 import { Plus } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import type { UserOut, Role, UserCreate } from "@/types/api";
 
-const DEPARTMENTS = ["Engineering", "Sales", "HR", "Marketing", "Product", "Operations", "Finance"];
+// DEPARTMENTS array removed - using useDepartments hook instead
 
 export const Route = createFileRoute("/app/admin/users")({
   component: UsersPage,
@@ -26,6 +26,7 @@ function UsersPage() {
   if (me.role !== "admin") return <Navigate to="/app" />;
 
   const { data: users, isLoading } = useUsers();
+  const { data: depts } = useDepartments();
 
   return (
     <div className="space-y-6">
@@ -60,12 +61,13 @@ function UsersPage() {
               <TableBody>
                 {users?.map((u) => {
                   const manager = users.find((x) => x.id === u.manager_id);
+                  const dept = depts?.find((d) => d.id === u.department_id);
                   return (
                     <TableRow key={u.id}>
                       <TableCell className="font-medium">{u.full_name}</TableCell>
                       <TableCell className="text-muted-foreground">{u.email}</TableCell>
                       <TableCell><Badge variant="outline">{u.role}</Badge></TableCell>
-                      <TableCell>{u.department_id || "-"}</TableCell>
+                      <TableCell>{dept ? dept.name : "-"}</TableCell>
                       <TableCell>{manager ? manager.full_name : "-"}</TableCell>
                       <TableCell className="text-right">
                         <UserEditDialog user={u} users={users} />
@@ -86,7 +88,8 @@ function UserEditDialog({ user, users }: { user: UserOut; users: UserOut[] }) {
   const [open, setOpen] = useState(false);
   const [role, setRole] = useState<Role>(user.role);
   const [managerId, setManagerId] = useState<string>(user.manager_id || "none");
-  const [departmentId, setDepartmentId] = useState<string>(user.department_id || "");
+  const [departmentId, setDepartmentId] = useState<string>(user.department_id || "none");
+  const { data: depts } = useDepartments();
   const update = useUpdateUser();
 
   const handleSave = async () => {
@@ -95,7 +98,7 @@ function UserEditDialog({ user, users }: { user: UserOut; users: UserOut[] }) {
       body: {
         role,
         manager_id: managerId === "none" ? null : managerId,
-        department_id: departmentId.trim() || null,
+        department_id: departmentId === "none" ? null : departmentId,
       },
     });
     setOpen(false);
@@ -129,8 +132,9 @@ function UserEditDialog({ user, users }: { user: UserOut; users: UserOut[] }) {
             <Select value={departmentId} onValueChange={setDepartmentId}>
               <SelectTrigger><SelectValue placeholder="Select department" /></SelectTrigger>
               <SelectContent>
-                {DEPARTMENTS.map((d) => (
-                  <SelectItem key={d} value={d}>{d}</SelectItem>
+                <SelectItem value="none">No Department</SelectItem>
+                {depts?.map((d) => (
+                  <SelectItem key={d.id} value={d.id}>{d.name}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -162,7 +166,8 @@ function NewUserDialog({ users }: { users: UserOut[] }) {
   const [fullName, setFullName] = useState("");
   const [role, setRole] = useState<Role>("employee");
   const [managerId, setManagerId] = useState<string>("none");
-  const [departmentId, setDepartmentId] = useState<string>("");
+  const [departmentId, setDepartmentId] = useState<string>("none");
+  const { data: depts } = useDepartments();
   const create = useCreateProfile();
 
   const handleCreate = async () => {
@@ -172,7 +177,7 @@ function NewUserDialog({ users }: { users: UserOut[] }) {
       full_name: fullName.trim(),
       role,
       manager_id: managerId === "none" ? null : managerId,
-      department_id: departmentId || null,
+      department_id: departmentId === "none" ? null : departmentId,
     });
     setOpen(false);
     setEmail("");
@@ -221,8 +226,9 @@ function NewUserDialog({ users }: { users: UserOut[] }) {
               <Select value={departmentId} onValueChange={setDepartmentId}>
                 <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
                 <SelectContent>
-                  {DEPARTMENTS.map((d) => (
-                    <SelectItem key={d} value={d}>{d}</SelectItem>
+                  <SelectItem value="none">No Department</SelectItem>
+                  {depts?.map((d) => (
+                    <SelectItem key={d.id} value={d.id}>{d.name}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>

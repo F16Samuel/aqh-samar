@@ -209,6 +209,8 @@ function ManagerDashboard() {
 function AdminDashboard() {
   const { data: esc, isLoading: escLoading } = useEscalations();
   const { data: report, isLoading: repLoading } = useCompletionReport({});
+  const { data: cycle } = useActiveCycle();
+  
   return (
     <div className="space-y-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -218,7 +220,11 @@ function AdminDashboard() {
           icon={AlertTriangle}
           tone="warning"
         />
-        <KpiCard label="Active cycle" value="See top bar" icon={Calendar} />
+        <KpiCard 
+          label="Active cycle" 
+          value={cycle ? `${cycle.phase} ${cycle.year}` : "Loading..."} 
+          icon={Calendar} 
+        />
         <KpiCard label="Reports" value="Live" icon={CheckCircle2} tone="success" />
         <KpiCard label="Role" value="Admin" />
       </div>
@@ -235,32 +241,62 @@ function AdminDashboard() {
             ) : !esc || esc.length === 0 ? (
               <EmptyState title="No escalations" description="Everyone is on track." />
             ) : (
-              <ul className="space-y-2">
-                {esc.slice(0, 6).map((e, i) => (
-                  <li key={i} className="rounded-md border border-border/60 p-3 text-sm">
-                    <pre className="overflow-x-auto whitespace-pre-wrap break-all text-xs text-muted-foreground">
-                      {JSON.stringify(e, null, 2)}
-                    </pre>
-                  </li>
-                ))}
-              </ul>
+              <div className="max-h-[320px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+                <ul className="space-y-3">
+                  {esc.map((e, i) => (
+                    <li key={i} className="rounded-lg border border-border/40 bg-muted/30 p-4 transition-colors hover:bg-muted/50">
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <p className="font-semibold text-sm">Sheet ID: {String(e.id).slice(0, 8)}</p>
+                          <div className="text-xs text-muted-foreground mt-1 flex items-center gap-1.5">
+                            Status: <Badge variant="outline" className="text-[10px] uppercase h-4 px-1.5">{e.status}</Badge>
+                          </div>
+                        </div>
+                        <AlertTriangle className="h-4 w-4 text-warning opacity-70" />
+                      </div>
+                      <div className="mt-2 text-xs text-muted-foreground line-clamp-1">
+                        Employee ID: {String(e.employee_id).slice(0, 8)}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
             <CardTitle className="text-base">Completion snapshot</CardTitle>
-            <CardDescription>From /reports/completion</CardDescription>
+            <CardDescription>Employee check-in progress for the active cycle.</CardDescription>
           </CardHeader>
           <CardContent>
             {repLoading ? (
               <Skeleton className="h-24" />
-            ) : !report ? (
+            ) : !report || report.length === 0 ? (
               <EmptyState title="No data yet" />
             ) : (
-              <pre className="max-h-64 overflow-auto rounded-md bg-muted p-3 text-xs">
-                {JSON.stringify(report, null, 2)}
-              </pre>
+              <div className="max-h-[320px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+                <div className="space-y-4">
+                  {report.map((row: any) => (
+                    <div key={row.employee_id} className="space-y-1.5 rounded-lg border border-border/40 p-3">
+                      <div className="flex justify-between text-xs font-medium">
+                        <span>{row.employee_name}</span>
+                        <span className="text-muted-foreground">{row.checkins_completed} / {row.checkins_completed + row.checkins_pending} Done</span>
+                      </div>
+                      <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+                        <div 
+                          className="h-full bg-primary transition-all duration-500" 
+                          style={{ width: `${(row.checkins_completed / (row.checkins_completed + row.checkins_pending || 1)) * 100}%` }}
+                        />
+                      </div>
+                      <div className="flex justify-between text-[10px] text-muted-foreground">
+                        <div className="flex items-center gap-1.5">Status: <Badge variant="outline" className="text-[9px] px-1 py-0 h-4">{row.sheet_status}</Badge></div>
+                        <span>Manager: {row.manager_name || "N/A"}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             )}
           </CardContent>
         </Card>

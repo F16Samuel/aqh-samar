@@ -11,7 +11,7 @@ from app.db.session import get_db
 from app.models.goal import GoalSheet, Goal, CheckIn
 from app.models.cycle import Cycle
 from app.schemas.goal_sheet import GoalSheetOut, ReturnPayload
-from app.core.validators import validate_weightage
+from app.core.validators import validate_sheet_submission
 from app.core.notifications import notify_manager
 from app.core.utils import is_window_open
 from app.core.audit import write_audit_log
@@ -100,7 +100,38 @@ async def get_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depends
         if emp.manager_id != user.id:
             return err("FORBIDDEN", "You do not have access to this sheet", 403)
             
-    return ok(GoalSheetOut.model_validate(sheet).model_dump(mode="json"))
+    out = GoalSheetOut.model_validate(sheet).model_dump(mode="json")
+    
+    # Calculate progress score
+    res_goals = await db.execute(select(Goal).where(Goal.sheet_id == sheet.id))
+    goals = res_goals.scalars().all()
+    
+    # Batch fetch latest achievements to avoid N+1
+    from app.models.goal import Achievement
+    goal_ids = [g.id for g in goals]
+    ach_res = await db.execute(
+        select(Achievement)
+        .where(Achievement.goal_id.in_(goal_ids))
+        .order_by(Achievement.goal_id, Achievement.updated_at.desc())
+    )
+    all_achs = ach_res.scalars().all()
+    
+    # Map goal_id to its latest achievement
+    latest_achs = {}
+    for a in all_achs:
+        if a.goal_id not in latest_achs:
+            latest_achs[a.goal_id] = a
+
+    total_score = 0.0
+    for g in goals:
+        ach = latest_achs.get(g.id)
+        actual = ach.actual if ach else None
+        from app.core.utils import compute_progress_score
+        score = compute_progress_score(g.uom_type, g.target, actual)
+        total_score += (score * g.weightage / 100)
+        
+    out["progress_score"] = round(total_score, 2)
+    return ok(out)
 
 @router.post("/{sheet_id}/submit")
 @require_roles("employee", "manager", "admin")
@@ -132,9 +163,9 @@ async def submit_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depe
     if not goals:
         return err("VALIDATION_ERROR", "Cannot submit an empty goal sheet", 400)
         
-    errors = validate_weightage(goals)
+    errors = validate_sheet_submission(goals)
     if errors:
-        return err("VALIDATION_ERROR", "Weightage validation failed: " + " | ".join(errors), 400)
+        return err("VALIDATION_ERROR", "Submission requirements failed: " + " | ".join(errors), 400)
         
     sheet.status = "submitted"
     sheet.submitted_at = datetime.utcnow()

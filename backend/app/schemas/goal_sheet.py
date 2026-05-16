@@ -20,6 +20,7 @@ class GoalSheetOut(GoalSheetBase):
     submitted_at: Optional[datetime] = None
     approved_at: Optional[datetime] = None
     approved_by: Optional[UUID] = None
+    progress_score: float = 0.0
 
     model_config = ConfigDict(from_attributes=True)
 

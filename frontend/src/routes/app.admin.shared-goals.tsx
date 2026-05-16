@@ -1,8 +1,9 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAuthStore } from "@/store/auth.store";
-import { useUsers, useShareGoal } from "@/hooks/api";
+import { useUsers, useShareGoal, useAllGoalsAdmin } from "@/hooks/api";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -19,8 +20,11 @@ function SharedGoalsPage() {
   if (!me) return null;
   if (me.role !== "admin") return <Navigate to="/app" />;
   const { data: users, isLoading } = useUsers();
+  const { data: allGoals, isLoading: goalsLoading } = useAllGoalsAdmin();
   const share = useShareGoal();
   const [sourceGoalId, setSourceGoalId] = useState("");
+  const [selectedYear, setSelectedYear] = useState<string>("");
+  const [selectedPhase, setSelectedPhase] = useState<string>("");
   const [weightage, setWeightage] = useState<number>(10);
   const [selected, setSelected] = useState<Record<string, boolean>>({});
   const ids = Object.entries(selected).filter(([, v]) => v).map(([k]) => k);
@@ -37,21 +41,50 @@ function SharedGoalsPage() {
           <CardDescription>POST /goals/shared</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-3">
             <div className="space-y-1">
-              <Label>Source goal ID</Label>
-              <Input value={sourceGoalId} onChange={(e) => setSourceGoalId(e.target.value)} placeholder="UUID" />
+              <Label>Year</Label>
+              <Select value={selectedYear} onValueChange={(v) => { setSelectedYear(v); setSelectedPhase(""); setSourceGoalId(""); }}>
+                <SelectTrigger><SelectValue placeholder="Select year" /></SelectTrigger>
+                <SelectContent>
+                  {Array.from(new Set(allGoals?.map(g => g.year))).sort((a,b) => b-a).map(y => (
+                    <SelectItem key={y} value={String(y)}>{y}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="space-y-1">
-              <Label>Weightage (%)</Label>
-              <Input
-                type="number"
-                min={GOAL_LIMITS.MIN_WEIGHTAGE}
-                max={GOAL_LIMITS.MAX_WEIGHTAGE}
-                value={weightage}
-                onChange={(e) => setWeightage(Number(e.target.value))}
-              />
+              <Label>Phase / Quarter</Label>
+              <Select value={selectedPhase} onValueChange={(v) => { setSelectedPhase(v); setSourceGoalId(""); }} disabled={!selectedYear}>
+                <SelectTrigger><SelectValue placeholder="Select phase" /></SelectTrigger>
+                <SelectContent>
+                  {Array.from(new Set(allGoals?.filter(g => String(g.year) === selectedYear).map(g => g.phase))).map(p => (
+                    <SelectItem key={p} value={p}>{p}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
+            <div className="space-y-1">
+              <Label>Goal Name</Label>
+              <Select value={sourceGoalId} onValueChange={setSourceGoalId} disabled={!selectedPhase}>
+                <SelectTrigger><SelectValue placeholder="Select goal" /></SelectTrigger>
+                <SelectContent>
+                  {allGoals?.filter(g => String(g.year) === selectedYear && g.phase === selectedPhase).map(g => (
+                    <SelectItem key={g.id} value={g.id}>{g.title}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <div className="space-y-1 max-w-[200px]">
+            <Label>Weightage (%)</Label>
+            <Input
+              type="number"
+              min={GOAL_LIMITS.MIN_WEIGHTAGE}
+              max={GOAL_LIMITS.MAX_WEIGHTAGE}
+              value={weightage}
+              onChange={(e) => setWeightage(Number(e.target.value))}
+            />
           </div>
           <div>
             <Label>Recipients</Label>
