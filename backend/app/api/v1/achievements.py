@@ -10,7 +10,8 @@ from app.core.security import require_roles
 from app.db.session import get_db
 from app.models.goal import GoalSheet, Goal, Achievement
 from app.schemas.achievement import AchievementCreate, AchievementUpdate, AchievementOut
-from app.core.utils import compute_progress_score
+from app.core.utils import compute_progress_score, is_window_open
+from app.models.cycle import Cycle
 
 router = APIRouter()
 
@@ -77,6 +78,15 @@ async def create_achievement(payload: AchievementCreate, request: Request, db: A
     if not goal:
         return err("NOT_FOUND", "Goal not found", 404)
         
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    active_cycle = cycle_res.scalar_one_or_none()
+    
+    if not active_cycle:
+        return err("NO_ACTIVE_CYCLE", "No active cycle found", 422)
+        
+    if not is_window_open(active_cycle, action_type=payload.quarter.lower()):
+        return err("WINDOW_CLOSED", f"Check-in window for {payload.quarter} is not currently open", 422)
+        
     sheet_res = await db.execute(select(GoalSheet).where(GoalSheet.id == goal.sheet_id))
     sheet = sheet_res.scalar_one()
     
@@ -121,6 +131,15 @@ async def update_achievement(ach_id: UUID, payload: AchievementUpdate, request: 
     
     if not ach:
         return err("NOT_FOUND", "Achievement not found", 404)
+        
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    active_cycle = cycle_res.scalar_one_or_none()
+    
+    if not active_cycle:
+        return err("NO_ACTIVE_CYCLE", "No active cycle found", 422)
+        
+    if not is_window_open(active_cycle, action_type=ach.quarter.lower()):
+        return err("WINDOW_CLOSED", f"Check-in window for {ach.quarter} is not currently open", 422)
         
     goal_res = await db.execute(select(Goal).where(Goal.id == ach.goal_id))
     goal = goal_res.scalar_one()

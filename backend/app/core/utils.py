@@ -15,12 +15,13 @@ def is_window_open(cycle: Cycle, action_type: Optional[str] = None) -> bool:
     if not (cycle.window_open <= today <= cycle.window_close):
         return False
         
-    # If a specific action type is required, ensure the cycle phase permits it
-    if action_type:
-        # e.g., action_type "goal_setting" requires phase "Phase 1 - Goal Setting"
-        # Since we're tracking a single active phase, date bounds usually suffice.
-        pass
-        
+    if action_type == "goal_setting":
+        if cycle.phase != "goal_setting":
+            return False
+    elif action_type in ["q1", "q2", "q3", "q4"]:
+        if cycle.phase != action_type:
+            return False
+            
     return True
 
 def compute_progress_score(uom_type: str, target: str, actual: str) -> float:
