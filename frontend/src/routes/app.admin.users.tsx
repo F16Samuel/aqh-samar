@@ -59,23 +59,19 @@ function UsersPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users?.map((u) => {
-                  const manager = users.find((x) => x.id === u.manager_id);
-                  const dept = depts?.find((d) => d.id === u.department_id);
-                  return (
+                {users?.map((u) => (
                     <TableRow key={u.id}>
                       <TableCell className="font-medium">{u.full_name}</TableCell>
                       <TableCell className="text-muted-foreground">{u.email}</TableCell>
                       <TableCell><Badge variant="outline">{u.role}</Badge></TableCell>
-                      <TableCell>{dept ? dept.name : "-"}</TableCell>
-                      <TableCell>{manager ? manager.full_name : "-"}</TableCell>
+                      <TableCell>{u.department_name || "-"}</TableCell>
+                      <TableCell>{u.manager_name || "-"}</TableCell>
                       <TableCell className="text-right">
                         <UserEditDialog user={u} users={users} />
                       </TableCell>
                     </TableRow>
-                  );
-                })}
-              </TableBody>
+                  ))}
+                </TableBody>
             </Table>
           )}
         </CardContent>

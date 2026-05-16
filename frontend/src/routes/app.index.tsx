@@ -128,9 +128,9 @@ function EmployeeDashboard() {
                   {sheets!.slice(0, 5).map((s) => (
                     <li key={s.id} className="flex items-center justify-between gap-3 py-3">
                       <div>
-                        <p className="font-medium">Sheet · {s.id.slice(0, 8)}</p>
+                        <p className="font-medium">Sheet · #{s.id.slice(0, 4).toUpperCase()}</p>
                         <p className="text-xs text-muted-foreground">
-                          Cycle {String(s.cycle_id).slice(0, 8)}
+                          {s.cycle_label || "Active Cycle"}
                         </p>
                       </div>
                       <div className="flex items-center gap-3">
@@ -247,15 +247,17 @@ function AdminDashboard() {
                     <li key={i} className="rounded-lg border border-border/40 bg-muted/30 p-4 transition-colors hover:bg-muted/50">
                       <div className="flex items-start justify-between gap-2">
                         <div>
-                          <p className="font-semibold text-sm">Sheet ID: {String(e.id).slice(0, 8)}</p>
+                          <p className="font-semibold text-sm">{e.employee_name || "Unknown"}</p>
                           <div className="text-xs text-muted-foreground mt-1 flex items-center gap-1.5">
-                            Status: <Badge variant="outline" className="text-[10px] uppercase h-4 px-1.5">{e.status}</Badge>
+                            <Badge variant="outline" className="text-[10px] uppercase h-4 px-1.5">{e.status}</Badge>
+                            <span>·</span>
+                            <span>{e.cycle_label}</span>
                           </div>
                         </div>
                         <AlertTriangle className="h-4 w-4 text-warning opacity-70" />
                       </div>
-                      <div className="mt-2 text-xs text-muted-foreground line-clamp-1">
-                        Employee ID: {String(e.employee_id).slice(0, 8)}
+                      <div className="mt-2 text-xs text-muted-foreground">
+                        Sheet #{String(e.id).slice(0, 4).toUpperCase()}
                       </div>
                     </li>
                   ))}

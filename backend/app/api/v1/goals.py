@@ -76,7 +76,7 @@ async def create_goal(payload: GoalCreate, request: Request, db: AsyncSession = 
         title=payload.title,
         description=payload.description,
         uom_type=payload.uom_type,
-        target=payload.target,
+        target=str(payload.target),
         weightage=payload.weightage,
         is_locked=False
     )
@@ -88,7 +88,7 @@ async def create_goal(payload: GoalCreate, request: Request, db: AsyncSession = 
     errors = validate_goal_limits(all_goals)
     if errors:
         await db.rollback()
-        raise HTTPException(status_code=422, detail={"data": None, "error": {"code": "LIMIT_EXCEEDED", "message": "Goal limits validation failed", "details": errors}})
+        return err("LIMIT_EXCEEDED", f"Goal limits validation failed: {', '.join(errors)}", 422)
         
     await db.commit()
     await db.refresh(goal)
@@ -142,7 +142,10 @@ async def update_goal(goal_id: UUID, payload: GoalUpdate, request: Request, db: 
         old_values[key] = str(getattr(goal, key))
         
     for key, value in update_data.items():
-        setattr(goal, key, value)
+        if key == "target" and value is not None:
+            setattr(goal, key, str(value))
+        else:
+            setattr(goal, key, value)
         
     await db.flush()
     res_all_goals = await db.execute(select(Goal).where(Goal.sheet_id == goal.sheet_id))

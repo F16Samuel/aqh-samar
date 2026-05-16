@@ -16,6 +16,8 @@ class UserCreate(UserBase):
 class UserOut(UserBase):
     id: UUID
     created_at: datetime
+    department_name: Optional[str] = None
+    manager_name: Optional[str] = None
     
     model_config = ConfigDict(from_attributes=True)
 

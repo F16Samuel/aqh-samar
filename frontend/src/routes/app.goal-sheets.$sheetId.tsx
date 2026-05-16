@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   useGoalsBySheet,
-  useMyGoalSheets,
+  useGoalSheet,
   useActiveCycle,
   useCreateGoal,
   useUpdateGoal,
@@ -70,8 +70,7 @@ export const Route = createFileRoute("/app/goal-sheets/$sheetId")({
 function SheetDetail() {
   const { sheetId } = useParams({ from: "/app/goal-sheets/$sheetId" });
   const me = useAuthStore((s) => s.profile);
-  const { data: sheets } = useMyGoalSheets();
-  const sheet = sheets?.find((s) => s.id === sheetId);
+  const { data: sheet } = useGoalSheet(sheetId);
   const { data: goals, isLoading } = useGoalsBySheet(sheetId);
   const submit = useSubmitSheet();
   const approve = useApproveSheet();
@@ -99,14 +98,14 @@ function SheetDetail() {
         </Link>
         <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h1 className="font-mono text-lg">Sheet · {sheetId.slice(0, 8)}</h1>
+            <h1 className="text-lg font-semibold tracking-tight">Sheet · #{sheetId.slice(0, 4).toUpperCase()}</h1>
             <p className="text-sm text-muted-foreground">
-              {(goals ?? []).length} of {GOAL_LIMITS.MAX_GOALS} goals · Total weightage {totalW}%
+              {sheet?.cycle_label || "..."} · {(goals ?? []).length} of {GOAL_LIMITS.MAX_GOALS} goals · Total weightage {totalW}%
             </p>
           </div>
           <div className="flex items-center gap-2">
             {sheet && <SheetStatusBadge status={sheet.status} />}
-            {canEdit && (
+            {(status === "draft" || status === "rework" || status === "returned") && sheet?.employee_id === me?.id && (
               <Button
                 onClick={() => {
                   if (!submitCheck.ok) {
@@ -142,6 +141,14 @@ function SheetDetail() {
       {!windowIsOpen && (
         <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive border border-destructive/20">
           <strong>Window closed.</strong> You cannot add goals or submit sheets at this time.
+        </div>
+      )}
+
+      {(me?.role === "manager" || me?.role === "admin") && status === "submitted" && sheet?.employee_id !== me?.id && (
+        <div className="rounded-md bg-amber-500/10 p-4 text-sm text-amber-700 dark:text-amber-400 border border-amber-500/20 flex items-center justify-between">
+          <div>
+            <strong>Pending your approval.</strong> Please review the goals below. You can make minor adjustments if necessary before approving, or return the sheet for rework with comments.
+          </div>
         </div>
       )}
 

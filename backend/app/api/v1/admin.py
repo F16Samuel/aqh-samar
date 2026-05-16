@@ -46,21 +46,28 @@ async def unlock_goal(goal_id: UUID, request: Request, db: AsyncSession = Depend
 async def get_escalations(request: Request, db: AsyncSession = Depends(get_db)):
     """Returns sheets stuck in 'submitted' > 7 days."""
     seven_days_ago = datetime.utcnow() - timedelta(days=7)
+    from app.models.user import User
+    from app.models.cycle import Cycle
     res = await db.execute(
-        select(GoalSheet).where(
+        select(GoalSheet, User, Cycle)
+        .join(User, GoalSheet.employee_id == User.id)
+        .join(Cycle, GoalSheet.cycle_id == Cycle.id)
+        .where(
             GoalSheet.status == "submitted",
             GoalSheet.submitted_at < seven_days_ago
         )
     )
-    sheets = res.scalars().all()
+    rows = res.all()
     return ok([
         {
             "id": str(s.id),
             "employee_id": str(s.employee_id),
+            "employee_name": u.full_name,
+            "cycle_label": f"{c.year} · {c.phase}",
             "status": s.status,
             "submitted_at": s.submitted_at.isoformat() if s.submitted_at else None
         }
-        for s in sheets
+        for s, u, c in rows
     ])
 
 @router.get("/audit-logs")

@@ -52,6 +52,22 @@ export const useCycles = (enabled = true) =>
 export const useMyGoalSheets = () =>
   useQuery({ queryKey: qk.goalSheets.mine, queryFn: () => goalSheetsService.mine(), staleTime: 30_000 });
 
+export const useTeamGoalSheets = (enabled = true) =>
+  useQuery({
+    queryKey: qk.goalSheets.team,
+    queryFn: () => goalSheetsService.team(),
+    enabled,
+    staleTime: 30_000,
+  });
+
+export const useGoalSheet = (sheetId?: string) =>
+  useQuery({
+    queryKey: sheetId ? qk.goalSheets.detail(sheetId) : ["goalSheets", "none"],
+    queryFn: () => goalSheetsService.get(sheetId!),
+    enabled: !!sheetId,
+    staleTime: 30_000,
+  });
+
 export const useGoalsBySheet = (sheetId?: string) =>
   useQuery({
     queryKey: sheetId ? qk.goals.bySheet(sheetId) : ["goals", "sheet", "none"],

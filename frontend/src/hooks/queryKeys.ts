@@ -14,6 +14,8 @@ export const qk = {
   goalSheets: {
     all: ["goal-sheets"] as const,
     mine: ["goal-sheets", "mine"] as const,
+    team: ["goal-sheets", "team"] as const,
+    detail: (id: string) => ["goal-sheets", "detail", id] as const,
   },
   goals: {
     all: ["goals"] as const,

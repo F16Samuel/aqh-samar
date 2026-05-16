@@ -8,7 +8,8 @@ from sqlalchemy import select, update
 from app.core.responses import ok, err
 from app.core.security import require_roles
 from app.db.session import get_db
-from app.models.goal import GoalSheet, Goal, CheckIn
+from app.models.goal import GoalSheet, Goal, CheckIn, Achievement
+from app.models.user import User
 from app.models.cycle import Cycle
 from app.schemas.goal_sheet import GoalSheetOut, ReturnPayload
 from app.core.validators import validate_sheet_submission
@@ -53,7 +54,11 @@ async def create_goal_sheet(request: Request, db: AsyncSession = Depends(get_db)
     await db.commit()
     await db.refresh(new_sheet)
     
-    return ok(GoalSheetOut.model_validate(new_sheet).model_dump(mode="json"), 201)
+    out = GoalSheetOut.model_validate(new_sheet)
+    out.employee_name = user.full_name
+    out.cycle_label = f"{cycle.year} · {cycle.phase}"
+    
+    return ok(out.model_dump(mode="json"), 201)
 
 @router.get("/mine")
 @require_roles("employee", "manager", "admin")
@@ -61,26 +66,39 @@ async def get_my_sheets(request: Request, db: AsyncSession = Depends(get_db)):
     """Get all goal sheets for the current user."""
     user = request.state.user
     res = await db.execute(
-        select(GoalSheet)
+        select(GoalSheet, Cycle, User)
+        .join(Cycle, GoalSheet.cycle_id == Cycle.id)
+        .join(User, GoalSheet.employee_id == User.id)
         .where(GoalSheet.employee_id == user.id)
         .order_by(GoalSheet.submitted_at.desc().nullslast())
     )
-    sheets = res.scalars().all()
-    return ok([GoalSheetOut.model_validate(s).model_dump(mode="json") for s in sheets])
+    results = []
+    for sheet, cycle, emp in res.all():
+        out = GoalSheetOut.model_validate(sheet)
+        out.cycle_label = f"{cycle.year} · {cycle.phase}"
+        out.employee_name = emp.full_name
+        results.append(out.model_dump(mode="json"))
+    return ok(results)
 
 @router.get("/team")
 @require_roles("manager", "admin")
 async def get_team_sheets(request: Request, db: AsyncSession = Depends(get_db)):
     """Get goal sheets of direct reports."""
     user = request.state.user
-    from app.models.user import User
     res = await db.execute(
-        select(GoalSheet).join(User, GoalSheet.employee_id == User.id)
+        select(GoalSheet, Cycle, User)
+        .join(Cycle, GoalSheet.cycle_id == Cycle.id)
+        .join(User, GoalSheet.employee_id == User.id)
         .where(User.manager_id == user.id)
         .order_by(GoalSheet.submitted_at.desc().nullslast())
     )
-    sheets = res.scalars().all()
-    return ok([GoalSheetOut.model_validate(s).model_dump(mode="json") for s in sheets])
+    results = []
+    for sheet, cycle, emp in res.all():
+        out = GoalSheetOut.model_validate(sheet)
+        out.cycle_label = f"{cycle.year} · {cycle.phase}"
+        out.employee_name = emp.full_name
+        results.append(out.model_dump(mode="json"))
+    return ok(results)
 
 @router.get("/{sheet_id}")
 @require_roles("employee", "manager", "admin")
@@ -94,20 +112,27 @@ async def get_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depends
         return err("NOT_FOUND", "Goal sheet not found", 404)
         
     if user.role != "admin" and sheet.employee_id != user.id:
-        from app.models.user import User
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
         emp = emp_res.scalar_one()
         if emp.manager_id != user.id:
             return err("FORBIDDEN", "You do not have access to this sheet", 403)
             
-    out = GoalSheetOut.model_validate(sheet).model_dump(mode="json")
+    out = GoalSheetOut.model_validate(sheet)
+    cycle_res = await db.execute(select(Cycle).where(Cycle.id == sheet.cycle_id))
+    cycle = cycle_res.scalar_one()
+    out.cycle_label = f"{cycle.year} · {cycle.phase}"
+    
+    emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
+    emp = emp_res.scalar_one()
+    out.employee_name = emp.full_name
+    
+    out = out.model_dump(mode="json")
     
     # Calculate progress score
     res_goals = await db.execute(select(Goal).where(Goal.sheet_id == sheet.id))
     goals = res_goals.scalars().all()
     
     # Batch fetch latest achievements to avoid N+1
-    from app.models.goal import Achievement
     goal_ids = [g.id for g in goals]
     ach_res = await db.execute(
         select(Achievement)

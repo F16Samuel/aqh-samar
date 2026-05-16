@@ -16,7 +16,9 @@ class GoalSheetCreate(BaseModel):
 class GoalSheetOut(GoalSheetBase):
     id: UUID
     employee_id: UUID
+    employee_name: Optional[str] = None
     cycle_id: UUID
+    cycle_label: Optional[str] = None
     submitted_at: Optional[datetime] = None
     approved_at: Optional[datetime] = None
     approved_by: Optional[UUID] = None

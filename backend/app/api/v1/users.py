@@ -55,9 +55,23 @@ async def get_current_user(request: Request):
 @require_roles("admin")
 async def list_users(request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: list all users."""
-    result = await db.execute(select(User).order_by(User.full_name))
-    users = result.scalars().all()
-    return ok([UserOut.model_validate(u).model_dump(mode="json") for u in users])
+    from sqlalchemy.orm import aliased
+    Manager = aliased(User)
+    
+    result = await db.execute(
+        select(User, Department, Manager)
+        .outerjoin(Department, User.department_id == Department.id)
+        .outerjoin(Manager, User.manager_id == Manager.id)
+        .order_by(User.full_name)
+    )
+    
+    results = []
+    for u, d, m in result.all():
+        out = UserOut.model_validate(u)
+        out.department_name = d.name if d else None
+        out.manager_name = m.full_name if m else None
+        results.append(out.model_dump(mode="json"))
+    return ok(results)
 
 @router.get("/{user_id}")
 @require_roles("employee", "manager", "admin")
@@ -65,16 +79,27 @@ async def get_user(user_id: UUID, request: Request, db: AsyncSession = Depends(g
     """Get user by ID. Accessible by self, direct manager, or admin."""
     curr_user = request.state.user
     
-    result = await db.execute(select(User).where(User.id == user_id))
-    target_user = result.scalar_one_or_none()
-    
-    if not target_user:
+    from sqlalchemy.orm import aliased
+    Manager = aliased(User)
+    result = await db.execute(
+        select(User, Department, Manager)
+        .outerjoin(Department, User.department_id == Department.id)
+        .outerjoin(Manager, User.manager_id == Manager.id)
+        .where(User.id == user_id)
+    )
+    row = result.first()
+    if not row:
         return err("NOT_FOUND", "User not found", 404)
+        
+    target_user, d, m = row
         
     if curr_user.role != "admin" and curr_user.id != user_id and target_user.manager_id != curr_user.id:
         return err("FORBIDDEN", "You do not have permission to view this user", 403)
         
-    return ok(UserOut.model_validate(target_user).model_dump(mode="json"))
+    out = UserOut.model_validate(target_user)
+    out.department_name = d.name if d else None
+    out.manager_name = m.full_name if m else None
+    return ok(out.model_dump(mode="json"))
 
 @router.get("/{user_id}/team")
 @require_roles("manager", "admin")

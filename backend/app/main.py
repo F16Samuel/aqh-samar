@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
@@ -26,6 +26,11 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
+# ── Auth Middleware ───────────────────────────────────────────────────────────
+from app.core.middleware import AuthMiddleware, WindowGuardMiddleware
+app.add_middleware(AuthMiddleware)
+app.add_middleware(WindowGuardMiddleware)
+
 # ── CORS ─────────────────────────────────────────────────────────────────────
 app.add_middleware(
     CORSMiddleware,
@@ -34,11 +39,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# ── Auth Middleware ───────────────────────────────────────────────────────────
-from app.core.middleware import AuthMiddleware, WindowGuardMiddleware
-app.add_middleware(AuthMiddleware)
-app.add_middleware(WindowGuardMiddleware)
 
 # ── Global exception handler ──────────────────────────────────────────────────
 @app.exception_handler(RequestValidationError)
@@ -56,13 +56,25 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     )
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception) -> JSONResponse:
+    if isinstance(exc, HTTPException):
+        return JSONResponse(
+            status_code=exc.status_code,
+            content={
+                "data": None,
+                "error": {
+                    "code": f"HTTP_{exc.status_code}",
+                    "message": exc.detail if isinstance(exc.detail, str) else "Request error",
+                    "details": exc.detail if not isinstance(exc.detail, str) else None
+                }
+            }
+        )
     return JSONResponse(
         status_code=500,
         content={
             "data": None,
             "error": {
                 "code": "INTERNAL_SERVER_ERROR",
-                "message": "An unexpected error occurred. Please try again later.",
+                "message": str(exc) if settings.APP_ENV == "development" else "An unexpected error occurred. Please try again later.",
             },
         },
     )
