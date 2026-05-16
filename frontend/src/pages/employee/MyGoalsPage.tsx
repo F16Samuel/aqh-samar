@@ -93,7 +93,7 @@ export default function MyGoalsPage() {
 
   const addGoalMutation = useMutation({
     mutationFn: async (payload: any) => {
-      const res = await api.post(`/goals/sheet/${sheet.id}`, payload)
+      const res = await api.post(`/goals/`, { ...payload, sheet_id: sheet?.id })
       return res.data.data
     },
     onSuccess: () => {

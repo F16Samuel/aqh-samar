@@ -36,7 +36,9 @@ app.add_middleware(
 )
 
 # ── Auth Middleware ───────────────────────────────────────────────────────────
+from app.core.middleware import AuthMiddleware, WindowGuardMiddleware
 app.add_middleware(AuthMiddleware)
+app.add_middleware(WindowGuardMiddleware)
 
 # ── Global exception handler ──────────────────────────────────────────────────
 @app.exception_handler(RequestValidationError)

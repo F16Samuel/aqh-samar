@@ -1,0 +1,318 @@
+﻿=== PRBLM.DOCX ===
+ATOMQUEST HACKATHON 1.0
+Problem Statement
+In-House Goal Setting & Tracking Portal
+1.  Background & Problem Context
+Organizations that rely on manual or fragmented goal-tracking methods often struggle with alignment, visibility, and accountability. Spreadsheets, emails, and offline review cycles create blind spots ΓÇö managers cannot monitor team progress in real time, employees lack clarity on how their work connects to organizational priorities, and HR teams are left piecing together data at appraisal time.
+The challenge is to build a structured, digital Goal Setting & Tracking Portal that eliminates these pain points. The system must support the full lifecycle of employee goals ΓÇö from creation and alignment to quarterly check-ins and performance visibility ΓÇö while being intuitive, reliable, and audit-ready.
+2.  What You Need to Build
+Participants are required to design and develop a functional web-based portal that fulfils the following core requirements.
+2.1  Phase 1 ΓÇö Goal Creation & Approval (Must-Have)
+Employee-facing interface to create and submit a Goal Sheet
+Select a Thrust Area and define Goal Title / Description
+Assign Unit of Measurement (UoM): Numeric, %, Timeline, or Zero-based
+Set Targets and Weightage per goal
+System-enforced validation rules:
+Total weightage across all goals must equal 100%
+Minimum weightage per individual goal: 10%
+Maximum number of goals per employee: 8
+Manager (L1) Approval Workflow:
+Review submitted goals; ability to edit targets / weightages inline or return for rework
+On approval, goals are locked ΓÇö no further edits without Admin intervention
+Shared Goals functionality:
+Admin or manager can push a departmental KPI to multiple employees
+Recipients may adjust weightage only; Goal Title and Target are read-only
+Achievement updates by the primary owner sync across all linked goal sheets
+2.2  Phase 2 ΓÇö Achievement Tracking & Quarterly Check-ins (Must-Have)
+Quarterly update interface for employees to log Actual Achievement against Planned Targets
+Status selection per goal: Not Started / On Track / Completed
+Manager Check-in module:
+View Planned vs. Achievement data for each team member
+Add a structured Check-in Comment to document the discussion
+System-computed progress scores (for tracking only, not ratings):
+2.3  Check-in Schedule
+The portal must enforce the following quarterly windows for achievement capture:
+3.  User Roles & Personas
+The portal must support three distinct user roles, each with clearly differentiated access and capabilities:
+4.  Reporting & Governance Requirements
+Achievement Report: Exportable (CSV / Excel) showing Planned Target vs. Actual Achievement for all employees
+Completion Dashboard: Real-time view of which employees and managers have completed quarterly check-ins
+Audit Trail: System must log all changes made to goals after the lock date ΓÇö capturing who changed what and when
+5.  Good-to-Have Features (Bonus Points)
+While not mandatory, the following enhancements will be positively evaluated and can differentiate your solution. Teams that implement any of these will earn additional credit under the evaluation criteria.
+5.1  Microsoft Entra ID (Azure AD) Integration
+Single Sign-On (SSO) for employees and managers via Microsoft Entra ID
+Automatic org hierarchy sync ΓÇö reporting lines derived from Azure AD attributes
+Role assignment mapped from Azure AD group membership
+5.2  Email & Microsoft Teams Integration
+Automated email notifications for key events: goal submission, approval, rejection, check-in reminders
+Teams bot or adaptive card notifications for managers when a team member submits or updates goals
+Deep-link support so users can navigate directly from a Teams notification to the relevant goal sheet
+5.3  Escalation Module (Rule-Based)
+Configurable escalation rules triggered by defined conditions, for example:
+Employee has not submitted goals within N days of cycle open
+Manager has not approved goals within N days of submission
+Quarterly check-in not completed within the active window
+Escalation chain: auto-notification to employee ΓåÆ manager ΓåÆ skip-level / HR after defined intervals
+Escalation log visible to Admin / HR for tracking and resolution
+5.4  Analytics Module
+Quarter-on-Quarter (QoQ) goal achievement trends at individual, team, and department levels
+Heatmaps or progress charts showing completion rates across the organization
+Goal distribution analysis ΓÇö breakdown by Thrust Area, UoM type, and status
+Manager effectiveness dashboard ΓÇö comparison of check-in completion rates across L1 managers
+6.  Evaluation Parameters & Scoring
+Submissions will be judged by a panel against the following criteria. Each parameter carries equal weight unless otherwise announced on the day:
+7.  Constraints & Ground Rules
+Participants may use any technology stack of their choice (web frameworks, databases, cloud services)
+The portal must be accessible via a web browser ΓÇö no desktop-only applications
+A working demo with at least one complete user journey per role (Employee, Manager, Admin) must be presented
+Code must be version-controlled and the repository link submitted before the deadline
+Participants must provide a brief architecture diagram explaining their technology and hosting choices
+8.  Submission Deliverables
+Live / hosted demo URL of the portal
+Source code repository (GitHub / GitLab / Bitbucket)
+Architecture diagram (PDF or image)
+Login credentials of the 3 roles (Employee, Manager, Admin) or option to switch between user journeys
+UoM Type
+Description
+Formula
+Min (Numeric / %)
+Higher is better ΓÇö e.g., Sales Revenue
+Achievement ├╖ Target
+Max (Numeric / %)
+Lower is better ΓÇö e.g., TAT, Cost
+Target ├╖ Achievement
+Timeline
+Date-based completion
+Completion date vs. Deadline
+Zero
+Zero = Success ΓÇö e.g., Safety incidents
+If 0 ΓåÆ 100%, else 0%
+Period
+Window Opens
+Action
+Phase 1 ΓÇö Goal Setting
+1st May
+Goal Creation, Submission & Approval
+Q1 Check-in
+July
+Progress Update ΓÇö Planned vs. Actual
+Q2 Check-in
+October
+Progress Update ΓÇö Planned vs. Actual
+Q3 Check-in
+January
+Progress Update ΓÇö Planned vs. Actual
+Q4 / Annual
+March / April
+Final Achievement Capture
+Role
+Responsibilities
+Required System Capabilities
+Employee
+Draft goals; enter quarterly achievement; update progress status
+Create & edit goals pre-submission; view locked goals; input actuals
+Manager (L1)
+Review & approve goals; conduct quarterly check-ins; log feedback
+Team dashboard; inline editing during approval; comment / feedback logs
+Admin / HR
+Configure cycles; manage org hierarchy; oversee completion rates
+Cycle management; exception handling; audit logs; goal unlock capability
+#
+Parameter
+What Evaluators Will Look For
+1
+Functionality of the Portal
+Does the portal work end-to-end? Can an employee create goals, a manager approve them, and check-ins be completed without errors?
+2
+Adherence to BRD
+Are all Phase 1 and Phase 2 requirements implemented? Are validation rules (weightage = 100%, max 8 goals, min 10%) correctly enforced?
+3
+User Friendliness
+Is the UI intuitive for non-technical users? Are workflows logical, error messages helpful, and the experience consistent across roles?
+4
+Presence of Bugs
+Does the portal behave predictably under normal and edge-case inputs? Are there no broken flows, data inconsistencies, or unhandled errors?
+5
+Good-to-Have Features
+Has the team implemented any bonus features from Section 5? Depth and quality of implementation will be assessed.
+6
+Cost Optimisation
+Is the solution architected efficiently? Evaluators will consider infrastructure choices, API call efficiency, caching strategies, and hosting cost awareness.
+
+=== PRD.DOCX ===
+PRODUCT REQUIREMENTS DOCUMENT
+Goal Setting & Tracking Portal
+In-House Employee Performance Management System
+1. Overview
+Organizations relying on manual or fragmented goal-tracking methods ΓÇö spreadsheets, email threads, and offline review cycles ΓÇö face systemic gaps in alignment, visibility, and accountability. Managers cannot monitor team progress in real time, employees lack clarity on how their work connects to organizational priorities, and HR teams are left piecing together data at appraisal time.
+This document defines the requirements for an In-House Goal Setting & Tracking Portal: a structured, digital system that eliminates these pain points by supporting the full lifecycle of employee goals ΓÇö from creation and alignment to quarterly check-ins and performance visibility.
+2. Product Objectives
+Enable employees to create, submit, and track goals with clear targets and weightages.
+Provide managers with a real-time view of team progress and structured check-in workflows.
+Give HR and Admins full governance control ΓÇö cycle configuration, audit trails, and exception handling.
+Enforce validation rules and approval workflows to ensure data integrity.
+Generate exportable reports for appraisal and compliance purposes.
+3. User Roles & Personas
+4. Functional Requirements
+4.1  Phase 1 ΓÇö Goal Creation & Approval
+Priority: Must-Have
+4.1.1  Goal Sheet Interface (Employee)
+Employee-facing form to create and submit a Goal Sheet.
+Fields: Thrust Area selector, Goal Title, Goal Description.
+Unit of Measurement (UoM) selector: Numeric, %, Timeline, or Zero-based.
+Target value and Weightage (%) per goal.
+4.1.2  System Validation Rules
+Total weightage across all goals must equal exactly 100%.
+Minimum weightage per individual goal: 10%.
+Maximum number of goals per employee: 8.
+System must surface inline validation errors before submission.
+4.1.3  Manager (L1) Approval Workflow
+Manager receives notification on goal submission.
+Manager can review, inline-edit targets/weightages, or return goals for rework with comments.
+On approval, goals are locked ΓÇö no edits without Admin intervention.
+4.1.4  Shared Goals
+Admin or Manager can push a departmental KPI to multiple employees simultaneously.
+Recipients may adjust weightage only; Goal Title and Target are read-only.
+Achievement updates by the primary owner sync automatically across all linked goal sheets.
+4.2  Phase 2 ΓÇö Achievement Tracking & Quarterly Check-ins
+Priority: Must-Have
+4.2.1  Quarterly Achievement Interface (Employee)
+Interface to log Actual Achievement against Planned Targets for each quarter.
+Status selector per goal: Not Started / On Track / Completed.
+4.2.2  Manager Check-in Module
+View of Planned vs. Actual data for each direct report.
+Ability to add a structured Check-in Comment to document the discussion.
+4.2.3  System-Computed Progress Scores
+Scores are for tracking purposes only and are not used for formal ratings.
+4.3  Check-in Schedule
+The portal must enforce the following quarterly windows for achievement capture:
+5. Reporting & Governance
+5.1  Achievement Report
+Exportable in CSV / Excel formats.
+Displays Planned Target vs. Actual Achievement for all employees.
+Filterable by department, manager, period, and status.
+5.2  Completion Dashboard
+Real-time view of which employees and managers have completed quarterly check-ins.
+Visible to Managers and Admins.
+5.3  Audit Trail
+System must log all changes made to goals after the lock date.
+Captures: who changed what, the previous value, the new value, and a timestamp.
+Accessible only to Admin / HR.
+6. Non-Functional Requirements
+Web browser accessibility ΓÇö no desktop-only application.
+Role-based access control strictly enforced at the API level.
+System must be audit-ready: immutable change logs, no silent data mutations.
+Performance: dashboards and reports load within 3 seconds under normal load.
+Responsive design: usable on desktop and tablet viewports.
+7. Nice-to-Have Features (Bonus)
+7.1  Microsoft Entra ID (Azure AD) Integration
+Single Sign-On (SSO) via Microsoft Entra ID for all users.
+Automatic org hierarchy sync ΓÇö reporting lines derived from Azure AD attributes.
+Role assignment mapped from Azure AD group membership.
+7.2  Email & Microsoft Teams Integration
+Automated email notifications: goal submission, approval, rejection, check-in reminders.
+Teams bot / adaptive card notifications for managers on team member activity.
+Deep-link support from Teams notifications directly to the relevant goal sheet.
+7.3  Escalation Module (Rule-Based)
+Configurable rules for escalation triggers, for example:
+Employee has not submitted goals within N days of cycle open.
+Manager has not approved goals within N days of submission.
+Quarterly check-in not completed within the active window.
+Auto-notification chain: employee ΓåÆ manager ΓåÆ skip-level / HR at defined intervals.
+Escalation log visible to Admin / HR for tracking and resolution.
+7.4  Analytics Module
+Quarter-on-Quarter (QoQ) goal achievement trends at individual, team, and department levels.
+Heatmaps or progress charts showing completion rates across the organization.
+Goal distribution analysis ΓÇö breakdown by Thrust Area, UoM type, and status.
+Manager effectiveness dashboard ΓÇö comparison of check-in completion rates across L1 managers.
+8. Acceptance Criteria
+The product will be considered complete when all of the following can be demonstrated end-to-end:
+9. Constraints & Ground Rules
+Any technology stack permitted (web frameworks, databases, cloud services).
+Must be accessible via a standard web browser. No desktop-only applications.
+A working demo with at least one complete user journey per role must be presentable.
+Code must be version-controlled; repository link submitted before deadline.
+An architecture diagram explaining technology and hosting choices is required.
+10. Deliverables
+Live / hosted demo URL of the portal.
+Source code repository (GitHub / GitLab / Bitbucket).
+Architecture diagram (PDF or image).
+Login credentials for all 3 roles (Employee, Manager, Admin), or in-app role switcher.
+Goal Setting & Tracking Portal  |  PRD v1.0  |  AtomQuest Hackathon 1.0
+Product
+Goal Setting & Tracking Portal
+Version
+1.0
+Status
+Draft ΓÇö For Review
+Origin
+AtomQuest Hackathon 1.0 Problem Statement
+Audience
+Engineering, Design, QA, Product
+Role
+Responsibilities
+Required Capabilities
+Employee
+Draft goals; enter quarterly achievement; update progress status.
+Create & edit goals pre-submission; view locked goals; input actuals.
+Manager (L1)
+Review & approve goals; conduct quarterly check-ins; log feedback.
+Team dashboard; inline editing during approval; comment/feedback logs.
+Admin / HR
+Configure cycles; manage org hierarchy; oversee completion rates.
+Cycle management; exception handling; audit logs; goal unlock capability.
+UoM Type
+Description
+Formula
+Min (Numeric / %)
+Higher is better ΓÇö e.g., Sales Revenue
+Achievement ├╖ Target
+Max (Numeric / %)
+Lower is better ΓÇö e.g., TAT, Cost
+Target ├╖ Achievement
+Timeline
+Date-based completion
+Completion Date vs. Deadline
+Zero
+Zero = Success ΓÇö e.g., Safety incidents
+If 0 ΓåÆ 100%, else 0%
+Period
+Window Opens
+Action
+Phase 1 ΓÇö Goal Setting
+1st May
+Goal Creation, Submission & Approval
+Q1 Check-in
+July
+Progress Update ΓÇö Planned vs. Actual
+Q2 Check-in
+October
+Progress Update ΓÇö Planned vs. Actual
+Q3 Check-in
+January
+Progress Update ΓÇö Planned vs. Actual
+Q4 / Annual
+March / April
+Final Achievement Capture
+#
+Criterion
+Evaluator Will Look For
+1
+End-to-end Portal Functionality
+Employee creates goals, manager approves, check-ins completed without errors.
+2
+Validation Rules Enforced
+Weightage = 100%, max 8 goals, min 10% per goal all correctly enforced.
+3
+Role-Based Access
+Each role sees only permitted data and actions. No cross-role data leakage.
+4
+Lock & Audit Behaviour
+Goals locked post-approval; all post-lock changes captured in audit trail.
+5
+Report Export
+Achievement report exports correctly in CSV/Excel with accurate data.
+6
+UX Quality
+Workflows logical; error messages helpful; experience consistent across roles.

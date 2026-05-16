@@ -40,12 +40,12 @@ async def get_goals_by_sheet(sheet_id: UUID, request: Request, db: AsyncSession 
     
     return ok([GoalOut.model_validate(g).model_dump(mode="json") for g in goals])
 
-@router.post("/sheet/{sheet_id}")
+@router.post("/")
 @require_roles("employee", "manager", "admin")
-async def create_goal(sheet_id: UUID, payload: GoalCreate, request: Request, db: AsyncSession = Depends(get_db)):
+async def create_goal(payload: GoalCreate, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
     
-    res = await db.execute(select(GoalSheet).where(GoalSheet.id == sheet_id))
+    res = await db.execute(select(GoalSheet).where(GoalSheet.id == payload.sheet_id))
     sheet = res.scalar_one_or_none()
     
     if not sheet:

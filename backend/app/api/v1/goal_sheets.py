@@ -11,6 +11,8 @@ from app.db.session import get_db
 from app.models.goal import GoalSheet, Goal, CheckIn
 from app.models.cycle import Cycle
 from app.schemas.goal_sheet import GoalSheetOut, ReturnPayload
+from app.core.validators import validate_weightage
+from app.core.notifications import notify_manager
 
 router = APIRouter()
 
@@ -117,20 +119,24 @@ async def submit_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depe
     if not goals:
         return err("VALIDATION_ERROR", "Cannot submit an empty goal sheet", 400)
         
-    if len(goals) > 8:
-        return err("VALIDATION_ERROR", "Maximum 8 goals allowed", 400)
-        
-    total_weightage = 0
-    for g in goals:
-        if g.weightage < 10:
-            return err("VALIDATION_ERROR", f"Goal '{g.title}' has weightage < 10%", 400)
-        total_weightage += g.weightage
-        
-    if total_weightage != 100:
-        return err("VALIDATION_ERROR", f"Total weightage must be 100%. Current is {total_weightage}%", 400)
+    errors = validate_weightage(goals)
+    if errors:
+        return err("VALIDATION_ERROR", "Weightage validation failed: " + " | ".join(errors), 400)
         
     sheet.status = "submitted"
     sheet.submitted_at = datetime.utcnow()
+    
+    # Notify manager
+    from app.models.user import User
+    emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
+    emp = emp_res.scalar_one()
+    if emp.manager_id:
+        await notify_manager(
+            manager_id=emp.manager_id,
+            event="sheet_submitted",
+            payload={"sheet_id": str(sheet.id), "employee_name": emp.full_name}
+        )
+        
     await db.commit()
     await db.refresh(sheet)
     

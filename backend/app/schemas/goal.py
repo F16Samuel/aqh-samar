@@ -14,7 +14,7 @@ class GoalBase(BaseModel):
 
 
 class GoalCreate(GoalBase):
-    pass
+    sheet_id: UUID
 
 
 class GoalUpdate(BaseModel):
