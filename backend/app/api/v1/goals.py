@@ -13,6 +13,30 @@ from app.schemas.goal import GoalCreate, GoalUpdate, GoalSharedCreate, GoalOut
 
 router = APIRouter()
 
+@router.get("/sheet/{sheet_id}")
+@require_roles("employee", "manager", "admin")
+async def get_goals_by_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depends(get_db)):
+    user = request.state.user
+    
+    res_sheet = await db.execute(select(GoalSheet).where(GoalSheet.id == sheet_id))
+    sheet = res_sheet.scalar_one_or_none()
+    
+    if not sheet:
+        return err("NOT_FOUND", "Sheet not found", 404)
+        
+    # Check access
+    if sheet.employee_id != user.id and user.role != "admin":
+        from app.models.user import User
+        emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
+        emp = emp_res.scalar_one()
+        if emp.manager_id != user.id:
+            return err("FORBIDDEN", "You do not have access to these goals", 403)
+            
+    res_goals = await db.execute(select(Goal).where(Goal.sheet_id == sheet_id).order_by(Goal.thrust_area))
+    goals = res_goals.scalars().all()
+    
+    return ok([GoalOut.model_validate(g).model_dump(mode="json") for g in goals])
+
 @router.post("/sheet/{sheet_id}")
 @require_roles("employee", "manager", "admin")
 async def create_goal(sheet_id: UUID, payload: GoalCreate, request: Request, db: AsyncSession = Depends(get_db)):
