@@ -5,10 +5,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.core.config import settings
-
+from app.core.middleware import AuthMiddleware
 # ── Router imports (uncomment as phases complete) ───────────────────────────
-# from app.api.v1.auth import router as auth_router
-# from app.api.v1.users import router as users_router
+from app.api.v1.auth import router as auth_router
+from app.api.v1.users import router as users_router
 # from app.api.v1.cycles import router as cycles_router
 # from app.api.v1.goal_sheets import router as sheets_router
 # from app.api.v1.goals import router as goals_router
@@ -34,6 +34,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ── Auth Middleware ───────────────────────────────────────────────────────────
+app.add_middleware(AuthMiddleware)
+
 # ── Global exception handler ──────────────────────────────────────────────────
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception) -> JSONResponse:
@@ -56,9 +59,9 @@ async def health() -> dict:
 
 
 # ── Register routers (uncomment as phases complete) ───────────────────────────
-# API_V1 = "/api/v1"
-# app.include_router(auth_router, prefix=f"{API_V1}/auth", tags=["Auth"])
-# app.include_router(users_router, prefix=f"{API_V1}/users", tags=["Users"])
+API_V1 = "/api/v1"
+app.include_router(auth_router, prefix=f"{API_V1}/auth", tags=["Auth"])
+app.include_router(users_router, prefix=f"{API_V1}/users", tags=["Users"])
 # app.include_router(cycles_router, prefix=f"{API_V1}/cycles", tags=["Cycles"])
 # app.include_router(sheets_router, prefix=f"{API_V1}/goal-sheets", tags=["Goal Sheets"])
 # app.include_router(goals_router, prefix=f"{API_V1}/goals", tags=["Goals"])
