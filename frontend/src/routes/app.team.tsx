@@ -1,7 +1,9 @@
 import { createFileRoute, Navigate, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "@/store/auth.store";
-import { useTeamAnalytics, useActiveCycle } from "@/hooks/api";
+import { useTeamAnalytics, useActiveCycle, useCycles } from "@/hooks/api";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -65,9 +67,23 @@ export default function TeamPage() {
   if (!me) return null;
   if (me.role !== "manager" && me.role !== "admin") return <Navigate to="/app" />;
 
-  const { data: cycle } = useActiveCycle();
-  const { data: raw, isLoading } = useTeamAnalytics({ cycle_id: cycle?.id }, true);
+  const { data: activeCycle } = useActiveCycle();
+  const { data: cycles } = useCycles(true);
+  const [selectedCycleId, setSelectedCycleId] = useState<string | undefined>(undefined);
   const [selected, setSelected] = useState<string | null>(null);
+
+  // Default to active cycle once loaded
+  useEffect(() => {
+    if (activeCycle?.id && !selectedCycleId) {
+      setSelectedCycleId(activeCycle.id);
+    }
+  }, [activeCycle?.id]);
+
+  const currentCycle = (cycles ?? []).find((c: any) => c.id === selectedCycleId) ?? activeCycle;
+  const { data: raw, isLoading } = useTeamAnalytics(
+    { cycle_id: selectedCycleId },
+    !!selectedCycleId,
+  );
 
   const summary = raw?.team_summary;
   const employees: any[] = raw?.employees ?? [];
@@ -107,17 +123,32 @@ export default function TeamPage() {
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Team Dashboard</h1>
           <p className="text-sm text-muted-foreground">
-            {cycle ? `${cycle.year} · ${cycle.phase}` : "Active Cycle"} · Live analytics
+            {currentCycle ? `${currentCycle.year} · ${currentCycle.phase}` : "Loading cycle…"} · Analytics
           </p>
         </div>
-        {summary && (
-          <div className="flex gap-2 flex-wrap">
-            <Badge className="bg-emerald-600 text-white">{summary.on_track_count} On Track</Badge>
+        <div className="flex items-center gap-3 flex-wrap">
+          {/* Cycle selector */}
+          <Select value={selectedCycleId ?? ""} onValueChange={(v) => { setSelectedCycleId(v); setSelected(null); }}>
+            <SelectTrigger className="w-52 text-sm">
+              <SelectValue placeholder="Select cycle…" />
+            </SelectTrigger>
+            <SelectContent>
+              {(cycles ?? []).map((c: any) => (
+                <SelectItem key={c.id} value={c.id}>
+                  {c.year} · {c.phase} {c.is_active ? "(Active)" : ""}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {summary && (
+            <div className="flex gap-2 flex-wrap">
+              <Badge className="bg-emerald-600 text-white">{summary.on_track_count} On Track</Badge>
             {summary.at_risk_count > 0 && (
               <Badge variant="destructive">{summary.at_risk_count} At Risk</Badge>
             )}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </header>
 
       {isLoading ? (

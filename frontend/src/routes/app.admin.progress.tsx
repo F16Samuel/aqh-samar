@@ -1,7 +1,9 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "@/store/auth.store";
-import { useManagerAnalytics, useActiveCycle } from "@/hooks/api";
+import { useManagerAnalytics, useActiveCycle, useCycles } from "@/hooks/api";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import {
   Card, CardContent, CardHeader, CardTitle, CardDescription,
 } from "@/components/ui/card";
@@ -56,13 +58,22 @@ function StatBox({ label, value, sub }: { label: string; value: string | number;
 export default function ProgressTrackerPage() {
   const me = useAuthStore((s) => s.profile);
   const isAdmin = me?.role === "admin";
-  const { data: cycle } = useActiveCycle();
-  const { data: raw, isLoading } = useManagerAnalytics(
-    { cycle_id: cycle?.id },
-    isAdmin,
-  );
 
+  const { data: activeCycle } = useActiveCycle();
+  const { data: cycles } = useCycles(isAdmin);
+  const [selectedCycleId, setSelectedCycleId] = useState<string | undefined>(undefined);
   const [expandedManager, setExpandedManager] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (activeCycle?.id && !selectedCycleId) {
+      setSelectedCycleId(activeCycle.id);
+    }
+  }, [activeCycle?.id]);
+
+  const { data: raw, isLoading } = useManagerAnalytics(
+    { cycle_id: selectedCycleId },
+    isAdmin && !!selectedCycleId,
+  );
 
   if (!me) return null;
   if (!isAdmin) return <Navigate to="/app" />;
@@ -110,9 +121,23 @@ export default function ProgressTrackerPage() {
             Hierarchical analytics · {company?.cycle_label ?? "Active Cycle"}
           </p>
         </div>
-        <Badge variant="outline" className="text-xs">
-          {company?.total_managers ?? 0} Managers · Live
-        </Badge>
+        <div className="flex items-center gap-3">
+          <Select value={selectedCycleId ?? ""} onValueChange={(v) => { setSelectedCycleId(v); setExpandedManager(null); }}>
+            <SelectTrigger className="w-52 text-sm">
+              <SelectValue placeholder="Select cycle…" />
+            </SelectTrigger>
+            <SelectContent>
+              {(cycles ?? []).map((c: any) => (
+                <SelectItem key={c.id} value={c.id}>
+                  {c.year} · {c.phase} {c.is_active ? "(Active)" : ""}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Badge variant="outline" className="text-xs">
+            {company?.total_managers ?? 0} Managers
+          </Badge>
+        </div>
       </header>
 
       {isLoading ? (
