@@ -223,7 +223,18 @@ async def approve_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Dep
     
     if not sheet:
         return err("NOT_FOUND", "Goal sheet not found", 404)
-        
+
+    # Optimistic locking check
+    if_unmodified_since = request.headers.get("If-Unmodified-Since")
+    if if_unmodified_since:
+        try:
+            from datetime import datetime
+            # We compare ISO strings or simple timestamp for hackathon
+            if sheet.updated_at.isoformat() != if_unmodified_since:
+                return err("CONFLICT", "The sheet has been modified by another user. Please refresh.", 409)
+        except Exception:
+            pass
+            
     if user.role != "admin":
         from app.models.user import User
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
@@ -259,7 +270,16 @@ async def return_sheet(sheet_id: UUID, payload: ReturnPayload, request: Request,
     
     if not sheet:
         return err("NOT_FOUND", "Goal sheet not found", 404)
-        
+
+    # Optimistic locking check
+    if_unmodified_since = request.headers.get("If-Unmodified-Since")
+    if if_unmodified_since:
+        try:
+            if sheet.updated_at.isoformat() != if_unmodified_since:
+                return err("CONFLICT", "The sheet has been modified by another user. Please refresh.", 409)
+        except Exception:
+            pass
+            
     if user.role != "admin":
         from app.models.user import User
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))

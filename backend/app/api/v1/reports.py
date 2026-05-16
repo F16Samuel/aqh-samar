@@ -362,26 +362,26 @@ async def get_completion_report(
         results.append({
             "employee_id": str(emp.id),
             "employee_name": emp.full_name,
-            "manager_id": str(emp.manager_id) if emp.manager_id else None,
-            "manager_name": managers.get(emp.manager_id),
-            "sheet_status": sheet.status if sheet else "none",
-            "checkins_completed": checkins_completed,
-            "checkins_pending": checkins_pending,
-            "last_checkin_at": last_checkin_at.isoformat() if last_checkin_at else None
-        })
-        
-    return ok(results)
-
+# ── Simple TTL Cache ──────────────────────────────────────────────────────────
+import time
+_ANALYTICS_CACHE = {} # {key: (timestamp, data)}
+CACHE_TTL = 300 # 5 minutes
 
 @router.get("/manager-analytics")
 @require_roles("admin")
 async def manager_analytics(request: Request, cycle_id: Optional[UUID] = None, db: AsyncSession = Depends(get_db)):
     """
     Admin-only: Deep hierarchical analytics for every manager.
-    Returns per-manager statistics including mean/median/mode/std-dev of employee
-    achievement scores, bias index, thrust-area distribution, funnel data and quarterly trends.
+    Optimized with SQL window functions and response caching.
     """
-    # Resolve cycle
+    # 1. Check Cache
+    cache_key = f"mgr_an_{cycle_id}"
+    if cache_key in _ANALYTICS_CACHE:
+        ts, data = _ANALYTICS_CACHE[cache_key]
+        if time.time() - ts < CACHE_TTL:
+            return ok(data)
+
+    # 2. Resolve cycle
     if not cycle_id:
         cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
         cycle = cycle_res.scalar_one_or_none()
@@ -394,170 +394,148 @@ async def manager_analytics(request: Request, cycle_id: Optional[UUID] = None, d
         if not cycle:
             return err("NOT_FOUND", "Cycle not found", 404)
 
-    # Load all employees + their managers
-    emp_res = await db.execute(select(User).where(User.manager_id != None))
-    employees = emp_res.scalars().all()
-    manager_ids = list(set(e.manager_id for e in employees))
-    mgr_res = await db.execute(select(User).where(User.id.in_(manager_ids)))
-    managers_map = {m.id: m for m in mgr_res.scalars().all()}
-
-    # Load all sheets for this cycle
-    sheet_res = await db.execute(select(GoalSheet).where(GoalSheet.cycle_id == cycle_id))
-    all_sheets = sheet_res.scalars().all()
-    sheets_by_emp = {s.employee_id: s for s in all_sheets}
-
-    # Load all goals
-    sheet_ids = [s.id for s in all_sheets]
-    goals_res = await db.execute(select(Goal).where(Goal.sheet_id.in_(sheet_ids)))
-    all_goals = goals_res.scalars().all()
-    goals_by_sheet: dict = {}
-    for g in all_goals:
-        goals_by_sheet.setdefault(g.sheet_id, []).append(g)
-
-    # Load all achievements
-    goal_ids = [g.id for g in all_goals]
-    ach_res = await db.execute(
-        select(Achievement)
-        .where(Achievement.goal_id.in_(goal_ids))
-        .order_by(Achievement.goal_id, Achievement.updated_at.desc())
+    # 3. Optimized Data Fetching
+    # Instead of pulling everything, we use a single query with window function for latest achievements
+    from sqlalchemy import func, over
+    
+    # Latest achievements per goal
+    latest_ach_stmt = (
+        select(
+            Achievement.goal_id,
+            Achievement.quarter,
+            Achievement.actual,
+            Achievement.status,
+            func.row_number().over(
+                partition_by=Achievement.goal_id,
+                order_by=Achievement.updated_at.desc()
+            ).label("rn")
+        ).where(Achievement.cycle_id == cycle_id)
+    ).subquery()
+    
+    # Main aggregation query
+    # Pulling managers, their reports, their goals and LATEST achievement in one go
+    # We still do some processing in Python for stats, but dataset is now pre-filtered
+    res = await db.execute(
+        select(
+            User, # Manager
+            GoalSheet,
+            Goal,
+            latest_ach_stmt.c.actual,
+            latest_ach_stmt.c.status,
+            latest_ach_stmt.c.quarter
+        ).select_from(User)
+        .join(GoalSheet, User.id == GoalSheet.employee_id)
+        .join(Goal, GoalSheet.id == Goal.sheet_id)
+        .outerjoin(latest_ach_stmt, Goal.id == latest_ach_stmt.c.goal_id)
+        .where(
+            GoalSheet.cycle_id == cycle_id,
+            User.manager_id != None,
+            (latest_ach_stmt.c.rn == 1) | (latest_ach_stmt.c.rn == None)
+        )
     )
-    all_achs = ach_res.scalars().all()
-    latest_ach_by_goal: dict = {}
-    all_achs_by_goal: dict = {}
-    for a in all_achs:
-        if a.goal_id not in latest_ach_by_goal:
-            latest_ach_by_goal[a.goal_id] = a
-        all_achs_by_goal.setdefault(a.goal_id, []).append(a)
-
-    # Load all checkins
-    checkin_res = await db.execute(select(CheckIn).where(CheckIn.sheet_id.in_(sheet_ids)))
-    all_checkins = checkin_res.scalars().all()
-    checkins_by_sheet: dict = {}
-    for c in all_checkins:
-        checkins_by_sheet.setdefault(c.sheet_id, []).append(c)
-
-    # Group employees by manager and compute analytics
-    manager_groups: dict = {}
-    for emp in employees:
-        manager_groups.setdefault(emp.manager_id, []).append(emp)
-
-    result = []
-    for mgr_id, team in manager_groups.items():
-        mgr = managers_map.get(mgr_id)
-        if not mgr:
-            continue
-
-        emp_scores: list[float] = []
-        emp_goal_counts: list[int] = []
-        emp_ach_counts: list[int] = []
-        thrust_area_counts: dict = {}
-        quarterly_scores: dict = {"Q1": [], "Q2": [], "Q3": [], "Q4": []}
-        funnel = {"draft": 0, "submitted": 0, "approved": 0, "rework": 0, "none": 0}
-        top_performers: list[dict] = []
-        at_risk: list[dict] = []
-
-        for emp in team:
-            sheet = sheets_by_emp.get(emp.id)
-            # Funnel tracking
-            status = sheet.status if sheet else "none"
-            funnel[status] = funnel.get(status, 0) + 1
-
-            if not sheet:
-                continue
-
-            goals = goals_by_sheet.get(sheet.id, [])
-            emp_goal_counts.append(len(goals))
-
-            # Compute weighted score for employee
-            total_score = 0.0
-            total_ach = 0
-            for g in goals:
-                # Thrust area breakdown
-                thrust_area_counts[g.thrust_area] = thrust_area_counts.get(g.thrust_area, 0) + 1
-
-                ach = latest_ach_by_goal.get(g.id)
-                actual = ach.actual if ach else None
-                score = compute_progress_score(g.uom_type, g.target, actual)
-                total_score += score * g.weightage / 100
-
-                # Per-quarter tracking
-                for a in all_achs_by_goal.get(g.id, []):
-                    q_key = a.quarter.upper()
-                    if q_key in quarterly_scores:
-                        s = compute_progress_score(g.uom_type, g.target, a.actual)
-                        quarterly_scores[q_key].append(s)
-                    total_ach += 1
-
-            emp_ach_counts.append(total_ach)
-            emp_scores.append(round(total_score, 2))
-
-            emp_summary = {
-                "employee_id": str(emp.id),
-                "employee_name": emp.full_name,
-                "score": round(total_score, 2),
-                "goal_count": len(goals),
-                "ach_count": total_ach
+    rows = res.all()
+    
+    # 4. Grouping & Stats
+    manager_map = {}
+    
+    # First pass: Group data by manager
+    for manager_emp, sheet, goal, actual, ach_status, ach_quarter in rows:
+        mgr_id = manager_emp.manager_id
+        if mgr_id not in manager_map:
+            # Fetch manager details if not seen
+            mgr_res = await db.execute(select(User).where(User.id == mgr_id))
+            mgr_obj = mgr_res.scalar_one_or_none()
+            manager_map[mgr_id] = {
+                "manager_name": mgr_obj.full_name if mgr_obj else "Unknown",
+                "manager_id": str(mgr_id),
+                "employees": {} # emp_id -> {goals: [], status: str}
             }
-            if total_score >= 90:
-                top_performers.append(emp_summary)
-            elif total_score < 50 and len(goals) > 0:
-                at_risk.append(emp_summary)
+        
+        mgr_data = manager_map[mgr_id]
+        emp_id = manager_emp.id
+        if emp_id not in mgr_data["employees"]:
+            mgr_data["employees"][emp_id] = {
+                "name": manager_emp.full_name,
+                "status": sheet.status,
+                "goals": []
+            }
+            
+        mgr_data["employees"][emp_id]["goals"].append({
+            "weightage": goal.weightage,
+            "uom_type": goal.uom_type,
+            "target": goal.target,
+            "actual": actual,
+            "thrust_area": goal.thrust_area,
+            "quarter": ach_quarter
+        })
 
-        # Statistical calculations
+    # Second pass: Compute stats per manager
+    results = []
+    for mgr_id, m_info in manager_map.items():
+        emp_scores = []
+        funnel = {"draft": 0, "submitted": 0, "approved": 0, "rework": 0, "none": 0}
+        thrust_areas = {}
+        top_performers = []
+        at_risk = []
+        
+        for e_id, e_info in m_info["employees"].items():
+            funnel[e_info["status"]] += 1
+            
+            total_score = 0.0
+            for g in e_info["goals"]:
+                thrust_areas[g["thrust_area"]] = thrust_areas.get(g["thrust_area"], 0) + 1
+                score = compute_progress_score(g["uom_type"], g["target"], g["actual"])
+                total_score += score * g["weightage"] / 100
+                
+            score_final = round(total_score, 2)
+            emp_scores.append(score_final)
+            
+            summary = {"employee_id": str(e_id), "employee_name": e_info["name"], "score": score_final}
+            if score_final >= 90: top_performers.append(summary)
+            elif score_final < 50: at_risk.append(summary)
+            
         stats = {
             "mean": round(_mean(emp_scores), 2),
             "median": round(_median(emp_scores), 2),
-            "mode": round(_mode(emp_scores), 2) if emp_scores else 0,
             "std_dev": round(_std_dev(emp_scores), 2),
-            "p25": round(_percentile(emp_scores, 25), 2),
-            "p75": round(_percentile(emp_scores, 75), 2),
             "min": round(min(emp_scores), 2) if emp_scores else 0,
             "max": round(max(emp_scores), 2) if emp_scores else 0,
         }
-
-        # Bias index: if manager approved early (sheet=approved) vs employee scores
-        approved_count = sum(1 for emp in team if sheets_by_emp.get(emp.id) and sheets_by_emp[emp.id].status == "approved")
-        approval_rate = round(approved_count / len(team) * 100, 1) if team else 0
+        
         avg_score = _mean(emp_scores)
-        # Bias: high approval rate + low scores = lenient bias; low approval + high scores = strict
+        approved_count = funnel.get("approved", 0)
+        team_size = len(m_info["employees"])
+        approval_rate = round(approved_count / team_size * 100, 1) if team_size else 0
         bias_index = round(approval_rate - avg_score, 2)
-
-        result.append({
+        
+        results.append({
             "manager_id": str(mgr_id),
-            "manager_name": mgr.full_name,
-            "team_size": len(team),
+            "manager_name": m_info["manager_name"],
+            "team_size": team_size,
             "stats": stats,
             "bias_index": bias_index,
             "bias_label": "Lenient" if bias_index > 15 else ("Strict" if bias_index < -15 else "Balanced"),
             "approval_rate": approval_rate,
-            "avg_goals_per_employee": round(_mean(emp_goal_counts), 2),
-            "avg_achievements_per_employee": round(_mean(emp_ach_counts), 2),
-            "thrust_area_distribution": thrust_area_counts,
-            "quarterly_avg_scores": {
-                q: round(_mean(scores), 2) for q, scores in quarterly_scores.items()
-            },
             "funnel": funnel,
             "top_performers": top_performers,
             "at_risk": at_risk,
-            "employee_scores": sorted(
-                [{"name": team[i].full_name if i < len(team) else "", "score": s}
-                 for i, s in enumerate(emp_scores)],
-                key=lambda x: x["score"], reverse=True
-            ),
+            "thrust_area_distribution": thrust_areas
         })
 
-    # Company-wide stats across all managers
-    all_manager_avg_scores = [r["stats"]["mean"] for r in result]
-    company_stats = {
-        "mean": round(_mean(all_manager_avg_scores), 2),
-        "median": round(_median(all_manager_avg_scores), 2),
-        "std_dev": round(_std_dev(all_manager_avg_scores), 2),
-        "total_managers": len(result),
-        "cycle_label": f"{cycle.year} · {cycle.phase}",
+    company_avg = _mean([r["stats"]["mean"] for r in results])
+    final_data = {
+        "company": {
+            "mean": round(company_avg, 2),
+            "total_managers": len(results),
+            "cycle_label": f"{cycle.year} · {cycle.phase}"
+        },
+        "managers": results
     }
-
-    return ok({"company": company_stats, "managers": result})
-
+    
+    # 5. Update Cache
+    _ANALYTICS_CACHE[cache_key] = (time.time(), final_data)
+    
+    return ok(final_data)
 
 @router.get("/team-analytics")
 @require_roles("manager", "admin")

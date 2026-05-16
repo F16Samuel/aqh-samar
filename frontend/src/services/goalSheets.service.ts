@@ -7,7 +7,8 @@ export const goalSheetsService = {
   team: () => http.get<GoalSheetOut[]>("/goal-sheets/team"),
   get: (id: string) => http.get<GoalSheetOut>(`/goal-sheets/${id}`),
   submit: (id: string) => http.post<GoalSheetOut>(`/goal-sheets/${id}/submit`),
-  approve: (id: string) => http.post<GoalSheetOut>(`/goal-sheets/${id}/approve`),
-  return: (id: string, payload: ReturnPayload) =>
-    http.post<GoalSheetOut>(`/goal-sheets/${id}/return`, payload),
+  approve: (id: string, headers?: any) => 
+    http.post<GoalSheetOut>(`/goal-sheets/${id}/approve`, undefined, { headers }),
+  return: (id: string, payload: ReturnPayload, headers?: any) =>
+    http.post<GoalSheetOut>(`/goal-sheets/${id}/return`, payload, { headers }),
 };

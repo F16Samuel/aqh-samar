@@ -25,10 +25,49 @@ async def list_departments(request: Request, db: AsyncSession = Depends(get_db))
 @router.post("/profiles")
 @require_roles("admin")
 async def create_user_profile(payload: UserCreate, request: Request, db: AsyncSession = Depends(get_db)):
-    """Demo: Create a user profile locally for hierarchy. (Does not create Supabase auth)."""
-    import uuid
+    """
+    Create a user profile and provision them in Supabase Auth.
+    If the user already exists in Supabase, we link to their existing ID.
+    """
+    from app.lib.supabase import get_supabase_admin_client
+    supabase = get_supabase_admin_client()
+    
+    # 1. Check if user exists in Supabase or create them
+    # We use admin.create_user which doesn't require email confirmation if configured
+    try:
+        # Check if user already exists in our DB to avoid duplicates
+        existing_db_user = await db.execute(select(User).where(User.email == payload.email))
+        if existing_db_user.scalar_one_or_none():
+            return err("ALREADY_EXISTS", "A user with this email already exists in the portal.", 400)
+
+        # Provision in Supabase Auth
+        # Note: In production, you might want to generate a random password and send it via email
+        # For this portal, we'll create them so they can use "Forgot Password" or SSO
+        res = supabase.auth.admin.create_user({
+            "email": payload.email,
+            "user_metadata": {"full_name": payload.full_name},
+            "email_confirm": True
+        })
+        
+        supabase_id = res.user.id
+    except Exception as e:
+        # If user already exists in Supabase, try to get their ID
+        try:
+            # This is a bit of a hack since there's no direct "get user by email" in the admin client easily
+            # but we can list users and filter or try to sign up and catch the error
+            # For brevity and "hackathon finalist" quality, we'll try to list
+            users_res = supabase.auth.admin.list_users()
+            matching_user = next((u for u in users_res if u.email == payload.email), None)
+            if matching_user:
+                supabase_id = matching_user.id
+            else:
+                return err("PROVISIONING_FAILED", f"Could not create user in Supabase: {str(e)}", 400)
+        except Exception:
+            return err("PROVISIONING_FAILED", f"Supabase Auth error: {str(e)}", 400)
+
+    # 2. Create local profile linked to Supabase ID
     new_user = User(
-        id=uuid.uuid4(),
+        id=supabase_id,
         email=payload.email,
         full_name=payload.full_name,
         role=payload.role,
@@ -41,7 +80,8 @@ async def create_user_profile(payload: UserCreate, request: Request, db: AsyncSe
         await db.refresh(new_user)
     except Exception as e:
         await db.rollback()
-        return err("CREATE_FAILED", "Email might already exist or invalid data.", 400)
+        return err("CREATE_FAILED", f"Database error: {str(e)}", 400)
+        
     return ok(UserOut.model_validate(new_user).model_dump(mode="json"), 201)
 
 @router.get("/me")
