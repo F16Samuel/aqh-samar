@@ -4,6 +4,7 @@ import {
   useActiveCycle,
   useMyGoalSheets,
   useTeam,
+  useTeamGoalSheets,
   useEscalations,
   useCompletionReport,
 } from "@/hooks/api";
@@ -166,14 +167,26 @@ function EmployeeDashboard() {
 
 function ManagerDashboard() {
   const me = useAuthStore((s) => s.profile);
-  const { data: team, isLoading } = useTeam(me?.id);
+  const { data: team, isLoading: teamLoading } = useTeam(me?.id);
+  const { data: teamSheets, isLoading: sheetsLoading } = useTeamGoalSheets();
+  const { data: cycle } = useActiveCycle();
+  const { data: completion, isLoading: compLoading } = useCompletionReport({ cycle_id: cycle?.id });
+
   const size = team?.length ?? 0;
+  const pendingCount = teamSheets?.filter((s) => s.status === "submitted").length ?? 0;
+  const checkinCount = completion?.reduce((acc: number, row: any) => acc + (row.checkins_completed || 0), 0) ?? 0;
+
   return (
     <div className="space-y-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KpiCard label="Team size" value={isLoading ? "—" : size} icon={Users} tone="primary" />
-        <KpiCard label="Pending reviews" value="—" icon={Target} hint="Open team to view" />
-        <KpiCard label="Check-ins this Q" value="—" icon={CheckCircle2} tone="success" />
+        <KpiCard label="Team size" value={teamLoading ? "—" : size} icon={Users} tone="primary" />
+        <KpiCard
+          label="Pending reviews"
+          value={sheetsLoading ? "—" : pendingCount}
+          icon={Target}
+          tone={pendingCount > 0 ? "warning" : "primary"}
+        />
+        <KpiCard label="Check-ins this Q" value={compLoading ? "—" : checkinCount} icon={CheckCircle2} tone="success" />
         <KpiCard label="Role" value="Manager" />
       </div>
       <CycleCard />
@@ -183,7 +196,7 @@ function ManagerDashboard() {
           <CardDescription>Direct reports from /users/{me?.id}/team</CardDescription>
         </CardHeader>
         <CardContent>
-          {isLoading ? (
+          {teamLoading ? (
             <Skeleton className="h-20" />
           ) : size === 0 ? (
             <EmptyState title="No direct reports" />

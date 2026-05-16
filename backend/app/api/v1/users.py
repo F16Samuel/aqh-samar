@@ -52,7 +52,7 @@ async def get_current_user(request: Request):
     return ok(UserOut.model_validate(user).model_dump(mode="json"))
 
 @router.get("/")
-@require_roles("admin")
+@require_roles("admin", "manager")
 async def list_users(request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: list all users."""
     from sqlalchemy.orm import aliased

@@ -133,26 +133,38 @@ interface NavItem {
 }
 
 function navFor(role: Role): { label: string; items: NavItem[] }[] {
-  const groups: { label: string; items: NavItem[] }[] = [
-    {
+  const groups: { label: string; items: NavItem[] }[] = [];
+
+  if (role !== "admin") {
+    groups.push({
       label: "Workspace",
       items: [
         { title: "Dashboard", url: "/app", icon: LayoutDashboard },
         { title: "My Goal Sheets", url: "/app/goal-sheets", icon: Target },
         { title: "Achievements", url: "/app/achievements", icon: CheckSquare },
       ],
-    },
-  ];
-  if (role === "manager" || role === "admin") {
+    });
+  } else {
+    groups.push({
+      label: "Workspace",
+      items: [
+        { title: "Dashboard", url: "/app", icon: LayoutDashboard },
+      ],
+    });
+  }
+
+  if (role === "manager") {
     groups.push({
       label: "Manager",
       items: [{ title: "Team", url: "/app/team", icon: Users }],
     });
   }
+
   if (role === "admin") {
     groups.push({
       label: "Admin",
       items: [
+        { title: "Progress Tracker", url: "/app/admin/progress", icon: LayoutDashboard },
         { title: "Cycles", url: "/app/admin/cycles", icon: Calendar },
         { title: "Escalations", url: "/app/admin/escalations", icon: AlertTriangle },
         { title: "Shared Goals", url: "/app/admin/shared-goals", icon: Share2 },
@@ -162,10 +174,12 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
       ],
     });
   }
+
   groups.push({
     label: "Insights",
     items: [{ title: "Reports", url: "/app/reports", icon: FileBarChart }],
   });
+
   return groups;
 }
 

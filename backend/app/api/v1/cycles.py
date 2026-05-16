@@ -25,7 +25,7 @@ async def get_active_cycle(request: Request, db: AsyncSession = Depends(get_db))
     return ok(CycleOut.model_validate(cycle).model_dump(mode="json"))
 
 @router.get("/")
-@require_roles("admin")
+@require_roles("admin", "manager")
 async def list_cycles(request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: list all cycles."""
     result = await db.execute(select(Cycle).order_by(Cycle.year.desc(), Cycle.window_open.desc()))

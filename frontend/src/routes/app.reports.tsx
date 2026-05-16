@@ -25,7 +25,7 @@ function ReportsPage() {
   const me = useAuthStore((s) => s.profile);
   const isPrivileged = me?.role === "admin" || me?.role === "manager";
   const isAdmin = me?.role === "admin";
-  const { data: cycles } = useCycles(isAdmin);
+  const { data: cycles } = useCycles(isPrivileged);
   const { data: users } = useUsers(isPrivileged);
   const [cycleId, setCycleId] = useState<string>("");
   const [departmentId, setDepartmentId] = useState<string>("");

@@ -21,6 +21,7 @@ import { Route as AppGoalSheetsSheetIdRouteImport } from './routes/app.goal-shee
 import { Route as AppAdminUsersRouteImport } from './routes/app.admin.users'
 import { Route as AppAdminUnlockRouteImport } from './routes/app.admin.unlock'
 import { Route as AppAdminSharedGoalsRouteImport } from './routes/app.admin.shared-goals'
+import { Route as AppAdminProgressRouteImport } from './routes/app.admin.progress'
 import { Route as AppAdminEscalationsRouteImport } from './routes/app.admin.escalations'
 import { Route as AppAdminCyclesRouteImport } from './routes/app.admin.cycles'
 import { Route as AppAdminAuditRouteImport } from './routes/app.admin.audit'
@@ -85,6 +86,11 @@ const AppAdminSharedGoalsRoute = AppAdminSharedGoalsRouteImport.update({
   path: '/admin/shared-goals',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAdminProgressRoute = AppAdminProgressRouteImport.update({
+  id: '/admin/progress',
+  path: '/admin/progress',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAdminEscalationsRoute = AppAdminEscalationsRouteImport.update({
   id: '/admin/escalations',
   path: '/admin/escalations',
@@ -112,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
+  '/app/admin/progress': typeof AppAdminProgressRoute
   '/app/admin/shared-goals': typeof AppAdminSharedGoalsRoute
   '/app/admin/unlock': typeof AppAdminUnlockRoute
   '/app/admin/users': typeof AppAdminUsersRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByTo {
   '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
+  '/app/admin/progress': typeof AppAdminProgressRoute
   '/app/admin/shared-goals': typeof AppAdminSharedGoalsRoute
   '/app/admin/unlock': typeof AppAdminUnlockRoute
   '/app/admin/users': typeof AppAdminUsersRoute
@@ -146,6 +154,7 @@ export interface FileRoutesById {
   '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
+  '/app/admin/progress': typeof AppAdminProgressRoute
   '/app/admin/shared-goals': typeof AppAdminSharedGoalsRoute
   '/app/admin/unlock': typeof AppAdminUnlockRoute
   '/app/admin/users': typeof AppAdminUsersRoute
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
     | '/app/admin/audit'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
+    | '/app/admin/progress'
     | '/app/admin/shared-goals'
     | '/app/admin/unlock'
     | '/app/admin/users'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/app/admin/audit'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
+    | '/app/admin/progress'
     | '/app/admin/shared-goals'
     | '/app/admin/unlock'
     | '/app/admin/users'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/app/admin/audit'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
+    | '/app/admin/progress'
     | '/app/admin/shared-goals'
     | '/app/admin/unlock'
     | '/app/admin/users'
@@ -297,6 +309,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAdminSharedGoalsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/admin/progress': {
+      id: '/app/admin/progress'
+      path: '/admin/progress'
+      fullPath: '/app/admin/progress'
+      preLoaderRoute: typeof AppAdminProgressRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/admin/escalations': {
       id: '/app/admin/escalations'
       path: '/admin/escalations'
@@ -329,6 +348,7 @@ interface AppRouteChildren {
   AppAdminAuditRoute: typeof AppAdminAuditRoute
   AppAdminCyclesRoute: typeof AppAdminCyclesRoute
   AppAdminEscalationsRoute: typeof AppAdminEscalationsRoute
+  AppAdminProgressRoute: typeof AppAdminProgressRoute
   AppAdminSharedGoalsRoute: typeof AppAdminSharedGoalsRoute
   AppAdminUnlockRoute: typeof AppAdminUnlockRoute
   AppAdminUsersRoute: typeof AppAdminUsersRoute
@@ -344,6 +364,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppAdminAuditRoute: AppAdminAuditRoute,
   AppAdminCyclesRoute: AppAdminCyclesRoute,
   AppAdminEscalationsRoute: AppAdminEscalationsRoute,
+  AppAdminProgressRoute: AppAdminProgressRoute,
   AppAdminSharedGoalsRoute: AppAdminSharedGoalsRoute,
   AppAdminUnlockRoute: AppAdminUnlockRoute,
   AppAdminUsersRoute: AppAdminUsersRoute,

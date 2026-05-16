@@ -12,6 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogT
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { UserOut, Role, UserCreate } from "@/types/api";
 
 // DEPARTMENTS array removed - using useDepartments hook instead
@@ -22,11 +23,13 @@ export const Route = createFileRoute("/app/admin/users")({
 
 function UsersPage() {
   const me = useAuthStore((s) => s.profile);
-  if (!me) return null;
-  if (me.role !== "admin") return <Navigate to="/app" />;
+  const isAdmin = me?.role === "admin";
+  
+  const { data: users, isLoading } = useUsers(isAdmin);
+  const { data: depts } = useDepartments(isAdmin);
 
-  const { data: users, isLoading } = useUsers();
-  const { data: depts } = useDepartments();
+  if (!me) return null;
+  if (!isAdmin) return <Navigate to="/app" />;
 
   return (
     <div className="space-y-6">
@@ -38,45 +41,67 @@ function UsersPage() {
         <NewUserDialog users={users ?? []} />
       </header>
       
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base">All users</CardTitle>
-          <CardDescription>Assign roles, departments, and managers.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          {isLoading ? (
-            <Skeleton className="h-40" />
-          ) : (
+      <Tabs defaultValue="employees" className="w-full">
+        <TabsList className="grid w-full grid-cols-3 mb-4">
+          <TabsTrigger value="managers">Managers ({users?.filter(u => u.role === "manager").length ?? 0})</TabsTrigger>
+          <TabsTrigger value="employees">Employees ({users?.filter(u => u.role === "employee").length ?? 0})</TabsTrigger>
+          <TabsTrigger value="admins">Admins/HR ({users?.filter(u => u.role === "admin").length ?? 0})</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="managers">
+          <UserTable users={users?.filter(u => u.role === "manager") ?? []} allUsers={users ?? []} isLoading={isLoading} title="Managers" />
+        </TabsContent>
+        <TabsContent value="employees">
+          <UserTable users={users?.filter(u => u.role === "employee") ?? []} allUsers={users ?? []} isLoading={isLoading} title="Employees" />
+        </TabsContent>
+        <TabsContent value="admins">
+          <UserTable users={users?.filter(u => u.role === "admin") ?? []} allUsers={users ?? []} isLoading={isLoading} title="Admins/HR" />
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
+
+function UserTable({ users, allUsers, isLoading, title }: { users: UserOut[]; allUsers: UserOut[]; isLoading: boolean; title: string }) {
+  return (
+    <Card>
+      <CardHeader className="pb-3">
+        <CardTitle className="text-base">{title}</CardTitle>
+        <CardDescription>View and manage {title.toLowerCase()} accounts.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {isLoading ? (
+          <Skeleton className="h-40" />
+        ) : (
+          <div className="max-h-[380px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
             <Table>
-              <TableHeader>
+              <TableHeader className="sticky top-0 bg-background z-10">
                 <TableRow>
                   <TableHead>Name</TableHead>
                   <TableHead>Email</TableHead>
-                  <TableHead>Role</TableHead>
                   <TableHead>Department</TableHead>
                   <TableHead>Manager</TableHead>
                   <TableHead />
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users?.map((u) => (
-                    <TableRow key={u.id}>
-                      <TableCell className="font-medium">{u.full_name}</TableCell>
-                      <TableCell className="text-muted-foreground">{u.email}</TableCell>
-                      <TableCell><Badge variant="outline">{u.role}</Badge></TableCell>
-                      <TableCell>{u.department_name || "-"}</TableCell>
-                      <TableCell>{u.manager_name || "-"}</TableCell>
-                      <TableCell className="text-right">
-                        <UserEditDialog user={u} users={users} />
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
+                {users.map((u) => (
+                  <TableRow key={u.id}>
+                    <TableCell className="font-medium">{u.full_name}</TableCell>
+                    <TableCell className="text-muted-foreground">{u.email}</TableCell>
+                    <TableCell>{u.department_name || "-"}</TableCell>
+                    <TableCell>{u.manager_name || "-"}</TableCell>
+                    <TableCell className="text-right">
+                      <UserEditDialog user={u} users={allUsers} />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
             </Table>
-          )}
-        </CardContent>
-      </Card>
-    </div>
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }
 

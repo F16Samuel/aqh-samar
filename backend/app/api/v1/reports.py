@@ -331,6 +331,7 @@ async def get_completion_report(
         results.append({
             "employee_id": str(emp.id),
             "employee_name": emp.full_name,
+            "manager_id": str(emp.manager_id) if emp.manager_id else None,
             "manager_name": managers.get(emp.manager_id),
             "sheet_status": sheet.status if sheet else "none",
             "checkins_completed": checkins_completed,

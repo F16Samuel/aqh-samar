@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/app/admin/audit")({
   component: AuditLogsPage,
@@ -12,10 +14,11 @@ export const Route = createFileRoute("/app/admin/audit")({
 
 function AuditLogsPage() {
   const me = useAuthStore((s) => s.profile);
-  if (!me) return null;
-  if (me.role !== "admin") return <Navigate to="/app" />;
+  const isAdmin = me?.role === "admin";
+  const { data: logs, isLoading } = useAuditLogs(isAdmin);
 
-  const { data: logs, isLoading } = useAuditLogs();
+  if (!me) return null;
+  if (!isAdmin) return <Navigate to="/app" />;
 
   return (
     <div className="space-y-6">
@@ -37,24 +40,41 @@ function AuditLogsPage() {
               <TableHeader>
                 <TableRow>
                   <TableHead>Timestamp</TableHead>
-                  <TableHead>User</TableHead>
-                  <TableHead>Goal ID</TableHead>
-                  <TableHead>Field</TableHead>
-                  <TableHead>Old Value</TableHead>
-                  <TableHead>New Value</TableHead>
+                  <TableHead>Action By</TableHead>
+                  <TableHead>Goal Affected</TableHead>
+                  <TableHead>Change</TableHead>
+                  <TableHead>Details</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {logs?.map((log) => (
                   <TableRow key={log.id}>
-                    <TableCell className="whitespace-nowrap">
-                      {format(new Date(log.changed_at), "MMM d, yyyy HH:mm:ss")}
+                    <TableCell className="whitespace-nowrap text-xs text-muted-foreground">
+                      {format(new Date(log.changed_at), "MMM d, HH:mm")}
                     </TableCell>
-                    <TableCell>{log.changed_by_name}</TableCell>
-                    <TableCell className="font-mono text-xs">{log.goal_id.slice(0, 8)}</TableCell>
-                    <TableCell className="font-medium">{log.field_name}</TableCell>
-                    <TableCell className="text-muted-foreground">{log.old_value || "-"}</TableCell>
-                    <TableCell>{log.new_value || "-"}</TableCell>
+                    <TableCell className="font-medium text-sm">{log.changed_by_name}</TableCell>
+                    <TableCell>
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-sm font-medium line-clamp-1">{log.goal_title}</span>
+                        <span className="text-[10px] font-mono text-muted-foreground uppercase">ID: {log.goal_id.slice(0, 4)}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="secondary" className="text-[10px] font-normal uppercase">
+                        {log.field_name}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="line-through text-muted-foreground italic truncate max-w-[80px]">
+                          {log.old_value || "None"}
+                        </span>
+                        <ArrowRight className="h-3 w-3 text-muted-foreground" />
+                        <span className="font-medium text-primary truncate max-w-[120px]">
+                          {log.new_value || "None"}
+                        </span>
+                      </div>
+                    </TableCell>
                   </TableRow>
                 ))}
                 {!logs?.length && (
