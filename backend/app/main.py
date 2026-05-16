@@ -12,8 +12,8 @@ from app.api.v1.users import router as users_router
 from app.api.v1.cycles import router as cycles_router
 from app.api.v1.goal_sheets import router as sheets_router
 from app.api.v1.goals import router as goals_router
-# from app.api.v1.achievements import router as achievements_router
-# from app.api.v1.checkins import router as checkins_router
+from app.api.v1.achievements import router as achievements_router
+from app.api.v1.checkins import router as checkins_router
 # from app.api.v1.reports import router as reports_router
 # from app.api.v1.admin import router as admin_router
 
@@ -65,7 +65,7 @@ app.include_router(users_router, prefix=f"{API_V1}/users", tags=["Users"])
 app.include_router(cycles_router, prefix=f"{API_V1}/cycles", tags=["Cycles"])
 app.include_router(sheets_router, prefix=f"{API_V1}/goal-sheets", tags=["Goal Sheets"])
 app.include_router(goals_router, prefix=f"{API_V1}/goals", tags=["Goals"])
-# app.include_router(achievements_router, prefix=f"{API_V1}/achievements", tags=["Achievements"])
-# app.include_router(checkins_router, prefix=f"{API_V1}/checkins", tags=["Check-ins"])
+app.include_router(achievements_router, prefix=f"{API_V1}/achievements", tags=["Achievements"])
+app.include_router(checkins_router, prefix=f"{API_V1}/checkins", tags=["Check-ins"])
 # app.include_router(reports_router, prefix=f"{API_V1}/reports", tags=["Reports"])
 # app.include_router(admin_router, prefix=f"{API_V1}/admin", tags=["Admin"])
