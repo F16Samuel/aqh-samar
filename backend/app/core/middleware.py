@@ -93,31 +93,15 @@ class AuthMiddleware(BaseHTTPMiddleware):
 
 class WindowGuardMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
+        # Only check active cycle existence here - quarter-level checks are in route handlers
         path = request.url.path
         if request.method in ("POST", "PATCH") and ("/api/v1/achievements" in path or "/api/v1/checkins" in path):
-            body = await request.body()
-            
-            async def receive():
-                return {"type": "http.request", "body": body}
-            request._receive = receive
-            
-            action_type = None
-            try:
-                if body:
-                    data = json.loads(body)
-                    q = data.get("quarter", "")
-                    if q:
-                        action_type = q.lower().replace(" ", "_")
-            except Exception:
-                pass
-                
             async with AsyncSessionLocal() as session:
                 cycle_res = await session.execute(select(Cycle).where(Cycle.is_active == True))
                 active_cycle = cycle_res.scalar_one_or_none()
                 if not active_cycle:
-                    return JSONResponse(status_code=422, content={"data": None, "error": {"code": "NO_ACTIVE_CYCLE", "message": "No active cycle found"}})
-                    
-                if not is_window_open(active_cycle, action_type=action_type):
-                    return JSONResponse(status_code=422, content={"data": None, "error": {"code": "WINDOW_CLOSED", "message": "Check-in window is not currently open"}})
-                    
+                    return JSONResponse(
+                        status_code=422,
+                        content={"data": None, "error": {"code": "NO_ACTIVE_CYCLE", "message": "No active cycle found"}}
+                    )
         return await call_next(request)

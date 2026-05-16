@@ -8,7 +8,9 @@ from app.core.responses import ok, err
 from app.core.security import require_roles
 from app.db.session import get_db
 from app.models.goal import GoalSheet, CheckIn
+from app.models.cycle import Cycle
 from app.schemas.checkin import CheckInCreate, CheckInOut
+from app.core.utils import is_window_open
 
 router = APIRouter()
 
@@ -16,7 +18,16 @@ router = APIRouter()
 @require_roles("manager", "admin")
 async def create_checkin(payload: CheckInCreate, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
-    
+
+    # Validate check-in window for this specific quarter
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    cycle = cycle_res.scalar_one_or_none()
+    if not cycle:
+        return err("NO_ACTIVE_CYCLE", "No active performance cycle found.", 400)
+    quarter_key = payload.quarter.lower().replace(" ", "_").replace("-", "_")
+    if not is_window_open(cycle, quarter_key):
+        return err("WINDOW_CLOSED", f"The check-in window for {payload.quarter} is not currently open.", 422)
+
     sheet_res = await db.execute(select(GoalSheet).where(GoalSheet.id == payload.sheet_id))
     sheet = sheet_res.scalar_one_or_none()
     
@@ -41,6 +52,7 @@ async def create_checkin(payload: CheckInCreate, request: Request, db: AsyncSess
     await db.refresh(checkin)
     
     return ok(CheckInOut.model_validate(checkin).model_dump(mode="json"), 201)
+
 
 @router.get("/sheet/{sheet_id}")
 @require_roles("employee", "manager", "admin")

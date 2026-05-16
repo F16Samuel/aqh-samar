@@ -107,6 +107,22 @@ export const useCompletionReport = (
     staleTime: 10 * 60_000,
   });
 
+export const useTeamAnalytics = (params: { cycle_id?: string } = {}, enabled = true) =>
+  useQuery({
+    queryKey: ["reports", "team-analytics", params],
+    queryFn: () => reportsService.teamAnalytics(params),
+    enabled,
+    staleTime: 5 * 60_000,
+  });
+
+export const useManagerAnalytics = (params: { cycle_id?: string } = {}, enabled = true) =>
+  useQuery({
+    queryKey: ["reports", "manager-analytics", params],
+    queryFn: () => reportsService.managerAnalytics(params),
+    enabled,
+    staleTime: 5 * 60_000,
+  });
+
 export const useDepartments = (enabled = true) =>
   useQuery({
     queryKey: ["admin", "departments"],

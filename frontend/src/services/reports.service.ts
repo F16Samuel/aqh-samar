@@ -9,4 +9,8 @@ export const reportsService = {
     cycle_id?: string;
     department_id?: string;
   }) => request<Response>("/reports/achievement", { query: params, raw: true }),
+  teamAnalytics: (params: { cycle_id?: string } = {}) =>
+    request<any>("/reports/team-analytics", { query: params }),
+  managerAnalytics: (params: { cycle_id?: string } = {}) =>
+    request<any>("/reports/manager-analytics", { query: params }),
 };

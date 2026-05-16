@@ -9,8 +9,9 @@ from app.core.responses import ok, err
 from app.core.security import require_roles
 from app.db.session import get_db
 from app.models.goal import GoalSheet, Goal, Achievement
+from app.models.cycle import Cycle
 from app.schemas.achievement import AchievementCreate, AchievementUpdate, AchievementOut
-from app.core.utils import compute_progress_score
+from app.core.utils import compute_progress_score, is_window_open
 
 router = APIRouter()
 
@@ -82,7 +83,16 @@ async def list_achievements(goal_id: UUID, request: Request, db: AsyncSession = 
 @require_roles("employee", "manager", "admin")
 async def create_achievement(payload: AchievementCreate, request: Request, db: AsyncSession = Depends(get_db)):
     user = request.state.user
-    
+
+    # Validate window for this specific quarter
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    cycle = cycle_res.scalar_one_or_none()
+    if not cycle:
+        return err("NO_ACTIVE_CYCLE", "No active performance cycle found.", 400)
+    quarter_key = payload.quarter.lower().replace(" ", "_").replace("-", "_")
+    if not is_window_open(cycle, quarter_key):
+        return err("WINDOW_CLOSED", f"The window for {payload.quarter} is not currently open.", 422)
+
     goal_res = await db.execute(select(Goal).where(Goal.id == payload.goal_id))
     goal = goal_res.scalar_one_or_none()
     
@@ -133,7 +143,16 @@ async def update_achievement(ach_id: UUID, payload: AchievementUpdate, request: 
     
     if not ach:
         return err("NOT_FOUND", "Achievement not found", 404)
-        
+
+    # Validate window against the EXISTING achievement's quarter (not the payload)
+    cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
+    cycle = cycle_res.scalar_one_or_none()
+    if not cycle:
+        return err("NO_ACTIVE_CYCLE", "No active performance cycle found.", 400)
+    quarter_key = ach.quarter.lower().replace(" ", "_").replace("-", "_")
+    if not is_window_open(cycle, quarter_key):
+        return err("WINDOW_CLOSED", f"The window for {ach.quarter} is not currently open and cannot be edited.", 422)
+
     goal_res = await db.execute(select(Goal).where(Goal.id == ach.goal_id))
     goal = goal_res.scalar_one()
     
