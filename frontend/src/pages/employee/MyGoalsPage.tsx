@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { validateWeightage, WeightageError } from '@/utils/validateWeightage'
 import { Plus, Send, AlertTriangle, Target, Lock } from 'lucide-react'
 import toast from 'react-hot-toast'
 import api from '@/api/client'
@@ -27,9 +29,8 @@ export type Goal = {
 
 export default function MyGoalsPage() {
   const { user } = useAuth()
-  const [loading, setLoading] = useState(true)
-  const [sheet, setSheet] = useState<GoalSheet | null>(null)
-  const [goals, setGoals] = useState<Goal[]>([])
+  const queryClient = useQueryClient()
+  const [validationErrors, setValidationErrors] = useState<WeightageError[]>([])
 
   // Form State
   const [isAddingGoal, setIsAddingGoal] = useState(false)
@@ -42,72 +43,89 @@ export default function MyGoalsPage() {
     weightage: 10,
   })
 
-  useEffect(() => {
-    fetchSheetAndGoals()
-  }, [])
-
-  const fetchSheetAndGoals = async () => {
-    try {
-      setLoading(true)
+  const { data: sheet, isLoading: sheetLoading } = useQuery({
+    queryKey: ['my-sheet'],
+    queryFn: async () => {
       const res = await api.get('/goal-sheets/mine')
-      const sheets = res.data.data
-      if (sheets && sheets.length > 0) {
-        // Just take the first one (active cycle)
-        const activeSheet = sheets[0]
-        setSheet(activeSheet)
-
-        // Fetch goals
-        const goalsRes = await api.get(`/goals/sheet/${activeSheet.id}`)
-        setGoals(goalsRes.data.data)
-      }
-    } catch (err: any) {
-      toast.error('Failed to load goal sheets: ' + err.message)
-    } finally {
-      setLoading(false)
+      return res.data.data.length > 0 ? res.data.data[0] : null
     }
-  }
+  })
 
-  const createSheet = async () => {
-    try {
-      setLoading(true)
+  const { data: goalsData, isLoading: goalsLoading } = useQuery({
+    queryKey: ['goals', sheet?.id],
+    queryFn: async () => {
+      if (!sheet) return []
+      const res = await api.get(`/goals/sheet/${sheet.id}`)
+      return res.data.data
+    },
+    enabled: !!sheet
+  })
+  const goals = goalsData || []
+  const loading = sheetLoading || goalsLoading
+
+  const createSheetMutation = useMutation({
+    mutationFn: async () => {
       const res = await api.post('/goal-sheets/')
-      setSheet(res.data.data)
+      return res.data.data
+    },
+    onSuccess: (data) => {
+      queryClient.setQueryData(['my-sheet'], data)
       toast.success('Goal sheet initialized')
-    } catch (err: any) {
-      toast.error(err.message)
-    } finally {
-      setLoading(false)
+    },
+    onError: (err: any) => {
+      toast.error(err.response?.data?.error?.message || err.message)
     }
-  }
+  })
 
-  const submitSheet = async () => {
-    if (!sheet) return
-    try {
+  const submitSheetMutation = useMutation({
+    mutationFn: async () => {
       const res = await api.post(`/goal-sheets/${sheet.id}/submit`)
-      setSheet(res.data.data)
+      return res.data.data
+    },
+    onSuccess: (data) => {
+      queryClient.setQueryData(['my-sheet'], data)
       toast.success('Sheet submitted for manager approval')
-    } catch (err: any) {
-      toast.error(err.message)
+    },
+    onError: (err: any) => {
+      toast.error(err.response?.data?.error?.message || err.message)
     }
-  }
+  })
 
-  const addGoal = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!sheet) return
-    try {
-      const payload = {
-        ...formData,
-        target: Number(formData.target),
-        weightage: Number(formData.weightage),
-      }
+  const addGoalMutation = useMutation({
+    mutationFn: async (payload: any) => {
       const res = await api.post(`/goals/sheet/${sheet.id}`, payload)
-      setGoals([...goals, res.data.data])
+      return res.data.data
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['goals', sheet?.id] })
       setIsAddingGoal(false)
       setFormData({ thrust_area: '', title: '', description: '', uom_type: 'max', target: 0, weightage: 10 })
+      setValidationErrors([])
       toast.success('Goal added')
-    } catch (err: any) {
-      toast.error(err.message)
+    },
+    onError: (err: any) => {
+      toast.error(err.response?.data?.error?.message || err.message)
     }
+  })
+
+  const createSheet = () => createSheetMutation.mutate()
+  const submitSheet = () => submitSheetMutation.mutate()
+
+  const addGoal = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!sheet) return
+    const payload = {
+      ...formData,
+      target: Number(formData.target),
+      weightage: Number(formData.weightage),
+    }
+    const allGoals = [...goals, payload as any]
+    const errors = validateWeightage(allGoals)
+    if (errors.length > 0) {
+      setValidationErrors(errors)
+      return
+    }
+    addGoalMutation.mutate(payload)
   }
 
   if (loading && !sheet) {
@@ -133,7 +151,8 @@ export default function MyGoalsPage() {
   }
 
   const totalWeightage = goals.reduce((sum, g) => sum + g.weightage, 0)
-  const canSubmit = totalWeightage === 100 && goals.length > 0 && goals.length <= 8 && (sheet.status === 'draft' || sheet.status === 'rework')
+  const submitErrors = validateWeightage(goals)
+  const canSubmit = submitErrors.length === 0 && goals.length > 0 && (sheet.status === 'draft' || sheet.status === 'rework')
   const isEditable = sheet.status === 'draft' || sheet.status === 'rework'
 
   return (
@@ -203,9 +222,21 @@ export default function MyGoalsPage() {
               </div>
 
               <div className="flex gap-4" style={{ marginTop: 'var(--space-4)' }}>
-                <button type="submit" className="btn btn-primary">Save Goal</button>
-                <button type="button" className="btn btn-ghost" onClick={() => setIsAddingGoal(false)}>Cancel</button>
+                <button type="submit" className="btn btn-primary" disabled={addGoalMutation.isPending}>
+                  {addGoalMutation.isPending ? 'Saving...' : 'Save Goal'}
+                </button>
+                <button type="button" className="btn btn-ghost" onClick={() => { setIsAddingGoal(false); setValidationErrors([]); }}>Cancel</button>
               </div>
+
+              {validationErrors.length > 0 && (
+                <div className="form-error" style={{ marginTop: 'var(--space-4)', padding: 'var(--space-2)', background: 'var(--color-surface0)', borderRadius: '4px' }}>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {validationErrors.map((err, idx) => (
+                      <li key={idx}><AlertTriangle size={14} style={{display:'inline', marginBottom:'-2px'}} /> {err.message}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </form>
           ) : (
             <div className="flex justify-between items-center">
@@ -216,7 +247,7 @@ export default function MyGoalsPage() {
               <button 
                 className="btn btn-primary" 
                 onClick={() => setIsAddingGoal(true)}
-                disabled={goals.length >= 8 || totalWeightage >= 100}
+                disabled={goals.length >= 8}
               >
                 <Plus size={18} /> Add Goal
               </button>
