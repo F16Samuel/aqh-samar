@@ -9,7 +9,7 @@ from app.core.middleware import AuthMiddleware
 # ── Router imports (uncomment as phases complete) ───────────────────────────
 from app.api.v1.auth import router as auth_router
 from app.api.v1.users import router as users_router
-# from app.api.v1.cycles import router as cycles_router
+from app.api.v1.cycles import router as cycles_router
 # from app.api.v1.goal_sheets import router as sheets_router
 # from app.api.v1.goals import router as goals_router
 # from app.api.v1.achievements import router as achievements_router
@@ -62,7 +62,7 @@ async def health() -> dict:
 API_V1 = "/api/v1"
 app.include_router(auth_router, prefix=f"{API_V1}/auth", tags=["Auth"])
 app.include_router(users_router, prefix=f"{API_V1}/users", tags=["Users"])
-# app.include_router(cycles_router, prefix=f"{API_V1}/cycles", tags=["Cycles"])
+app.include_router(cycles_router, prefix=f"{API_V1}/cycles", tags=["Cycles"])
 # app.include_router(sheets_router, prefix=f"{API_V1}/goal-sheets", tags=["Goal Sheets"])
 # app.include_router(goals_router, prefix=f"{API_V1}/goals", tags=["Goals"])
 # app.include_router(achievements_router, prefix=f"{API_V1}/achievements", tags=["Achievements"])
