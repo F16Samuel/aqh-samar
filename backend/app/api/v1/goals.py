@@ -10,6 +10,9 @@ from app.db.session import get_db
 from app.models.goal import GoalSheet, Goal
 from app.models.cycle import Cycle
 from app.schemas.goal import GoalCreate, GoalUpdate, GoalSharedCreate, GoalOut
+from app.core.validators import validate_weightage
+from app.core.audit import write_audit_log
+from fastapi import HTTPException
 
 router = APIRouter()
 
@@ -70,6 +73,15 @@ async def create_goal(sheet_id: UUID, payload: GoalCreate, request: Request, db:
         is_locked=False
     )
     db.add(goal)
+    await db.flush()
+    res_all_goals = await db.execute(select(Goal).where(Goal.sheet_id == sheet.id))
+    all_goals = res_all_goals.scalars().all()
+    
+    errors = validate_weightage(all_goals)
+    if errors:
+        await db.rollback()
+        raise HTTPException(status_code=422, detail={"data": None, "error": {"code": "WEIGHTAGE_INVALID", "message": "Weightage validation failed", "details": errors}})
+        
     await db.commit()
     await db.refresh(goal)
     
@@ -110,10 +122,34 @@ async def update_goal(goal_id: UUID, payload: GoalUpdate, request: Request, db: 
         if "title" in update_data or "target" in update_data:
             return err("READ_ONLY", "Title and Target are read-only for shared goals", 400)
             
+    old_values = {}
+    for key in update_data.keys():
+        old_values[key] = str(getattr(goal, key))
+        
     for key, value in update_data.items():
         setattr(goal, key, value)
         
+    await db.flush()
+    res_all_goals = await db.execute(select(Goal).where(Goal.sheet_id == goal.sheet_id))
+    all_goals = res_all_goals.scalars().all()
+    
+    errors = validate_weightage(all_goals)
+    if errors:
+        await db.rollback()
+        raise HTTPException(status_code=422, detail={"data": None, "error": {"code": "WEIGHTAGE_INVALID", "message": "Weightage validation failed", "details": errors}})
+        
     await db.commit()
+    
+    if goal.is_locked:
+        for key, value in update_data.items():
+            await write_audit_log(
+                session=db,
+                goal_id=goal.id,
+                changed_by=user.id,
+                field_name=key,
+                old_value=old_values[key],
+                new_value=str(value)
+            )
     await db.refresh(goal)
     return ok(GoalOut.model_validate(goal).model_dump(mode="json"))
 
