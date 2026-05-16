@@ -44,7 +44,16 @@ export default function App() {
         {/* Public */}
         <Route
           path="/login"
-          element={user ? <Navigate to="/" replace /> : <LoginPage />}
+          element={
+            user ? (
+              <Navigate
+                to={user.role === 'manager' ? '/manager' : user.role === 'admin' ? '/admin' : '/'}
+                replace
+              />
+            ) : (
+              <LoginPage />
+            )
+          }
         />
         <Route path="/unauthorized" element={<div style={{padding:'2rem'}}>403 — Access Denied</div>} />
 

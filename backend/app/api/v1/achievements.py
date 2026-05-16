@@ -60,7 +60,7 @@ async def list_achievements(goal_id: UUID, request: Request, db: AsyncSession = 
     
     result_list = []
     for a in achievements:
-        data = AchievementOut.model_validate(a).model_dump()
+        data = AchievementOut.model_validate(a).model_dump(mode="json")
         data["progress_score"] = compute_progress_score(goal.uom_type, goal.target, a.actual)
         result_list.append(data)
         
@@ -107,7 +107,7 @@ async def create_achievement(payload: AchievementCreate, request: Request, db: A
     await db.commit()
     await db.refresh(ach)
     
-    out = AchievementOut.model_validate(ach).model_dump()
+    out = AchievementOut.model_validate(ach).model_dump(mode="json")
     out["progress_score"] = compute_progress_score(goal.uom_type, goal.target, ach.actual)
     return ok(out, 201)
 
@@ -146,6 +146,6 @@ async def update_achievement(ach_id: UUID, payload: AchievementUpdate, request: 
     await db.commit()
     await db.refresh(ach)
     
-    out = AchievementOut.model_validate(ach).model_dump()
+    out = AchievementOut.model_validate(ach).model_dump(mode="json")
     out["progress_score"] = compute_progress_score(goal.uom_type, goal.target, ach.actual)
     return ok(out)

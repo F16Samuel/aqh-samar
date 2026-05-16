@@ -88,7 +88,7 @@ async def department_report(request: Request, db: AsyncSession = Depends(get_db)
 
 @router.get("/company")
 @require_roles("admin")
-async def company_report(db: AsyncSession = Depends(get_db)):
+async def company_report(request: Request, db: AsyncSession = Depends(get_db)):
     """Compute overall metrics for the entire company in the active cycle."""
     cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
     cycle = cycle_res.scalar_one_or_none()

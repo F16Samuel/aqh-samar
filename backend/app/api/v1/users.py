@@ -22,7 +22,7 @@ async def get_current_user(request: Request):
 
 @router.get("/")
 @require_roles("admin")
-async def list_users(db: AsyncSession = Depends(get_db)):
+async def list_users(request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: list all users."""
     result = await db.execute(select(User).order_by(User.full_name))
     users = result.scalars().all()
