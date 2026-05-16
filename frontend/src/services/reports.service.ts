@@ -1,0 +1,12 @@
+import { request } from "@/api/httpClient";
+import type { CompletionReport } from "@/types/api";
+
+export const reportsService = {
+  completion: (params: { cycle_id?: string; quarter?: string } = {}) =>
+    request<CompletionReport>("/reports/completion", { query: params }),
+  achievementDownload: (params: {
+    format: "csv" | "xlsx";
+    cycle_id?: string;
+    department_id?: string;
+  }) => request<Response>("/reports/achievement", { query: params, raw: true }),
+};

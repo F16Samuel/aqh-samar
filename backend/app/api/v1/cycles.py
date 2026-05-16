@@ -14,7 +14,7 @@ router = APIRouter()
 
 @router.get("/active")
 @require_roles("employee", "manager", "admin")
-async def get_active_cycle(db: AsyncSession = Depends(get_db)):
+async def get_active_cycle(request: Request, db: AsyncSession = Depends(get_db)):
     """Fetch the currently active cycle."""
     result = await db.execute(select(Cycle).where(Cycle.is_active == True))
     cycle = result.scalar_one_or_none()
@@ -26,7 +26,7 @@ async def get_active_cycle(db: AsyncSession = Depends(get_db)):
 
 @router.get("/")
 @require_roles("admin")
-async def list_cycles(db: AsyncSession = Depends(get_db)):
+async def list_cycles(request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: list all cycles."""
     result = await db.execute(select(Cycle).order_by(Cycle.year.desc(), Cycle.window_open.desc()))
     cycles = result.scalars().all()
@@ -34,7 +34,7 @@ async def list_cycles(db: AsyncSession = Depends(get_db)):
 
 @router.post("/")
 @require_roles("admin")
-async def create_cycle(payload: CycleCreate, db: AsyncSession = Depends(get_db)):
+async def create_cycle(payload: CycleCreate, request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: create a new cycle."""
     if payload.is_active:
         # Deactivate all others first

@@ -1,0 +1,13 @@
+Employee Name,Employee Email,Department,Goal Title,Thrust Area,UoM Type,Target,Q1 Actual,Q2 Actual,Q3 Actual,Q4 Actual,Q1 Status,Q2 Status,Q3 Status,Q4 Status,Weightage
+Engineering Manager,mgr1@company.com,Engineering,Increase Q3 Sales,Revenue Growth,max,100000,40000.0,75000.0,,,on_track,on_track,,,25
+Engineering Manager,mgr1@company.com,Engineering,Reduce Cloud Costs,Operational Efficiency,min,5000,7500.0,5500.0,,,on_track,on_track,,,25
+Engineering Manager,mgr1@company.com,Engineering,Zero Sev-1 Incidents,System Reliability,zero,0,2,0,,,on_track,on_track,,,25
+Engineering Manager,mgr1@company.com,Engineering,Ship v2.0 Platform,Product Delivery,timeline,90,120,100,,,on_track,on_track,,,25
+Backend Developer,emp2@company.com,Engineering,Increase Q3 Sales,Revenue Growth,max,100000,40000.0,75000.0,,,on_track,on_track,,,25
+Backend Developer,emp2@company.com,Engineering,Reduce Cloud Costs,Operational Efficiency,min,5000,7500.0,5500.0,,,on_track,on_track,,,25
+Backend Developer,emp2@company.com,Engineering,Zero Sev-1 Incidents,System Reliability,zero,0,2,0,,,on_track,on_track,,,25
+Backend Developer,emp2@company.com,Engineering,Ship v2.0 Platform,Product Delivery,timeline,90,120,100,,,on_track,on_track,,,25
+Frontend Developer,emp1@company.com,Engineering,Increase Q3 Sales,Revenue Growth,max,100000,40000.0,75000.0,,,on_track,on_track,,,25
+Frontend Developer,emp1@company.com,Engineering,Reduce Cloud Costs,Operational Efficiency,min,5000,7500.0,5500.0,,,on_track,on_track,not_started,not_started,25
+Frontend Developer,emp1@company.com,Engineering,Zero Sev-1 Incidents,System Reliability,zero,0,2,0,,,on_track,on_track,,,25
+Frontend Developer,emp1@company.com,Engineering,Ship v2.0 Platform,Product Delivery,timeline,90,120,100,75,,on_track,on_track,on_track,,25

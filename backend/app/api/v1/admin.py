@@ -43,7 +43,7 @@ async def unlock_goal(goal_id: UUID, request: Request, db: AsyncSession = Depend
 
 @router.get("/escalations")
 @require_roles("admin")
-async def get_escalations(db: AsyncSession = Depends(get_db)):
+async def get_escalations(request: Request, db: AsyncSession = Depends(get_db)):
     """Returns sheets stuck in 'submitted' > 7 days."""
     seven_days_ago = datetime.utcnow() - timedelta(days=7)
     res = await db.execute(

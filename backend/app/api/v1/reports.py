@@ -127,7 +127,7 @@ async def company_report(request: Request, db: AsyncSession = Depends(get_db)):
 
 @router.get("/audit/{goal_id}")
 @require_roles("admin", "manager")
-async def get_audit_logs(goal_id: UUID, db: AsyncSession = Depends(get_db)):
+async def get_audit_logs(goal_id: UUID, request: Request, db: AsyncSession = Depends(get_db)):
     """Full change log for a specific goal."""
     res = await db.execute(select(AuditLog).where(AuditLog.goal_id == goal_id).order_by(AuditLog.changed_at.desc()))
     logs = res.scalars().all()
