@@ -1,0 +1,38 @@
+[
+  {
+    "id": "60480c28-1395-4f26-98e7-fdd1ed5b5432",
+    "name": "Engineering"
+  },
+  {
+    "id": "ca494e25-760a-440b-a64b-a2587fe49a4a",
+    "name": "Product"
+  },
+  {
+    "id": "5ec3143a-ea58-4446-aabf-51be0ad96896",
+    "name": "Revenue Operations"
+  },
+  {
+    "id": "d940333d-e43b-4376-a9c8-6657a72a198d",
+    "name": "Customer Success"
+  },
+  {
+    "id": "4d1956f0-0a1a-4794-81f4-ef1e9c846f04",
+    "name": "Finance"
+  },
+  {
+    "id": "1bdfcddd-1072-4a06-8576-99afb5503457",
+    "name": "Security & Compliance"
+  },
+  {
+    "id": "0ab5e5f1-666f-4974-a48a-30c57e34236a",
+    "name": "Data & AI"
+  },
+  {
+    "id": "8d2dc3f0-0bd4-4d24-8cef-09bc1509b702",
+    "name": "Platform Infrastructure"
+  },
+  {
+    "id": "ee32c2ef-c251-4413-85e5-f99744c4019c",
+    "name": "People Operations"
+  }
+]

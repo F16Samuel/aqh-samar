@@ -1,0 +1,650 @@
+[
+  {
+    "id": "60ecb516-1c33-435e-866c-50581fa45174",
+    "sheet_id": "c4f5f9fd-d0aa-469e-96fb-5c4d886f0531",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 107%. Keep driving the roadmap.",
+    "created_at": "2025-05-25T07:10:20.846679"
+  },
+  {
+    "id": "563ad08b-6b2f-4081-87d7-e1d8d3da7d42",
+    "sheet_id": "c4f5f9fd-d0aa-469e-96fb-5c4d886f0531",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 96%. Keep driving the roadmap.",
+    "created_at": "2025-08-28T07:10:20.846679"
+  },
+  {
+    "id": "fda7355d-762b-48d5-8d08-8afb37646bc5",
+    "sheet_id": "c4f5f9fd-d0aa-469e-96fb-5c4d886f0531",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 90%. Keep driving the roadmap.",
+    "created_at": "2025-11-25T07:10:20.846679"
+  },
+  {
+    "id": "41378f73-8adf-442e-ba34-8949f84c27c4",
+    "sheet_id": "c4f5f9fd-d0aa-469e-96fb-5c4d886f0531",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 111%. Keep driving the roadmap.",
+    "created_at": "2026-02-24T07:10:20.846679"
+  },
+  {
+    "id": "de9c7f3c-fa6d-4fda-977a-b853b9e76fc8",
+    "sheet_id": "b6352ec9-5e3f-4458-b7f9-05ad5d226afe",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 110%. Keep driving the roadmap.",
+    "created_at": "2025-05-22T07:10:21.623309"
+  },
+  {
+    "id": "0d9a1b4f-ed62-43d2-a327-72c5244219cb",
+    "sheet_id": "b6352ec9-5e3f-4458-b7f9-05ad5d226afe",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 90%. Keep driving the roadmap.",
+    "created_at": "2025-08-28T07:10:21.624205"
+  },
+  {
+    "id": "ae4838ea-c370-4e10-94a6-365a8029990e",
+    "sheet_id": "b6352ec9-5e3f-4458-b7f9-05ad5d226afe",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 88%. Keep driving the roadmap.",
+    "created_at": "2025-11-19T07:10:21.624205"
+  },
+  {
+    "id": "4b9bbf66-31ca-4785-b719-a2fc51e21c38",
+    "sheet_id": "b6352ec9-5e3f-4458-b7f9-05ad5d226afe",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 89%. Keep driving the roadmap.",
+    "created_at": "2026-02-18T07:10:21.624205"
+  },
+  {
+    "id": "2ad9e019-5564-4ef5-825b-8ac4e8276682",
+    "sheet_id": "e2e00b1a-90b2-466b-855c-ab7846f15048",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 110%. Keep driving the roadmap.",
+    "created_at": "2025-05-27T07:10:22.233631"
+  },
+  {
+    "id": "e7c6f36c-12fc-49b4-80a9-8a7514768b6d",
+    "sheet_id": "e2e00b1a-90b2-466b-855c-ab7846f15048",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 99%. Keep driving the roadmap.",
+    "created_at": "2025-08-26T07:10:22.234153"
+  },
+  {
+    "id": "e9b05e11-18d5-45fc-8591-829ba3153599",
+    "sheet_id": "e2e00b1a-90b2-466b-855c-ab7846f15048",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 102%. Keep driving the roadmap.",
+    "created_at": "2025-11-26T07:10:22.234153"
+  },
+  {
+    "id": "8ee2fc53-037c-42f1-bbe7-c76a366f17c3",
+    "sheet_id": "e2e00b1a-90b2-466b-855c-ab7846f15048",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 115%. Keep driving the roadmap.",
+    "created_at": "2026-02-18T07:10:22.234153"
+  },
+  {
+    "id": "b5944662-eae9-443f-99cd-64f47818fbff",
+    "sheet_id": "ae8fea4b-31a6-4b72-adda-a1c052535fd6",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 85%. Keep driving the roadmap.",
+    "created_at": "2025-05-25T07:10:22.846657"
+  },
+  {
+    "id": "29b9e915-d5f5-4047-b6a1-6355da2817aa",
+    "sheet_id": "ae8fea4b-31a6-4b72-adda-a1c052535fd6",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 96%. Keep driving the roadmap.",
+    "created_at": "2025-08-25T07:10:22.847290"
+  },
+  {
+    "id": "fc09d5c5-06be-4651-b9ef-4397a412a0c1",
+    "sheet_id": "ae8fea4b-31a6-4b72-adda-a1c052535fd6",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 103%. Keep driving the roadmap.",
+    "created_at": "2025-11-24T07:10:22.847290"
+  },
+  {
+    "id": "6949bb1e-ed5b-4fea-a436-5a0a097044d1",
+    "sheet_id": "ae8fea4b-31a6-4b72-adda-a1c052535fd6",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 111%. Keep driving the roadmap.",
+    "created_at": "2026-02-18T07:10:22.847812"
+  },
+  {
+    "id": "786eb1e2-32c8-4b34-8c41-582c5c50d108",
+    "sheet_id": "a99d0b2d-6925-41ec-9d02-3488c282c694",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 91%. Keep driving the roadmap.",
+    "created_at": "2025-05-25T07:10:23.459440"
+  },
+  {
+    "id": "ed5c0383-5397-46ee-9f2a-cda7fba78b0d",
+    "sheet_id": "a99d0b2d-6925-41ec-9d02-3488c282c694",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 111%. Keep driving the roadmap.",
+    "created_at": "2025-08-25T07:10:23.459440"
+  },
+  {
+    "id": "c2234c4d-75d6-448b-a466-a0af6ebee47a",
+    "sheet_id": "a99d0b2d-6925-41ec-9d02-3488c282c694",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 90%. Keep driving the roadmap.",
+    "created_at": "2025-11-21T07:10:23.459440"
+  },
+  {
+    "id": "a96af1bf-2490-47dd-9c5e-71ef487ef16c",
+    "sheet_id": "a99d0b2d-6925-41ec-9d02-3488c282c694",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 96%. Keep driving the roadmap.",
+    "created_at": "2026-02-22T07:10:23.459440"
+  },
+  {
+    "id": "6e7cae28-a337-4fc4-8edc-2a4eee2c00fe",
+    "sheet_id": "dd1d4e76-4389-4e6d-a30a-f1ae283593c2",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-05-30T07:10:24.070140"
+  },
+  {
+    "id": "ee256672-b6c2-4db7-994f-5a22d7bc81bd",
+    "sheet_id": "dd1d4e76-4389-4e6d-a30a-f1ae283593c2",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 113%. Keep driving the roadmap.",
+    "created_at": "2025-08-29T07:10:24.070140"
+  },
+  {
+    "id": "4ac99ba9-2d33-4823-baae-745e6e27b9e1",
+    "sheet_id": "dd1d4e76-4389-4e6d-a30a-f1ae283593c2",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-11-22T07:10:24.071164"
+  },
+  {
+    "id": "b49eda79-372d-4d58-9e50-49ea0d8c104d",
+    "sheet_id": "dd1d4e76-4389-4e6d-a30a-f1ae283593c2",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 87%. Keep driving the roadmap.",
+    "created_at": "2026-02-18T07:10:24.071164"
+  },
+  {
+    "id": "9c1da6c6-3945-49f5-9506-3e843cee9c43",
+    "sheet_id": "d32e4a99-0d4a-4388-950f-fc1f494e74c7",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 109%. Keep driving the roadmap.",
+    "created_at": "2025-05-26T07:10:24.680954"
+  },
+  {
+    "id": "a29203c7-890f-4789-bef5-a2617c3d578e",
+    "sheet_id": "d32e4a99-0d4a-4388-950f-fc1f494e74c7",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 105%. Keep driving the roadmap.",
+    "created_at": "2025-08-28T07:10:24.681975"
+  },
+  {
+    "id": "f193e87b-6cc6-4796-b82d-353ff643ad1c",
+    "sheet_id": "d32e4a99-0d4a-4388-950f-fc1f494e74c7",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 114%. Keep driving the roadmap.",
+    "created_at": "2025-11-19T07:10:24.681975"
+  },
+  {
+    "id": "85fb4849-2472-4324-b797-8a6212be23f6",
+    "sheet_id": "d32e4a99-0d4a-4388-950f-fc1f494e74c7",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 85%. Keep driving the roadmap.",
+    "created_at": "2026-02-24T07:10:24.681975"
+  },
+  {
+    "id": "bc778589-61ba-4ea8-960e-c1b0edd274f8",
+    "sheet_id": "fc899eb6-e590-4952-b176-c3491bb9bd46",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 105%. Keep driving the roadmap.",
+    "created_at": "2025-05-26T07:10:25.296656"
+  },
+  {
+    "id": "2b7ebf83-d1c8-4cce-9ad1-d498b6e9467e",
+    "sheet_id": "fc899eb6-e590-4952-b176-c3491bb9bd46",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 109%. Keep driving the roadmap.",
+    "created_at": "2025-08-19T07:10:25.297692"
+  },
+  {
+    "id": "700269e9-5ca1-4b11-a4d8-1c1fec82349f",
+    "sheet_id": "fc899eb6-e590-4952-b176-c3491bb9bd46",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 94%. Keep driving the roadmap.",
+    "created_at": "2025-11-19T07:10:25.297692"
+  },
+  {
+    "id": "9d2ede5b-0b3b-4b9c-a44d-dd9ae0d3debc",
+    "sheet_id": "fc899eb6-e590-4952-b176-c3491bb9bd46",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 115%. Keep driving the roadmap.",
+    "created_at": "2026-02-18T07:10:25.297692"
+  },
+  {
+    "id": "3eb5dc4e-0bc7-4ba8-83a6-89cc94111179",
+    "sheet_id": "de9b9f8f-c244-4d4a-a2b4-20165c34c1a8",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 109%. Keep driving the roadmap.",
+    "created_at": "2025-05-24T07:10:25.913075"
+  },
+  {
+    "id": "cf15636e-a20d-4415-aa9c-14d74db1fb47",
+    "sheet_id": "de9b9f8f-c244-4d4a-a2b4-20165c34c1a8",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 113%. Keep driving the roadmap.",
+    "created_at": "2025-08-21T07:10:25.913075"
+  },
+  {
+    "id": "a0c12f5e-d974-472a-a476-6c22086bbb4d",
+    "sheet_id": "de9b9f8f-c244-4d4a-a2b4-20165c34c1a8",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 105%. Keep driving the roadmap.",
+    "created_at": "2025-11-26T07:10:25.914065"
+  },
+  {
+    "id": "8737259e-d404-4968-a544-fba1e8394f0e",
+    "sheet_id": "de9b9f8f-c244-4d4a-a2b4-20165c34c1a8",
+    "manager_id": "640c74de-c6fd-4035-be48-d2a2fe923dcf",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 94%. Keep driving the roadmap.",
+    "created_at": "2026-02-16T07:10:25.914065"
+  },
+  {
+    "id": "d7816ee8-68d7-4cf6-bbe3-ba026987f103",
+    "sheet_id": "01937a4b-9a71-47de-a6f7-8a0b950da6ba",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 86%. Keep driving the roadmap.",
+    "created_at": "2025-05-31T07:10:26.528483"
+  },
+  {
+    "id": "b8b6b9ee-96da-485f-b9d4-c594241ffe9c",
+    "sheet_id": "01937a4b-9a71-47de-a6f7-8a0b950da6ba",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 101%. Keep driving the roadmap.",
+    "created_at": "2025-08-27T07:10:26.528483"
+  },
+  {
+    "id": "81e2973f-5475-474d-9e19-575577bfbf14",
+    "sheet_id": "01937a4b-9a71-47de-a6f7-8a0b950da6ba",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 87%. Keep driving the roadmap.",
+    "created_at": "2025-11-25T07:10:26.529491"
+  },
+  {
+    "id": "d8d56939-4b91-4239-a4a0-2819a45fb1b9",
+    "sheet_id": "01937a4b-9a71-47de-a6f7-8a0b950da6ba",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 110%. Keep driving the roadmap.",
+    "created_at": "2026-02-20T07:10:26.529491"
+  },
+  {
+    "id": "8ec05ccc-3cd5-4bee-afd4-1a5059cd2845",
+    "sheet_id": "38e2be4f-6a34-4034-afd2-817355fe23f6",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-05-28T07:10:27.139844"
+  },
+  {
+    "id": "c468fa1c-910a-4f3b-9e8a-c9fb97069545",
+    "sheet_id": "38e2be4f-6a34-4034-afd2-817355fe23f6",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-08-21T07:10:27.141411"
+  },
+  {
+    "id": "253f1d5e-f8b8-4560-b878-2a81bb9acacc",
+    "sheet_id": "38e2be4f-6a34-4034-afd2-817355fe23f6",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 95%. Keep driving the roadmap.",
+    "created_at": "2025-11-18T07:10:27.141411"
+  },
+  {
+    "id": "9fc606a2-8451-4ec0-aeca-2c5b75186047",
+    "sheet_id": "38e2be4f-6a34-4034-afd2-817355fe23f6",
+    "manager_id": "7ff29703-d06e-4599-bcea-9b197315cf1d",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 110%. Keep driving the roadmap.",
+    "created_at": "2026-02-25T07:10:27.141411"
+  },
+  {
+    "id": "c24ef169-0916-42e4-ab4b-908fdd198400",
+    "sheet_id": "d1cac26c-0066-46d9-938e-1337f76f1f49",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 103%. Keep driving the roadmap.",
+    "created_at": "2025-05-29T07:10:27.749470"
+  },
+  {
+    "id": "450c048f-f7e7-498d-98f6-27dfdd536fd7",
+    "sheet_id": "d1cac26c-0066-46d9-938e-1337f76f1f49",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-08-23T07:10:27.749470"
+  },
+  {
+    "id": "1148a797-2762-4f53-a7bc-4354d75f5d15",
+    "sheet_id": "d1cac26c-0066-46d9-938e-1337f76f1f49",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 94%. Keep driving the roadmap.",
+    "created_at": "2025-11-19T07:10:27.750608"
+  },
+  {
+    "id": "67ab2237-37a5-4c61-81fa-7b7bf8e47014",
+    "sheet_id": "d1cac26c-0066-46d9-938e-1337f76f1f49",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 110%. Keep driving the roadmap.",
+    "created_at": "2026-02-20T07:10:27.751053"
+  },
+  {
+    "id": "9e69818c-fa35-48bd-8771-07c9ed27ab14",
+    "sheet_id": "746d6256-0aca-4afa-829b-5604b1c8e1b0",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 108%. Keep driving the roadmap.",
+    "created_at": "2025-05-25T07:10:28.366629"
+  },
+  {
+    "id": "7943ea88-a722-4cd9-833a-ccaf163fd288",
+    "sheet_id": "746d6256-0aca-4afa-829b-5604b1c8e1b0",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 99%. Keep driving the roadmap.",
+    "created_at": "2025-08-30T07:10:28.367147"
+  },
+  {
+    "id": "5a7f3aff-e872-4eb8-93bf-4a24c3a2d15f",
+    "sheet_id": "746d6256-0aca-4afa-829b-5604b1c8e1b0",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 93%. Keep driving the roadmap.",
+    "created_at": "2025-11-21T07:10:28.367693"
+  },
+  {
+    "id": "3d744e8b-126d-4a8f-bb8b-42fa9830e3b8",
+    "sheet_id": "746d6256-0aca-4afa-829b-5604b1c8e1b0",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 114%. Keep driving the roadmap.",
+    "created_at": "2026-02-24T07:10:28.368722"
+  },
+  {
+    "id": "830dac36-fdec-45a2-a68e-04dff8090449",
+    "sheet_id": "679010ca-8b6f-49c9-82e0-6474b037ab7a",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 113%. Keep driving the roadmap.",
+    "created_at": "2025-05-25T07:10:28.976602"
+  },
+  {
+    "id": "04d73fb5-e697-4ae1-9e73-7978a4062a98",
+    "sheet_id": "679010ca-8b6f-49c9-82e0-6474b037ab7a",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 113%. Keep driving the roadmap.",
+    "created_at": "2025-08-21T07:10:28.976602"
+  },
+  {
+    "id": "5d90aa51-09cc-497a-805a-de2e98e523a1",
+    "sheet_id": "679010ca-8b6f-49c9-82e0-6474b037ab7a",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 99%. Keep driving the roadmap.",
+    "created_at": "2025-11-21T07:10:28.976602"
+  },
+  {
+    "id": "3f5dffa0-f0b1-4885-a01a-adb8000a368a",
+    "sheet_id": "679010ca-8b6f-49c9-82e0-6474b037ab7a",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 91%. Keep driving the roadmap.",
+    "created_at": "2026-02-19T07:10:28.977975"
+  },
+  {
+    "id": "0a882fe8-c693-4782-b372-7d046d74de96",
+    "sheet_id": "9cc29cbf-b99d-4f44-b75c-8cc291f6d629",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 86%. Keep driving the roadmap.",
+    "created_at": "2025-05-23T07:10:29.596508"
+  },
+  {
+    "id": "df83ad0a-f395-4994-991f-a43e5be550de",
+    "sheet_id": "9cc29cbf-b99d-4f44-b75c-8cc291f6d629",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 102%. Keep driving the roadmap.",
+    "created_at": "2025-08-24T07:10:29.597043"
+  },
+  {
+    "id": "8711aaa2-68c2-41ce-a320-025558cf913b",
+    "sheet_id": "9cc29cbf-b99d-4f44-b75c-8cc291f6d629",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 101%. Keep driving the roadmap.",
+    "created_at": "2025-11-24T07:10:29.597043"
+  },
+  {
+    "id": "a55d703a-3f65-40b4-a6ae-f10eb02c117d",
+    "sheet_id": "9cc29cbf-b99d-4f44-b75c-8cc291f6d629",
+    "manager_id": "add8170f-e8a3-4967-bd79-1b5ad1e553ad",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 108%. Keep driving the roadmap.",
+    "created_at": "2026-02-19T07:10:29.597043"
+  },
+  {
+    "id": "f6e17e98-8954-464e-b6e6-153d263f0dcf",
+    "sheet_id": "b807475a-2846-4107-8ad7-963b8b0560fe",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 100%. Keep driving the roadmap.",
+    "created_at": "2025-05-25T07:10:30.216102"
+  },
+  {
+    "id": "8ed414cb-fdb3-44c5-92af-5893f3f030e8",
+    "sheet_id": "b807475a-2846-4107-8ad7-963b8b0560fe",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-08-24T07:10:30.217129"
+  },
+  {
+    "id": "5a678afd-4cb6-440d-b7a2-75748193e5a3",
+    "sheet_id": "b807475a-2846-4107-8ad7-963b8b0560fe",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 97%. Keep driving the roadmap.",
+    "created_at": "2025-11-26T07:10:30.217693"
+  },
+  {
+    "id": "3e03c436-5269-4e3b-b7ad-80f64798685a",
+    "sheet_id": "b807475a-2846-4107-8ad7-963b8b0560fe",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 85%. Keep driving the roadmap.",
+    "created_at": "2026-02-23T07:10:30.217693"
+  },
+  {
+    "id": "b3b730bb-6c20-455d-8b93-bde3f521d6d9",
+    "sheet_id": "15eed96b-05f9-465a-90cb-ee467ce620cf",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 96%. Keep driving the roadmap.",
+    "created_at": "2025-05-31T07:10:30.835171"
+  },
+  {
+    "id": "62fd25ad-ab29-4b29-91f8-9118107a29c6",
+    "sheet_id": "15eed96b-05f9-465a-90cb-ee467ce620cf",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 108%. Keep driving the roadmap.",
+    "created_at": "2025-08-21T07:10:30.835171"
+  },
+  {
+    "id": "3ca3fc7a-1da0-4ad4-b7e4-4a624ae2d80a",
+    "sheet_id": "15eed96b-05f9-465a-90cb-ee467ce620cf",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-11-19T07:10:30.835171"
+  },
+  {
+    "id": "41a810e7-09d1-4bd1-b8dd-ebd1bd279252",
+    "sheet_id": "15eed96b-05f9-465a-90cb-ee467ce620cf",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 85%. Keep driving the roadmap.",
+    "created_at": "2026-02-26T07:10:30.835171"
+  },
+  {
+    "id": "52d7e61c-db0c-413b-9b54-f29e27842958",
+    "sheet_id": "6f00291b-e4ce-4d2d-b121-cb4148357361",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 111%. Keep driving the roadmap.",
+    "created_at": "2025-05-23T07:10:31.443547"
+  },
+  {
+    "id": "c0034c43-f6af-4b88-9dcc-a57f4d8fc772",
+    "sheet_id": "6f00291b-e4ce-4d2d-b121-cb4148357361",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 92%. Keep driving the roadmap.",
+    "created_at": "2025-08-20T07:10:31.443547"
+  },
+  {
+    "id": "02d5f10a-2042-4f0f-98ec-a043fa691216",
+    "sheet_id": "6f00291b-e4ce-4d2d-b121-cb4148357361",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 109%. Keep driving the roadmap.",
+    "created_at": "2025-11-25T07:10:31.445154"
+  },
+  {
+    "id": "4725a4d8-c064-4acc-96a5-761f5a5ce3b2",
+    "sheet_id": "6f00291b-e4ce-4d2d-b121-cb4148357361",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 86%. Keep driving the roadmap.",
+    "created_at": "2026-02-21T07:10:31.445154"
+  },
+  {
+    "id": "0d8cec66-3ef5-43b7-a832-d9ba594c5528",
+    "sheet_id": "d9d1a943-a447-4a3f-85de-a7d4bc341f0d",
+    "manager_id": "cd7365d9-4ad3-4d93-b3f9-b83c2de7b4af",
+    "quarter": "Q1",
+    "comment": "Q1 metrics: verified deliverable. Technical excellence is high with Q1 scores logged at 94%. Keep driving the roadmap.",
+    "created_at": "2025-05-22T07:10:32.051695"
+  },
+  {
+    "id": "21025e8d-d6e6-49d6-9e8e-3d8bad354f50",
+    "sheet_id": "d9d1a943-a447-4a3f-85de-a7d4bc341f0d",
+    "manager_id": "cd7365d9-4ad3-4d93-b3f9-b83c2de7b4af",
+    "quarter": "Q2",
+    "comment": "Q2 metrics: verified deliverable. Technical excellence is high with Q2 scores logged at 104%. Keep driving the roadmap.",
+    "created_at": "2025-08-23T07:10:32.051695"
+  },
+  {
+    "id": "7daacb1d-5be2-47d7-8bc6-51e306ac316c",
+    "sheet_id": "d9d1a943-a447-4a3f-85de-a7d4bc341f0d",
+    "manager_id": "cd7365d9-4ad3-4d93-b3f9-b83c2de7b4af",
+    "quarter": "Q3",
+    "comment": "Q3 metrics: verified deliverable. Technical excellence is high with Q3 scores logged at 96%. Keep driving the roadmap.",
+    "created_at": "2025-11-19T07:10:32.051695"
+  },
+  {
+    "id": "7e333a63-ac55-44d8-b98d-1ba6b182f26d",
+    "sheet_id": "d9d1a943-a447-4a3f-85de-a7d4bc341f0d",
+    "manager_id": "cd7365d9-4ad3-4d93-b3f9-b83c2de7b4af",
+    "quarter": "Q4",
+    "comment": "Q4 metrics: verified deliverable. Technical excellence is high with Q4 scores logged at 114%. Keep driving the roadmap.",
+    "created_at": "2026-02-19T07:10:32.052696"
+  },
+  {
+    "id": "51a34347-412a-42c8-ab62-2049228088a2",
+    "sheet_id": "3ff851dd-04a6-4e37-a1d4-a00ca2d53d86",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "P95 latency stands at 340ms, closing in on our 300ms limit. Safe incidents recorded at zero. Tighter oversight required on middleware migrations.",
+    "created_at": "2026-04-15T07:10:32.654346"
+  },
+  {
+    "id": "0ffd8a2d-4c37-420c-9104-4426316b62fc",
+    "sheet_id": "3ff851dd-04a6-4e37-a1d4-a00ca2d53d86",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "API latency goals reached successfully at 280ms. However, a Sev-1 outage occurred during our June deployment. Restructure post-mortem processes immediately.",
+    "created_at": "2026-05-14T07:10:32.654346"
+  },
+  {
+    "id": "c2e2e9ea-093f-4b78-820a-c19406960585",
+    "sheet_id": "5cd0a2a2-4b32-49cb-925b-40930d55d098",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q1",
+    "comment": "Remarkable delivery on database backups. Centralized token migrations are progressing ahead of schedule.",
+    "created_at": "2026-04-14T07:10:33.561615"
+  },
+  {
+    "id": "786ad6a1-aa07-466b-8d20-f4d8149eb5cc",
+    "sheet_id": "5cd0a2a2-4b32-49cb-925b-40930d55d098",
+    "manager_id": "6338ab00-c8af-4fde-973e-9d5caa44c223",
+    "quarter": "Q2",
+    "comment": "Outstanding work Tariq! Automated 15 backups (far exceeding our target of 10) and completely wrapped up session migrations. Fantastic engineer!",
+    "created_at": "2026-05-13T07:10:33.561615"
+  },
+  {
+    "id": "691a3ca8-f81b-41d7-8a82-f9acca7347e3",
+    "sheet_id": "52b02966-e576-4f78-82d1-8d9592fa9f61",
+    "manager_id": "30a66ed6-7b1a-40f6-9abb-0bd704e7a60b",
+    "quarter": "Goal Setting",
+    "comment": "Please redefine compliance audit timeline target to 90 days instead of 120 days. Keep operations tightly mapped.",
+    "created_at": "2026-05-10T07:10:35.533338"
+  }
+]

@@ -34,7 +34,7 @@ async def create_checkin(payload: CheckInCreate, request: Request, db: AsyncSess
     if not sheet:
         return err("NOT_FOUND", "Goal sheet not found", 404)
         
-    if user.role != "admin":
+    if user.platform_role != "admin":
         from app.models.user import User
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
         emp = emp_res.scalar_one()

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "5aef9ee3-4d97-42b3-8522-537b790ddcd1",
+    "year": 2025,
+    "phase": "Q4 / Annual",
+    "window_open": "2025-01-01",
+    "window_close": "2025-12-31",
+    "is_active": false
+  },
+  {
+    "id": "f258e5d3-f06f-4902-a13b-77ecd3d50d1a",
+    "year": 2026,
+    "phase": "Phase 1 - Goal Setting",
+    "window_open": "2026-01-01",
+    "window_close": "2026-12-31",
+    "is_active": true
+  }
+]

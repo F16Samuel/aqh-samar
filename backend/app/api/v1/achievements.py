@@ -61,7 +61,7 @@ async def list_achievements(goal_id: UUID, request: Request, db: AsyncSession = 
     sheet = sheet_res.scalar_one()
     
     # Permission check: self, manager, or admin
-    if user.role != "admin" and sheet.employee_id != user.id:
+    if user.platform_role != "admin" and sheet.employee_id != user.id:
         from app.models.user import User
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
         emp = emp_res.scalar_one()
@@ -102,7 +102,7 @@ async def create_achievement(payload: AchievementCreate, request: Request, db: A
     sheet_res = await db.execute(select(GoalSheet).where(GoalSheet.id == goal.sheet_id))
     sheet = sheet_res.scalar_one()
     
-    if sheet.employee_id != user.id and user.role != "admin":
+    if sheet.employee_id != user.id and user.platform_role != "admin":
         return err("FORBIDDEN", "Only goal owner can add achievements", 403)
         
     if goal.shared_from is not None:
@@ -162,7 +162,7 @@ async def update_achievement(ach_id: UUID, payload: AchievementUpdate, request: 
     sheet_res = await db.execute(select(GoalSheet).where(GoalSheet.id == goal.sheet_id))
     sheet = sheet_res.scalar_one()
     
-    if sheet.employee_id != user.id and user.role != "admin":
+    if sheet.employee_id != user.id and user.platform_role != "admin":
         return err("FORBIDDEN", "Only goal owner can edit achievements", 403)
         
     update_data = payload.model_dump(exclude_unset=True)

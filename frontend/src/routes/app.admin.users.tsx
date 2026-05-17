@@ -78,6 +78,7 @@ function UserTable({ users, allUsers, isLoading, title }: { users: UserOut[]; al
               <TableHeader className="sticky top-0 bg-background z-10">
                 <TableRow>
                   <TableHead>Name</TableHead>
+                  <TableHead>Job Title</TableHead>
                   <TableHead>Email</TableHead>
                   <TableHead>Department</TableHead>
                   <TableHead>Manager</TableHead>
@@ -87,7 +88,17 @@ function UserTable({ users, allUsers, isLoading, title }: { users: UserOut[]; al
               <TableBody>
                 {users.map((u) => (
                   <TableRow key={u.id}>
-                    <TableCell className="font-medium">{u.full_name}</TableCell>
+                    <TableCell className="font-medium">
+                      <div className="flex flex-col gap-1">
+                        <span>{u.full_name}</span>
+                        {!u.is_active && (
+                          <Badge variant="destructive" className="w-fit text-[9px] px-1 py-0 h-4">
+                            Inactive
+                          </Badge>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell className="font-medium text-primary">{u.job_title || "-"}</TableCell>
                     <TableCell className="text-muted-foreground">{u.email}</TableCell>
                     <TableCell>{u.department_name || "-"}</TableCell>
                     <TableCell>{u.manager_name || "-"}</TableCell>
@@ -108,6 +119,7 @@ function UserTable({ users, allUsers, isLoading, title }: { users: UserOut[]; al
 function UserEditDialog({ user, users }: { user: UserOut; users: UserOut[] }) {
   const [open, setOpen] = useState(false);
   const [role, setRole] = useState<Role>(user.role);
+  const [jobTitle, setJobTitle] = useState<string>(user.job_title || "");
   const [managerId, setManagerId] = useState<string>(user.manager_id || "none");
   const [departmentId, setDepartmentId] = useState<string>(user.department_id || "none");
   const { data: depts } = useDepartments();
@@ -118,6 +130,7 @@ function UserEditDialog({ user, users }: { user: UserOut; users: UserOut[] }) {
       id: user.id,
       body: {
         role,
+        job_title: jobTitle.trim() || null,
         manager_id: managerId === "none" ? null : managerId,
         department_id: departmentId === "none" ? null : departmentId,
       },
@@ -147,6 +160,10 @@ function UserEditDialog({ user, users }: { user: UserOut; users: UserOut[] }) {
                 <SelectItem value="admin">Admin</SelectItem>
               </SelectContent>
             </Select>
+          </div>
+          <div className="space-y-2">
+            <Label>Job Title</Label>
+            <Input value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="e.g. Senior Security Architect" />
           </div>
           <div className="space-y-2">
             <Label>Department</Label>
@@ -185,6 +202,7 @@ function NewUserDialog({ users }: { users: UserOut[] }) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [fullName, setFullName] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
   const [role, setRole] = useState<Role>("employee");
   const [managerId, setManagerId] = useState<string>("none");
   const [departmentId, setDepartmentId] = useState<string>("none");
@@ -197,12 +215,14 @@ function NewUserDialog({ users }: { users: UserOut[] }) {
       email: email.trim(),
       full_name: fullName.trim(),
       role,
+      job_title: jobTitle.trim() || null,
       manager_id: managerId === "none" ? null : managerId,
       department_id: departmentId === "none" ? null : departmentId,
     });
     setOpen(false);
     setEmail("");
     setFullName("");
+    setJobTitle("");
   };
 
   const potentialManagers = users.filter((u) => u.role === "manager" || u.role === "admin");
@@ -224,6 +244,10 @@ function NewUserDialog({ users }: { users: UserOut[] }) {
           <div className="space-y-2">
             <Label>Email</Label>
             <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+          <div className="space-y-2">
+            <Label>Job Title</Label>
+            <Input value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="e.g. Lead Platform Engineer" />
           </div>
           <div className="space-y-2">
             <Label>Temporary Password (Demo)</Label>

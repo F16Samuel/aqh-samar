@@ -83,7 +83,7 @@ function AppLayout() {
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full bg-muted/30">
-        <AppSidebar role={me.role} fullName={me.full_name} email={me.email} />
+        <AppSidebar role={me.role} fullName={me.full_name} email={me.email} jobTitle={me.job_title} />
         <div className="flex flex-1 flex-col">
           <Topbar />
           <main className="flex-1 p-4 md:p-6 lg:p-8">
@@ -183,7 +183,7 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
   return groups;
 }
 
-function AppSidebar({ role, fullName, email }: { role: Role; fullName: string; email: string }) {
+function AppSidebar({ role, fullName, email, jobTitle }: { role: Role; fullName: string; email: string; jobTitle?: string | null }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const groups = navFor(role);
   return (
@@ -227,6 +227,9 @@ function AppSidebar({ role, fullName, email }: { role: Role; fullName: string; e
         <div className="space-y-2 px-2 py-2">
           <div className="min-w-0">
             <p className="truncate text-sm font-medium">{fullName}</p>
+            {jobTitle && (
+              <p className="truncate text-xs font-semibold text-primary">{jobTitle}</p>
+            )}
             <p className="truncate text-xs text-muted-foreground">{email}</p>
           </div>
           <Button

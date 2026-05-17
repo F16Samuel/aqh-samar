@@ -208,7 +208,7 @@ async def get_achievement_report(
     if department_id:
         query = query.where(User.department_id == department_id)
         
-    if user.role == "manager":
+    if user.platform_role == "manager":
         query = query.where(User.manager_id == user.id)
         
     res = await db.execute(query)
@@ -312,7 +312,7 @@ async def get_completion_report(
             cycle_id = cycle.id
             
     query = select(User)
-    if user.role == "manager":
+    if user.platform_role == "manager":
         query = query.where(User.manager_id == user.id)
         
     users_res = await db.execute(query)
@@ -347,7 +347,7 @@ async def get_completion_report(
             
     results = []
     for emp in employees:
-        if emp.role == "admin" or (emp.role == "manager" and user.role == "manager" and emp.id == user.id):
+        if emp.platform_role == "admin" or (emp.platform_role == "manager" and user.platform_role == "manager" and emp.id == user.id):
             continue # skip admins and self if manager
             
         sheet = sheets.get(emp.id)
@@ -578,10 +578,10 @@ async def team_analytics(request: Request, cycle_id: Optional[UUID] = None, db: 
 
     # Load direct reports
     query = select(User)
-    if user.role == "manager":
+    if user.platform_role == "manager":
         query = query.where(User.manager_id == user.id)
     emp_res = await db.execute(query)
-    employees = [e for e in emp_res.scalars().all() if e.role not in ("admin",) and e.id != user.id]
+    employees = [e for e in emp_res.scalars().all() if e.platform_role not in ("admin",) and e.id != user.id]
 
     # Load sheets
     emp_ids = [e.id for e in employees]

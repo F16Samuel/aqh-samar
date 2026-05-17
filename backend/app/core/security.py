@@ -29,7 +29,7 @@ def require_roles(*roles: str) -> Callable:
             if not user:
                 return err("UNAUTHORIZED", "Not authenticated", 401)
                 
-            if roles and user.role not in roles:
+            if roles and user.platform_role not in roles:
                 return err("FORBIDDEN", "You do not have permission to perform this action", 403)
                 
             return await func(*args, **kwargs)

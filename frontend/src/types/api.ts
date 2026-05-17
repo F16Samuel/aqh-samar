@@ -18,14 +18,33 @@ export interface UserOut {
   id: string;
   email: string;
   full_name: string;
-  role: Role;
+  role: Role; // legacy compatibility role
+  platform_role?: Role; // new security role
+  job_title?: string | null;
+  is_active?: boolean;
+  employment_type?: string | null;
+  employee_code?: string | null;
+  location?: string | null;
   manager_id: string | null;
   department_id: string | null;
 }
 
 export type UserCreate = Omit<UserOut, "id">;
 
-export type UserUpdate = Partial<Pick<UserOut, "role" | "manager_id" | "department_id">>;
+export type UserUpdate = Partial<
+  Pick<
+    UserOut,
+    | "role"
+    | "platform_role"
+    | "job_title"
+    | "is_active"
+    | "employment_type"
+    | "employee_code"
+    | "location"
+    | "manager_id"
+    | "department_id"
+  >
+>;
 
 export interface CycleOut {
   id: string;

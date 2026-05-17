@@ -6,7 +6,13 @@ from typing import Optional
 class UserBase(BaseModel):
     email: str
     full_name: str
-    role: str
+    role: str # legacy role field for compatibility
+    platform_role: Optional[str] = None # new platform role field
+    job_title: Optional[str] = None
+    is_active: bool = True
+    employment_type: Optional[str] = None
+    employee_code: Optional[str] = None
+    location: Optional[str] = None
     manager_id: Optional[UUID] = None
     department_id: Optional[UUID] = None
 
@@ -23,5 +29,11 @@ class UserOut(UserBase):
 
 class UserUpdate(BaseModel):
     role: Optional[str] = None
+    platform_role: Optional[str] = None
+    job_title: Optional[str] = None
+    is_active: Optional[bool] = None
+    employment_type: Optional[str] = None
+    employee_code: Optional[str] = None
+    location: Optional[str] = None
     manager_id: Optional[UUID] = None
     department_id: Optional[UUID] = None

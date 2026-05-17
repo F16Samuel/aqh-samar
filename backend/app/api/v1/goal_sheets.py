@@ -111,7 +111,7 @@ async def get_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depends
     if not sheet:
         return err("NOT_FOUND", "Goal sheet not found", 404)
         
-    if user.role != "admin" and sheet.employee_id != user.id:
+    if user.platform_role != "admin" and sheet.employee_id != user.id:
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
         emp = emp_res.scalar_one()
         if emp.manager_id != user.id:
@@ -176,7 +176,7 @@ async def submit_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Depe
     if not sheet:
         return err("NOT_FOUND", "Goal sheet not found", 404)
         
-    if sheet.employee_id != user.id and user.role != "admin":
+    if sheet.employee_id != user.id and user.platform_role != "admin":
         return err("FORBIDDEN", "Only the owner can submit the sheet", 403)
         
     if sheet.status not in ("draft", "rework"):
@@ -224,7 +224,7 @@ async def approve_sheet(sheet_id: UUID, request: Request, db: AsyncSession = Dep
     if not sheet:
         return err("NOT_FOUND", "Goal sheet not found", 404)
         
-    if user.role != "admin":
+    if user.platform_role != "admin":
         from app.models.user import User
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
         emp = emp_res.scalar_one()
@@ -260,7 +260,7 @@ async def return_sheet(sheet_id: UUID, payload: ReturnPayload, request: Request,
     if not sheet:
         return err("NOT_FOUND", "Goal sheet not found", 404)
         
-    if user.role != "admin":
+    if user.platform_role != "admin":
         from app.models.user import User
         emp_res = await db.execute(select(User).where(User.id == sheet.employee_id))
         emp = emp_res.scalar_one()

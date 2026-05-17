@@ -32,6 +32,8 @@ async def create_user_profile(payload: UserCreate, request: Request, db: AsyncSe
         email=payload.email,
         full_name=payload.full_name,
         role=payload.role,
+        platform_role=payload.platform_role or payload.role,
+        job_title=payload.job_title,
         department_id=payload.department_id,
         manager_id=payload.manager_id
     )
@@ -93,7 +95,7 @@ async def get_user(user_id: UUID, request: Request, db: AsyncSession = Depends(g
         
     target_user, d, m = row
         
-    if curr_user.role != "admin" and curr_user.id != user_id and target_user.manager_id != curr_user.id:
+    if curr_user.platform_role != "admin" and curr_user.id != user_id and target_user.manager_id != curr_user.id:
         return err("FORBIDDEN", "You do not have permission to view this user", 403)
         
     out = UserOut.model_validate(target_user)
@@ -107,7 +109,7 @@ async def get_team(user_id: UUID, request: Request, db: AsyncSession = Depends(g
     """Get direct reports of a manager."""
     curr_user = request.state.user
     
-    if curr_user.role != "admin" and curr_user.id != user_id:
+    if curr_user.platform_role != "admin" and curr_user.id != user_id:
         return err("FORBIDDEN", "You can only view your own team", 403)
         
     result = await db.execute(select(User).where(User.manager_id == user_id).order_by(User.full_name))
