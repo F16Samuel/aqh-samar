@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Optional, List
 from uuid import UUID
 
@@ -49,6 +48,5 @@ class GoalOut(GoalBase):
     sheet_id: UUID
     shared_from: Optional[UUID] = None
     is_locked: bool
-    updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)

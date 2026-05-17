@@ -1,13 +1,13 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router";
 import { useAuthStore } from "@/store/auth.store";
-import { useEscalations, useUsers, useResolveEscalation } from "@/hooks/api";
+import { useEscalations, useUsers } from "@/hooks/api";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/feedback/EmptyState";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { differenceInDays } from "date-fns";
 
 export const Route = createFileRoute("/app/admin/escalations")({
   component: EscalationsPage,
@@ -19,8 +19,6 @@ function EscalationsPage() {
   if (me.role !== "admin") return <Navigate to="/app" />;
   const { data, isLoading } = useEscalations(true);
   const { data: users } = useUsers(true);
-  const resolve = useResolveEscalation();
-
   return (
     <div className="space-y-6">
       <header>
@@ -39,44 +37,28 @@ function EscalationsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Subject</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Reason</TableHead>
+                  <TableHead>Employee</TableHead>
+                  <TableHead>Manager</TableHead>
                   <TableHead>Submitted On</TableHead>
+                  <TableHead>Days Escalated</TableHead>
                   <TableHead>Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {data.map((e: any) => {
                   const emp = users?.find(u => u.id === e.employee_id);
+                  const mgr = users?.find(u => u.id === emp?.manager_id);
+                  const days = differenceInDays(new Date(), new Date(e.submitted_at));
                   return (
                     <TableRow key={e.id}>
-                      <TableCell className="font-medium">
-                        {emp ? emp.full_name : "Unknown"}
-                        <div className="text-xs text-muted-foreground">#{e.sheet_id.slice(0, 8)}</div>
-                      </TableCell>
+                      <TableCell className="font-medium">{emp ? emp.full_name : e.employee_id}</TableCell>
+                      <TableCell>{mgr ? mgr.full_name : "None"}</TableCell>
+                      <TableCell>{new Date(e.submitted_at).toLocaleDateString()}</TableCell>
+                      <TableCell className="text-destructive font-medium">{days} days</TableCell>
                       <TableCell>
-                        <Badge variant={e.type === "automatic" ? "outline" : "default"}>
-                          {e.type}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="max-w-xs truncate">{e.reason}</TableCell>
-                      <TableCell>{e.submitted_at ? new Date(e.submitted_at).toLocaleDateString() : "N/A"}</TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-2">
-                          <Button variant="outline" size="sm" asChild>
-                            <Link to={`/app/goal-sheets/${e.sheet_id}`}>Review</Link>
-                          </Button>
-                          {e.type === "formal" && (
-                            <Button 
-                              size="sm" 
-                              onClick={() => resolve.mutate(e.id)}
-                              disabled={resolve.isPending}
-                            >
-                              Resolve
-                            </Button>
-                          )}
-                        </div>
+                        <Button variant="outline" size="sm" asChild>
+                          <Link to={`/app/goal-sheets/${e.id}`}>Review Sheet</Link>
+                        </Button>
                       </TableCell>
                     </TableRow>
                   );

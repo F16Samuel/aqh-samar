@@ -1,0 +1,50 @@
+[
+  {
+    "id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "year": 2021,
+    "phase": "Q4 / Annual",
+    "window_open": "2021-01-01",
+    "window_close": "2021-12-31",
+    "is_active": false
+  },
+  {
+    "id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "year": 2022,
+    "phase": "Q4 / Annual",
+    "window_open": "2022-01-01",
+    "window_close": "2022-12-31",
+    "is_active": false
+  },
+  {
+    "id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "year": 2023,
+    "phase": "Q4 / Annual",
+    "window_open": "2023-01-01",
+    "window_close": "2023-12-31",
+    "is_active": false
+  },
+  {
+    "id": "373d0089-c55a-4793-949b-585739426920",
+    "year": 2024,
+    "phase": "Q4 / Annual",
+    "window_open": "2024-01-01",
+    "window_close": "2024-12-31",
+    "is_active": false
+  },
+  {
+    "id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "year": 2025,
+    "phase": "Q4 / Annual",
+    "window_open": "2025-01-01",
+    "window_close": "2025-12-31",
+    "is_active": false
+  },
+  {
+    "id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "year": 2026,
+    "phase": "Phase 1 - Goal Setting",
+    "window_open": "2026-01-01",
+    "window_close": "2026-12-31",
+    "is_active": true
+  }
+]

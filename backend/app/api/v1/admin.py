@@ -44,77 +44,31 @@ async def unlock_goal(goal_id: UUID, request: Request, db: AsyncSession = Depend
 @router.get("/escalations")
 @require_roles("admin")
 async def get_escalations(request: Request, db: AsyncSession = Depends(get_db)):
-    """
-    List all open escalations. 
-    Sheets stalled in 'submitted' status for > 7 days are auto-calculated or fetched from DB.
-    """
-    from app.models.goal import Escalation, GoalSheet
-    from app.models.user import User
-    from datetime import datetime, timedelta
-    
-    # 1. Manual/Calculated Escalations (Stalled Sheets)
+    """Returns sheets stuck in 'submitted' > 7 days."""
     seven_days_ago = datetime.utcnow() - timedelta(days=7)
-    stalled_res = await db.execute(
-        select(GoalSheet)
-        .where(GoalSheet.status == "submitted", GoalSheet.submitted_at <= seven_days_ago)
+    from app.models.user import User
+    from app.models.cycle import Cycle
+    res = await db.execute(
+        select(GoalSheet, User, Cycle)
+        .join(User, GoalSheet.employee_id == User.id)
+        .join(Cycle, GoalSheet.cycle_id == Cycle.id)
+        .where(
+            GoalSheet.status == "submitted",
+            GoalSheet.submitted_at < seven_days_ago
+        )
     )
-    stalled_sheets = stalled_res.scalars().all()
-    
-    # 2. Formal Escalation Records from DB
-    esc_res = await db.execute(
-        select(Escalation, GoalSheet, User)
-        .join(GoalSheet, Escalation.sheet_id == GoalSheet.id)
-        .join(User, Escalation.escalated_to == User.id)
-        .where(Escalation.status == "open")
-    )
-    formal_escalations = esc_res.all()
-    
-    results = []
-    # Add stalled sheets as "Auto-Escalated"
-    seen_sheet_ids = set()
-    for s in stalled_sheets:
-        seen_sheet_ids.add(s.id)
-        results.append({
+    rows = res.all()
+    return ok([
+        {
             "id": str(s.id),
-            "sheet_id": str(s.id),
             "employee_id": str(s.employee_id),
-            "submitted_at": s.submitted_at.isoformat(),
-            "reason": "Stalled in review for > 7 days",
-            "type": "automatic",
-            "status": "open"
-        })
-        
-    for esc, sheet, user in formal_escalations:
-        if sheet.id in seen_sheet_ids: continue
-        results.append({
-            "id": str(esc.id),
-            "sheet_id": str(sheet.id),
-            "employee_id": str(sheet.employee_id),
-            "submitted_at": sheet.submitted_at.isoformat() if sheet.submitted_at else None,
-            "reason": esc.reason,
-            "type": "formal",
-            "status": esc.status,
-            "escalated_to_name": user.full_name
-        })
-        
-    return ok(results)
-
-@router.post("/escalations/{escalation_id}/resolve")
-@require_roles("admin")
-async def resolve_escalation(escalation_id: UUID, request: Request, db: AsyncSession = Depends(get_db)):
-    """Mark a formal escalation as resolved."""
-    from app.models.goal import Escalation
-    res = await db.execute(select(Escalation).where(Escalation.id == escalation_id))
-    esc = res.scalar_one_or_none()
-    
-    if not esc:
-        return err("NOT_FOUND", "Escalation record not found", 404)
-        
-    from datetime import datetime
-    esc.status = "resolved"
-    esc.resolved_at = datetime.utcnow()
-    await db.commit()
-    return ok({"message": "Escalation resolved"})
+            "employee_name": u.full_name,
+            "cycle_label": f"{c.year} · {c.phase}",
+            "status": s.status,
+            "submitted_at": s.submitted_at.isoformat() if s.submitted_at else None
+        }
+        for s, u, c in rows
+    ])
 
 @router.get("/audit-logs")
 @require_roles("admin")

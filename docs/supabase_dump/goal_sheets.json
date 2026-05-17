@@ -1,0 +1,722 @@
+[
+  {
+    "id": "1d48e330-b8f7-47a2-b47c-a468b3a9eb68",
+    "employee_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "dd42364a-fdcc-440a-9983-087e64614268",
+    "employee_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "00e644a0-fa40-4ae1-aac7-822fc9e5c67c",
+    "employee_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "02c91a8b-70dc-4854-b687-916ac15b41d6",
+    "employee_id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "627814d8-df79-4136-a533-23db9ef20c9b",
+    "employee_id": "1186befb-03db-4643-bc7b-b9c84be6d3cc",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "2ee2a7d1-e95c-4e1f-b1b4-89565e00229a",
+    "employee_id": "563e4b28-6f07-4146-a089-3a38d3315779",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "67188e8f-6d6d-407a-a8fc-ec7c34275c74",
+    "employee_id": "c88da98e-a82c-4653-9b7b-add43cbf04c2",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "e1eb6567-2176-4e7f-98d0-be83e873a4e0",
+    "employee_id": "5a460370-9ffe-4bde-a996-bf1b406ec22e",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "9bdcea66-02f8-4c2c-9d11-c8e3f3591dd2",
+    "employee_id": "1aff668d-6066-4611-9f0f-f1dbdc2f4837",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "881bf519-1fe5-436d-b78b-3b2223a8fb36",
+    "employee_id": "71d9ee94-47f8-4d4c-b5cc-f79238679696",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "eb44c46b-4042-4930-84ac-a8abac978895",
+    "employee_id": "6ebdfa3f-9d9c-4c33-a047-dc96d3b75a8e",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "af72fece-77d7-4ffb-8568-71b1d40c83a4",
+    "employee_id": "aca6be95-3370-4824-bb98-1f56abb80520",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "7899521c-49d5-42f0-80ce-5d4075cadde3",
+    "employee_id": "9530df39-638e-4d23-8bc4-de99195da434",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "42e7a069-4c21-4d3b-ba2c-8e50c6bcda33",
+    "employee_id": "a2b6c39d-966a-464c-9c1f-7a01c9da8155",
+    "cycle_id": "42e8ae63-c6ed-421e-bae5-d0fed748a376",
+    "status": "locked",
+    "submitted_at": "2021-01-15T00:00:00",
+    "approved_at": "2021-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "49d1fb1c-15d5-4851-a239-355c4bd50cd1",
+    "employee_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "ce6dc428-653b-4412-9fc3-ac26e39a4cc5",
+    "employee_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "f2b9b70a-197d-4dc6-bc3a-cd509052d71a",
+    "employee_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "d63c78fb-e76b-4c5f-8b20-96e3aa6ab9ef",
+    "employee_id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "8a4190b5-e96f-4535-a4f6-feea601065e7",
+    "employee_id": "1186befb-03db-4643-bc7b-b9c84be6d3cc",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "8fb372ac-d92d-4e1a-97ac-2af1b34f2e66",
+    "employee_id": "563e4b28-6f07-4146-a089-3a38d3315779",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "14ec8737-eef0-4c39-9fd7-79ab94d1f6b8",
+    "employee_id": "c88da98e-a82c-4653-9b7b-add43cbf04c2",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "37a412bb-1b65-461e-9b3f-3f1e7dea7c42",
+    "employee_id": "5a460370-9ffe-4bde-a996-bf1b406ec22e",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "2ab5a730-ad61-4ce5-ac27-a465ca04912e",
+    "employee_id": "1aff668d-6066-4611-9f0f-f1dbdc2f4837",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "ef30d915-ea08-4639-96d0-ae4e05c2bd6c",
+    "employee_id": "71d9ee94-47f8-4d4c-b5cc-f79238679696",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "bc281445-9ff0-4f54-9129-2e664356871d",
+    "employee_id": "6ebdfa3f-9d9c-4c33-a047-dc96d3b75a8e",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "224389c1-6786-4e64-93a6-75ea544ff99e",
+    "employee_id": "aca6be95-3370-4824-bb98-1f56abb80520",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "a8867d3f-301b-46af-af0b-83298b98725b",
+    "employee_id": "9530df39-638e-4d23-8bc4-de99195da434",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "39c820a7-3441-47d9-a675-172631081add",
+    "employee_id": "a2b6c39d-966a-464c-9c1f-7a01c9da8155",
+    "cycle_id": "4e2d05bf-58b3-48fa-b84a-6a0b119d200b",
+    "status": "locked",
+    "submitted_at": "2022-01-15T00:00:00",
+    "approved_at": "2022-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "bc0981c2-a881-4e0b-8726-db166c2c126b",
+    "employee_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "c8f67273-08b0-4da6-a990-bf7bcd92afd8",
+    "employee_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "9f9d5fb8-347d-4d36-809a-8004de3dcb6b",
+    "employee_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "dfea6f93-8c49-4327-a8cc-89116692955f",
+    "employee_id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "d8ebe9c1-3196-4edf-8c17-80b10c4157ee",
+    "employee_id": "1186befb-03db-4643-bc7b-b9c84be6d3cc",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "97a76589-2032-4f39-8d30-1f994777fa7e",
+    "employee_id": "563e4b28-6f07-4146-a089-3a38d3315779",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "6894cf8e-3b98-4d33-8c2e-7252a62a2dfc",
+    "employee_id": "c88da98e-a82c-4653-9b7b-add43cbf04c2",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "a7e590ed-e194-4b89-83d7-af28d473fe0c",
+    "employee_id": "5a460370-9ffe-4bde-a996-bf1b406ec22e",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "dea2deb3-a52f-4933-b908-79f747778878",
+    "employee_id": "1aff668d-6066-4611-9f0f-f1dbdc2f4837",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "8e1008d4-ea0f-48cb-872a-4f2a550aaad4",
+    "employee_id": "71d9ee94-47f8-4d4c-b5cc-f79238679696",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "0f8370fa-ceda-46fa-8a7e-6fae4002163a",
+    "employee_id": "6ebdfa3f-9d9c-4c33-a047-dc96d3b75a8e",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "9cf82a19-0095-43d3-a4a0-d9c036ec5977",
+    "employee_id": "aca6be95-3370-4824-bb98-1f56abb80520",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "1f54ff92-6153-4340-b262-a7637db17ed1",
+    "employee_id": "9530df39-638e-4d23-8bc4-de99195da434",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "6d446f5e-130a-4856-a65b-02ad167fa7bb",
+    "employee_id": "a2b6c39d-966a-464c-9c1f-7a01c9da8155",
+    "cycle_id": "1b98809a-5ee2-4f6f-9df3-a00d37587723",
+    "status": "locked",
+    "submitted_at": "2023-01-15T00:00:00",
+    "approved_at": "2023-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "716a966b-184e-4b99-b40b-c9fefa7b2447",
+    "employee_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "c46e8555-51a0-4465-84ce-ba687c6d3fc4",
+    "employee_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "db8d3148-0bb4-4dfd-8669-7cd92db77bd7",
+    "employee_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "7c1df677-79ee-4423-85eb-562526872d41",
+    "employee_id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "bf01ed87-1687-4471-9221-9bc3306668e7",
+    "employee_id": "1186befb-03db-4643-bc7b-b9c84be6d3cc",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "2d309d8d-22db-4cd8-825b-83c1ff48e4ec",
+    "employee_id": "563e4b28-6f07-4146-a089-3a38d3315779",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "9e927349-3024-47ce-8113-1e2abd87314b",
+    "employee_id": "c88da98e-a82c-4653-9b7b-add43cbf04c2",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "613d06b4-8f39-40cc-890c-a1a294a9ae70",
+    "employee_id": "5a460370-9ffe-4bde-a996-bf1b406ec22e",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "75738fd5-3145-403d-85c3-3a7599d1e140",
+    "employee_id": "1aff668d-6066-4611-9f0f-f1dbdc2f4837",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "0fb4eb1c-8a5e-452a-8512-ea22cfbc7951",
+    "employee_id": "71d9ee94-47f8-4d4c-b5cc-f79238679696",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "3178c828-ec13-4835-8cb0-cad4039a105a",
+    "employee_id": "6ebdfa3f-9d9c-4c33-a047-dc96d3b75a8e",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "791b0c41-5131-4d8f-aadc-50d57a508ff4",
+    "employee_id": "aca6be95-3370-4824-bb98-1f56abb80520",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "63b912c3-4465-4c15-8467-f3a2a98c5e4e",
+    "employee_id": "9530df39-638e-4d23-8bc4-de99195da434",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "7c0660f6-e6d2-42f6-8cd3-8110d9a5bc1e",
+    "employee_id": "a2b6c39d-966a-464c-9c1f-7a01c9da8155",
+    "cycle_id": "373d0089-c55a-4793-949b-585739426920",
+    "status": "locked",
+    "submitted_at": "2024-01-15T00:00:00",
+    "approved_at": "2024-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "45e813f0-76f1-4ce5-9e4b-484cb90d5577",
+    "employee_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "37b7654d-de7b-49c4-b09e-4b84cfa97602",
+    "employee_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "cc841c42-49b1-4e1a-b7ea-afcebcac1620",
+    "employee_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "5eb1fc4d-c68d-4409-b9f0-f0e27e0aabc3",
+    "employee_id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": null
+  },
+  {
+    "id": "dbf1126a-19a1-4dec-8ff7-2ef22ecbdada",
+    "employee_id": "1186befb-03db-4643-bc7b-b9c84be6d3cc",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "c9de2def-0e79-4145-a6ee-4f546b02361f",
+    "employee_id": "563e4b28-6f07-4146-a089-3a38d3315779",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "216a34fc-ce82-4903-9394-82a4218a3a61",
+    "employee_id": "c88da98e-a82c-4653-9b7b-add43cbf04c2",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "63f15a22-df64-4f04-a742-cadf32783c04",
+    "employee_id": "5a460370-9ffe-4bde-a996-bf1b406ec22e",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "51825da4-9102-4b44-8d41-986930fce777",
+    "employee_id": "1aff668d-6066-4611-9f0f-f1dbdc2f4837",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "6dfdb376-a161-470c-97aa-4d59199e10d9",
+    "employee_id": "71d9ee94-47f8-4d4c-b5cc-f79238679696",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  },
+  {
+    "id": "3dadf437-68e9-40a5-a162-f663f2054dc5",
+    "employee_id": "6ebdfa3f-9d9c-4c33-a047-dc96d3b75a8e",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "7a677767-84f6-478a-9bd4-714a0964b18b",
+    "employee_id": "aca6be95-3370-4824-bb98-1f56abb80520",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "840e76d3-fc64-4004-9712-47374b62552f"
+  },
+  {
+    "id": "8b033fc0-cfd5-4887-83b5-bfca8f4d6809",
+    "employee_id": "9530df39-638e-4d23-8bc4-de99195da434",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "4b847e5d-62cd-4186-9056-6bd7a9c74c3b",
+    "employee_id": "a2b6c39d-966a-464c-9c1f-7a01c9da8155",
+    "cycle_id": "8f46c4b2-20cf-49f9-aa41-c1adfbc71838",
+    "status": "locked",
+    "submitted_at": "2025-01-15T00:00:00",
+    "approved_at": "2025-01-20T00:00:00",
+    "approved_by": "38f909e7-895a-4c7d-a5b5-1bc585991b5d"
+  },
+  {
+    "id": "ed8891ce-33a9-43d8-b623-bf707af99c53",
+    "employee_id": "1186befb-03db-4643-bc7b-b9c84be6d3cc",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "locked",
+    "submitted_at": "2026-04-16T16:55:24.529636",
+    "approved_at": "2026-04-17T16:55:24.529636",
+    "approved_by": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb"
+  },
+  {
+    "id": "fa2becb4-4a3d-4195-823b-d51c454bd2ee",
+    "employee_id": "563e4b28-6f07-4146-a089-3a38d3315779",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "returned",
+    "submitted_at": "2026-05-11T16:55:25.175521",
+    "approved_at": null,
+    "approved_by": null
+  },
+  {
+    "id": "6ec35c16-dc85-4d47-a58d-9b390c64e385",
+    "employee_id": "c88da98e-a82c-4653-9b7b-add43cbf04c2",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "draft",
+    "submitted_at": null,
+    "approved_at": null,
+    "approved_by": null
+  },
+  {
+    "id": "e596f28b-4346-43ff-96dd-65a1009c643a",
+    "employee_id": "1aff668d-6066-4611-9f0f-f1dbdc2f4837",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "submitted",
+    "submitted_at": "2026-05-14T16:55:26.266801",
+    "approved_at": null,
+    "approved_by": null
+  },
+  {
+    "id": "fdea71b4-97e5-4696-95ac-4d4ac7272b8f",
+    "employee_id": "71d9ee94-47f8-4d4c-b5cc-f79238679696",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "submitted",
+    "submitted_at": "2026-05-01T16:55:26.573209",
+    "approved_at": null,
+    "approved_by": null
+  },
+  {
+    "id": "a9a96984-e566-476e-a7ed-ff01cabb9a15",
+    "employee_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "approved",
+    "submitted_at": "2026-04-26T16:55:26.890242",
+    "approved_at": "2026-04-27T16:55:26.890242",
+    "approved_by": null
+  },
+  {
+    "id": "eb432638-81b2-41a1-9129-a57eda0eb1c0",
+    "employee_id": "6ebdfa3f-9d9c-4c33-a047-dc96d3b75a8e",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "approved",
+    "submitted_at": "2026-04-28T16:55:27.351723",
+    "approved_at": "2026-04-29T16:55:27.351723",
+    "approved_by": null
+  },
+  {
+    "id": "0ff23b09-c57a-4ff4-9fa9-c1f419515ffe",
+    "employee_id": "aca6be95-3370-4824-bb98-1f56abb80520",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "approved",
+    "submitted_at": "2026-04-28T16:55:27.352175",
+    "approved_at": "2026-04-29T16:55:27.352175",
+    "approved_by": null
+  },
+  {
+    "id": "f6ce9acc-8216-4bc3-b52a-7fadf94b44b5",
+    "employee_id": "9530df39-638e-4d23-8bc4-de99195da434",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "approved",
+    "submitted_at": "2026-04-21T16:55:27.817077",
+    "approved_at": "2026-04-22T16:55:27.817077",
+    "approved_by": null
+  },
+  {
+    "id": "bd8bf88a-1f17-479b-b467-9aea37bedb21",
+    "employee_id": "5a460370-9ffe-4bde-a996-bf1b406ec22e",
+    "cycle_id": "190c8dfd-91b8-41b9-8b0c-c116e261190b",
+    "status": "approved",
+    "submitted_at": "2026-05-16T18:00:40.305023",
+    "approved_at": "2026-05-16T19:14:00.059719",
+    "approved_by": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330"
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "718a3357-2c0c-478f-aff4-f01942aec997",
+    "email": "admin@company.com",
+    "full_name": "System Admin",
+    "role": "admin",
+    "manager_id": null,
+    "department_id": "69d47bcb-c40c-4e9c-ad7e-197a940a5bea",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "email": "mgr1@company.com",
+    "full_name": "Engineering Manager",
+    "role": "manager",
+    "manager_id": null,
+    "department_id": "83a6985d-27de-44a6-b694-957a66b5492a",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "email": "mgr2@company.com",
+    "full_name": "Sales Manager",
+    "role": "manager",
+    "manager_id": null,
+    "department_id": "684c71d9-c625-4a3c-a4a1-e2d80c417764",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "email": "mgr3@company.com",
+    "full_name": "Marketing Manager",
+    "role": "manager",
+    "manager_id": null,
+    "department_id": "c9f184f7-48a4-40dd-bc3e-3b1b20b79229",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "email": "mgr4@company.com",
+    "full_name": "Product Manager",
+    "role": "manager",
+    "manager_id": null,
+    "department_id": "31e884ac-6afe-4c98-8b6d-27f531cc90d9",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "1186befb-03db-4643-bc7b-b9c84be6d3cc",
+    "email": "emp1@company.com",
+    "full_name": "Frontend Dev",
+    "role": "employee",
+    "manager_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "department_id": "83a6985d-27de-44a6-b694-957a66b5492a",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "1aff668d-6066-4611-9f0f-f1dbdc2f4837",
+    "email": "emp4@company.com",
+    "full_name": "Sales Rep 2",
+    "role": "employee",
+    "manager_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "department_id": "684c71d9-c625-4a3c-a4a1-e2d80c417764",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "563e4b28-6f07-4146-a089-3a38d3315779",
+    "email": "emp2@company.com",
+    "full_name": "Backend Dev",
+    "role": "employee",
+    "manager_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "department_id": "83a6985d-27de-44a6-b694-957a66b5492a",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "5a460370-9ffe-4bde-a996-bf1b406ec22e",
+    "email": "emp3@company.com",
+    "full_name": "Sales Rep 1",
+    "role": "employee",
+    "manager_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "department_id": "684c71d9-c625-4a3c-a4a1-e2d80c417764",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "6ebdfa3f-9d9c-4c33-a047-dc96d3b75a8e",
+    "email": "emp5@company.com",
+    "full_name": "SEO Specialist",
+    "role": "employee",
+    "manager_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "department_id": "c9f184f7-48a4-40dd-bc3e-3b1b20b79229",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "71d9ee94-47f8-4d4c-b5cc-f79238679696",
+    "email": "emp_stuck@company.com",
+    "full_name": "Stalled Rep",
+    "role": "employee",
+    "manager_id": "ab31c2ce-5ae0-431e-95b5-3ddb4315c330",
+    "department_id": "684c71d9-c625-4a3c-a4a1-e2d80c417764",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "9530df39-638e-4d23-8bc4-de99195da434",
+    "email": "emp7@company.com",
+    "full_name": "UX Designer",
+    "role": "employee",
+    "manager_id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "department_id": "31e884ac-6afe-4c98-8b6d-27f531cc90d9",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "a2b6c39d-966a-464c-9c1f-7a01c9da8155",
+    "email": "emp8@company.com",
+    "full_name": "Product Owner",
+    "role": "employee",
+    "manager_id": "38f909e7-895a-4c7d-a5b5-1bc585991b5d",
+    "department_id": "31e884ac-6afe-4c98-8b6d-27f531cc90d9",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "aca6be95-3370-4824-bb98-1f56abb80520",
+    "email": "emp6@company.com",
+    "full_name": "Content Writer",
+    "role": "employee",
+    "manager_id": "840e76d3-fc64-4004-9712-47374b62552f",
+    "department_id": "c9f184f7-48a4-40dd-bc3e-3b1b20b79229",
+    "created_at": "2026-05-16T16:54:42.560938"
+  },
+  {
+    "id": "c88da98e-a82c-4653-9b7b-add43cbf04c2",
+    "email": "emp_new@company.com",
+    "full_name": "New Hire Eng",
+    "role": "employee",
+    "manager_id": "ef440bd6-b9bd-4e66-ad16-2a4b7e12d4fb",
+    "department_id": "83a6985d-27de-44a6-b694-957a66b5492a",
+    "created_at": "2026-05-16T16:54:42.560938"
+  }
+]

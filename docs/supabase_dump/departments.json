@@ -1,0 +1,30 @@
+[
+  {
+    "id": "83a6985d-27de-44a6-b694-957a66b5492a",
+    "name": "Engineering"
+  },
+  {
+    "id": "684c71d9-c625-4a3c-a4a1-e2d80c417764",
+    "name": "Sales"
+  },
+  {
+    "id": "c9f184f7-48a4-40dd-bc3e-3b1b20b79229",
+    "name": "Marketing"
+  },
+  {
+    "id": "69d47bcb-c40c-4e9c-ad7e-197a940a5bea",
+    "name": "Human Resources"
+  },
+  {
+    "id": "e19bada0-f49e-45df-8562-4b8edf17e0e9",
+    "name": "Operations"
+  },
+  {
+    "id": "ed0de36e-9993-4a52-99cf-d9bb51994ecc",
+    "name": "Finance"
+  },
+  {
+    "id": "31e884ac-6afe-4c98-8b6d-27f531cc90d9",
+    "name": "Product"
+  }
+]

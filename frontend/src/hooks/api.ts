@@ -168,65 +168,26 @@ export const useSubmitSheet = () => {
 export const useApproveSheet = () => {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (id: string) => {
-      const sheet = qc.getQueryData<any>(qk.goalSheets.detail(id));
-      const headers: Record<string, string> = {};
-      if (sheet?.updated_at) {
-        headers["If-Unmodified-Since"] = sheet.updated_at;
-      }
-      return goalSheetsService.approve(id, headers);
-    },
-    onMutate: async (id) => {
-      await qc.cancelQueries({ queryKey: qk.goalSheets.all });
-      const previous = qc.getQueryData<any>(qk.goalSheets.detail(id));
-      if (previous) {
-        qc.setQueryData(qk.goalSheets.detail(id), { ...previous, status: "approved" });
-      }
-      return { previous };
-    },
+    mutationFn: (id: string) => goalSheetsService.approve(id),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: qk.goalSheets.all });
       qc.invalidateQueries({ queryKey: qk.goals.all });
       toast.success("Sheet approved");
     },
-    onError: (err, id, context) => {
-      if (context?.previous) {
-        qc.setQueryData(qk.goalSheets.detail(id), context.previous);
-      }
-      onErr(err);
-    },
+    onError: onErr,
   });
 };
 
 export const useReturnSheet = () => {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, comment }: { id: string; comment: string }) => {
-      const sheet = qc.getQueryData<any>(qk.goalSheets.detail(id));
-      const headers: Record<string, string> = {};
-      if (sheet?.updated_at) {
-        headers["If-Unmodified-Since"] = sheet.updated_at;
-      }
-      return goalSheetsService.return(id, { comment }, headers);
-    },
-    onMutate: async ({ id }) => {
-      await qc.cancelQueries({ queryKey: qk.goalSheets.all });
-      const previous = qc.getQueryData<any>(qk.goalSheets.detail(id));
-      if (previous) {
-        qc.setQueryData(qk.goalSheets.detail(id), { ...previous, status: "returned" });
-      }
-      return { previous };
-    },
+    mutationFn: ({ id, comment }: { id: string; comment: string }) =>
+      goalSheetsService.return(id, { comment }),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: qk.goalSheets.all });
       toast.success("Returned for rework");
     },
-    onError: (err, variables, context) => {
-      if (context?.previous) {
-        qc.setQueryData(qk.goalSheets.detail(variables.id), context.previous);
-      }
-      onErr(err);
-    },
+    onError: onErr,
   });
 };
 
@@ -325,18 +286,6 @@ export const useUnlockGoal = () => {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: qk.goals.all });
       toast.success("Goal unlocked");
-    },
-    onError: onErr,
-  });
-};
-
-export const useResolveEscalation = () => {
-  const qc = useQueryClient();
-  return useMutation({
-    mutationFn: (id: string) => adminService.resolveEscalation(id),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: qk.admin.escalations });
-      toast.success("Escalation resolved");
     },
     onError: onErr,
   });

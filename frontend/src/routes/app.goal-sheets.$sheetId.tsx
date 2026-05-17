@@ -152,32 +152,20 @@ function SheetDetail() {
         </div>
       )}
 
-      <Card className={!submitCheck.ok ? "border-amber-500/50 bg-amber-50/50 dark:bg-amber-950/20" : "border-emerald-500/50 bg-emerald-50/50 dark:bg-emerald-950/20"}>
-        <CardHeader className="flex flex-row items-center justify-between gap-3 space-y-0 pb-3">
-          <div className="flex-1">
-            <CardTitle className="text-base flex items-center gap-2">
-              Submission Readiness
-              {submitCheck.ok ? (
-                <Badge variant="default" className="bg-emerald-600">Ready</Badge>
-              ) : (
-                <Badge variant="outline" className="text-amber-600 border-amber-600">Action Required</Badge>
-              )}
-            </CardTitle>
-            <CardDescription className={!submitCheck.ok ? "text-amber-700 dark:text-amber-400 font-medium" : "text-emerald-700 dark:text-emerald-400"}>
-              {submitCheck.ok 
-                ? "Your sheet meets all business rules and is ready for review."
-                : submitCheck.reason}
+      <Card>
+        <CardHeader className="flex flex-row items-center justify-between gap-3 space-y-0">
+          <div>
+            <CardTitle className="text-base">Weightage</CardTitle>
+            <CardDescription>
+              Must total 100%. Each goal ≥ {GOAL_LIMITS.MIN_WEIGHTAGE}%. Max {GOAL_LIMITS.MAX_GOALS} goals.
             </CardDescription>
           </div>
           <div className="w-64">
             <div className="mb-1 flex justify-between text-xs">
-              <span className="text-muted-foreground">Total Weightage</span>
-              <span className={totalW === 100 ? "text-emerald-600 font-bold" : "text-amber-600 font-bold"}>{totalW}%</span>
+              <span className="text-muted-foreground">Total</span>
+              <span className={totalW === 100 ? "text-emerald-600" : "text-amber-600"}>{totalW}%</span>
             </div>
-            <Progress 
-              value={Math.min(totalW, 100)} 
-              className={totalW === 100 ? "bg-emerald-100 [&>div]:bg-emerald-600" : "bg-amber-100 [&>div]:bg-amber-600"} 
-            />
+            <Progress value={Math.min(totalW, 100)} />
           </div>
         </CardHeader>
       </Card>

@@ -19,7 +19,6 @@ class GoalSheet(Base):
     submitted_at = Column(DateTime, nullable=True)
     approved_at = Column(DateTime, nullable=True)
     approved_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
     # Relationships
     employee = relationship("User", foreign_keys=[employee_id], back_populates="goal_sheets")
@@ -28,7 +27,6 @@ class GoalSheet(Base):
     
     goals = relationship("Goal", back_populates="sheet", cascade="all, delete-orphan")
     checkins = relationship("CheckIn", back_populates="sheet", cascade="all, delete-orphan")
-    escalations = relationship("Escalation", back_populates="sheet", cascade="all, delete-orphan")
 
 
 class Goal(Base):
@@ -45,29 +43,11 @@ class Goal(Base):
     target = Column(String, nullable=False)
     weightage = Column(Integer, nullable=False)
     is_locked = Column(Boolean, default=False, nullable=False)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
     # Relationships
     sheet = relationship("GoalSheet", back_populates="goals")
     achievements = relationship("Achievement", back_populates="goal", cascade="all, delete-orphan")
     audit_logs = relationship("AuditLog", back_populates="goal", cascade="all, delete-orphan")
-
-
-class Escalation(Base):
-    __tablename__ = "escalations"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    sheet_id = Column(UUID(as_uuid=True), ForeignKey("goal_sheets.id"), nullable=False)
-    escalated_to = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False) # manager's manager or HR
-    
-    reason = Column(String, nullable=False)
-    status = Column(String, default="open") # open, resolved
-    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    resolved_at = Column(DateTime, nullable=True)
-
-    # Relationships
-    sheet = relationship("GoalSheet", back_populates="escalations")
-    escalated_to_user = relationship("User")
 
 
 class Achievement(Base):
