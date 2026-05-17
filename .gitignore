@@ -201,3 +201,6 @@ frontend/.env.*.local
 .idea/
 .vscode/
 *.log
+
+# Exclude frontend lib folder from gitignore
+!frontend/src/lib/
