@@ -1,4 +1,4 @@
-# AQH-SAMAR — Goal Setting & Tracking Portal
+# Nexorium — Goal Setting & Tracking Portal
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
