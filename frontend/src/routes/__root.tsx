@@ -8,7 +8,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "../lib/supabase";
 import { useAuthStore } from "@/store/auth.store";
 
 import appCss from "../styles.css?url";
