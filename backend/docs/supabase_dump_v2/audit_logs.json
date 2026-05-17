@@ -1,0 +1,11 @@
+[
+  {
+    "id": "61583648-7c13-4f9e-9aac-513652dffb9c",
+    "goal_id": "f189c2b2-2382-4575-a99f-23a36aaf29df",
+    "changed_by": "da0bfc0e-0848-4e8e-a328-b4499421a686",
+    "field_name": "is_locked",
+    "old_value": "True",
+    "new_value": "False",
+    "changed_at": "2026-05-15T07:47:39.054841"
+  }
+]

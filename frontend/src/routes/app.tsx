@@ -135,7 +135,7 @@ interface NavItem {
 function navFor(role: Role): { label: string; items: NavItem[] }[] {
   const groups: { label: string; items: NavItem[] }[] = [];
 
-  if (role !== "admin") {
+  if (role === "employee") {
     groups.push({
       label: "Workspace",
       items: [

@@ -25,6 +25,9 @@ async def create_goal_sheet(request: Request, db: AsyncSession = Depends(get_db)
     """Employee creates a draft goal sheet for the active cycle."""
     user = request.state.user
     
+    if user.platform_role == "manager":
+        return err("FORBIDDEN", "Managers are not allowed to create personal goal sheets.", 403)
+    
     cycle_res = await db.execute(select(Cycle).where(Cycle.is_active == True))
     cycle = cycle_res.scalar_one_or_none()
     

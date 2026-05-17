@@ -335,28 +335,23 @@ async def get_completion_report(
         if cycle:
             cycle_id = cycle.id
             
-    query = select(User)
-    if user.platform_role == "manager":
-        query = query.where(User.manager_id == user.id)
-        
-    users_res = await db.execute(query)
-    employees = users_res.scalars().all()
+    # Load all users in the system to calculate dynamic team hierarchy and manager averages
+    all_users_res = await db.execute(select(User))
+    all_users = all_users_res.scalars().all()
+    all_users_map = {u.id: u for u in all_users}
     
-    # Fetch departments for name mapping
+    # Filter departments for name mapping
     dept_res = await db.execute(select(Department))
     depts_map = {d.id: d.name for d in dept_res.scalars().all()}
-
-    manager_ids = list(set(e.manager_id for e in employees if e.manager_id))
-    managers = {}
-    if manager_ids:
-        mgr_res = await db.execute(select(User).where(User.id.in_(manager_ids)))
-        for m in mgr_res.scalars().all():
-            managers[m.id] = m.full_name
-            
-    emp_ids = [e.id for e in employees]
+    
+    managers_map = {m.id: m.full_name for m in all_users if m.platform_role == "manager"}
+    
+    # Load all sheets for the selected cycle
     sheets = {}
-    if emp_ids and cycle_id:
-        sheet_res = await db.execute(select(GoalSheet).where(GoalSheet.employee_id.in_(emp_ids), GoalSheet.cycle_id == cycle_id))
+    if cycle_id:
+        sheet_res = await db.execute(
+            select(GoalSheet).where(GoalSheet.cycle_id == cycle_id)
+        )
         for s in sheet_res.scalars().all():
             sheets[s.employee_id] = s
             
@@ -392,45 +387,93 @@ async def get_completion_report(
             for ach in ach_res.scalars().all():
                 if ach.goal_id not in latest_ach_by_goal:
                     latest_ach_by_goal[ach.goal_id] = ach
-            
-    results = []
-    for emp in employees:
-        if emp.platform_role == "admin" or (emp.platform_role == "manager" and user.platform_role == "manager" and emp.id == user.id):
-            continue # skip admins and self if manager
-            
-        sheet = sheets.get(emp.id)
-        checkins = checkins_by_sheet.get(sheet.id, []) if sheet else []
-        
-        last_checkin_at = max((c.created_at for c in checkins), default=None)
-        
-        checkins_completed = len(checkins)
-        checkins_pending = (1 - checkins_completed) if quarter else (4 - checkins_completed)
-        if checkins_pending < 0: checkins_pending = 0
 
-        # Calculate progress completion percentage
-        progress_score = 0.0
-        if sheet:
-            goals = goals_by_sheet.get(sheet.id, [])
-            for g in goals:
-                ach = latest_ach_by_goal.get(g.id)
-                actual = ach.actual if ach else None
-                score = compute_progress_score(g.uom_type, g.target, actual)
-                progress_score += score * g.weightage / 100
+    # First, calculate progress score for all employees in the system
+    employee_progress = {}
+    for u in all_users:
+        if u.platform_role == "employee":
+            sheet = sheets.get(u.id)
+            progress_score = 0.0
+            if sheet:
+                goals = goals_by_sheet.get(sheet.id, [])
+                for g in goals:
+                    ach = latest_ach_by_goal.get(g.id)
+                    actual = ach.actual if ach else None
+                    score = compute_progress_score(g.uom_type, g.target, actual)
+                    progress_score += score * g.weightage / 100
+            employee_progress[u.id] = progress_score
+
+    # Second, calculate average team progress score for all managers
+    manager_progress = {}
+    for u in all_users:
+        if u.platform_role == "manager":
+            # Get progress scores of all employees directly reporting to this manager
+            reports = [
+                employee_progress[emp_id] 
+                for emp_id, emp in all_users_map.items() 
+                if emp.manager_id == u.id and emp.platform_role == "employee"
+            ]
+            if reports:
+                manager_progress[u.id] = sum(reports) / len(reports)
+            else:
+                manager_progress[u.id] = 0.0
+
+    # Build the returned subset based on logged-in user's role
+    if user.platform_role == "manager":
+        # A manager sees their direct reports (which are employees)
+        target_users = [u for u in all_users if u.manager_id == user.id]
+    else:
+        # Admin views all employees and managers (skipping admins and self)
+        target_users = [u for u in all_users if u.platform_role != "admin"]
+
+    results = []
+    for emp in target_users:
+        sheet = sheets.get(emp.id)
         
-        results.append({
-            "employee_id": str(emp.id),
-            "employee_name": emp.full_name,
-            "department_id": str(emp.department_id) if emp.department_id else None,
-            "department_name": depts_map.get(emp.department_id) if emp.department_id else None,
-            "manager_id": str(emp.manager_id) if emp.manager_id else None,
-            "manager_name": managers.get(emp.manager_id),
-            "sheet_status": sheet.status if sheet else "none",
-            "checkins_completed": checkins_completed,
-            "checkins_pending": checkins_pending,
-            "last_checkin_at": last_checkin_at.isoformat() if last_checkin_at else None,
-            "progress_score": round(progress_score, 1)
-        })
-        
+        if emp.platform_role == "manager":
+            progress_score = manager_progress.get(emp.id, 0.0)
+            reportees_count = sum(1 for u in all_users if u.manager_id == emp.id and u.platform_role == "employee")
+            
+            results.append({
+                "employee_id": str(emp.id),
+                "employee_name": emp.full_name,
+                "department_id": str(emp.department_id) if emp.department_id else None,
+                "department_name": depts_map.get(emp.department_id) if emp.department_id else None,
+                "manager_id": str(emp.manager_id) if emp.manager_id else None,
+                "manager_name": managers_map.get(emp.manager_id) if emp.manager_id else None,
+                "sheet_status": "n/a",
+                "checkins_completed": 0,
+                "checkins_pending": 0,
+                "last_checkin_at": None,
+                "progress_score": round(progress_score, 1),
+                "platform_role": "manager",
+                "reportees_count": reportees_count
+            })
+        else:
+            checkins = checkins_by_sheet.get(sheet.id, []) if sheet else []
+            last_checkin_at = max((c.created_at for c in checkins), default=None)
+            checkins_completed = len(checkins)
+            checkins_pending = (1 - checkins_completed) if quarter else (4 - checkins_completed)
+            if checkins_pending < 0: checkins_pending = 0
+            
+            progress_score = employee_progress.get(emp.id, 0.0)
+            
+            results.append({
+                "employee_id": str(emp.id),
+                "employee_name": emp.full_name,
+                "department_id": str(emp.department_id) if emp.department_id else None,
+                "department_name": depts_map.get(emp.department_id) if emp.department_id else None,
+                "manager_id": str(emp.manager_id) if emp.manager_id else None,
+                "manager_name": managers_map.get(emp.manager_id) if emp.manager_id else None,
+                "sheet_status": sheet.status if sheet else "none",
+                "checkins_completed": checkins_completed,
+                "checkins_pending": checkins_pending,
+                "last_checkin_at": last_checkin_at.isoformat() if last_checkin_at else None,
+                "progress_score": round(progress_score, 1),
+                "platform_role": "employee",
+                "reportees_count": 0
+            })
+            
     return ok(results)
 
 

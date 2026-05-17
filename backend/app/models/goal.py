@@ -19,7 +19,7 @@ class GoalSheet(Base):
     submitted_at = Column(DateTime, nullable=True)
     approved_at = Column(DateTime, nullable=True)
     approved_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
-
+    
     # Relationships
     employee = relationship("User", foreign_keys=[employee_id], back_populates="goal_sheets")
     approved_by_user = relationship("User", foreign_keys=[approved_by], back_populates="approved_goal_sheets")

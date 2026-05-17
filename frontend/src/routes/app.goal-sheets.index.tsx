@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useCreateSheet, useMyGoalSheets } from "@/hooks/api";
 import { useAuthStore } from "@/store/auth.store";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,28 @@ function GoalSheetsList() {
   const me = useAuthStore((s) => s.profile);
   const { data: mySheets, isLoading: loadingMine } = useMyGoalSheets();
   const createSheet = useCreateSheet();
+  const navigate = useNavigate();
+
+  if (me?.role === "manager") {
+    return (
+      <div className="space-y-6">
+        <header>
+          <h1 className="text-2xl font-semibold tracking-tight">My Goal Sheets</h1>
+          <p className="text-sm text-muted-foreground">
+            Personal performance tracking is disabled for managers.
+          </p>
+        </header>
+        <Card>
+          <CardContent className="py-12 text-center space-y-2">
+            <h2 className="text-lg font-semibold">Managers Do Not Have Personal Goal Sheets</h2>
+            <p className="text-sm text-muted-foreground max-w-md mx-auto">
+              As a manager, your performance and achievements are evaluated based on your direct reports' progress and direct team tracking. Please use the Team Dashboard or Team Goal Sheets.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -35,7 +57,16 @@ function GoalSheetsList() {
           </p>
         </div>
         <Button
-          onClick={() => createSheet.mutate()}
+          onClick={() => createSheet.mutate(undefined, {
+            onSuccess: (data) => {
+              if (data?.id) {
+                navigate({
+                  to: "/app/goal-sheets/$sheetId",
+                  params: { sheetId: data.id }
+                });
+              }
+            }
+          })}
           disabled={createSheet.isPending}
         >
           <Plus className="mr-2 h-4 w-4" />

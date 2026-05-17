@@ -1,0 +1,6185 @@
+[
+  {
+    "id": "4afe3fca-b710-4c16-a1b9-0779aa442d3e",
+    "goal_id": "7eacd2df-129f-43fd-b4a8-c3a9adfe6f52",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-03-23T00:00:00"
+  },
+  {
+    "id": "53a9f407-589f-434e-a6f7-50991a91a431",
+    "goal_id": "6cd9da14-3018-4694-94dd-9f5bfd67fd7a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2023-03-23T00:00:00"
+  },
+  {
+    "id": "207636a6-4d9e-4488-b9e1-2ad900c215db",
+    "goal_id": "7eacd2df-129f-43fd-b4a8-c3a9adfe6f52",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "149fb20c-83de-48c7-8692-f772f06fd001",
+    "goal_id": "6cd9da14-3018-4694-94dd-9f5bfd67fd7a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "92f88217-0d2f-4030-9b39-aae487d77453",
+    "goal_id": "7eacd2df-129f-43fd-b4a8-c3a9adfe6f52",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "c9c974a8-ac43-4914-aa3f-6c5e368d08f0",
+    "goal_id": "6cd9da14-3018-4694-94dd-9f5bfd67fd7a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "1dddd610-d67d-4f67-bcae-8d07f83d5c3e",
+    "goal_id": "7eacd2df-129f-43fd-b4a8-c3a9adfe6f52",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "b63e5e2c-af04-4f3e-8913-fbc478f226f7",
+    "goal_id": "6cd9da14-3018-4694-94dd-9f5bfd67fd7a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "ddeae35c-e9fd-45b3-a71b-d2f4a3e317d8",
+    "goal_id": "21753dfc-ba96-4da6-aa7f-025e3f890b25",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2023-03-24T00:00:00"
+  },
+  {
+    "id": "e4e55386-ca0d-40fa-ba1a-a0e59be9a128",
+    "goal_id": "3e137ff5-0ef0-4de5-9380-5a18359ca162",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-03-24T00:00:00"
+  },
+  {
+    "id": "810dc875-14aa-4ece-8d4a-7d142868c8b2",
+    "goal_id": "21753dfc-ba96-4da6-aa7f-025e3f890b25",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "40a728a4-0039-4ea3-83c8-16f56925d78f",
+    "goal_id": "3e137ff5-0ef0-4de5-9380-5a18359ca162",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "27be4d5e-fd45-4c49-a8b2-a4a0fe56b2a4",
+    "goal_id": "21753dfc-ba96-4da6-aa7f-025e3f890b25",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "71771c68-bfd9-4c34-809c-2426f1be8647",
+    "goal_id": "3e137ff5-0ef0-4de5-9380-5a18359ca162",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "3cc1f92c-b87c-491e-a582-524a5baf410c",
+    "goal_id": "21753dfc-ba96-4da6-aa7f-025e3f890b25",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "23f1566d-6806-45fd-a446-a1631ae92ead",
+    "goal_id": "3e137ff5-0ef0-4de5-9380-5a18359ca162",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "93",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "d0936872-f7af-40d1-87ef-95723fbcc7bf",
+    "goal_id": "3fed1458-cc79-4851-b14e-75ebee58069d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "4247d36e-4692-409c-a695-58f530fb7294",
+    "goal_id": "c7fc5379-361b-465e-aa94-94822d37232d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "c12a4602-a2f9-4aa4-a323-b4ffcb6701b2",
+    "goal_id": "3fed1458-cc79-4851-b14e-75ebee58069d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2023-06-23T00:00:00"
+  },
+  {
+    "id": "ee5e2bda-aee7-46f1-83b5-b80b57a513dd",
+    "goal_id": "c7fc5379-361b-465e-aa94-94822d37232d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-06-23T00:00:00"
+  },
+  {
+    "id": "d04ac7d1-8ef7-4013-b7c2-42ba28e729b6",
+    "goal_id": "3fed1458-cc79-4851-b14e-75ebee58069d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2023-09-21T00:00:00"
+  },
+  {
+    "id": "0da5db0d-0e06-415c-acde-fd49a271beee",
+    "goal_id": "c7fc5379-361b-465e-aa94-94822d37232d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-09-21T00:00:00"
+  },
+  {
+    "id": "65f98e8f-1781-4704-935d-ce171fd86f0b",
+    "goal_id": "3fed1458-cc79-4851-b14e-75ebee58069d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "22a772bd-85bd-4c8f-b501-50c91862a870",
+    "goal_id": "c7fc5379-361b-465e-aa94-94822d37232d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "3261350a-6364-4452-bc8c-f8fcd8515c17",
+    "goal_id": "19ca0ec7-51da-47e6-bcf8-8a3348ac6039",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "2a86e118-ff1b-4e3a-ae5b-a2d98f826b3c",
+    "goal_id": "b1802d92-3983-465b-9695-10e56672bc87",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "05c56b57-455d-4d1d-a6d9-6abc6951b816",
+    "goal_id": "19ca0ec7-51da-47e6-bcf8-8a3348ac6039",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2023-06-25T00:00:00"
+  },
+  {
+    "id": "cf1e0781-db34-4bc5-897d-2a48bb423cc0",
+    "goal_id": "b1802d92-3983-465b-9695-10e56672bc87",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-06-25T00:00:00"
+  },
+  {
+    "id": "a923b8c5-436b-45f4-9032-b30b2969ae04",
+    "goal_id": "19ca0ec7-51da-47e6-bcf8-8a3348ac6039",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2023-09-26T00:00:00"
+  },
+  {
+    "id": "a582baea-fb64-4fc8-8269-c4275280c3ce",
+    "goal_id": "b1802d92-3983-465b-9695-10e56672bc87",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-09-26T00:00:00"
+  },
+  {
+    "id": "6d77d102-4720-4e95-a1be-ecea3b430b1f",
+    "goal_id": "19ca0ec7-51da-47e6-bcf8-8a3348ac6039",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-25T00:00:00"
+  },
+  {
+    "id": "390cb926-c40b-492d-be12-3af14251fd38",
+    "goal_id": "b1802d92-3983-465b-9695-10e56672bc87",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-25T00:00:00"
+  },
+  {
+    "id": "1b919522-5384-43cc-af5c-29b3d70cc7ca",
+    "goal_id": "097339bc-a76e-4291-955c-62acf7857ee8",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "f629f8dc-97ef-4add-bf79-f29e194e2b00",
+    "goal_id": "e98bded4-fd6b-4ea9-a2b7-f3e12117990a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "5948e519-1c7f-4ca0-b359-a1d46c38933d",
+    "goal_id": "097339bc-a76e-4291-955c-62acf7857ee8",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "aa4523d0-5768-410e-bf62-9e8b93e355c2",
+    "goal_id": "e98bded4-fd6b-4ea9-a2b7-f3e12117990a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "fe80627d-c441-40f2-87ff-d3b67c1cf78e",
+    "goal_id": "097339bc-a76e-4291-955c-62acf7857ee8",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "85077865-3e80-4ba7-acd6-198b31aa8b0c",
+    "goal_id": "e98bded4-fd6b-4ea9-a2b7-f3e12117990a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "33a5f5f4-739c-41ce-8a9f-f1a23e4a65e4",
+    "goal_id": "097339bc-a76e-4291-955c-62acf7857ee8",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "84",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "fccf1cdc-892f-4b78-baf7-83cdc796d804",
+    "goal_id": "e98bded4-fd6b-4ea9-a2b7-f3e12117990a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "1f30f93b-359e-4d86-9997-9d6e93e6c3f1",
+    "goal_id": "7c26f8ac-fe28-4f55-92f2-632873978491",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "c54d3cfb-8df4-4604-82f3-aaf88365045a",
+    "goal_id": "56504f53-edbe-4382-81e3-3e2539222c34",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "b52b2c21-2489-4671-836f-7a5a95ba87fd",
+    "goal_id": "7c26f8ac-fe28-4f55-92f2-632873978491",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "851ba7b1-99de-417d-8e4b-e8e6faf6795b",
+    "goal_id": "56504f53-edbe-4382-81e3-3e2539222c34",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "d326ce02-3b77-406c-bdee-75c370db52fd",
+    "goal_id": "7c26f8ac-fe28-4f55-92f2-632873978491",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-09-26T00:00:00"
+  },
+  {
+    "id": "02e7c247-8233-4794-a234-0b3fbb6fba78",
+    "goal_id": "56504f53-edbe-4382-81e3-3e2539222c34",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-09-26T00:00:00"
+  },
+  {
+    "id": "d46cb6e4-a8ac-4ded-9b69-1eaa322ee3ee",
+    "goal_id": "7c26f8ac-fe28-4f55-92f2-632873978491",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "a95c9731-4136-48ff-8668-f613a6fefa54",
+    "goal_id": "56504f53-edbe-4382-81e3-3e2539222c34",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "363bae27-c7e0-4a25-aabc-ea9f5fbce35c",
+    "goal_id": "80619649-3a5b-48b1-9162-0bca383afc2f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "13f02009-9cf2-4578-b4b9-a9000698cba5",
+    "goal_id": "747ddd81-0c67-41c6-b347-0da5d7436edf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "6020be02-e022-44c0-9b55-e1903f2eac2a",
+    "goal_id": "80619649-3a5b-48b1-9162-0bca383afc2f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "3d67dea1-c94d-423f-ba52-1de656252f53",
+    "goal_id": "747ddd81-0c67-41c6-b347-0da5d7436edf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "6a89b714-e9db-4715-94e2-5ccce991481f",
+    "goal_id": "80619649-3a5b-48b1-9162-0bca383afc2f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "795cb310-576c-4552-9365-c0d4239e4b8d",
+    "goal_id": "747ddd81-0c67-41c6-b347-0da5d7436edf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "e24fb235-42de-4fb6-828c-634f91618231",
+    "goal_id": "80619649-3a5b-48b1-9162-0bca383afc2f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "82",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "2ea51396-6bbc-440e-87fd-f9a3a16c8a7b",
+    "goal_id": "747ddd81-0c67-41c6-b347-0da5d7436edf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "442fc0b0-95f5-4c33-b766-9d839367b9a3",
+    "goal_id": "e692d908-4bce-4068-9187-8bd387354a5e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "86565e6e-056f-4b9a-a5a7-a1cb6306a013",
+    "goal_id": "48842d47-17d3-4d8d-b551-799f618ebe79",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "6517d994-a319-4d47-af6b-f782b92805a5",
+    "goal_id": "e692d908-4bce-4068-9187-8bd387354a5e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "6ce6aa7a-398d-439e-a989-357d12bce681",
+    "goal_id": "48842d47-17d3-4d8d-b551-799f618ebe79",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "809686a0-46eb-4d2a-8b3f-cba1a5c359f2",
+    "goal_id": "e692d908-4bce-4068-9187-8bd387354a5e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "245f83db-8028-4830-99d2-f7499e1dbb29",
+    "goal_id": "48842d47-17d3-4d8d-b551-799f618ebe79",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "20ed2270-ff9f-4693-b60b-5e93cff5d8ac",
+    "goal_id": "e692d908-4bce-4068-9187-8bd387354a5e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2023-12-25T00:00:00"
+  },
+  {
+    "id": "965a71f6-a838-4dad-8066-7df6f439de49",
+    "goal_id": "48842d47-17d3-4d8d-b551-799f618ebe79",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2023-12-25T00:00:00"
+  },
+  {
+    "id": "ca93cf08-9132-4d36-ad60-7c183e25c4aa",
+    "goal_id": "d2e01c8f-7345-4ac4-a05a-678cbd934ae7",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "828cdd80-24dc-477d-b7b9-8fcc54a8f081",
+    "goal_id": "35e8eb19-9351-4411-909d-bbe01f27a531",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "7307bb83-d34f-423b-befb-4876b90df491",
+    "goal_id": "d2e01c8f-7345-4ac4-a05a-678cbd934ae7",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2023-06-25T00:00:00"
+  },
+  {
+    "id": "56fd03b1-99fb-4649-9483-9d849fb3292f",
+    "goal_id": "35e8eb19-9351-4411-909d-bbe01f27a531",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-06-25T00:00:00"
+  },
+  {
+    "id": "6b61e049-a74f-41e2-8171-81724d6695df",
+    "goal_id": "d2e01c8f-7345-4ac4-a05a-678cbd934ae7",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-09-28T00:00:00"
+  },
+  {
+    "id": "46ca5f13-2f24-401d-aec5-60c978850804",
+    "goal_id": "35e8eb19-9351-4411-909d-bbe01f27a531",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-09-28T00:00:00"
+  },
+  {
+    "id": "7e5c8e44-9dc9-4527-9305-4d900a46ede9",
+    "goal_id": "d2e01c8f-7345-4ac4-a05a-678cbd934ae7",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "104",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "005e1e02-d90b-49bb-9b9b-e4ae94038182",
+    "goal_id": "35e8eb19-9351-4411-909d-bbe01f27a531",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "335c88cd-dfa5-468f-b7fe-bb5a934118cc",
+    "goal_id": "008e0f93-c3ae-4b96-b564-34421514c429",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "4d0386d3-3d2c-4a69-819b-3f6a38c99323",
+    "goal_id": "36b0d5c9-ae2c-4086-ae76-b9a5f509c382",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "92d95419-3363-4b04-abd8-488b3eebab92",
+    "goal_id": "008e0f93-c3ae-4b96-b564-34421514c429",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "62080a5f-3b48-4f9a-b631-250c1f113bbb",
+    "goal_id": "36b0d5c9-ae2c-4086-ae76-b9a5f509c382",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "be2e69c1-0d48-4104-9866-9edcfe70562d",
+    "goal_id": "008e0f93-c3ae-4b96-b564-34421514c429",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "3951ab3d-4345-4182-8dc5-d05b12bfc300",
+    "goal_id": "36b0d5c9-ae2c-4086-ae76-b9a5f509c382",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "6c4abca0-87ac-4fa8-80ba-6fcc7437b2a1",
+    "goal_id": "008e0f93-c3ae-4b96-b564-34421514c429",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "048d7c0f-53cb-4e9c-bb65-2b60ade2beb8",
+    "goal_id": "36b0d5c9-ae2c-4086-ae76-b9a5f509c382",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "e9502e3a-52cb-4507-b0d7-e0f86805b316",
+    "goal_id": "a9fe9a1f-b650-4403-8880-e96b5de4c99d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2023-03-23T00:00:00"
+  },
+  {
+    "id": "184d6c66-1b07-476d-9de7-dcc15823ba88",
+    "goal_id": "d99928cf-ec6e-48c3-a82d-a34b6356af33",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-23T00:00:00"
+  },
+  {
+    "id": "1722c1fc-bc24-456c-90fa-4a9c4f7ab960",
+    "goal_id": "a9fe9a1f-b650-4403-8880-e96b5de4c99d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-06-26T00:00:00"
+  },
+  {
+    "id": "d8beb217-d2cf-4a57-98aa-204f6489d037",
+    "goal_id": "d99928cf-ec6e-48c3-a82d-a34b6356af33",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-06-26T00:00:00"
+  },
+  {
+    "id": "cb15a675-2e60-40c6-96f2-91dfb38b4f36",
+    "goal_id": "a9fe9a1f-b650-4403-8880-e96b5de4c99d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "5146cd81-688e-43a4-be4c-119f9dbdfa49",
+    "goal_id": "d99928cf-ec6e-48c3-a82d-a34b6356af33",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "58f3ac1c-6840-46bd-978b-3941b9e1f1c8",
+    "goal_id": "a9fe9a1f-b650-4403-8880-e96b5de4c99d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "86",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "0b5481b6-c128-452e-b436-4a780ce2a863",
+    "goal_id": "d99928cf-ec6e-48c3-a82d-a34b6356af33",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "ec50e6a8-e21a-4952-9d44-a978f26c6691",
+    "goal_id": "df0ebde4-4208-456d-b085-cd7ab60c551a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "32a19b79-e873-4db9-ae73-eb249b002332",
+    "goal_id": "825196f5-273c-4d59-8b9a-0e3936b89c9e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "edec0b72-9a78-4c0e-9766-adef94ddfaba",
+    "goal_id": "df0ebde4-4208-456d-b085-cd7ab60c551a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "972dff8b-659e-4f74-aba5-bd1599e40e4a",
+    "goal_id": "825196f5-273c-4d59-8b9a-0e3936b89c9e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "d6dd0c7b-1e54-4554-958b-4792cd9d8193",
+    "goal_id": "df0ebde4-4208-456d-b085-cd7ab60c551a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "c0640798-34b3-4ee8-b333-946fc7eaa72e",
+    "goal_id": "825196f5-273c-4d59-8b9a-0e3936b89c9e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "880c1c2c-e7ee-47a6-bd31-e2aedca39d17",
+    "goal_id": "df0ebde4-4208-456d-b085-cd7ab60c551a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "104",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "76620829-db34-427c-8dea-e3001fb79428",
+    "goal_id": "825196f5-273c-4d59-8b9a-0e3936b89c9e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "96",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "ffc148bc-7940-40c3-90cf-31450e9e4551",
+    "goal_id": "98752b67-e611-4353-b448-11da6882f381",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-03-24T00:00:00"
+  },
+  {
+    "id": "451d4717-1920-4e73-9f72-f59032292a36",
+    "goal_id": "e9e2bff8-1ddd-4f57-9500-5294bfb047ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-03-24T00:00:00"
+  },
+  {
+    "id": "f651c6b8-1095-440b-a290-c6bb8b878ee3",
+    "goal_id": "98752b67-e611-4353-b448-11da6882f381",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "ba37bad0-83cc-45c5-9f37-93d2ce9c1a1f",
+    "goal_id": "e9e2bff8-1ddd-4f57-9500-5294bfb047ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "51810391-7059-4ab5-877a-dd6c002f804d",
+    "goal_id": "98752b67-e611-4353-b448-11da6882f381",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "1a1f1aa5-c652-4beb-927d-2ee45e5acec6",
+    "goal_id": "e9e2bff8-1ddd-4f57-9500-5294bfb047ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "0715997a-b0ef-4f3a-b32d-980e675998db",
+    "goal_id": "98752b67-e611-4353-b448-11da6882f381",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "84",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "19ed47df-af39-42c8-8a9d-3e6f6dbf796e",
+    "goal_id": "e9e2bff8-1ddd-4f57-9500-5294bfb047ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "a6d036bc-26b4-42ee-a413-7135ff32d69d",
+    "goal_id": "2537177f-f0f4-456c-8a49-a3009588c15d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "97f2c25a-7ca7-4660-8e81-bc3aa258ddb4",
+    "goal_id": "29534397-8dd9-492c-929d-d8ce15ea2d5a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "ce9f494a-e565-4ed2-8be7-45b88463efd6",
+    "goal_id": "2537177f-f0f4-456c-8a49-a3009588c15d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "c9041911-85cc-4de3-8f24-0d22449fcbdd",
+    "goal_id": "29534397-8dd9-492c-929d-d8ce15ea2d5a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "dbcfa6af-2161-4029-8801-a0f999f280d2",
+    "goal_id": "2537177f-f0f4-456c-8a49-a3009588c15d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2023-09-23T00:00:00"
+  },
+  {
+    "id": "194778e1-a0b2-49f0-8a29-f75b1942a0cb",
+    "goal_id": "29534397-8dd9-492c-929d-d8ce15ea2d5a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-09-23T00:00:00"
+  },
+  {
+    "id": "d2c81154-caf4-4acb-b5b0-752edea39bdd",
+    "goal_id": "2537177f-f0f4-456c-8a49-a3009588c15d",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "103",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "a5ae3533-9960-42b8-9c43-95be245d14d4",
+    "goal_id": "29534397-8dd9-492c-929d-d8ce15ea2d5a",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "7f48f9bc-bf20-401e-b80a-11e8cf927592",
+    "goal_id": "6c289de4-4471-471c-ab37-d131924df5ff",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "e2594e16-87b5-47c8-be7f-cfa363cc537a",
+    "goal_id": "50492e8a-2096-4b3d-b9cd-1f3f34ad62ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "33d0307c-23d3-49b5-9bcf-627a446190ff",
+    "goal_id": "6c289de4-4471-471c-ab37-d131924df5ff",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "cc4cb985-3fe2-4e69-bd48-1d2b5b8e5d3c",
+    "goal_id": "50492e8a-2096-4b3d-b9cd-1f3f34ad62ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-06-28T00:00:00"
+  },
+  {
+    "id": "3767e31a-cbfa-4548-a9f5-14a60b46d16a",
+    "goal_id": "6c289de4-4471-471c-ab37-d131924df5ff",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2023-09-23T00:00:00"
+  },
+  {
+    "id": "0c9799f6-41f6-4485-bff3-fb4905022d6f",
+    "goal_id": "50492e8a-2096-4b3d-b9cd-1f3f34ad62ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-09-23T00:00:00"
+  },
+  {
+    "id": "38559a4c-a8e2-4e24-82df-a5545f8239a4",
+    "goal_id": "6c289de4-4471-471c-ab37-d131924df5ff",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "96",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "f0d325a7-4000-4f65-8d0c-d257cda46bfd",
+    "goal_id": "50492e8a-2096-4b3d-b9cd-1f3f34ad62ab",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "96",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "246828d0-90aa-4611-aad4-e76fa482b27d",
+    "goal_id": "9d7c1259-c5cc-4594-b607-e3a0af0558f4",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "35ccffb4-d939-43d0-bb43-f139c555fae5",
+    "goal_id": "0437d4a9-a9aa-46e6-8a20-8b1da7ec257b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "a4fd28eb-4a11-4f24-aa74-c984c4494fb2",
+    "goal_id": "9d7c1259-c5cc-4594-b607-e3a0af0558f4",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "833f931e-f990-4397-bdf5-5ef4cb301353",
+    "goal_id": "0437d4a9-a9aa-46e6-8a20-8b1da7ec257b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "d983d621-767c-4005-809c-fbe11622453d",
+    "goal_id": "9d7c1259-c5cc-4594-b607-e3a0af0558f4",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "4d635014-10e3-4a0b-ac44-eda42aaa2376",
+    "goal_id": "0437d4a9-a9aa-46e6-8a20-8b1da7ec257b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "18a956f2-d650-4016-a80e-683787939778",
+    "goal_id": "9d7c1259-c5cc-4594-b607-e3a0af0558f4",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "6c07af24-81a5-41c9-bac1-89bad2d505b0",
+    "goal_id": "0437d4a9-a9aa-46e6-8a20-8b1da7ec257b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2023-12-28T00:00:00"
+  },
+  {
+    "id": "0e8d358f-7376-4e50-bbef-f8795cb6ae7d",
+    "goal_id": "1bf7e095-7fd0-4ee3-96d2-f66921cfc291",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2023-03-20T00:00:00"
+  },
+  {
+    "id": "69ed4f70-3bf7-4df6-bc1d-abbb88dbc13b",
+    "goal_id": "be1b1c3c-99b3-425c-8dfe-69975aa327d0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-03-20T00:00:00"
+  },
+  {
+    "id": "cbf619b2-a3a9-4319-a6d6-1378b528f084",
+    "goal_id": "1bf7e095-7fd0-4ee3-96d2-f66921cfc291",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "5edf2dc8-4d10-4ef1-bb8f-1964f7bf1abe",
+    "goal_id": "be1b1c3c-99b3-425c-8dfe-69975aa327d0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "ddade2d2-d9c0-43a9-9c2b-81ef8b5f1165",
+    "goal_id": "1bf7e095-7fd0-4ee3-96d2-f66921cfc291",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-09-24T00:00:00"
+  },
+  {
+    "id": "afe3e297-771b-4347-b10c-61b1b93bdcca",
+    "goal_id": "be1b1c3c-99b3-425c-8dfe-69975aa327d0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-09-24T00:00:00"
+  },
+  {
+    "id": "b0dde6f2-258d-47f6-a6ec-ba11edeb18ce",
+    "goal_id": "1bf7e095-7fd0-4ee3-96d2-f66921cfc291",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "e63e29d2-1adb-4e92-a042-5f707dea93d6",
+    "goal_id": "be1b1c3c-99b3-425c-8dfe-69975aa327d0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "93",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "170a64cc-d0b4-444d-bf6a-b39ca04e9aa4",
+    "goal_id": "dbb76df2-f3fa-41f7-a7b3-f7df5c593c7e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "3c67f6e8-fa87-4525-b0c0-9c9150c3d3f6",
+    "goal_id": "3ea3d605-00ec-42e7-9d1c-5883a3fbac88",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-03-21T00:00:00"
+  },
+  {
+    "id": "99f392d2-9066-4018-a5ce-31f6fd812c07",
+    "goal_id": "dbb76df2-f3fa-41f7-a7b3-f7df5c593c7e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "c987e7b7-9443-4d0f-9d3f-3a221fcdae97",
+    "goal_id": "3ea3d605-00ec-42e7-9d1c-5883a3fbac88",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "c223d559-4895-4db5-a0e7-bbbfa953609c",
+    "goal_id": "dbb76df2-f3fa-41f7-a7b3-f7df5c593c7e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "9b75ba1b-229c-40c2-8741-1a779efc5cd8",
+    "goal_id": "3ea3d605-00ec-42e7-9d1c-5883a3fbac88",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2023-09-22T00:00:00"
+  },
+  {
+    "id": "de6b374e-27e5-47fb-940d-19329408670a",
+    "goal_id": "dbb76df2-f3fa-41f7-a7b3-f7df5c593c7e",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "fe426b4d-5ec3-4712-88ad-4b1114052f26",
+    "goal_id": "3ea3d605-00ec-42e7-9d1c-5883a3fbac88",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "d6733270-4ad7-44fc-9154-b23c546d90f4",
+    "goal_id": "7e59645e-80f3-42ee-b8f2-222e809e8e82",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "d326b159-6744-4afc-9864-a2123be90036",
+    "goal_id": "5e68831d-47e4-4f14-83bb-e81befa042cf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-22T00:00:00"
+  },
+  {
+    "id": "c4719c74-8cb0-459c-bc5a-fd80eb0b4077",
+    "goal_id": "7e59645e-80f3-42ee-b8f2-222e809e8e82",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "352751af-04b9-4528-999b-259b57a7d0da",
+    "goal_id": "5e68831d-47e4-4f14-83bb-e81befa042cf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2023-06-21T00:00:00"
+  },
+  {
+    "id": "2dc4c4da-2a5c-464f-a904-240e4b0130a2",
+    "goal_id": "7e59645e-80f3-42ee-b8f2-222e809e8e82",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-09-27T00:00:00"
+  },
+  {
+    "id": "b5177274-ab2f-4fa4-b9ee-82dec93b6e7b",
+    "goal_id": "5e68831d-47e4-4f14-83bb-e81befa042cf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-09-27T00:00:00"
+  },
+  {
+    "id": "9397a7f5-78b4-4b02-af3c-deb86ce7dbb8",
+    "goal_id": "7e59645e-80f3-42ee-b8f2-222e809e8e82",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "88",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "eaa06938-f321-471d-9c6c-96d7b1f2ff2b",
+    "goal_id": "5e68831d-47e4-4f14-83bb-e81befa042cf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "04c59619-06a1-43d6-a480-ca3e5dd5814a",
+    "goal_id": "c2338fc2-b0e8-4dc5-9729-a44db191bfc6",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "22a86881-48c8-40ad-969e-a3581f117e9f",
+    "goal_id": "247bf781-b949-40b4-853a-caaa7c0a50ac",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "45efebc7-95be-40c6-9128-c9b417bd21a3",
+    "goal_id": "c2338fc2-b0e8-4dc5-9729-a44db191bfc6",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2023-06-26T00:00:00"
+  },
+  {
+    "id": "3ed7da24-35d6-4fe8-b57e-167c39822ea5",
+    "goal_id": "247bf781-b949-40b4-853a-caaa7c0a50ac",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-06-26T00:00:00"
+  },
+  {
+    "id": "82988135-1232-48e1-a3a8-cb78bf3eba3e",
+    "goal_id": "c2338fc2-b0e8-4dc5-9729-a44db191bfc6",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2023-09-24T00:00:00"
+  },
+  {
+    "id": "c1e68228-f4b5-42e7-95eb-c520b7af9cf1",
+    "goal_id": "247bf781-b949-40b4-853a-caaa7c0a50ac",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2023-09-24T00:00:00"
+  },
+  {
+    "id": "b6e8c934-e2cc-45c5-987b-3b920d5eb845",
+    "goal_id": "c2338fc2-b0e8-4dc5-9729-a44db191bfc6",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "89",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "b01a88b8-40c6-4d07-b31f-db4c9182a574",
+    "goal_id": "247bf781-b949-40b4-853a-caaa7c0a50ac",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "09330249-5d20-4b1c-b189-dc5f7a86380f",
+    "goal_id": "5c113cc4-6e67-45f8-b9f1-600f74c84931",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2023-03-25T00:00:00"
+  },
+  {
+    "id": "44269a18-7435-4f02-97a5-22c3362caf6d",
+    "goal_id": "1928bfc6-97c2-4cb6-bd40-938a8a7a7a64",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-03-25T00:00:00"
+  },
+  {
+    "id": "df810857-8123-465d-aa94-e3a535a805f4",
+    "goal_id": "5c113cc4-6e67-45f8-b9f1-600f74c84931",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "6e205407-0d2c-4ed9-8e4c-1f1575cbca40",
+    "goal_id": "1928bfc6-97c2-4cb6-bd40-938a8a7a7a64",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "16aa3a78-43c8-4463-a671-07d629076ba0",
+    "goal_id": "5c113cc4-6e67-45f8-b9f1-600f74c84931",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-09-27T00:00:00"
+  },
+  {
+    "id": "a20f5539-a458-4d1a-88b0-d6b689c81356",
+    "goal_id": "1928bfc6-97c2-4cb6-bd40-938a8a7a7a64",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-09-27T00:00:00"
+  },
+  {
+    "id": "e1646850-1ba1-4ad5-84e8-fc2c99d55c41",
+    "goal_id": "5c113cc4-6e67-45f8-b9f1-600f74c84931",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "89",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "afd2ae98-747e-437b-9aa4-8a9fa11419cd",
+    "goal_id": "1928bfc6-97c2-4cb6-bd40-938a8a7a7a64",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-27T00:00:00"
+  },
+  {
+    "id": "20b10494-024b-4972-89c2-cb30c61ca103",
+    "goal_id": "6bc19360-8ea2-45dd-9413-d887490de83b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2023-03-25T00:00:00"
+  },
+  {
+    "id": "2ac2e9ca-ff08-4791-989f-3f99f920913d",
+    "goal_id": "cf1892bc-3653-4b91-be35-c1c715467ddb",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-03-25T00:00:00"
+  },
+  {
+    "id": "c07428b7-7969-4109-a08d-939b9ade9aa8",
+    "goal_id": "6bc19360-8ea2-45dd-9413-d887490de83b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-06-25T00:00:00"
+  },
+  {
+    "id": "c7a3cb8c-b1f6-4a4b-bce3-1bc053442c4a",
+    "goal_id": "cf1892bc-3653-4b91-be35-c1c715467ddb",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-06-25T00:00:00"
+  },
+  {
+    "id": "cfceb9b2-b040-4b05-b251-038025e40932",
+    "goal_id": "6bc19360-8ea2-45dd-9413-d887490de83b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "fc33f6bb-96fa-4b22-912f-8d05acad3bc3",
+    "goal_id": "cf1892bc-3653-4b91-be35-c1c715467ddb",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-09-25T00:00:00"
+  },
+  {
+    "id": "c3a1096b-094d-4d68-bce8-fd5fdf69f69c",
+    "goal_id": "6bc19360-8ea2-45dd-9413-d887490de83b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "93",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "6ea7ea79-f9fb-4d83-becd-2cd6fb47bfbc",
+    "goal_id": "cf1892bc-3653-4b91-be35-c1c715467ddb",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "6d83a17a-04c5-40f5-925d-0fc73eb51549",
+    "goal_id": "134eff6d-b0de-4346-be18-9df64ac6282b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "3f13c55f-009a-4891-9f3c-8fcd78a05503",
+    "goal_id": "06915107-6916-4558-ab73-edd29fa37fdf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "69ca064a-7abb-472c-bfce-62003403471c",
+    "goal_id": "134eff6d-b0de-4346-be18-9df64ac6282b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-06-20T00:00:00"
+  },
+  {
+    "id": "229dde5d-ca94-4170-87f8-a99b45ad2051",
+    "goal_id": "06915107-6916-4558-ab73-edd29fa37fdf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2023-06-20T00:00:00"
+  },
+  {
+    "id": "afdcb120-0184-42c6-a46a-7ee632e19266",
+    "goal_id": "134eff6d-b0de-4346-be18-9df64ac6282b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "85",
+    "status": "on_track",
+    "updated_at": "2023-09-24T00:00:00"
+  },
+  {
+    "id": "98320b5e-6c54-44cc-9f9c-4e61b8df9b94",
+    "goal_id": "06915107-6916-4558-ab73-edd29fa37fdf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-09-24T00:00:00"
+  },
+  {
+    "id": "37c19155-223a-4b5f-9f87-6af0db242087",
+    "goal_id": "134eff6d-b0de-4346-be18-9df64ac6282b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "105",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "c58cef84-3589-4b36-9708-5a08477eaf87",
+    "goal_id": "06915107-6916-4558-ab73-edd29fa37fdf",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "506a1357-084b-4b83-aaa7-075e35ae142b",
+    "goal_id": "ccf28bc9-e4d0-473f-b57b-15b5c5e5b22b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "8ba3666d-668e-40f1-8986-c50b9ff66877",
+    "goal_id": "ddba2319-0109-4a89-998e-c46bd4850228",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "934e9331-527c-4c77-8ec7-673250a947eb",
+    "goal_id": "ccf28bc9-e4d0-473f-b57b-15b5c5e5b22b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "b3911d8b-9ed0-4aed-a3de-8326d840a0d4",
+    "goal_id": "ddba2319-0109-4a89-998e-c46bd4850228",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-06-27T00:00:00"
+  },
+  {
+    "id": "5929b795-61ab-4cca-8744-41fe78b46450",
+    "goal_id": "ccf28bc9-e4d0-473f-b57b-15b5c5e5b22b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "4cf0b12d-9b42-4f33-9240-95a6e30f38ed",
+    "goal_id": "ddba2319-0109-4a89-998e-c46bd4850228",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2023-09-20T00:00:00"
+  },
+  {
+    "id": "4dcb9b3a-8151-47ac-bf9c-d66319ed22a4",
+    "goal_id": "ccf28bc9-e4d0-473f-b57b-15b5c5e5b22b",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "102",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "e917dec7-9355-4d81-9a87-0ffdf025f470",
+    "goal_id": "ddba2319-0109-4a89-998e-c46bd4850228",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-26T00:00:00"
+  },
+  {
+    "id": "91426294-f638-4823-985e-d6fc0fd5f812",
+    "goal_id": "84fc1c61-2318-4cd2-8305-6c1f85e86ad0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2023-03-24T00:00:00"
+  },
+  {
+    "id": "a9c7c0af-dd7b-467e-a316-315571e69fe2",
+    "goal_id": "f5bb75f2-3fc8-4779-9a4a-6b750163f32f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-03-24T00:00:00"
+  },
+  {
+    "id": "a0dd27eb-2e38-44c4-99d2-b4417d74d2e1",
+    "goal_id": "84fc1c61-2318-4cd2-8305-6c1f85e86ad0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "5eaa428a-9e35-46d3-9c7f-b27988f74851",
+    "goal_id": "f5bb75f2-3fc8-4779-9a4a-6b750163f32f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "46ce4bf9-68f9-436f-ad91-bf9a1d358bc9",
+    "goal_id": "84fc1c61-2318-4cd2-8305-6c1f85e86ad0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-09-27T00:00:00"
+  },
+  {
+    "id": "1a2dab32-5e0b-4de3-add4-82c49c690001",
+    "goal_id": "f5bb75f2-3fc8-4779-9a4a-6b750163f32f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-09-27T00:00:00"
+  },
+  {
+    "id": "fd3539df-adf5-4f20-88aa-149d7b2350fa",
+    "goal_id": "84fc1c61-2318-4cd2-8305-6c1f85e86ad0",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "1ff189bd-22b6-4f79-83c0-513ad6a1f655",
+    "goal_id": "f5bb75f2-3fc8-4779-9a4a-6b750163f32f",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "dd2e66cc-24a8-496f-a7f1-53a1140bd53d",
+    "goal_id": "0bce35d2-7e92-4e6d-96e7-e63ad3bcd465",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "9a0cd5bc-0eff-4097-8cfe-f5c95e9ba4bb",
+    "goal_id": "c68f55ed-68ab-451e-92ae-a5f137bf9b21",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-03-27T00:00:00"
+  },
+  {
+    "id": "7ebc3804-4f7e-4fae-aa5d-581ab4aa8555",
+    "goal_id": "0bce35d2-7e92-4e6d-96e7-e63ad3bcd465",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2023-06-26T00:00:00"
+  },
+  {
+    "id": "e83d5474-457b-4d46-a53c-705ae8248fa9",
+    "goal_id": "c68f55ed-68ab-451e-92ae-a5f137bf9b21",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-06-26T00:00:00"
+  },
+  {
+    "id": "89e32e87-09a7-49dc-8c48-78c6b3c082e1",
+    "goal_id": "0bce35d2-7e92-4e6d-96e7-e63ad3bcd465",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2023-09-21T00:00:00"
+  },
+  {
+    "id": "9f4f3997-b89b-4914-9744-39cfde81dd87",
+    "goal_id": "c68f55ed-68ab-451e-92ae-a5f137bf9b21",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-09-21T00:00:00"
+  },
+  {
+    "id": "6b29c6a1-81fd-43a6-bdd8-e0b97f3d4713",
+    "goal_id": "0bce35d2-7e92-4e6d-96e7-e63ad3bcd465",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "67157068-430c-4fe9-9a5c-2e4680b38424",
+    "goal_id": "c68f55ed-68ab-451e-92ae-a5f137bf9b21",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2023-12-22T00:00:00"
+  },
+  {
+    "id": "1db9e40d-268a-475f-9663-76c361f93201",
+    "goal_id": "d5d9850f-1d60-4dd5-9d74-0befc300463c",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "599be016-3dab-45d2-84ba-2f2f5879a0b6",
+    "goal_id": "1cd0c7f2-46ae-4dfd-a210-352432ef2287",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-03-28T00:00:00"
+  },
+  {
+    "id": "b14e14fb-dd42-46ec-bab6-1ab61c603da0",
+    "goal_id": "d5d9850f-1d60-4dd5-9d74-0befc300463c",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2023-06-23T00:00:00"
+  },
+  {
+    "id": "09065d21-02ae-4588-847e-19a7593c4775",
+    "goal_id": "1cd0c7f2-46ae-4dfd-a210-352432ef2287",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2023-06-23T00:00:00"
+  },
+  {
+    "id": "90652308-db23-409b-a228-a24cdbee3445",
+    "goal_id": "d5d9850f-1d60-4dd5-9d74-0befc300463c",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "103",
+    "status": "on_track",
+    "updated_at": "2023-09-21T00:00:00"
+  },
+  {
+    "id": "786afd0a-fb1c-424a-b460-e2570c93305e",
+    "goal_id": "1cd0c7f2-46ae-4dfd-a210-352432ef2287",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2023-09-21T00:00:00"
+  },
+  {
+    "id": "690cbfbf-7510-45e5-9186-aa06391a40ae",
+    "goal_id": "d5d9850f-1d60-4dd5-9d74-0befc300463c",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "84",
+    "status": "completed",
+    "updated_at": "2023-12-24T00:00:00"
+  },
+  {
+    "id": "dec61dd9-dc30-4158-a798-5ed177762877",
+    "goal_id": "1cd0c7f2-46ae-4dfd-a210-352432ef2287",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2023-12-24T00:00:00"
+  },
+  {
+    "id": "0d48312b-b488-4bcf-8dbc-b8d6f3312e84",
+    "goal_id": "38f98ded-6bdc-43f5-984c-5ac35a98c673",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-03-26T00:00:00"
+  },
+  {
+    "id": "7751a19b-3e40-442e-840d-895124b80518",
+    "goal_id": "1596258a-c285-4094-94ec-792536044c06",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2023-03-26T00:00:00"
+  },
+  {
+    "id": "00cfae69-063e-4834-952d-56ad1e8f192b",
+    "goal_id": "38f98ded-6bdc-43f5-984c-5ac35a98c673",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "cb353dd4-5a9c-411c-a891-5756d8ded321",
+    "goal_id": "1596258a-c285-4094-94ec-792536044c06",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2023-06-24T00:00:00"
+  },
+  {
+    "id": "337e187c-bf3c-4170-9c4c-4591471b7a2d",
+    "goal_id": "38f98ded-6bdc-43f5-984c-5ac35a98c673",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2023-09-23T00:00:00"
+  },
+  {
+    "id": "6eed97b7-dd01-41c3-a921-914428c668f0",
+    "goal_id": "1596258a-c285-4094-94ec-792536044c06",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2023-09-23T00:00:00"
+  },
+  {
+    "id": "6a38a28e-8b81-489b-91fa-8c169aa7aa46",
+    "goal_id": "38f98ded-6bdc-43f5-984c-5ac35a98c673",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "04d9bdf1-2eb8-482d-a639-741b29d1900c",
+    "goal_id": "1596258a-c285-4094-94ec-792536044c06",
+    "cycle_id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2023-12-21T00:00:00"
+  },
+  {
+    "id": "0d9355b3-dd9d-494b-bf31-18650fa99f3f",
+    "goal_id": "c339c6fb-22d3-49ec-a8cc-3d8bd4df9dce",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "5be94b69-54b4-431c-8c17-5ae82509f85e",
+    "goal_id": "33d61abd-7959-4e91-b63c-deea295516de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "b4fb0a46-d475-42cc-82e0-522f8e3b32f8",
+    "goal_id": "c339c6fb-22d3-49ec-a8cc-3d8bd4df9dce",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2024-06-26T00:00:00"
+  },
+  {
+    "id": "bbb66b13-288d-42ce-8213-97ab29e6a718",
+    "goal_id": "33d61abd-7959-4e91-b63c-deea295516de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-26T00:00:00"
+  },
+  {
+    "id": "adec441e-dbb7-4fd4-a073-af4b7f241e5f",
+    "goal_id": "c339c6fb-22d3-49ec-a8cc-3d8bd4df9dce",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "1d91746d-bfd4-4888-9128-9b3b8b6dd5e6",
+    "goal_id": "33d61abd-7959-4e91-b63c-deea295516de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "929ccc58-d666-492b-9e1f-14f8b3dd6264",
+    "goal_id": "c339c6fb-22d3-49ec-a8cc-3d8bd4df9dce",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2024-12-24T00:00:00"
+  },
+  {
+    "id": "7ae5e3b8-f569-4c1f-8b7a-882ece3bfa00",
+    "goal_id": "33d61abd-7959-4e91-b63c-deea295516de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2024-12-24T00:00:00"
+  },
+  {
+    "id": "4309c9a2-fb2d-41a0-a69d-1eebe22ed996",
+    "goal_id": "403d40ca-abfc-4b08-b421-f7361e1a9d8f",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "bb335d20-df2c-4981-a4d8-e334cbaea28f",
+    "goal_id": "a306a3b3-e646-492a-a723-227c36e06e5e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "900ed579-08e3-47b2-98bf-b9d0fb01be6f",
+    "goal_id": "403d40ca-abfc-4b08-b421-f7361e1a9d8f",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "c9d74e55-53af-4ace-bc32-1277c8d8975c",
+    "goal_id": "a306a3b3-e646-492a-a723-227c36e06e5e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "fb0c0b92-3c04-4abd-80e8-a2c33d146477",
+    "goal_id": "403d40ca-abfc-4b08-b421-f7361e1a9d8f",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-09-21T00:00:00"
+  },
+  {
+    "id": "5ed059e3-6d88-4c75-9e56-0364a340e326",
+    "goal_id": "a306a3b3-e646-492a-a723-227c36e06e5e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-21T00:00:00"
+  },
+  {
+    "id": "7a14d7f5-b9b8-4fa2-ba2f-de13a5921be2",
+    "goal_id": "403d40ca-abfc-4b08-b421-f7361e1a9d8f",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "102",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "27b0bb9e-7eb1-41ee-8669-a287a6b8af0c",
+    "goal_id": "a306a3b3-e646-492a-a723-227c36e06e5e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "96",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "311bc489-259b-410d-95a5-bd7d66f4ac87",
+    "goal_id": "37743876-e4ea-4508-afbf-e6498efab5f9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "68076dae-fa20-45cd-9969-3e6089b115dd",
+    "goal_id": "106a1334-31d7-4f8f-b47c-67176c58a67d",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "79fcc7be-6d7e-4908-9f18-5220061ba622",
+    "goal_id": "37743876-e4ea-4508-afbf-e6498efab5f9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "4f1dcd68-b904-4a41-b9bc-2108488ad163",
+    "goal_id": "106a1334-31d7-4f8f-b47c-67176c58a67d",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "34ed1f78-8f23-4714-a923-bfa00383d81f",
+    "goal_id": "37743876-e4ea-4508-afbf-e6498efab5f9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2024-09-24T00:00:00"
+  },
+  {
+    "id": "e84ceb84-46ad-4ef8-8413-826de3ed5f8b",
+    "goal_id": "106a1334-31d7-4f8f-b47c-67176c58a67d",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-09-24T00:00:00"
+  },
+  {
+    "id": "13665de0-ea4a-4f47-811e-864fb26fa275",
+    "goal_id": "37743876-e4ea-4508-afbf-e6498efab5f9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "82",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "9e16130a-490b-461c-ad0c-46d0edb8722e",
+    "goal_id": "106a1334-31d7-4f8f-b47c-67176c58a67d",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "a5491723-2e87-4ce0-9b2e-bd3392bdcf00",
+    "goal_id": "24db5a3f-d413-43b9-a2c2-788a1270beb5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "243afec0-cf4b-467a-b2eb-8d53139aed93",
+    "goal_id": "feef7fcc-e2d6-47a8-969e-2093198b5810",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "c2989f68-e2e0-4643-ae16-d755432ecc7d",
+    "goal_id": "24db5a3f-d413-43b9-a2c2-788a1270beb5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-06-20T00:00:00"
+  },
+  {
+    "id": "20bbbd94-5014-4b48-aed7-c4effd029039",
+    "goal_id": "feef7fcc-e2d6-47a8-969e-2093198b5810",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-06-20T00:00:00"
+  },
+  {
+    "id": "37c80e50-b6a9-46af-ab8c-dbc4df68d78f",
+    "goal_id": "24db5a3f-d413-43b9-a2c2-788a1270beb5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-22T00:00:00"
+  },
+  {
+    "id": "289bee2d-d1ec-4ad2-aaf5-af5747b967ce",
+    "goal_id": "feef7fcc-e2d6-47a8-969e-2093198b5810",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-09-22T00:00:00"
+  },
+  {
+    "id": "4f5c650f-d11d-40b3-82bf-9351c13dbb56",
+    "goal_id": "24db5a3f-d413-43b9-a2c2-788a1270beb5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "86",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "6d4089ac-4ffd-4414-ae01-b6684a09ed56",
+    "goal_id": "feef7fcc-e2d6-47a8-969e-2093198b5810",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "5f638895-c7d5-407e-9e78-6d626d255b2d",
+    "goal_id": "87835068-eb64-4553-90c6-8bece9c4cc22",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "40c2bad8-ec3c-49d4-b2af-fe5c8318b8d4",
+    "goal_id": "9ceec596-2338-401b-8585-22626407170c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "72e55a63-b1e2-453b-bbe2-5323ceb6c172",
+    "goal_id": "87835068-eb64-4553-90c6-8bece9c4cc22",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "60d0a2d1-86b6-408a-93e6-4c90a6ca410d",
+    "goal_id": "9ceec596-2338-401b-8585-22626407170c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "1a41cbf6-97d2-4c2f-80d1-88ec8aa69f48",
+    "goal_id": "87835068-eb64-4553-90c6-8bece9c4cc22",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "444698ac-6f52-4ee6-9b80-cb5cea582669",
+    "goal_id": "9ceec596-2338-401b-8585-22626407170c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "ee3000d0-0b70-42eb-b632-b0badd3d1e08",
+    "goal_id": "87835068-eb64-4553-90c6-8bece9c4cc22",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "89",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "30e20eda-7ffd-41a9-99fc-0da3d3371e9c",
+    "goal_id": "9ceec596-2338-401b-8585-22626407170c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "979d8fa2-d3b7-4b1c-ba52-4ec62d605d1d",
+    "goal_id": "5898fc59-8401-4912-96ea-30f42d9cbb16",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "4b7031f5-3bab-49f2-8635-2239ecc08042",
+    "goal_id": "74aaafa6-7e27-4106-87e6-de5809816cbc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "1d4c25f6-221c-410b-9640-1505d9ea5145",
+    "goal_id": "5898fc59-8401-4912-96ea-30f42d9cbb16",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2024-06-28T00:00:00"
+  },
+  {
+    "id": "19d2177e-58a5-475d-a23a-820eba266012",
+    "goal_id": "74aaafa6-7e27-4106-87e6-de5809816cbc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-06-28T00:00:00"
+  },
+  {
+    "id": "e3df1170-16a5-4a3c-802f-c14630346a55",
+    "goal_id": "5898fc59-8401-4912-96ea-30f42d9cbb16",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2024-09-20T00:00:00"
+  },
+  {
+    "id": "5b682107-47ef-4254-9bd6-8533cef6e13d",
+    "goal_id": "74aaafa6-7e27-4106-87e6-de5809816cbc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-09-20T00:00:00"
+  },
+  {
+    "id": "efb86bb9-006c-4fe2-b657-3dc5cd12cfdf",
+    "goal_id": "5898fc59-8401-4912-96ea-30f42d9cbb16",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "a643cfe4-bf87-4ef7-8376-37fe380791cd",
+    "goal_id": "74aaafa6-7e27-4106-87e6-de5809816cbc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "769c739b-d1b9-4b26-8054-ea3f5edb213f",
+    "goal_id": "51e6156b-1dfd-4012-8e25-b6e2b97260f4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-03-25T00:00:00"
+  },
+  {
+    "id": "9b012a06-2659-429f-83ad-da0fa68d8132",
+    "goal_id": "7a77cf34-8dda-4f16-912e-c4a44e8eeabe",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-03-25T00:00:00"
+  },
+  {
+    "id": "39f088d0-dfb1-45c1-8563-82e37e6e2e9e",
+    "goal_id": "51e6156b-1dfd-4012-8e25-b6e2b97260f4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "3ed80096-0ce5-4efe-a5fa-4d50b0677da5",
+    "goal_id": "7a77cf34-8dda-4f16-912e-c4a44e8eeabe",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "b0d4a244-fddb-4a2c-b737-b67cf52b8035",
+    "goal_id": "51e6156b-1dfd-4012-8e25-b6e2b97260f4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2024-09-25T00:00:00"
+  },
+  {
+    "id": "dc08060d-e821-4db5-9c3d-e8fb2ba055f4",
+    "goal_id": "7a77cf34-8dda-4f16-912e-c4a44e8eeabe",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-09-25T00:00:00"
+  },
+  {
+    "id": "21dfdf29-53a7-480f-b35b-85672e2df988",
+    "goal_id": "51e6156b-1dfd-4012-8e25-b6e2b97260f4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "87",
+    "status": "completed",
+    "updated_at": "2024-12-23T00:00:00"
+  },
+  {
+    "id": "10a71a00-9a06-4e61-87f0-5396796d55a2",
+    "goal_id": "7a77cf34-8dda-4f16-912e-c4a44e8eeabe",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2024-12-23T00:00:00"
+  },
+  {
+    "id": "ce3c414d-97ba-4e50-b83e-e25e17ef12c7",
+    "goal_id": "b8038a2e-7c5d-4453-8821-11c7292c06fa",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-03-22T00:00:00"
+  },
+  {
+    "id": "8643f796-5957-4dff-9858-b49a7e6ab981",
+    "goal_id": "6f19bddf-dc4f-4734-a107-b950cba85df4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-03-22T00:00:00"
+  },
+  {
+    "id": "430be1b3-e381-47ed-a2dd-35872b555aa5",
+    "goal_id": "b8038a2e-7c5d-4453-8821-11c7292c06fa",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "85",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "a4a5c258-6ffd-418a-87a6-4239b64af8a7",
+    "goal_id": "6f19bddf-dc4f-4734-a107-b950cba85df4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "2c725457-a6db-454b-9c8f-d47928ccd129",
+    "goal_id": "b8038a2e-7c5d-4453-8821-11c7292c06fa",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "1fa56d62-5197-4bad-afbf-3b5c9f41d9aa",
+    "goal_id": "6f19bddf-dc4f-4734-a107-b950cba85df4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "377a75e7-902b-4f79-86ad-077f75d8d853",
+    "goal_id": "b8038a2e-7c5d-4453-8821-11c7292c06fa",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "82",
+    "status": "completed",
+    "updated_at": "2024-12-27T00:00:00"
+  },
+  {
+    "id": "359d0eb3-8cad-450e-9fbe-770226c7e41d",
+    "goal_id": "6f19bddf-dc4f-4734-a107-b950cba85df4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2024-12-27T00:00:00"
+  },
+  {
+    "id": "c4fb70f9-d5bf-4abf-98ca-28b8bc95cd4b",
+    "goal_id": "aaff509c-b6cc-438c-b0f4-0e9a328a4660",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2024-03-25T00:00:00"
+  },
+  {
+    "id": "632f6bdf-0692-46c9-ab9d-2097c12e3506",
+    "goal_id": "bc030865-e414-4246-9969-957278a09cd7",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-03-25T00:00:00"
+  },
+  {
+    "id": "33103c99-2877-4ddd-aa27-7d86a298d859",
+    "goal_id": "aaff509c-b6cc-438c-b0f4-0e9a328a4660",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "e551df9e-7874-4865-9fa8-f968af4a0973",
+    "goal_id": "bc030865-e414-4246-9969-957278a09cd7",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "c841bf78-5ac1-4b06-b155-dbe2cbf64649",
+    "goal_id": "aaff509c-b6cc-438c-b0f4-0e9a328a4660",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "85",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "cb0637fb-a76d-436c-9047-34ce6ac38e9c",
+    "goal_id": "bc030865-e414-4246-9969-957278a09cd7",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "7aabe398-4a53-443a-9f68-65392bf637c3",
+    "goal_id": "aaff509c-b6cc-438c-b0f4-0e9a328a4660",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "44306509-eed7-488c-8881-f6eb3f3f1cd5",
+    "goal_id": "bc030865-e414-4246-9969-957278a09cd7",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "f4893d29-af3e-4cb9-8447-c83f3cd40cc0",
+    "goal_id": "51901d76-c8e3-4cd0-b4bb-8b7b1fb6982b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-03-22T00:00:00"
+  },
+  {
+    "id": "b53864be-cacc-4195-b5a3-bfbe681814ac",
+    "goal_id": "9ec086e0-548b-4497-95df-2d38dea8cc1c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-03-22T00:00:00"
+  },
+  {
+    "id": "6090160e-e106-4f32-af01-92a0e0a4b6b2",
+    "goal_id": "51901d76-c8e3-4cd0-b4bb-8b7b1fb6982b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "1a150615-4668-4cce-ac53-481064b67888",
+    "goal_id": "9ec086e0-548b-4497-95df-2d38dea8cc1c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "25432d59-8c00-41cc-bec6-4540f2b69b7d",
+    "goal_id": "51901d76-c8e3-4cd0-b4bb-8b7b1fb6982b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "280629a6-6d19-43c1-b7d1-b2b77b0d649a",
+    "goal_id": "9ec086e0-548b-4497-95df-2d38dea8cc1c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "048e9f49-1933-46b3-bdae-0dbba8f36c6f",
+    "goal_id": "51901d76-c8e3-4cd0-b4bb-8b7b1fb6982b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "85",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "6fda21eb-0739-463b-9ea6-e3a66d0c6f35",
+    "goal_id": "9ec086e0-548b-4497-95df-2d38dea8cc1c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "80bb3a96-8fca-4ec9-937b-91053360f989",
+    "goal_id": "c941bc0d-f97d-44fc-bd42-341b8dd88409",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "f68264d2-af09-4069-9872-53ef2bcf6e45",
+    "goal_id": "286b30a6-de33-445c-8527-641a0b81583a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "30b5bbb8-a2e5-49f9-9cc4-bd41c7307baa",
+    "goal_id": "c941bc0d-f97d-44fc-bd42-341b8dd88409",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-06-27T00:00:00"
+  },
+  {
+    "id": "a5fa1419-0b0d-4453-98d9-e3b6bf9f37c2",
+    "goal_id": "286b30a6-de33-445c-8527-641a0b81583a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-06-27T00:00:00"
+  },
+  {
+    "id": "3e5c2774-a5ac-4b30-9814-974946c98b7d",
+    "goal_id": "c941bc0d-f97d-44fc-bd42-341b8dd88409",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2024-09-25T00:00:00"
+  },
+  {
+    "id": "d5f2eaa4-1293-45e2-b640-8cf6d9a716ad",
+    "goal_id": "286b30a6-de33-445c-8527-641a0b81583a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-09-25T00:00:00"
+  },
+  {
+    "id": "0f5056a7-f0f7-408b-b042-2340920a3559",
+    "goal_id": "c941bc0d-f97d-44fc-bd42-341b8dd88409",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "85",
+    "status": "completed",
+    "updated_at": "2024-12-26T00:00:00"
+  },
+  {
+    "id": "3f423cde-02af-48e8-bfd3-3271a2e587fa",
+    "goal_id": "286b30a6-de33-445c-8527-641a0b81583a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2024-12-26T00:00:00"
+  },
+  {
+    "id": "ee8b9135-0379-41a1-afb0-1dbbe1d90c34",
+    "goal_id": "4e7ceda6-7fec-4cc9-b9ac-fbc2c5c0e1e6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-03-24T00:00:00"
+  },
+  {
+    "id": "49088992-724a-40f0-8eb6-b72c209a7a4f",
+    "goal_id": "6845a39f-5c57-477b-9fda-485bad5e806b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-03-24T00:00:00"
+  },
+  {
+    "id": "903abf3b-ec25-4087-a53c-e4d8260143e8",
+    "goal_id": "4e7ceda6-7fec-4cc9-b9ac-fbc2c5c0e1e6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "0065ca11-d9ba-4399-9a6d-9c64337c793f",
+    "goal_id": "6845a39f-5c57-477b-9fda-485bad5e806b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "621b1eda-5797-431e-9e54-46b308c61c78",
+    "goal_id": "4e7ceda6-7fec-4cc9-b9ac-fbc2c5c0e1e6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "5017f334-6cc6-4912-bc0e-8efdbad359db",
+    "goal_id": "6845a39f-5c57-477b-9fda-485bad5e806b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "737a8c2e-4061-43bd-8044-06184df83774",
+    "goal_id": "4e7ceda6-7fec-4cc9-b9ac-fbc2c5c0e1e6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "101",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "b95401f0-1117-405a-8195-fb82ea8b99f4",
+    "goal_id": "6845a39f-5c57-477b-9fda-485bad5e806b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "20ba06a2-85f0-4dd7-aa8f-022b791bb5ea",
+    "goal_id": "9a7bd89e-7549-45c8-a951-6608a687a85c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2024-03-23T00:00:00"
+  },
+  {
+    "id": "d049dd74-3076-4313-9313-dbc4ca4f7ffa",
+    "goal_id": "497f69b0-8b02-455c-9ecf-d6a136bc90bd",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2024-03-23T00:00:00"
+  },
+  {
+    "id": "af93a589-3cd7-4902-80b9-de437cb07a3b",
+    "goal_id": "9a7bd89e-7549-45c8-a951-6608a687a85c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2024-06-21T00:00:00"
+  },
+  {
+    "id": "9afef11e-49d3-46fc-9ca7-d9d6d7e2a7fe",
+    "goal_id": "497f69b0-8b02-455c-9ecf-d6a136bc90bd",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-06-21T00:00:00"
+  },
+  {
+    "id": "fad1571a-9010-4d14-8240-bf7134dade0b",
+    "goal_id": "9a7bd89e-7549-45c8-a951-6608a687a85c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "cd4df387-a5f1-4d3b-ae49-f1e6c19bfc0f",
+    "goal_id": "497f69b0-8b02-455c-9ecf-d6a136bc90bd",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "befdc6b1-d78c-4fde-bbc5-04ef8a7e3269",
+    "goal_id": "9a7bd89e-7549-45c8-a951-6608a687a85c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "479883f8-9ce8-4430-8d21-8d5dc34238bf",
+    "goal_id": "497f69b0-8b02-455c-9ecf-d6a136bc90bd",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2024-12-20T00:00:00"
+  },
+  {
+    "id": "06fca140-7f25-4594-8fff-281765259436",
+    "goal_id": "5bafb80c-0dcc-4a2a-a5b9-2e80b8c09942",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "e26b19b9-de99-48c1-917c-a5a2e0a4494f",
+    "goal_id": "04e2f14a-2361-406d-bb46-569ac646c11c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "3e5bf8b0-72aa-4a1c-8f21-49f25c149af1",
+    "goal_id": "5bafb80c-0dcc-4a2a-a5b9-2e80b8c09942",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "104",
+    "status": "on_track",
+    "updated_at": "2024-06-27T00:00:00"
+  },
+  {
+    "id": "cba5b036-db74-4705-85d9-36fb8f8f1c2a",
+    "goal_id": "04e2f14a-2361-406d-bb46-569ac646c11c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-06-27T00:00:00"
+  },
+  {
+    "id": "e4c95946-c8fd-4a66-b7ff-93989d122521",
+    "goal_id": "5bafb80c-0dcc-4a2a-a5b9-2e80b8c09942",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-24T00:00:00"
+  },
+  {
+    "id": "bb71e905-13b6-423c-afd9-e63d12421a85",
+    "goal_id": "04e2f14a-2361-406d-bb46-569ac646c11c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2024-09-24T00:00:00"
+  },
+  {
+    "id": "d1ef6fbc-d17e-46ad-8f1c-7e25ec2afb63",
+    "goal_id": "5bafb80c-0dcc-4a2a-a5b9-2e80b8c09942",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2024-12-22T00:00:00"
+  },
+  {
+    "id": "14e3826c-2315-428e-986f-74562e2e190b",
+    "goal_id": "04e2f14a-2361-406d-bb46-569ac646c11c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2024-12-22T00:00:00"
+  },
+  {
+    "id": "cd4db76d-7ee4-48b5-bfe7-c5f2c56956c5",
+    "goal_id": "649242ee-88aa-4a4e-9c5a-0e05f7f208d1",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "746d223b-2235-4e53-8ba3-a5ed46f349a1",
+    "goal_id": "18bbab40-fa57-4f5b-8f6c-1374124a6be9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "27945928-5fc5-4c88-a5ce-03ffb1e01ca6",
+    "goal_id": "649242ee-88aa-4a4e-9c5a-0e05f7f208d1",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "50fdf399-763c-4715-874f-aabb71c693a4",
+    "goal_id": "18bbab40-fa57-4f5b-8f6c-1374124a6be9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "af2f767b-0e13-447c-8e69-67e9c528c510",
+    "goal_id": "649242ee-88aa-4a4e-9c5a-0e05f7f208d1",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-09-28T00:00:00"
+  },
+  {
+    "id": "cc7a52d8-e360-4642-a0e5-39ee458d1d3f",
+    "goal_id": "18bbab40-fa57-4f5b-8f6c-1374124a6be9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-09-28T00:00:00"
+  },
+  {
+    "id": "132d645e-fbd5-4b43-bb4a-bcd1a49d76b7",
+    "goal_id": "649242ee-88aa-4a4e-9c5a-0e05f7f208d1",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "85",
+    "status": "completed",
+    "updated_at": "2024-12-22T00:00:00"
+  },
+  {
+    "id": "baa7c02b-6656-4d41-9682-07f5a4b5e113",
+    "goal_id": "18bbab40-fa57-4f5b-8f6c-1374124a6be9",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2024-12-22T00:00:00"
+  },
+  {
+    "id": "376c0b17-a593-40f5-b21c-a3d8d6775b9f",
+    "goal_id": "76d11c0a-04b8-4d7d-af62-a289b545fe4b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "2eebd5f4-2a45-4fe2-8a1c-11c1b7aee73d",
+    "goal_id": "2cb95ef9-1964-4568-9265-3a2077a37faf",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "f198741e-59bb-4bf4-ae05-1bd06f42c002",
+    "goal_id": "76d11c0a-04b8-4d7d-af62-a289b545fe4b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2024-06-27T00:00:00"
+  },
+  {
+    "id": "3fea5fb6-9f81-4353-8c6d-e5e9f1459006",
+    "goal_id": "2cb95ef9-1964-4568-9265-3a2077a37faf",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-06-27T00:00:00"
+  },
+  {
+    "id": "2ce2f622-bc85-4dd4-9442-75abd0ce647f",
+    "goal_id": "76d11c0a-04b8-4d7d-af62-a289b545fe4b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "0c8001f5-fca7-4f6b-bede-a01e3e705bf5",
+    "goal_id": "2cb95ef9-1964-4568-9265-3a2077a37faf",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "140e5297-edab-41ec-99e4-f422b8726549",
+    "goal_id": "76d11c0a-04b8-4d7d-af62-a289b545fe4b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "102",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "aacb323b-4779-47bc-8683-8614797b916b",
+    "goal_id": "2cb95ef9-1964-4568-9265-3a2077a37faf",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "d3b194ba-3b8e-43b8-b406-541e0d0980ea",
+    "goal_id": "8baba2c0-8195-47e8-9b95-fa21fd15f955",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "13b3dba9-0476-414a-9c0a-b70542f15d57",
+    "goal_id": "a0683fe6-b5b1-4ac4-9339-8b1c9cf4227a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "f7190df0-ab8a-43c1-b6cf-b032eff5f119",
+    "goal_id": "8baba2c0-8195-47e8-9b95-fa21fd15f955",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "56aaef85-6c45-44d0-a928-5078a26c0ddb",
+    "goal_id": "a0683fe6-b5b1-4ac4-9339-8b1c9cf4227a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "0de09860-8ebb-49e4-a07d-98442186fda4",
+    "goal_id": "8baba2c0-8195-47e8-9b95-fa21fd15f955",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "797b4db5-7153-407b-9d85-ba9ea03f0d41",
+    "goal_id": "a0683fe6-b5b1-4ac4-9339-8b1c9cf4227a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "540ad3b9-1a50-4a40-84f1-bf9868629b93",
+    "goal_id": "8baba2c0-8195-47e8-9b95-fa21fd15f955",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "bf3be135-bedc-4388-8c0f-8f921f862963",
+    "goal_id": "a0683fe6-b5b1-4ac4-9339-8b1c9cf4227a",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "855f5a25-32f7-495b-ad0e-cdc66e4defb9",
+    "goal_id": "cb09c203-5788-4d28-ba01-4d8fa19dacc4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-28T00:00:00"
+  },
+  {
+    "id": "218e5dc1-5311-4bad-96c6-e042b3d9719b",
+    "goal_id": "517e1ec8-27f8-409e-a78c-92f4787fcfb6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-03-28T00:00:00"
+  },
+  {
+    "id": "22076b83-0e8d-44c2-a37d-c65e9bf522f9",
+    "goal_id": "cb09c203-5788-4d28-ba01-4d8fa19dacc4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "69e916bf-6824-4959-80e7-e9a75047aafb",
+    "goal_id": "517e1ec8-27f8-409e-a78c-92f4787fcfb6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "50d526ba-7111-44a0-9b4e-67fd43d63341",
+    "goal_id": "cb09c203-5788-4d28-ba01-4d8fa19dacc4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2024-09-24T00:00:00"
+  },
+  {
+    "id": "859baa08-302f-433d-96f1-da00c3ae8352",
+    "goal_id": "517e1ec8-27f8-409e-a78c-92f4787fcfb6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-09-24T00:00:00"
+  },
+  {
+    "id": "6b67fcd1-34f9-410e-9f34-b3f3afd93244",
+    "goal_id": "cb09c203-5788-4d28-ba01-4d8fa19dacc4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "dca215af-3c71-4f4d-b61a-f326464ed833",
+    "goal_id": "517e1ec8-27f8-409e-a78c-92f4787fcfb6",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "c88f66e0-ea79-4f97-ae4a-5f27e27f0fa0",
+    "goal_id": "5ba0c519-8166-44e9-865c-e55fc71ab083",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "85",
+    "status": "on_track",
+    "updated_at": "2024-03-24T00:00:00"
+  },
+  {
+    "id": "949e3308-6a5a-463c-b803-e3ecd36d6430",
+    "goal_id": "fa94bdd0-0101-4ace-9a03-9b3205802b5b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-03-24T00:00:00"
+  },
+  {
+    "id": "ba8c376c-1a54-4ba5-986c-6db3d6c50479",
+    "goal_id": "5ba0c519-8166-44e9-865c-e55fc71ab083",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "d2d5a60b-6006-40de-9b8f-0c8f0762de50",
+    "goal_id": "fa94bdd0-0101-4ace-9a03-9b3205802b5b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "de56f0a2-7b02-4a9d-a3b6-6a77cd657e2b",
+    "goal_id": "5ba0c519-8166-44e9-865c-e55fc71ab083",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "5ace5c8b-b1d6-47c4-b7ca-0875e6168e6a",
+    "goal_id": "fa94bdd0-0101-4ace-9a03-9b3205802b5b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "249e31da-fe2d-4bd8-b44e-53c43825cf73",
+    "goal_id": "5ba0c519-8166-44e9-865c-e55fc71ab083",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2024-12-24T00:00:00"
+  },
+  {
+    "id": "3840c822-1ab1-4f4d-9e65-6504a18261c9",
+    "goal_id": "fa94bdd0-0101-4ace-9a03-9b3205802b5b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2024-12-24T00:00:00"
+  },
+  {
+    "id": "bf9d4b37-dbea-4352-8bf0-f0856a3a0f66",
+    "goal_id": "675cfabf-5dc1-4300-a789-588ca3f08335",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "972793c8-7fb4-4b8f-bdee-d59b94dd2bf0",
+    "goal_id": "c8e9cc60-ad6b-4221-9cea-756b516e9718",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "51e2658c-e82d-4c34-8d9f-f5d6a1798319",
+    "goal_id": "675cfabf-5dc1-4300-a789-588ca3f08335",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "c09ce800-4f48-4fe4-8f26-4afef366a0df",
+    "goal_id": "c8e9cc60-ad6b-4221-9cea-756b516e9718",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2024-06-24T00:00:00"
+  },
+  {
+    "id": "6b509e74-39e4-449b-8773-71249f1813d9",
+    "goal_id": "675cfabf-5dc1-4300-a789-588ca3f08335",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "c3d502f3-6aab-4a0f-af02-a72c1d949ef3",
+    "goal_id": "c8e9cc60-ad6b-4221-9cea-756b516e9718",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "48c5e0a5-bb33-4e52-983c-9db6e7b2566e",
+    "goal_id": "675cfabf-5dc1-4300-a789-588ca3f08335",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2024-12-26T00:00:00"
+  },
+  {
+    "id": "85ff4d14-2db2-4409-8092-a3dda814bd2e",
+    "goal_id": "c8e9cc60-ad6b-4221-9cea-756b516e9718",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2024-12-26T00:00:00"
+  },
+  {
+    "id": "0a828e88-b7ef-42aa-b442-8a764eec5a74",
+    "goal_id": "73a88bf1-11c9-4c2c-b73c-47a9f544f38b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2024-03-28T00:00:00"
+  },
+  {
+    "id": "5091aa64-6b32-48c9-bfb9-88960a969874",
+    "goal_id": "d7c0e9cf-0645-4004-bd73-28636e7d1f3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-03-28T00:00:00"
+  },
+  {
+    "id": "c091a219-8387-447c-aa4e-6ebdcb959b7d",
+    "goal_id": "73a88bf1-11c9-4c2c-b73c-47a9f544f38b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "176faadd-0561-42e2-9ca8-fad313eb8a78",
+    "goal_id": "d7c0e9cf-0645-4004-bd73-28636e7d1f3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "217021df-9a2d-4cf1-bb42-773523b871f9",
+    "goal_id": "73a88bf1-11c9-4c2c-b73c-47a9f544f38b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "4b38eb14-db13-46dd-a2c0-1efe98b9f0bb",
+    "goal_id": "d7c0e9cf-0645-4004-bd73-28636e7d1f3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-09-26T00:00:00"
+  },
+  {
+    "id": "0a6c3cfb-5604-45be-98f3-324fe79b1387",
+    "goal_id": "73a88bf1-11c9-4c2c-b73c-47a9f544f38b",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "102",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "496de1b2-304a-45c7-bad2-56e6c4432ffc",
+    "goal_id": "d7c0e9cf-0645-4004-bd73-28636e7d1f3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "e9e37eb0-8c11-4ffe-b858-fff8207268b8",
+    "goal_id": "d5f11694-9573-415f-9d0f-68ce478b61c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2024-03-23T00:00:00"
+  },
+  {
+    "id": "ab8627eb-76cd-4baf-866e-236105870676",
+    "goal_id": "8cf9f93c-aadc-4c98-afea-01a31b072540",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-23T00:00:00"
+  },
+  {
+    "id": "ba96bac5-5b28-4b7b-a255-d2312efb634b",
+    "goal_id": "d5f11694-9573-415f-9d0f-68ce478b61c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "091a3996-0d99-4806-bfe1-d47583885659",
+    "goal_id": "8cf9f93c-aadc-4c98-afea-01a31b072540",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "4b1f15e0-834b-49a9-a582-792b91a587b0",
+    "goal_id": "d5f11694-9573-415f-9d0f-68ce478b61c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-28T00:00:00"
+  },
+  {
+    "id": "6c7e5345-f1e2-4b33-b5b2-70c9c0280348",
+    "goal_id": "8cf9f93c-aadc-4c98-afea-01a31b072540",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-09-28T00:00:00"
+  },
+  {
+    "id": "fcfb67bb-ab69-4c4c-855d-cd410e80a2f9",
+    "goal_id": "d5f11694-9573-415f-9d0f-68ce478b61c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "b551e7ea-28bf-467e-b43d-359fe678ec80",
+    "goal_id": "8cf9f93c-aadc-4c98-afea-01a31b072540",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "3d48dc18-248e-4379-be2d-dbccae2023ad",
+    "goal_id": "d51ab331-88fb-4402-970b-5048847b0d3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "76f971a6-6ce1-4b8c-98c9-f4ac8a59aa68",
+    "goal_id": "1c0860a7-3c47-4fc5-9e04-de0d7c8a54b4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-03-27T00:00:00"
+  },
+  {
+    "id": "6db965ec-d645-4180-aa1a-6f9d3ebd0c61",
+    "goal_id": "d51ab331-88fb-4402-970b-5048847b0d3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "103",
+    "status": "on_track",
+    "updated_at": "2024-06-21T00:00:00"
+  },
+  {
+    "id": "87df80a2-e6c4-4301-84d6-428423e6d4b7",
+    "goal_id": "1c0860a7-3c47-4fc5-9e04-de0d7c8a54b4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-06-21T00:00:00"
+  },
+  {
+    "id": "0c7d4d9c-b9f1-4651-9f65-3617c43def9d",
+    "goal_id": "d51ab331-88fb-4402-970b-5048847b0d3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2024-09-22T00:00:00"
+  },
+  {
+    "id": "d20c2567-f7d7-4d3b-bfb4-0e82954c7a39",
+    "goal_id": "1c0860a7-3c47-4fc5-9e04-de0d7c8a54b4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-09-22T00:00:00"
+  },
+  {
+    "id": "48374a9e-bfdf-4ad2-88ee-8aea716767ed",
+    "goal_id": "d51ab331-88fb-4402-970b-5048847b0d3e",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "84",
+    "status": "completed",
+    "updated_at": "2024-12-23T00:00:00"
+  },
+  {
+    "id": "6ac03ddd-d1ae-41b2-902a-656fdcb7b4ee",
+    "goal_id": "1c0860a7-3c47-4fc5-9e04-de0d7c8a54b4",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "96",
+    "status": "completed",
+    "updated_at": "2024-12-23T00:00:00"
+  },
+  {
+    "id": "c5365fe3-1c4f-4dbe-bbc6-c94c7f500743",
+    "goal_id": "8175f9e7-9501-4e16-9200-d2c16ce845e8",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-03-23T00:00:00"
+  },
+  {
+    "id": "b1166d75-40e4-4be0-8b3a-8b5a7cd35d8e",
+    "goal_id": "f9567579-e4c9-4329-b43e-e91858d484eb",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2024-03-23T00:00:00"
+  },
+  {
+    "id": "8a35f517-b8d9-42ec-af40-61d88573bb3f",
+    "goal_id": "8175f9e7-9501-4e16-9200-d2c16ce845e8",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "bf785b13-aa47-42ee-a222-a36da53a348e",
+    "goal_id": "f9567579-e4c9-4329-b43e-e91858d484eb",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-06-25T00:00:00"
+  },
+  {
+    "id": "97374662-7ed9-47c6-8061-f935e1ec2b1c",
+    "goal_id": "8175f9e7-9501-4e16-9200-d2c16ce845e8",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2024-09-28T00:00:00"
+  },
+  {
+    "id": "7811fb86-7b98-490b-8874-f8a382a24e2c",
+    "goal_id": "f9567579-e4c9-4329-b43e-e91858d484eb",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-09-28T00:00:00"
+  },
+  {
+    "id": "e825451a-280f-4885-87a6-2b1c80f05efd",
+    "goal_id": "8175f9e7-9501-4e16-9200-d2c16ce845e8",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2024-12-23T00:00:00"
+  },
+  {
+    "id": "15bc1e64-582d-488d-8fa4-767d7c331171",
+    "goal_id": "f9567579-e4c9-4329-b43e-e91858d484eb",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2024-12-23T00:00:00"
+  },
+  {
+    "id": "ecd70129-3dd0-47af-b187-f8ae37a816cb",
+    "goal_id": "fd4759a5-cd76-4f0d-8680-7f90a32c3922",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "b924265d-7155-4146-88bb-67de24331935",
+    "goal_id": "c4a5103e-b75a-4a76-9526-afc61752071c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-26T00:00:00"
+  },
+  {
+    "id": "5d5339d0-12ea-4545-9329-33d5a33b1e3f",
+    "goal_id": "fd4759a5-cd76-4f0d-8680-7f90a32c3922",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-06-26T00:00:00"
+  },
+  {
+    "id": "06b47312-644e-4ba4-8dd5-4557cbfa4a40",
+    "goal_id": "c4a5103e-b75a-4a76-9526-afc61752071c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-06-26T00:00:00"
+  },
+  {
+    "id": "62a013ef-c966-4c4b-80dc-7b5172c27e02",
+    "goal_id": "fd4759a5-cd76-4f0d-8680-7f90a32c3922",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "6e4b287e-d960-4bfd-9ff6-d379bd692789",
+    "goal_id": "c4a5103e-b75a-4a76-9526-afc61752071c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "a62a64c2-4833-4f56-9d05-a948556b6fa0",
+    "goal_id": "fd4759a5-cd76-4f0d-8680-7f90a32c3922",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "86",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "3542dfe5-13fb-4817-82aa-e0319c87a34d",
+    "goal_id": "c4a5103e-b75a-4a76-9526-afc61752071c",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2024-12-21T00:00:00"
+  },
+  {
+    "id": "afd1a14f-e0e9-4dbe-a9ae-9a5e2a81a5c9",
+    "goal_id": "a515f8bf-f6f7-4beb-8144-bdcffc2690de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2024-03-28T00:00:00"
+  },
+  {
+    "id": "de9d40cd-dc78-4465-8d3f-c97416b33ce8",
+    "goal_id": "f1ead4fb-d49c-45e5-b9cd-84a49e059aa5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-28T00:00:00"
+  },
+  {
+    "id": "165269f1-2734-4ba3-83f9-e233de7a79e7",
+    "goal_id": "a515f8bf-f6f7-4beb-8144-bdcffc2690de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2024-06-21T00:00:00"
+  },
+  {
+    "id": "3e59c248-d552-42c6-9a85-4acb4a3c521a",
+    "goal_id": "f1ead4fb-d49c-45e5-b9cd-84a49e059aa5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2024-06-21T00:00:00"
+  },
+  {
+    "id": "7dc38856-54b5-4f8a-a34b-31cc5b05c044",
+    "goal_id": "a515f8bf-f6f7-4beb-8144-bdcffc2690de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "381cefae-5c06-495d-b808-ad31f8017035",
+    "goal_id": "f1ead4fb-d49c-45e5-b9cd-84a49e059aa5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-09-27T00:00:00"
+  },
+  {
+    "id": "4fde9367-28ae-4e3b-a295-3647d5421c2e",
+    "goal_id": "a515f8bf-f6f7-4beb-8144-bdcffc2690de",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "6430fb59-96ea-4b1c-bbf5-8d3c54a274fb",
+    "goal_id": "f1ead4fb-d49c-45e5-b9cd-84a49e059aa5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2024-12-25T00:00:00"
+  },
+  {
+    "id": "04636ae9-0fcd-4a45-b6eb-00598ce0e880",
+    "goal_id": "dc04c92f-f642-4bfa-98b6-b79803a229c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "cacc48c8-6564-43fb-8614-57e1735432e2",
+    "goal_id": "7ea82101-741e-4770-b05b-18ee2179de54",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2024-03-21T00:00:00"
+  },
+  {
+    "id": "896ca6c5-f8c2-4ab7-8f5d-9f6b279e9320",
+    "goal_id": "dc04c92f-f642-4bfa-98b6-b79803a229c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "02bd8afc-dd67-4cab-9196-4926ea5f915f",
+    "goal_id": "7ea82101-741e-4770-b05b-18ee2179de54",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "851adc1e-22e3-4d04-b200-a4bd37844fab",
+    "goal_id": "dc04c92f-f642-4bfa-98b6-b79803a229c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2024-09-21T00:00:00"
+  },
+  {
+    "id": "b2dd5631-db1d-46f8-b660-36767a750377",
+    "goal_id": "7ea82101-741e-4770-b05b-18ee2179de54",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2024-09-21T00:00:00"
+  },
+  {
+    "id": "ca122cb5-d293-4740-b914-251ee889f65f",
+    "goal_id": "dc04c92f-f642-4bfa-98b6-b79803a229c3",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "86",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "37d9fcc3-acda-4bfd-acfa-e6d61b695976",
+    "goal_id": "7ea82101-741e-4770-b05b-18ee2179de54",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2024-12-28T00:00:00"
+  },
+  {
+    "id": "30e41ecc-62cb-4094-a1ec-3c3a483c25f0",
+    "goal_id": "f2d63fef-813f-4c17-aba6-346bbcf9c1fc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "4c2117cd-ea8c-4581-af1c-10e8a2855db9",
+    "goal_id": "7d3bf201-2619-4f41-832b-b3a9013fb3a5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-03-20T00:00:00"
+  },
+  {
+    "id": "e718245b-f2f6-4e47-8595-0067420274f6",
+    "goal_id": "f2d63fef-813f-4c17-aba6-346bbcf9c1fc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "ee5d34f3-9e94-415c-8871-08a83e67deef",
+    "goal_id": "7d3bf201-2619-4f41-832b-b3a9013fb3a5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2024-06-22T00:00:00"
+  },
+  {
+    "id": "24e327a9-2463-4649-9019-40bf5ef4d3e6",
+    "goal_id": "f2d63fef-813f-4c17-aba6-346bbcf9c1fc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "d3516528-c44a-4343-ba02-431efd34c1bb",
+    "goal_id": "7d3bf201-2619-4f41-832b-b3a9013fb3a5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2024-09-23T00:00:00"
+  },
+  {
+    "id": "7e65c359-bde9-4229-9e16-9ec32beb5c5a",
+    "goal_id": "f2d63fef-813f-4c17-aba6-346bbcf9c1fc",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "84",
+    "status": "completed",
+    "updated_at": "2024-12-22T00:00:00"
+  },
+  {
+    "id": "6d131c05-4c44-4ae1-af65-82c1727d7f3d",
+    "goal_id": "7d3bf201-2619-4f41-832b-b3a9013fb3a5",
+    "cycle_id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2024-12-22T00:00:00"
+  },
+  {
+    "id": "a3290973-91fd-403d-8751-05a3d8afcecf",
+    "goal_id": "05683a8c-fdc0-45e5-9e16-768f7f84c1e7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "105",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "594b5043-1ee2-4543-a167-db6b2e768463",
+    "goal_id": "d37d0507-4d4a-4016-87e8-eddf0a0d525c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "cd30e449-ce84-4ea7-bbec-9b80913b3e07",
+    "goal_id": "05683a8c-fdc0-45e5-9e16-768f7f84c1e7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "b771a1d2-78c9-452b-ad80-790a161ae35f",
+    "goal_id": "d37d0507-4d4a-4016-87e8-eddf0a0d525c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "4e89d8d6-0c37-4f0b-b878-e1e6ff62b568",
+    "goal_id": "05683a8c-fdc0-45e5-9e16-768f7f84c1e7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "104",
+    "status": "on_track",
+    "updated_at": "2025-09-28T00:00:00"
+  },
+  {
+    "id": "15c4d060-3b8a-4f45-86b9-9ff28ef5b20d",
+    "goal_id": "d37d0507-4d4a-4016-87e8-eddf0a0d525c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-28T00:00:00"
+  },
+  {
+    "id": "bb9d5532-ad7b-4c6d-b3aa-58d9a272e5d3",
+    "goal_id": "05683a8c-fdc0-45e5-9e16-768f7f84c1e7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "511792b5-6f84-44a9-826d-aeab679c10fb",
+    "goal_id": "d37d0507-4d4a-4016-87e8-eddf0a0d525c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "7332d77d-c810-493f-be6f-ae8cecc9dd03",
+    "goal_id": "4f9f9ce1-33ca-4399-ab7b-b0a5097aaf36",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2025-03-20T00:00:00"
+  },
+  {
+    "id": "ceb390c0-922e-48ea-9105-16aed6e973be",
+    "goal_id": "3b0176d3-c8d7-4e72-bc83-e6b832019144",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-03-20T00:00:00"
+  },
+  {
+    "id": "7cc1585e-5bf8-4d2a-b594-bf7a79dc14d0",
+    "goal_id": "4f9f9ce1-33ca-4399-ab7b-b0a5097aaf36",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "1288499b-fadd-4519-9df7-4b85b35fda68",
+    "goal_id": "3b0176d3-c8d7-4e72-bc83-e6b832019144",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "f91b89d2-026f-4133-b4fb-8615cc6d8971",
+    "goal_id": "4f9f9ce1-33ca-4399-ab7b-b0a5097aaf36",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "e910b93e-2c13-4bad-ad26-edd3f6b9128f",
+    "goal_id": "3b0176d3-c8d7-4e72-bc83-e6b832019144",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "214a4b20-12c6-4f79-a833-5e1b59318148",
+    "goal_id": "4f9f9ce1-33ca-4399-ab7b-b0a5097aaf36",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2025-12-26T00:00:00"
+  },
+  {
+    "id": "6fb9b9f2-33fe-48ab-a98f-020e7b85cdb0",
+    "goal_id": "3b0176d3-c8d7-4e72-bc83-e6b832019144",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2025-12-26T00:00:00"
+  },
+  {
+    "id": "62353f98-c023-4f66-925a-bce832b2fb5f",
+    "goal_id": "2c2b24af-2451-4136-b678-5fbf3aa22678",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "3ff6f8e3-2cc3-496f-ad69-cddfd8537124",
+    "goal_id": "ec8963e1-5a27-4b45-ae26-bb26b71c85d9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "3b0a4604-9b99-4e39-ad00-432c3b5cbe49",
+    "goal_id": "2c2b24af-2451-4136-b678-5fbf3aa22678",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "ed8fba71-84be-48de-8d50-2177bcd7aece",
+    "goal_id": "ec8963e1-5a27-4b45-ae26-bb26b71c85d9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "5db2c29b-6e11-429f-9bd4-acbc7606efe3",
+    "goal_id": "2c2b24af-2451-4136-b678-5fbf3aa22678",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2025-09-22T00:00:00"
+  },
+  {
+    "id": "27cfd572-3d5f-4fa4-bfcf-573f417935dc",
+    "goal_id": "ec8963e1-5a27-4b45-ae26-bb26b71c85d9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-09-22T00:00:00"
+  },
+  {
+    "id": "1c0b4ad5-9402-4cc1-9012-98904d5475d2",
+    "goal_id": "2c2b24af-2451-4136-b678-5fbf3aa22678",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2025-12-24T00:00:00"
+  },
+  {
+    "id": "4432ccc7-6b3a-49de-925d-cd350b569957",
+    "goal_id": "ec8963e1-5a27-4b45-ae26-bb26b71c85d9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "93",
+    "status": "completed",
+    "updated_at": "2025-12-24T00:00:00"
+  },
+  {
+    "id": "8e7e04a4-acb1-462d-b29d-acb0d6fb19cd",
+    "goal_id": "2ef6a5cf-5873-4cf1-81b4-5290e2214ab7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-03-21T00:00:00"
+  },
+  {
+    "id": "fcf9dff6-da6d-4aba-85d3-cc9b6d3ad7d2",
+    "goal_id": "d7bd4b86-224a-4ff1-935b-74b17fac4c18",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-03-21T00:00:00"
+  },
+  {
+    "id": "cf32b3a3-5c64-4016-880c-e9c1fa8ee711",
+    "goal_id": "2ef6a5cf-5873-4cf1-81b4-5290e2214ab7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "ea5ad905-5cf7-486e-bf96-a707db7bb89e",
+    "goal_id": "d7bd4b86-224a-4ff1-935b-74b17fac4c18",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "2291f25f-c8ae-40f8-abdd-c0cb61a40811",
+    "goal_id": "2ef6a5cf-5873-4cf1-81b4-5290e2214ab7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2025-09-22T00:00:00"
+  },
+  {
+    "id": "dd985f6d-0efe-44bc-8f13-22c56af4f282",
+    "goal_id": "d7bd4b86-224a-4ff1-935b-74b17fac4c18",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-09-22T00:00:00"
+  },
+  {
+    "id": "01f25f62-d2f5-4b60-84b0-46d7eff8eb0b",
+    "goal_id": "2ef6a5cf-5873-4cf1-81b4-5290e2214ab7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2025-12-26T00:00:00"
+  },
+  {
+    "id": "bf1781ef-2d88-48cc-8026-c82f26948c76",
+    "goal_id": "d7bd4b86-224a-4ff1-935b-74b17fac4c18",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2025-12-26T00:00:00"
+  },
+  {
+    "id": "62cad459-6e32-439b-9d08-697d559386d9",
+    "goal_id": "3a70b734-fa85-47fb-92aa-eb70fed479f4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "85",
+    "status": "on_track",
+    "updated_at": "2025-03-28T00:00:00"
+  },
+  {
+    "id": "05bdddfb-57c4-4193-87e4-90f395130f88",
+    "goal_id": "1e81d204-a3af-4537-87ae-3dea2a8ffa92",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-03-28T00:00:00"
+  },
+  {
+    "id": "8852c07c-7a78-424d-8faf-4ad1f33f511c",
+    "goal_id": "3a70b734-fa85-47fb-92aa-eb70fed479f4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "e88cb79e-cff1-40bd-82f9-f5694eaa555a",
+    "goal_id": "1e81d204-a3af-4537-87ae-3dea2a8ffa92",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "ef6abfc0-60a7-4cf7-adf3-5120736bb9d3",
+    "goal_id": "3a70b734-fa85-47fb-92aa-eb70fed479f4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "a2d6c0ca-ef2a-4346-9b85-bb404ef13281",
+    "goal_id": "1e81d204-a3af-4537-87ae-3dea2a8ffa92",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "957f1ba5-3f7f-4229-abbd-3f84be89a79b",
+    "goal_id": "3a70b734-fa85-47fb-92aa-eb70fed479f4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "0568a08f-2518-4ec4-8e9e-5ac02a41d4ff",
+    "goal_id": "1e81d204-a3af-4537-87ae-3dea2a8ffa92",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "4631986b-2e92-4024-94e7-6cd5ee0f5858",
+    "goal_id": "d28038d7-69e1-4975-8ff6-9345f202b5b4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "83",
+    "status": "on_track",
+    "updated_at": "2025-03-22T00:00:00"
+  },
+  {
+    "id": "e2506480-6e5a-4227-b02a-afb546ae222e",
+    "goal_id": "a44eecc6-5471-42a9-ab41-0c2ce5ae6f1e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-03-22T00:00:00"
+  },
+  {
+    "id": "cced3caa-b60d-4e8d-a169-922ba1abe5b9",
+    "goal_id": "d28038d7-69e1-4975-8ff6-9345f202b5b4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-06-28T00:00:00"
+  },
+  {
+    "id": "ba67aeb9-f1c4-4c8b-85a5-1b67080f185f",
+    "goal_id": "a44eecc6-5471-42a9-ab41-0c2ce5ae6f1e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2025-06-28T00:00:00"
+  },
+  {
+    "id": "57aca7f2-ced6-46b5-9531-3d4881f38c1c",
+    "goal_id": "d28038d7-69e1-4975-8ff6-9345f202b5b4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "4d96a957-1fa3-4c66-b8e8-3510cd82e140",
+    "goal_id": "a44eecc6-5471-42a9-ab41-0c2ce5ae6f1e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "c8f6ac69-68ad-4d70-8fc1-f645a2474a8e",
+    "goal_id": "d28038d7-69e1-4975-8ff6-9345f202b5b4",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "103",
+    "status": "completed",
+    "updated_at": "2025-12-25T00:00:00"
+  },
+  {
+    "id": "83430c8d-2114-4794-ac2d-51cf752d674d",
+    "goal_id": "a44eecc6-5471-42a9-ab41-0c2ce5ae6f1e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2025-12-25T00:00:00"
+  },
+  {
+    "id": "32ad8a20-10ec-4c3f-87d9-527a7b214ac9",
+    "goal_id": "f47be38c-9944-494a-b41f-7e215c96868a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-03-28T00:00:00"
+  },
+  {
+    "id": "d81ba357-28e1-4057-9612-c7ef2604a1cb",
+    "goal_id": "6ca7e177-699d-4cba-9b15-b9bd72191051",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-28T00:00:00"
+  },
+  {
+    "id": "c1fc2615-8db6-446c-9f29-476111a6572e",
+    "goal_id": "f47be38c-9944-494a-b41f-7e215c96868a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "09c88305-5ee7-48e0-aebc-9e0c445c680b",
+    "goal_id": "6ca7e177-699d-4cba-9b15-b9bd72191051",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "75c45f16-4d25-4471-8e8a-a88d18f66896",
+    "goal_id": "f47be38c-9944-494a-b41f-7e215c96868a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "caa75b56-9d56-49fb-ad63-98fea2619d96",
+    "goal_id": "6ca7e177-699d-4cba-9b15-b9bd72191051",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "fe3320a8-72cb-4851-bc75-0614413f559e",
+    "goal_id": "f47be38c-9944-494a-b41f-7e215c96868a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2025-12-26T00:00:00"
+  },
+  {
+    "id": "9aef22dc-7f55-46aa-b4b2-611ddb6d2b9b",
+    "goal_id": "6ca7e177-699d-4cba-9b15-b9bd72191051",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2025-12-26T00:00:00"
+  },
+  {
+    "id": "d362a252-8c9e-436b-8aeb-65d8d7aca855",
+    "goal_id": "fc5d2c04-55bd-490d-9447-b70fc41ba7a5",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "1a341a8c-a81e-4ed6-a2e6-7496c297d330",
+    "goal_id": "6d19ecaa-2bd5-4f32-a559-fdc7e31f6bf9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "f9f1d103-c3cf-4f93-af6d-77f440268313",
+    "goal_id": "fc5d2c04-55bd-490d-9447-b70fc41ba7a5",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "5da21e92-bc43-4f28-95ee-4702c9c430fa",
+    "goal_id": "6d19ecaa-2bd5-4f32-a559-fdc7e31f6bf9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "3fcb317e-2193-4780-a788-6e51e0f0c9df",
+    "goal_id": "fc5d2c04-55bd-490d-9447-b70fc41ba7a5",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "72e652e3-7210-4b48-b80e-da673f5691d0",
+    "goal_id": "6d19ecaa-2bd5-4f32-a559-fdc7e31f6bf9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "d4aef770-c93d-4281-b3c6-9c5c3afd7d6c",
+    "goal_id": "fc5d2c04-55bd-490d-9447-b70fc41ba7a5",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "9d2fc920-c551-4be9-b6a0-f8ae01b87382",
+    "goal_id": "6d19ecaa-2bd5-4f32-a559-fdc7e31f6bf9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "3e2ba713-b3ac-4215-9aeb-8316a23d6594",
+    "goal_id": "fb2270b9-b159-4625-bf33-cdc6815bb05b",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "96a52e6b-db2e-491e-a2d4-a38d21fe92a8",
+    "goal_id": "81d2c2d2-400b-4030-8793-e3bd25bafa10",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "25523ccc-cf21-4247-a6a5-34f00b0e5b41",
+    "goal_id": "fb2270b9-b159-4625-bf33-cdc6815bb05b",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-06-27T00:00:00"
+  },
+  {
+    "id": "7e2c7d7a-1f42-4270-8c98-e8a8a599eaa2",
+    "goal_id": "81d2c2d2-400b-4030-8793-e3bd25bafa10",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-06-27T00:00:00"
+  },
+  {
+    "id": "758ee551-4a05-4b28-a5a7-3b32d32401b4",
+    "goal_id": "fb2270b9-b159-4625-bf33-cdc6815bb05b",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "b0832cb0-d763-482a-af10-f73dbae68a95",
+    "goal_id": "81d2c2d2-400b-4030-8793-e3bd25bafa10",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "4846c568-e642-47cc-ae99-d56a89962661",
+    "goal_id": "fb2270b9-b159-4625-bf33-cdc6815bb05b",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2025-12-24T00:00:00"
+  },
+  {
+    "id": "0f755ae8-ef6b-4572-a798-032524431b3b",
+    "goal_id": "81d2c2d2-400b-4030-8793-e3bd25bafa10",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2025-12-24T00:00:00"
+  },
+  {
+    "id": "4717505b-cf31-488d-96d7-c092474504e9",
+    "goal_id": "02eb1877-4e7f-4ba9-9de8-e1c355142873",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "e5862e37-591d-472e-baf8-7cc17706f97e",
+    "goal_id": "293ac2b5-f51d-4248-b19e-7daa93e87452",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "fcf07e83-9260-45a5-b4bc-aefb92d487ce",
+    "goal_id": "02eb1877-4e7f-4ba9-9de8-e1c355142873",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "103",
+    "status": "on_track",
+    "updated_at": "2025-06-20T00:00:00"
+  },
+  {
+    "id": "71d6f891-40b9-40a8-bf56-e22d2b294e3f",
+    "goal_id": "293ac2b5-f51d-4248-b19e-7daa93e87452",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-06-20T00:00:00"
+  },
+  {
+    "id": "700b33e7-cc16-4f87-b126-a046141c77ba",
+    "goal_id": "02eb1877-4e7f-4ba9-9de8-e1c355142873",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "72a2a6c6-a376-45a2-9977-64e4bc29c6bb",
+    "goal_id": "293ac2b5-f51d-4248-b19e-7daa93e87452",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "088e6717-8637-4b3c-a90f-ae9ff62d769f",
+    "goal_id": "02eb1877-4e7f-4ba9-9de8-e1c355142873",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "88",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "d72be31b-8d37-471b-b2e1-669fd69997ca",
+    "goal_id": "293ac2b5-f51d-4248-b19e-7daa93e87452",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "7a3a9e97-01f0-46f2-92bd-b2d657a5d9bb",
+    "goal_id": "0d529981-b54f-4825-b695-2a4838f66dde",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "86",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "6d22a2cd-c320-4c3b-ac84-4070a5221620",
+    "goal_id": "93677430-291f-42cd-b7b4-6488c7af5396",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "17d79dd1-3f3c-495f-aa3e-72383be615a4",
+    "goal_id": "0d529981-b54f-4825-b695-2a4838f66dde",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "61ad8127-30e3-4377-8e70-99e7ceaa00c8",
+    "goal_id": "93677430-291f-42cd-b7b4-6488c7af5396",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "fa9f87da-b455-470f-94c2-19c850a20b89",
+    "goal_id": "0d529981-b54f-4825-b695-2a4838f66dde",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "104",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "3e838afd-75a2-4411-bd7e-ec9d22a5ec9a",
+    "goal_id": "93677430-291f-42cd-b7b4-6488c7af5396",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "8411a9c6-d969-4139-ac71-ff85e9933368",
+    "goal_id": "0d529981-b54f-4825-b695-2a4838f66dde",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "103",
+    "status": "completed",
+    "updated_at": "2025-12-27T00:00:00"
+  },
+  {
+    "id": "bbfbbd72-a705-4b2f-8f21-a1f4342172cc",
+    "goal_id": "93677430-291f-42cd-b7b4-6488c7af5396",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "96",
+    "status": "completed",
+    "updated_at": "2025-12-27T00:00:00"
+  },
+  {
+    "id": "5dbb3d73-16de-4cff-9ce9-260e92574ea3",
+    "goal_id": "448e4dc6-01af-40d8-8708-af8d60746c58",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "b921b217-13db-44fb-9c64-444ba4f3ab7d",
+    "goal_id": "16fa0cfc-3ca0-4973-9ab6-1229c98a6552",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "59bb886e-f6b3-4848-abb0-fee8f09d11b5",
+    "goal_id": "448e4dc6-01af-40d8-8708-af8d60746c58",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "54e9c294-978b-4bf2-a24b-d06affee8001",
+    "goal_id": "16fa0cfc-3ca0-4973-9ab6-1229c98a6552",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "57588bc9-7869-4c3c-a311-2cf2c69f8ac2",
+    "goal_id": "448e4dc6-01af-40d8-8708-af8d60746c58",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "f97d5c2e-4f3a-4884-a6a5-c544313105f9",
+    "goal_id": "16fa0cfc-3ca0-4973-9ab6-1229c98a6552",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "a956da85-e949-4237-a3c5-00f223172058",
+    "goal_id": "448e4dc6-01af-40d8-8708-af8d60746c58",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "83",
+    "status": "completed",
+    "updated_at": "2025-12-25T00:00:00"
+  },
+  {
+    "id": "88c8add2-799e-4a7c-8ed5-832128945159",
+    "goal_id": "16fa0cfc-3ca0-4973-9ab6-1229c98a6552",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2025-12-25T00:00:00"
+  },
+  {
+    "id": "5458835d-7c81-4cc3-9a3f-f9d7f6d5ec53",
+    "goal_id": "e90037cc-9582-4b0c-9e7d-6e40adbb54f0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-03-27T00:00:00"
+  },
+  {
+    "id": "2f2b55a1-6a02-459a-a2f7-973cf4201fa1",
+    "goal_id": "c365eb4e-08dd-473c-805f-77893b083999",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-03-27T00:00:00"
+  },
+  {
+    "id": "1e97ec95-78da-4bb3-bfae-76c28a1c41c6",
+    "goal_id": "e90037cc-9582-4b0c-9e7d-6e40adbb54f0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "66471bde-f30c-4573-8531-480f30203c2d",
+    "goal_id": "c365eb4e-08dd-473c-805f-77893b083999",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "e4932eab-ef8d-4ba5-93bd-a8f3551689d9",
+    "goal_id": "e90037cc-9582-4b0c-9e7d-6e40adbb54f0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "85",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "8b604485-57c2-4c52-a3af-df244bb95cd6",
+    "goal_id": "c365eb4e-08dd-473c-805f-77893b083999",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": "6b21b288-fc75-48c8-a650-6e5b26f7499a",
+    "goal_id": "e90037cc-9582-4b0c-9e7d-6e40adbb54f0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2025-12-23T00:00:00"
+  },
+  {
+    "id": "be0b24a3-3da7-4907-802c-861ee94c8790",
+    "goal_id": "c365eb4e-08dd-473c-805f-77893b083999",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2025-12-23T00:00:00"
+  },
+  {
+    "id": "1fdfd7de-328f-479f-ae4a-cd3d9d69e336",
+    "goal_id": "a183956a-17b5-4566-b873-db9dc3909294",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "104",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "fc40ca0d-1b47-4519-9f2b-36b85a76cf0d",
+    "goal_id": "3a80bfb0-88ce-4618-a6db-98299067b5df",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "0a601255-c581-4f6f-9bdd-b1aba50d5791",
+    "goal_id": "a183956a-17b5-4566-b873-db9dc3909294",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "4ed69fcb-2bb9-4eab-951d-8be4768f4afd",
+    "goal_id": "3a80bfb0-88ce-4618-a6db-98299067b5df",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "0e9db42d-1ede-42e9-8346-47e0fd39edae",
+    "goal_id": "a183956a-17b5-4566-b873-db9dc3909294",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "c6382574-3f1f-402b-a480-f13dfc193895",
+    "goal_id": "3a80bfb0-88ce-4618-a6db-98299067b5df",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "38399c09-0024-427b-a818-b8383bc168d8",
+    "goal_id": "a183956a-17b5-4566-b873-db9dc3909294",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2025-12-20T00:00:00"
+  },
+  {
+    "id": "749f7a65-8b52-47c5-9d50-2d66d00894c8",
+    "goal_id": "3a80bfb0-88ce-4618-a6db-98299067b5df",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "94",
+    "status": "completed",
+    "updated_at": "2025-12-20T00:00:00"
+  },
+  {
+    "id": "d2b41368-d928-4e39-8e5b-09c84a17bff5",
+    "goal_id": "973f7c94-2803-4766-8913-4050577adbe7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "fe6e5f3e-6c67-409a-be4a-70ce2661d3f9",
+    "goal_id": "2c96fb3e-b386-4a99-86f1-9524d710c414",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "3d3ff9de-9571-4bc0-9510-b8d33b56c945",
+    "goal_id": "973f7c94-2803-4766-8913-4050577adbe7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-06-20T00:00:00"
+  },
+  {
+    "id": "484cc895-8a12-4ac1-897e-7aa0ae10ea9a",
+    "goal_id": "2c96fb3e-b386-4a99-86f1-9524d710c414",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-20T00:00:00"
+  },
+  {
+    "id": "2bb50f5b-a681-4c8e-b750-55ecef1a77d8",
+    "goal_id": "973f7c94-2803-4766-8913-4050577adbe7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2025-09-24T00:00:00"
+  },
+  {
+    "id": "2a01d301-791a-4092-9887-8204e71eeffe",
+    "goal_id": "2c96fb3e-b386-4a99-86f1-9524d710c414",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-09-24T00:00:00"
+  },
+  {
+    "id": "14c6bc9e-0a73-4a8d-83e6-c4fa5448a315",
+    "goal_id": "973f7c94-2803-4766-8913-4050577adbe7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2025-12-23T00:00:00"
+  },
+  {
+    "id": "06b88e8d-5949-42b0-bbaf-8d51a683bd0e",
+    "goal_id": "2c96fb3e-b386-4a99-86f1-9524d710c414",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "95",
+    "status": "completed",
+    "updated_at": "2025-12-23T00:00:00"
+  },
+  {
+    "id": "61aa56d3-0803-4c99-ad75-8c98293d06de",
+    "goal_id": "63931353-2a9a-4e77-9f6f-2908c28487db",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "85",
+    "status": "on_track",
+    "updated_at": "2025-03-22T00:00:00"
+  },
+  {
+    "id": "f6febd3f-d986-4ebd-b9ec-c5878b0cd818",
+    "goal_id": "a4b655fe-dc7b-45e0-8687-cfd67adc10af",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-03-22T00:00:00"
+  },
+  {
+    "id": "ad088218-c7e5-4143-a7e5-ceba79e26c7c",
+    "goal_id": "63931353-2a9a-4e77-9f6f-2908c28487db",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-26T00:00:00"
+  },
+  {
+    "id": "3d321f58-01a3-414e-bfa1-cc13f6930cce",
+    "goal_id": "a4b655fe-dc7b-45e0-8687-cfd67adc10af",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-06-26T00:00:00"
+  },
+  {
+    "id": "3b02c7f2-d7ce-4eeb-a770-139975fbdbbf",
+    "goal_id": "63931353-2a9a-4e77-9f6f-2908c28487db",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "0eab51ee-1c39-4b53-9a87-abd44ad659af",
+    "goal_id": "a4b655fe-dc7b-45e0-8687-cfd67adc10af",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "da729a62-400a-4e52-a700-e1d68990acd1",
+    "goal_id": "63931353-2a9a-4e77-9f6f-2908c28487db",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "105",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "311b0f57-83a3-49db-b9a9-c201fb0c12af",
+    "goal_id": "a4b655fe-dc7b-45e0-8687-cfd67adc10af",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "0c5aea72-2deb-4c2c-b455-3fa4ca6a9a46",
+    "goal_id": "f79d759d-b377-489f-b6b8-cb9ecd740cc7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "103",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "2cc14356-e362-45fd-8638-cf5520eb51c5",
+    "goal_id": "4e960ebc-83f3-4512-b6a0-071cb7b94d3a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "be48183a-b63b-4280-8bb6-77e0a4844225",
+    "goal_id": "f79d759d-b377-489f-b6b8-cb9ecd740cc7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "f5fe8bd6-8d40-4f86-a2a6-9e174c0008a5",
+    "goal_id": "4e960ebc-83f3-4512-b6a0-071cb7b94d3a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": "2cbb0ab7-4b8a-49b9-9237-e652ebde5fab",
+    "goal_id": "f79d759d-b377-489f-b6b8-cb9ecd740cc7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "84",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "719656b9-6b16-44ed-b1a5-78fe87221068",
+    "goal_id": "4e960ebc-83f3-4512-b6a0-071cb7b94d3a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "5470e4f8-990a-4975-8064-1e966f978aa9",
+    "goal_id": "f79d759d-b377-489f-b6b8-cb9ecd740cc7",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "83",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "c3151d07-acc5-4ad4-9179-cb6e3cb63eea",
+    "goal_id": "4e960ebc-83f3-4512-b6a0-071cb7b94d3a",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "96",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "1d0c17c8-069d-40d0-b392-a9a9831b8fdc",
+    "goal_id": "81aa70e4-1a9f-4971-b3fa-42cc8feebe81",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-03-26T00:00:00"
+  },
+  {
+    "id": "d6023c73-9e69-4bcf-a08d-8b2b6a2ef65e",
+    "goal_id": "1ae01644-fbbe-4bce-9104-ac3792e7f937",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-26T00:00:00"
+  },
+  {
+    "id": "41c3bfeb-f2a1-4c19-ba44-9a695d66a91d",
+    "goal_id": "81aa70e4-1a9f-4971-b3fa-42cc8feebe81",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-06-22T00:00:00"
+  },
+  {
+    "id": "1d6fdae9-2994-4166-b9ee-e1621ff1ae42",
+    "goal_id": "1ae01644-fbbe-4bce-9104-ac3792e7f937",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-06-22T00:00:00"
+  },
+  {
+    "id": "2a892792-4493-4419-b5af-0a3d4a8a06e0",
+    "goal_id": "81aa70e4-1a9f-4971-b3fa-42cc8feebe81",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-09-20T00:00:00"
+  },
+  {
+    "id": "a0f58d20-4463-440d-a489-bf9846323100",
+    "goal_id": "1ae01644-fbbe-4bce-9104-ac3792e7f937",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2025-09-20T00:00:00"
+  },
+  {
+    "id": "88bbb280-eb5d-47ae-8aa0-6ab9ae38e6fb",
+    "goal_id": "81aa70e4-1a9f-4971-b3fa-42cc8feebe81",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "101",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "d4c047f9-053f-4e92-8149-2902a3976294",
+    "goal_id": "1ae01644-fbbe-4bce-9104-ac3792e7f937",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "951ed55a-1daa-48ba-83c5-2bd443e3a271",
+    "goal_id": "1f775df6-81f5-41f6-91fd-1e2426c91fe8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "55595c31-ee90-48a1-a9c0-a773a166c4bf",
+    "goal_id": "c48fb20c-93a2-46ea-a630-99f1101717fd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "04e97e7e-0b5d-4d87-b85e-f0ca21b2fd5c",
+    "goal_id": "1f775df6-81f5-41f6-91fd-1e2426c91fe8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2025-06-22T00:00:00"
+  },
+  {
+    "id": "bd112ac4-7241-4f35-9801-7a1bcd00c481",
+    "goal_id": "c48fb20c-93a2-46ea-a630-99f1101717fd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-06-22T00:00:00"
+  },
+  {
+    "id": "e08970d5-8d3b-4ce2-a5b7-1d4317fe8d7a",
+    "goal_id": "1f775df6-81f5-41f6-91fd-1e2426c91fe8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-09-24T00:00:00"
+  },
+  {
+    "id": "311db632-06ea-4e37-b6c0-d4548e1e39af",
+    "goal_id": "c48fb20c-93a2-46ea-a630-99f1101717fd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-09-24T00:00:00"
+  },
+  {
+    "id": "b9cdfb68-475d-48c5-a62d-b3cac271edf8",
+    "goal_id": "1f775df6-81f5-41f6-91fd-1e2426c91fe8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "92",
+    "status": "completed",
+    "updated_at": "2025-12-24T00:00:00"
+  },
+  {
+    "id": "938480b8-249d-47f7-a221-ecabb3c04f9a",
+    "goal_id": "c48fb20c-93a2-46ea-a630-99f1101717fd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2025-12-24T00:00:00"
+  },
+  {
+    "id": "884d7eea-9be4-4593-a589-bec75ddb4b7a",
+    "goal_id": "6408ea54-e87c-4812-a3ef-40a1b038d440",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "e5438f43-e10a-4da4-b764-3c0e645ef333",
+    "goal_id": "24573f3f-3806-4618-96ad-1115afb37e3e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-03-24T00:00:00"
+  },
+  {
+    "id": "74726fe0-00dc-4ffc-bc0f-fd8a8304863c",
+    "goal_id": "6408ea54-e87c-4812-a3ef-40a1b038d440",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "04e58c30-f856-49ee-aa46-809bb9085f96",
+    "goal_id": "24573f3f-3806-4618-96ad-1115afb37e3e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": "55e7f3de-a102-478f-80b5-11385e7f4f24",
+    "goal_id": "6408ea54-e87c-4812-a3ef-40a1b038d440",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "3980005a-1f4f-4994-92ee-6d5c2c1d19a4",
+    "goal_id": "24573f3f-3806-4618-96ad-1115afb37e3e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "93",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "2f73cde6-3b46-42ac-b856-98283573d372",
+    "goal_id": "6408ea54-e87c-4812-a3ef-40a1b038d440",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "98",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "9edb10fb-4b29-4105-bd64-5b4d69ac7d7c",
+    "goal_id": "24573f3f-3806-4618-96ad-1115afb37e3e",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "6c19a42d-f00a-47a6-8728-47f4b1a20745",
+    "goal_id": "c87c7239-3488-4a38-9059-f6c5680c027c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "eb5606cd-de7e-43cd-8d05-1dccdceb5216",
+    "goal_id": "7c33e15c-a670-42e7-b35c-a5503b16dda0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "6132eb4a-2d5f-4a46-a00a-0e901670780f",
+    "goal_id": "c87c7239-3488-4a38-9059-f6c5680c027c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "101",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "73ac3924-14c6-4d0c-b103-41982d8447c5",
+    "goal_id": "7c33e15c-a670-42e7-b35c-a5503b16dda0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "ce6c5334-a739-4639-91cb-ff68ddfc3078",
+    "goal_id": "c87c7239-3488-4a38-9059-f6c5680c027c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "beb81ebb-d46b-4980-941a-85e1b445cf7e",
+    "goal_id": "7c33e15c-a670-42e7-b35c-a5503b16dda0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "5fa10edc-af82-4d86-b809-8563be231ad6",
+    "goal_id": "c87c7239-3488-4a38-9059-f6c5680c027c",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "104",
+    "status": "completed",
+    "updated_at": "2025-12-21T00:00:00"
+  },
+  {
+    "id": "e75e93a0-1bf0-42cd-a4b6-bc5c22e6d921",
+    "goal_id": "7c33e15c-a670-42e7-b35c-a5503b16dda0",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2025-12-21T00:00:00"
+  },
+  {
+    "id": "099794d8-ecee-403d-a828-2163a1774547",
+    "goal_id": "6afc0e79-2284-403f-b5a0-6f82bad66028",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-03-21T00:00:00"
+  },
+  {
+    "id": "a0d490bb-6b16-4e17-8c64-1155be140c79",
+    "goal_id": "ed988019-c9d9-4df7-8c35-08f5de2b2c85",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-21T00:00:00"
+  },
+  {
+    "id": "d367f9db-837b-4fec-9eb7-fe8877348fe8",
+    "goal_id": "6afc0e79-2284-403f-b5a0-6f82bad66028",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "418d81a5-d4a8-4c7b-bc16-e4ec4dd3287a",
+    "goal_id": "ed988019-c9d9-4df7-8c35-08f5de2b2c85",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "4ea130e6-39ee-442b-83d8-7cd0e7e39455",
+    "goal_id": "6afc0e79-2284-403f-b5a0-6f82bad66028",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2025-09-22T00:00:00"
+  },
+  {
+    "id": "fcde57ac-fb1b-40e1-9d1b-e4a906233477",
+    "goal_id": "ed988019-c9d9-4df7-8c35-08f5de2b2c85",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2025-09-22T00:00:00"
+  },
+  {
+    "id": "1658aa6f-07d4-46a7-92fe-f4e512bb7f43",
+    "goal_id": "6afc0e79-2284-403f-b5a0-6f82bad66028",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "102",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "0f185fb8-5276-450c-a773-759efb0b3122",
+    "goal_id": "ed988019-c9d9-4df7-8c35-08f5de2b2c85",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "90",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "e32a2ef7-1433-4f1d-b89f-76e1da8dc34b",
+    "goal_id": "60757811-3fdd-43d3-a941-5d25437ba6b3",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "102",
+    "status": "on_track",
+    "updated_at": "2025-03-28T00:00:00"
+  },
+  {
+    "id": "0c9acddb-0eff-4aaa-be17-1e230fbc477e",
+    "goal_id": "68efdb4c-f039-41d7-b2fe-138f4aff36fa",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-28T00:00:00"
+  },
+  {
+    "id": "741c3357-4cb9-4b15-b119-ad946716c01b",
+    "goal_id": "60757811-3fdd-43d3-a941-5d25437ba6b3",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "f4f1eb43-fe22-464f-9192-7a4dcd45c4dc",
+    "goal_id": "68efdb4c-f039-41d7-b2fe-138f4aff36fa",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": "fcb1f7cf-aa09-43aa-b65f-d3364cc00085",
+    "goal_id": "60757811-3fdd-43d3-a941-5d25437ba6b3",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-09-20T00:00:00"
+  },
+  {
+    "id": "627de8c8-2140-4653-9eb5-50c7cd8b40e5",
+    "goal_id": "68efdb4c-f039-41d7-b2fe-138f4aff36fa",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-09-20T00:00:00"
+  },
+  {
+    "id": "9f9f9385-6460-4b66-b03b-4c717c2ed2eb",
+    "goal_id": "60757811-3fdd-43d3-a941-5d25437ba6b3",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "89",
+    "status": "completed",
+    "updated_at": "2025-12-23T00:00:00"
+  },
+  {
+    "id": "1cf6979f-441c-4cbd-8530-59586dece4eb",
+    "goal_id": "68efdb4c-f039-41d7-b2fe-138f4aff36fa",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2025-12-23T00:00:00"
+  },
+  {
+    "id": "558ed3c2-ab1c-46dd-b963-cdd3fb8b74b2",
+    "goal_id": "0bd884f2-01dc-444b-83bf-74dad892d652",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "19847b0c-d5ce-426b-b295-81ffb7f929b8",
+    "goal_id": "d3e6daa4-f31c-48e5-a8aa-46144fb748bd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "3c2e1c7b-0ab2-49ba-8887-a4b02989e1fd",
+    "goal_id": "0bd884f2-01dc-444b-83bf-74dad892d652",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "fe7b14cf-9e91-4e13-9bd8-1b582d821d9c",
+    "goal_id": "d3e6daa4-f31c-48e5-a8aa-46144fb748bd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "91",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "addd205d-6e60-4481-92db-4d28eac13c2b",
+    "goal_id": "0bd884f2-01dc-444b-83bf-74dad892d652",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "104",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "228142e5-6711-4752-8472-69e29a53c02b",
+    "goal_id": "d3e6daa4-f31c-48e5-a8aa-46144fb748bd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "9c992ce6-33d2-4d98-a48b-2d824abfdf59",
+    "goal_id": "0bd884f2-01dc-444b-83bf-74dad892d652",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "105",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "fa0806e0-cfea-48c8-875c-a8de58a2e537",
+    "goal_id": "d3e6daa4-f31c-48e5-a8aa-46144fb748bd",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "97",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "0299a2f2-644a-486a-a6d6-23e63eb4651c",
+    "goal_id": "35a35fe6-2f33-4037-82d8-a90e5ad34554",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "82",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "160559ca-64a7-420b-a20f-663f1c555e3a",
+    "goal_id": "614e26fa-56d7-4ec7-b1b3-8e8b4fd56379",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "1d863732-9936-4d8c-a0e6-1153d7f45ce5",
+    "goal_id": "35a35fe6-2f33-4037-82d8-a90e5ad34554",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "3b3e85e2-6ca5-4e26-9f76-106ee63f00d3",
+    "goal_id": "614e26fa-56d7-4ec7-b1b3-8e8b4fd56379",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "3b1195f7-6e29-42e3-8954-3f92fe34a61d",
+    "goal_id": "35a35fe6-2f33-4037-82d8-a90e5ad34554",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "32e60ea2-c931-4750-b1c1-4286e3c7557c",
+    "goal_id": "614e26fa-56d7-4ec7-b1b3-8e8b4fd56379",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "98",
+    "status": "on_track",
+    "updated_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": "937c9136-8c80-44e3-8042-7a8c4fcc207f",
+    "goal_id": "35a35fe6-2f33-4037-82d8-a90e5ad34554",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "86",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "4cb21c2e-fe8f-4ae3-8435-8911e2583aeb",
+    "goal_id": "614e26fa-56d7-4ec7-b1b3-8e8b4fd56379",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": "f7065042-b27f-4342-a3f2-5c2d048b6e41",
+    "goal_id": "4be27069-f5cb-46cf-a71d-aaa74e1cc3f9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "c1b54a5a-1d20-4b5d-81f7-7c94a089df15",
+    "goal_id": "4ff83699-70cd-40c5-841d-1e8c8de02c68",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": "7a1a2034-ced3-4054-8333-b3677a45763a",
+    "goal_id": "4be27069-f5cb-46cf-a71d-aaa74e1cc3f9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "89",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "48514754-a232-4413-bb2a-0417f72aa043",
+    "goal_id": "4ff83699-70cd-40c5-841d-1e8c8de02c68",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "f9b0f703-720d-4805-82f7-3b141d06b8e8",
+    "goal_id": "4be27069-f5cb-46cf-a71d-aaa74e1cc3f9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "657372aa-6874-4869-a7fc-548696292262",
+    "goal_id": "4ff83699-70cd-40c5-841d-1e8c8de02c68",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "99",
+    "status": "on_track",
+    "updated_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": "da22854d-9f8b-4f9a-a401-5242fd30e961",
+    "goal_id": "4be27069-f5cb-46cf-a71d-aaa74e1cc3f9",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2025-12-27T00:00:00"
+  },
+  {
+    "id": "919e16bb-fc12-4b98-8a3d-a286345845e3",
+    "goal_id": "4ff83699-70cd-40c5-841d-1e8c8de02c68",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2025-12-27T00:00:00"
+  },
+  {
+    "id": "a68be3fd-ca90-4309-a1fa-8c4acdf53575",
+    "goal_id": "15163d20-b250-40fa-9d2f-3206858b1c3d",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "67f07716-9864-464f-af77-6769cb6203ec",
+    "goal_id": "11264424-e4c4-4d94-b427-099582ab5fcf",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "904fe554-0651-4442-b070-3daede7e4025",
+    "goal_id": "15163d20-b250-40fa-9d2f-3206858b1c3d",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "87",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "3b77b4b9-d6fd-4632-a6a0-748930f697c1",
+    "goal_id": "11264424-e4c4-4d94-b427-099582ab5fcf",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": "9b96c131-9f8b-4cd0-9a06-a7e97291d741",
+    "goal_id": "15163d20-b250-40fa-9d2f-3206858b1c3d",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "3f22c325-81a4-4878-b594-594bf43efc70",
+    "goal_id": "11264424-e4c4-4d94-b427-099582ab5fcf",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "90",
+    "status": "on_track",
+    "updated_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": "d12d644c-6d37-414e-a79a-7d01725fa7f1",
+    "goal_id": "15163d20-b250-40fa-9d2f-3206858b1c3d",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "82",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "2f2b29bf-a2cd-4f2e-a228-bce032a0d6b9",
+    "goal_id": "11264424-e4c4-4d94-b427-099582ab5fcf",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "91",
+    "status": "completed",
+    "updated_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": "ba44d8a8-3d1e-4416-a0ce-97c5324040a9",
+    "goal_id": "5f226a94-6bbc-4610-9fe3-5c6002bb2866",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "94",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "1e8fcd7d-e306-446d-a386-dfc226cc64e7",
+    "goal_id": "f992b72f-838b-4f56-909b-1bc53dcf5af8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q1",
+    "actual": "92",
+    "status": "on_track",
+    "updated_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": "eaf9f1e3-ac69-4f36-ac88-b7f564deb9a0",
+    "goal_id": "5f226a94-6bbc-4610-9fe3-5c6002bb2866",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "88",
+    "status": "on_track",
+    "updated_at": "2025-06-26T00:00:00"
+  },
+  {
+    "id": "2f08662d-7b85-4765-aefe-d4ac82adeca0",
+    "goal_id": "f992b72f-838b-4f56-909b-1bc53dcf5af8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q2",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2025-06-26T00:00:00"
+  },
+  {
+    "id": "b399d5bb-7c83-442f-a226-09f1629ab27b",
+    "goal_id": "5f226a94-6bbc-4610-9fe3-5c6002bb2866",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "96",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "193c6805-a197-47e5-a307-cfe1792e0493",
+    "goal_id": "f992b72f-838b-4f56-909b-1bc53dcf5af8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q3",
+    "actual": "97",
+    "status": "on_track",
+    "updated_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": "7dda5748-4720-4043-a4a6-1e2ea4ed449d",
+    "goal_id": "5f226a94-6bbc-4610-9fe3-5c6002bb2866",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "86",
+    "status": "completed",
+    "updated_at": "2025-12-20T00:00:00"
+  },
+  {
+    "id": "aad9a29e-de8b-4cb4-b13c-9cec205a7479",
+    "goal_id": "f992b72f-838b-4f56-909b-1bc53dcf5af8",
+    "cycle_id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "quarter": "Q4",
+    "actual": "99",
+    "status": "completed",
+    "updated_at": "2025-12-20T00:00:00"
+  },
+  {
+    "id": "4a45ad79-c371-42a2-a0bc-f452aba2a881",
+    "goal_id": "16fda941-fb8b-49cc-a6b8-48018e27f9d8",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "340",
+    "status": "on_track",
+    "updated_at": "2026-04-12T07:47:35.346370"
+  },
+  {
+    "id": "8184d499-61ca-47e1-ab44-7435cef97e00",
+    "goal_id": "6d819ae6-1bda-4960-ba1c-711eff75fb49",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "0",
+    "status": "on_track",
+    "updated_at": "2026-04-12T07:47:35.346370"
+  },
+  {
+    "id": "89906e1a-98c9-414d-a4d3-0d209a62d4c5",
+    "goal_id": "16fda941-fb8b-49cc-a6b8-48018e27f9d8",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q2",
+    "actual": "280",
+    "status": "completed",
+    "updated_at": "2026-05-12T07:47:35.346786"
+  },
+  {
+    "id": "fbe3e93a-8cba-409e-b2e6-f373377e47b8",
+    "goal_id": "6d819ae6-1bda-4960-ba1c-711eff75fb49",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q2",
+    "actual": "1",
+    "status": "on_track",
+    "updated_at": "2026-05-12T07:47:35.346786"
+  },
+  {
+    "id": "e4904527-b312-43c4-8861-271d277e3067",
+    "goal_id": "ec14447b-e875-45af-ad35-dc668f82b70b",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "80",
+    "status": "on_track",
+    "updated_at": "2026-04-11T07:47:36.310408"
+  },
+  {
+    "id": "a747a7de-66d2-4bac-bf8f-38f64555fe85",
+    "goal_id": "e33270a6-f9db-45be-b76b-8c9cd0757ff2",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "8",
+    "status": "on_track",
+    "updated_at": "2026-04-11T07:47:36.310408"
+  },
+  {
+    "id": "e290e709-d0fa-41e2-9cd4-d268ada1b5c7",
+    "goal_id": "ec14447b-e875-45af-ad35-dc668f82b70b",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q2",
+    "actual": "100",
+    "status": "completed",
+    "updated_at": "2026-05-11T07:47:36.311416"
+  },
+  {
+    "id": "ae1ac3f9-023f-43bc-8c66-f5ea72695a03",
+    "goal_id": "e33270a6-f9db-45be-b76b-8c9cd0757ff2",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q2",
+    "actual": "15",
+    "status": "completed",
+    "updated_at": "2026-05-11T07:47:36.311416"
+  },
+  {
+    "id": "b7f508b5-5745-4dc4-9977-e6ba1a81bd31",
+    "goal_id": "861c6dd2-0bd7-4c49-b554-1d2da707e948",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "36",
+    "status": "on_track",
+    "updated_at": "2026-05-07T07:47:40.376688"
+  },
+  {
+    "id": "6a9175ce-3e83-437c-af2d-a09875d9f3ac",
+    "goal_id": "cfac2a72-03ce-4ad8-9bf2-331e8cc50c82",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "36",
+    "status": "on_track",
+    "updated_at": "2026-05-07T07:47:40.377679"
+  },
+  {
+    "id": "f2968f5c-5293-4fe3-b81a-0cbc9b14f8fb",
+    "goal_id": "952e7cd9-a2ea-4ab4-a6af-cdd130034d10",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "36",
+    "status": "on_track",
+    "updated_at": "2026-05-07T07:47:40.378614"
+  },
+  {
+    "id": "521c0f1b-b203-4d0a-a8db-8f0a71149a48",
+    "goal_id": "26544fa8-e461-43c4-bf74-dbb7073d4dd6",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "25",
+    "status": "at_risk",
+    "updated_at": "2026-05-05T07:47:41.029770"
+  },
+  {
+    "id": "b8e20ccf-ee1c-4f29-a7ca-a1853adafcd6",
+    "goal_id": "26544fa8-e461-43c4-bf74-dbb7073d4dd6",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q2",
+    "actual": "15",
+    "status": "at_risk",
+    "updated_at": "2026-05-15T07:47:41.029770"
+  },
+  {
+    "id": "479ed071-2837-4481-be7a-79006b0a4fad",
+    "goal_id": "a16179fa-4acb-46b5-8a0b-b6b71e92b979",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q1",
+    "actual": "95",
+    "status": "on_track",
+    "updated_at": "2026-05-03T07:47:41.841832"
+  },
+  {
+    "id": "4136d509-b789-40ac-881a-921334bbe55d",
+    "goal_id": "a16179fa-4acb-46b5-8a0b-b6b71e92b979",
+    "cycle_id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "quarter": "Q2",
+    "actual": "45",
+    "status": "at_risk",
+    "updated_at": "2026-05-13T07:47:41.841832"
+  }
+]

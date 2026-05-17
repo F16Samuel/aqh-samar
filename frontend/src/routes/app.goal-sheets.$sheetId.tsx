@@ -87,7 +87,7 @@ function SheetDetail() {
     ? today >= activeCycle.window_open && today <= activeCycle.window_close
     : false;
 
-  const isLocked = status === "approved" || status === "locked" || (goals ?? []).every((g) => g.is_locked);
+  const isLocked = status === "approved" || status === "locked" || ((goals ?? []).length > 0 && (goals ?? []).every((g) => g.is_locked));
   const canEdit = !isLocked && (status === "draft" || status === "returned" || ((me?.role === "manager" || me?.role === "admin") && status === "submitted") || !sheet);
 
   return (

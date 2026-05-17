@@ -1,0 +1,75 @@
+name: Production CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  # ─── JOB 1: Test & Lint Backend ─────────────────────────────────────────────
+  test-backend:
+    name: Test & Lint Backend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          
+      - name: Install Dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pytest httpx flake8
+          
+      - name: Lint with Flake8
+        run: |
+          cd backend
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          
+  # ─── JOB 2: Build and Deploy Backend to AWS ─────────────────────────────────
+  deploy-backend:
+    name: Build & Deploy Container
+    needs: [test-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, Tag, and Push Backend Image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: f16sam/aqh-samar
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./backend
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY --all-tags
+
+      - name: Deploy to AWS App Runner
+        # Uses the AWS CLI to trigger a deployment update when a new image is pushed
+        run: |
+          aws apprunner start-deployment --service-arn ${{ secrets.AWS_APP_RUNNER_SERVICE_ARN }}
+
+  # ─── JOB 3: Deploy Frontend to Vercel ──────────────────────────────────────
+  deploy-frontend:
+    name: Trigger Vercel Build
+    needs: [deploy-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deployment via Webhook
+        # Vercel provides deploy hooks that trigger a build on standard POST requests
+        run: |
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"

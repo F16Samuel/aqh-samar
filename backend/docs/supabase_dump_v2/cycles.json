@@ -1,0 +1,34 @@
+[
+  {
+    "id": "de5f69dc-444a-4397-b628-acc58b9e52ed",
+    "year": 2023,
+    "phase": "Annual Lock",
+    "window_open": "2023-01-01",
+    "window_close": "2023-12-31",
+    "is_active": false
+  },
+  {
+    "id": "993721cf-1ec8-495f-8eac-6b0b5af34ddf",
+    "year": 2024,
+    "phase": "Annual Lock",
+    "window_open": "2024-01-01",
+    "window_close": "2024-12-31",
+    "is_active": false
+  },
+  {
+    "id": "f0260e24-5aec-4a9e-a9db-9977d80cc282",
+    "year": 2025,
+    "phase": "Annual Lock",
+    "window_open": "2025-01-01",
+    "window_close": "2025-12-31",
+    "is_active": false
+  },
+  {
+    "id": "d3e6af7d-e214-4933-9a2a-d83401500bcf",
+    "year": 2026,
+    "phase": "Phase 1 - Goal Setting",
+    "window_open": "2026-01-01",
+    "window_close": "2026-12-31",
+    "is_active": true
+  }
+]

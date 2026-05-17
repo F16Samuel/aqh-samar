@@ -1,0 +1,46 @@
+[
+  {
+    "id": "c5f42100-7476-4c78-8b7e-91744872621a",
+    "name": "Engineering"
+  },
+  {
+    "id": "9c64a3f1-8b9c-4167-9e84-656c610a17be",
+    "name": "IT"
+  },
+  {
+    "id": "b5040695-5c10-4e88-8bbf-34a4571da009",
+    "name": "Sales"
+  },
+  {
+    "id": "b5477f47-ccde-4853-a626-39024f140229",
+    "name": "Marketing"
+  },
+  {
+    "id": "38025abe-8e12-43e5-be1e-6c4ca009bcfd",
+    "name": "Human Resources"
+  },
+  {
+    "id": "40443e4e-4bad-4a77-8fbb-42542916d15c",
+    "name": "Finance"
+  },
+  {
+    "id": "74bf5a7e-e000-4285-99bc-d12e245336e3",
+    "name": "Operations"
+  },
+  {
+    "id": "b7959f72-31e0-4163-a52c-08b7f7778494",
+    "name": "Product"
+  },
+  {
+    "id": "194cc5ca-fcdf-406e-9c61-fb4ce0bd5127",
+    "name": "Customer Support"
+  },
+  {
+    "id": "bd233f69-319d-41d1-92b6-e071b9051244",
+    "name": "Customer Success"
+  },
+  {
+    "id": "b04de9df-770d-4dfa-ae39-fa9adf15edab",
+    "name": "Security"
+  }
+]
