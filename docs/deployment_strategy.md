@@ -12,7 +12,7 @@ This document details the production-grade deployment strategy for the **AQH-SAM
 To minimize latency and maximize performance, we utilize a **multi-tier regional architecture**. 
 
 ### Deployment Topology
-* **AWS Regional VPC (`ap-south-1` - Mumbai)**: Hosts the FastAPI backend (via AWS App Runner or ECS Fargate).
+* **AWS Regional VPC (`ap-south-1` - Mumbai)**: Hosts the FastAPI backend (via Amazon ECS Express Mode).
 * **Supabase (AWS `ap-south-1` under the hood)**: Wires the PostgreSQL database and authentication. Hosting both the AWS compute and Supabase DB in the same region keeps round-trip query latency to **< 2ms**.
 
 ```mermaid
@@ -30,7 +30,7 @@ graph TD
     
     subgraph AWS VPC (ap-south-1)
         direction TB
-        ALB["Application Load Balancer (ALB) / App Runner"]:::backend
+        ALB["Application Load Balancer (ALB) / ECS Express Mode"]:::backend
         FastAPI1["FastAPI Container (Worker 1)"]:::backend
         FastAPI2["FastAPI Container (Worker 2)"]:::backend
     end
@@ -80,7 +80,7 @@ The SAMAR portal uses Supabase for database hosting and identity management. For
 
 ## 3. Backend Deployment on AWS
 
-FastAPI should be dockerized and deployed to a container orchestrator. We present two options: **AWS App Runner** (recommended for rapid development and ease of use) and **AWS ECS Fargate** (recommended for full networking control and enterprise compliance).
+FastAPI should be dockerized and deployed to a container orchestrator. We recommend using the modern **Amazon ECS Express Mode (Fargate)** which streamlines deployments automatically (replacing the deprecated App Runner service), or building a custom **AWS ECS Fargate + ALB** service for highly custom infrastructure setups.
 
 ### The Production Dockerfile
 
@@ -145,21 +145,17 @@ CMD ["/app/start.sh"]
 
 ---
 
-### Option A: AWS App Runner (Highly Recommended)
-AWS App Runner is a fully managed container service that handles load balancers, SSL certificates, autoscaling, and container provisioning automatically.
+### Option A: Amazon ECS Express Mode (Highly Recommended)
+Amazon ECS Express Mode is a simplified, zero-infrastructure path to deploy containerized APIs on Fargate. It automatically provisions an ECS cluster, public/private networking (VPC), target-tracking scaling, health checks, and a load balancer with a direct URL domain.
 
 #### Setup Guide:
-1. **Build Container & Push**: Build the Docker image and push it to an private **AWS Elastic Container Registry (ECR)** repository.
-2. **Create App Runner Service**:
-   - Go to AWS Console -> AWS App Runner -> **Create Service**.
-   - **Repository Type**: Container Registry (ECR).
-   - **Deployment Settings**: Select *Automatic* if you want App Runner to redeploy every time a new image is pushed to ECR.
-3. **Configure Service Variables**:
-   - **Port**: Set to `8000`.
-   - **CPU & Memory**: Start with `1 vCPU / 2 GB RAM`.
-   - **Environment Variables**: Add all variables defined in [Section 5](#5-environment-variable-reference) of this document.
-4. **Networking**: Keep it public so Vercel can access it, but ensure connection to Supabase DB.
-5. **Autoscaling**: Configure a scaling policy (e.g., minimum 1 instance, max 5 instances, scaling up when CPU exceeds 70%).
+1. **Launch Express Mode**: Go to AWS Console -> Amazon ECS -> click **Create Service** and select **Express Mode (Fargate)**.
+2. **Repository Source**: Set to your ECR Repository (`f16sam/aqh-samar`) and specify the `latest` tag.
+3. **Configure Network Ports**:
+   - **Container Port**: Set to `8000`.
+   - **Protocol**: HTTP (consolidated under the Express ALB).
+4. **Inject Environment Variables**: Add all parameters listed in [Section 5](#5-environment-variable-reference) directly under the task container options.
+5. **Autoscaling**: Configure a target-tracking autoscaling policy (minimum 1 task, maximum 5 tasks, scaled up when average CPU exceeds 70%).
 
 ---
 
@@ -222,7 +218,7 @@ Vercel is the natural choice for Vite + React Router applications. The root repo
 
 Manage environment variables separately for safety. Never expose sensitive secrets to the client.
 
-### Backend Environment Variables (AWS App Runner / ECS)
+### Backend Environment Variables (Amazon ECS Express Mode / Fargate)
 Set these variables inside AWS console or Secrets Manager:
 
 | Variable Name | Example Value | Description |
@@ -316,10 +312,10 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./backend
           docker push $ECR_REGISTRY/$ECR_REPOSITORY --all-tags
 
-      - name: Deploy to AWS App Runner
-        # Uses the AWS CLI to trigger a deployment update when a new image is pushed
+      - name: Deploy to Amazon ECS Express Mode
+        # Force a new rolling deployment to pull the newly pushed latest Docker image from ECR
         run: |
-          aws apprunner start-deployment --service-arn ${{ secrets.AWS_APP_RUNNER_SERVICE_ARN }}
+          aws ecs update-service --cluster ${{ secrets.AWS_ECS_CLUSTER_NAME }} --service ${{ secrets.AWS_ECS_SERVICE_NAME }} --force-new-deployment --region ap-south-1
 
   # ─── JOB 3: Deploy Frontend to Vercel ──────────────────────────────────────
   deploy-frontend:
