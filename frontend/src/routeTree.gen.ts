@@ -13,6 +13,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppTeamSheetsRouteImport } from './routes/app.team-sheets'
 import { Route as AppTeamRouteImport } from './routes/app.team'
 import { Route as AppReportsRouteImport } from './routes/app.reports'
 import { Route as AppAchievementsRouteImport } from './routes/app.achievements'
@@ -44,6 +45,11 @@ const IndexRoute = IndexRouteImport.update({
 const AppIndexRoute = AppIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTeamSheetsRoute = AppTeamSheetsRouteImport.update({
+  id: '/team-sheets',
+  path: '/team-sheets',
   getParentRoute: () => AppRoute,
 } as any)
 const AppTeamRoute = AppTeamRouteImport.update({
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/app/achievements': typeof AppAchievementsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
+  '/app/team-sheets': typeof AppTeamSheetsRoute
   '/app/': typeof AppIndexRoute
   '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
@@ -131,6 +138,7 @@ export interface FileRoutesByTo {
   '/app/achievements': typeof AppAchievementsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
+  '/app/team-sheets': typeof AppTeamSheetsRoute
   '/app': typeof AppIndexRoute
   '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
@@ -150,6 +158,7 @@ export interface FileRoutesById {
   '/app/achievements': typeof AppAchievementsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
+  '/app/team-sheets': typeof AppTeamSheetsRoute
   '/app/': typeof AppIndexRoute
   '/app/admin/audit': typeof AppAdminAuditRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
@@ -170,6 +179,7 @@ export interface FileRouteTypes {
     | '/app/achievements'
     | '/app/reports'
     | '/app/team'
+    | '/app/team-sheets'
     | '/app/'
     | '/app/admin/audit'
     | '/app/admin/cycles'
@@ -187,6 +197,7 @@ export interface FileRouteTypes {
     | '/app/achievements'
     | '/app/reports'
     | '/app/team'
+    | '/app/team-sheets'
     | '/app'
     | '/app/admin/audit'
     | '/app/admin/cycles'
@@ -205,6 +216,7 @@ export interface FileRouteTypes {
     | '/app/achievements'
     | '/app/reports'
     | '/app/team'
+    | '/app/team-sheets'
     | '/app/'
     | '/app/admin/audit'
     | '/app/admin/cycles'
@@ -251,6 +263,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/app/'
       preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/team-sheets': {
+      id: '/app/team-sheets'
+      path: '/team-sheets'
+      fullPath: '/app/team-sheets'
+      preLoaderRoute: typeof AppTeamSheetsRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/team': {
@@ -344,6 +363,7 @@ interface AppRouteChildren {
   AppAchievementsRoute: typeof AppAchievementsRoute
   AppReportsRoute: typeof AppReportsRoute
   AppTeamRoute: typeof AppTeamRoute
+  AppTeamSheetsRoute: typeof AppTeamSheetsRoute
   AppIndexRoute: typeof AppIndexRoute
   AppAdminAuditRoute: typeof AppAdminAuditRoute
   AppAdminCyclesRoute: typeof AppAdminCyclesRoute
@@ -360,6 +380,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppAchievementsRoute: AppAchievementsRoute,
   AppReportsRoute: AppReportsRoute,
   AppTeamRoute: AppTeamRoute,
+  AppTeamSheetsRoute: AppTeamSheetsRoute,
   AppIndexRoute: AppIndexRoute,
   AppAdminAuditRoute: AppAdminAuditRoute,
   AppAdminCyclesRoute: AppAdminCyclesRoute,

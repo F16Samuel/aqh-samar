@@ -32,5 +32,5 @@ function RedirectByRole() {
       </div>
     );
   if (error || !me) return <Navigate to="/login" />;
-  return <Navigate to="/app" />;
+  return <Navigate to="/app/" />;
 }

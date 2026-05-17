@@ -1,0 +1,19 @@
+Employee Name,Employee Email,Department,Goal Title,Thrust Area,UoM Type,Target,Q1 Actual,Q2 Actual,Q3 Actual,Q4 Actual,Q1 Score (%),Q2 Score (%),Q3 Score (%),Q4 Score (%),Q1 Status,Q2 Status,Q3 Status,Q4 Status,Weightage
+Rhea Mukherjee,emp1@company.com,Platform Infrastructure,Reduce CareSync API p95 latency from 780ms to below 300ms,Platform Reliability,min,300,340,280,,,100.0,93.3,,,on_track,completed,,,50
+Rhea Mukherjee,emp1@company.com,Platform Infrastructure,Zero Sev-1 production incidents,Operational Excellence,zero,0,0,1,,,100.0,0.0,,,on_track,on_track,,,50
+Tariq Mahmood,emp2@company.com,Platform Infrastructure,Migrate auth token refresh flow to centralized session middleware,Technical Debt Reduction,timeline,100,80,100,,,0.0,0.0,,,on_track,completed,,,60
+Tariq Mahmood,emp2@company.com,Platform Infrastructure,Automate 10 infrastructure backups,Operational Excellence,max,10,8,15,,,100.0,66.7,,,on_track,completed,,,40
+Hannah Abbott,emp13@company.com,Customer Success,Reduce implementation onboarding turnaround time from 14 to 9 days,Customer Retention,min,9,,,,,,,,,,,,,100
+Pedro Gomez,emp14@company.com,Customer Success,Improve customer response SLA scores to 95%,Customer Retention,max,95,,,,,,,,,,,,,30
+Alana Vance,emp17@company.com,Security & Compliance,Ensure zero critical vulnerabilities in quarterly VAPT audit,Security & Compliance,zero,0,,,,,,,,,,,,,70
+Alana Vance,emp17@company.com,Security & Compliance,Draft updated Disaster Recovery procedures,Security & Compliance,timeline,100,,,,,,,,,,,,,50
+James Sterling,emp16@company.com,Finance,Consolidate duplicate SaaS vendors to reduce expenditures,Cost Optimization,max,100,,,,,,,,,,,,,100
+Kojo Mensah,emp18@company.com,Security & Compliance,SOC2 Type II trust principles audit coordination,Security & Compliance,timeline,120,,,,,,,,,,,,,100
+Yasmine Belkacem,emp8@company.com,Product,SOC2 Compliance readiness,Security & Compliance,timeline,100,,,,,,,,,,,,,40
+Yasmine Belkacem,emp8@company.com,Product,Launch role-based analytics dashboard for enterprise admins,Product Delivery,max,100,,,,,,,,,,,,,60
+David Chen,mgr5@company.com,Revenue Operations,Reduce sales cycle length from 45 to 32 days,Revenue Growth,min,32,36,,,,100.0,,,,on_track,,,,50
+Julian Alvarez,emp11@company.com,Revenue Operations,Reduce sales cycle length from 45 to 32 days,Revenue Growth,min,32,36,,,,100.0,,,,on_track,,,,50
+Chloe Zhao,emp3@company.com,Engineering,Reduce sales cycle length from 45 to 32 days,Revenue Growth,min,32,36,,,,100.0,,,,on_track,,,,40
+Julian Alvarez,emp11@company.com,Revenue Operations,Increase RevOps pipeline visibility to 100%,Revenue Growth,max,100,,,,,,,,,,,,,50
+Chloe Zhao,emp3@company.com,Engineering,Deploy CRM real-time integrations,Engineering,timeline,100,,,,,,,,,,,,,60
+Ravi Shankar,emp12@company.com,Revenue Operations,Increase billing systems reliability to 99.9%,Revenue Growth,max,99.9,99.5,,,,100.0,,,,on_track,,,,100

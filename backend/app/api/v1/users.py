@@ -15,7 +15,7 @@ from app.schemas.user import UserOut, UserUpdate, UserCreate
 router = APIRouter()
 
 @router.get("/departments")
-@require_roles("admin")
+@require_roles("admin", "manager")
 async def list_departments(request: Request, db: AsyncSession = Depends(get_db)):
     """Admin: list all departments for hierarchy management."""
     result = await db.execute(select(Department).order_by(Department.name))

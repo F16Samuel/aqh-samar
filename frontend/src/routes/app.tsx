@@ -139,8 +139,8 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
     groups.push({
       label: "Workspace",
       items: [
-        { title: "Dashboard", url: "/app", icon: LayoutDashboard },
-        { title: "My Goal Sheets", url: "/app/goal-sheets", icon: Target },
+        { title: "Dashboard", url: "/app/", icon: LayoutDashboard },
+        { title: "My Goal Sheets", url: "/app/goal-sheets/", icon: Target },
         { title: "Achievements", url: "/app/achievements", icon: CheckSquare },
       ],
     });
@@ -148,7 +148,7 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
     groups.push({
       label: "Workspace",
       items: [
-        { title: "Dashboard", url: "/app", icon: LayoutDashboard },
+        { title: "Dashboard", url: "/app/", icon: LayoutDashboard },
       ],
     });
   }
@@ -156,13 +156,22 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
   if (role === "manager") {
     groups.push({
       label: "Manager",
-      items: [{ title: "Team", url: "/app/team", icon: Users }],
+      items: [
+        { title: "Team Dashboard", url: "/app/team", icon: Users },
+        { title: "Team Goal Sheets", url: "/app/team-sheets", icon: CheckSquare },
+      ],
     });
   }
 
   if (role === "admin") {
     groups.push({
-      label: "Admin",
+      label: "Admin Workspace",
+      items: [
+        { title: "Team Goal Sheets", url: "/app/team-sheets", icon: CheckSquare },
+      ],
+    });
+    groups.push({
+      label: "Admin Operations",
       items: [
         { title: "Progress Tracker", url: "/app/admin/progress", icon: LayoutDashboard },
         { title: "Cycles", url: "/app/admin/cycles", icon: Calendar },

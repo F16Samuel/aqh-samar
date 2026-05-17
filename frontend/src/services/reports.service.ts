@@ -8,6 +8,7 @@ export const reportsService = {
     format: "csv" | "xlsx";
     cycle_id?: string;
     department_id?: string;
+    target_role?: string;
   }) => request<Response>("/reports/achievement", { query: params, raw: true }),
   teamAnalytics: (params: { cycle_id?: string } = {}) =>
     request<any>("/reports/team-analytics", { query: params }),

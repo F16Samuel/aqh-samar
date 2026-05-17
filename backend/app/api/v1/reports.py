@@ -186,6 +186,7 @@ async def get_achievement_report(
     department_id: Optional[UUID] = None,
     cycle_id: Optional[UUID] = None,
     status: Optional[str] = None,
+    target_role: Optional[str] = None,
     format: str = "xlsx",
     db: AsyncSession = Depends(get_db)
 ):
@@ -205,11 +206,34 @@ async def get_achievement_report(
     if cycle_id:
         query = query.where(GoalSheet.cycle_id == cycle_id)
         
-    if department_id:
-        query = query.where(User.department_id == department_id)
-        
     if user.platform_role == "manager":
+        # Restrict manager downloads strictly to reportees under them
         query = query.where(User.manager_id == user.id)
+        
+        # Only allow filtering/accessing departments that their reportees belong to
+        dept_ids_res = await db.execute(
+            select(User.department_id)
+            .where(User.manager_id == user.id)
+            .where(User.department_id != None)
+        )
+        allowed_dept_ids = set(dept_ids_res.scalars().all())
+        
+        if department_id:
+            if department_id in allowed_dept_ids:
+                query = query.where(User.department_id == department_id)
+            else:
+                query = query.where(User.department_id.in_(allowed_dept_ids))
+        else:
+            query = query.where(User.department_id.in_(allowed_dept_ids))
+    else:
+        # Admin can view any department they request
+        if department_id:
+            query = query.where(User.department_id == department_id)
+            
+    if target_role == "manager":
+        query = query.where(User.platform_role == "manager")
+    elif target_role == "employee":
+        query = query.where(User.platform_role == "employee")
         
     res = await db.execute(query)
     base_rows = res.all()
@@ -318,6 +342,10 @@ async def get_completion_report(
     users_res = await db.execute(query)
     employees = users_res.scalars().all()
     
+    # Fetch departments for name mapping
+    dept_res = await db.execute(select(Department))
+    depts_map = {d.id: d.name for d in dept_res.scalars().all()}
+
     manager_ids = list(set(e.manager_id for e in employees if e.manager_id))
     managers = {}
     if manager_ids:
@@ -344,6 +372,26 @@ async def get_completion_report(
             if c.sheet_id not in checkins_by_sheet:
                 checkins_by_sheet[c.sheet_id] = []
             checkins_by_sheet[c.sheet_id].append(c)
+
+    # Cross-reference goals and achievements for completion percentage
+    goals_by_sheet = {}
+    latest_ach_by_goal = {}
+    if sheet_ids:
+        goals_res = await db.execute(select(Goal).where(Goal.sheet_id.in_(sheet_ids)))
+        all_goals = goals_res.scalars().all()
+        for g in all_goals:
+            goals_by_sheet.setdefault(g.sheet_id, []).append(g)
+            
+        goal_ids = [g.id for g in all_goals]
+        if goal_ids:
+            ach_res = await db.execute(
+                select(Achievement)
+                .where(Achievement.goal_id.in_(goal_ids))
+                .order_by(Achievement.goal_id, Achievement.updated_at.desc())
+            )
+            for ach in ach_res.scalars().all():
+                if ach.goal_id not in latest_ach_by_goal:
+                    latest_ach_by_goal[ach.goal_id] = ach
             
     results = []
     for emp in employees:
@@ -358,16 +406,29 @@ async def get_completion_report(
         checkins_completed = len(checkins)
         checkins_pending = (1 - checkins_completed) if quarter else (4 - checkins_completed)
         if checkins_pending < 0: checkins_pending = 0
+
+        # Calculate progress completion percentage
+        progress_score = 0.0
+        if sheet:
+            goals = goals_by_sheet.get(sheet.id, [])
+            for g in goals:
+                ach = latest_ach_by_goal.get(g.id)
+                actual = ach.actual if ach else None
+                score = compute_progress_score(g.uom_type, g.target, actual)
+                progress_score += score * g.weightage / 100
         
         results.append({
             "employee_id": str(emp.id),
             "employee_name": emp.full_name,
+            "department_id": str(emp.department_id) if emp.department_id else None,
+            "department_name": depts_map.get(emp.department_id) if emp.department_id else None,
             "manager_id": str(emp.manager_id) if emp.manager_id else None,
             "manager_name": managers.get(emp.manager_id),
             "sheet_status": sheet.status if sheet else "none",
             "checkins_completed": checkins_completed,
             "checkins_pending": checkins_pending,
-            "last_checkin_at": last_checkin_at.isoformat() if last_checkin_at else None
+            "last_checkin_at": last_checkin_at.isoformat() if last_checkin_at else None,
+            "progress_score": round(progress_score, 1)
         })
         
     return ok(results)
@@ -689,6 +750,8 @@ async def team_analytics(request: Request, cycle_id: Optional[UUID] = None, db: 
             "employee_id": str(emp.id),
             "employee_name": emp.full_name,
             "email": emp.email,
+            "job_title": emp.job_title,
+            "platform_role": emp.platform_role,
             "sheet_status": sheet.status if sheet else "none",
             "total_score": round(total_score, 2),
             "goal_count": len(goals),

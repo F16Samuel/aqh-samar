@@ -35,7 +35,7 @@ function LoginPage() {
     defaultValues: { email: "", password: "" },
   });
 
-  if (bootstrapped && session) return <Navigate to="/app" />;
+  if (bootstrapped && session) return <Navigate to="/app/" />;
 
   const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
@@ -46,7 +46,7 @@ function LoginPage() {
       return;
     }
     toast.success("Signed in");
-    navigate({ to: "/app" });
+    navigate({ to: "/app/" });
   };
 
   return (
