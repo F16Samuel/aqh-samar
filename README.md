@@ -8,20 +8,20 @@
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│                    Vercel (Frontend)                  │
+│                    Vercel (Frontend)                 │
 │   Vite + React (TypeScript)  ─  React Router v6      │
 │   React Query  ─  Axios  ─  Role-based layouts       │
 └────────────────────────┬─────────────────────────────┘
                          │ HTTPS / REST
 ┌────────────────────────▼─────────────────────────────┐
-│                   Railway (Backend)                   │
+│                   Railway (Backend)                  │
 │   FastAPI (Python 3.11)  ─  SQLAlchemy 2.0 async     │
 │   Alembic  ─  Pydantic v2  ─  openpyxl               │
 └────────────────────────┬─────────────────────────────┘
                          │ asyncpg / Supabase JWT
 ┌────────────────────────▼─────────────────────────────┐
-│              Supabase (PostgreSQL + Auth)              │
-│   Supabase Auth (JWT)  ─  PostgreSQL 15               │
+│              Supabase (PostgreSQL + Auth)            │
+│   Supabase Auth (JWT)  ─  PostgreSQL 15              │
 └──────────────────────────────────────────────────────┘
 ```
 
