@@ -22,6 +22,7 @@ if sslmode or "pooler.supabase.com" in clean_db_url:
     ssl_context.check_hostname = False
     ssl_context.verify_mode = ssl.CERT_NONE
     connect_args["ssl"] = ssl_context
+    connect_args["statement_cache_size"] = 0
 
 engine = create_async_engine(
     clean_db_url,
