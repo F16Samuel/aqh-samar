@@ -37,6 +37,7 @@ ENV PORT=3000
 # Copy only the compiled output from the builder stage
 COPY --from=builder /app/dist /app/dist
 COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/runner.js ./
 
 # Install only production dependencies
 RUN npm ci --only=production
@@ -45,4 +46,4 @@ RUN npm ci --only=production
 EXPOSE 3000
 
 # Start the high-performance SSR server
-CMD ["node", "dist/server/server.js"]
+CMD ["node", "runner.js"]
