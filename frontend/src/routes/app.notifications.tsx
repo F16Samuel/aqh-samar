@@ -78,22 +78,67 @@ const TEMPLATES = {
   },
 };
 
+// Dev-only simulate banner dialog
+function AdminSimulateBanner({ value, onChange, users }: { value: string; onChange: (v: string) => void; users: any[] }) {
+  const [showPopup, setShowPopup] = useState(false);
+  const selected = users.find((u) => u.email === value);
+  return (
+    <div className="flex items-center gap-2 relative">
+      <span className="text-[10px] font-bold uppercase tracking-widest text-amber-600 flex items-center gap-1">
+        <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
+        Dev Simulate Recipient:
+      </span>
+      <div
+        className="relative"
+        onMouseEnter={() => setShowPopup(true)}
+        onMouseLeave={() => setShowPopup(false)}
+      >
+        <select
+          value={value}
+          onFocus={() => setShowPopup(true)}
+          onChange={(e) => { onChange(e.target.value); setShowPopup(false); }}
+          className="h-8 w-56 rounded-md border border-amber-300 bg-amber-50 dark:bg-amber-950/30 px-2 text-xs font-medium text-amber-900 dark:text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+        >
+          {users.map((u) => (
+            <option key={u.email} value={u.email}>{u.full_name} ({u.role})</option>
+          ))}
+        </select>
+        {showPopup && (
+          <div className="absolute right-0 top-10 z-50 w-72 rounded-xl border border-amber-200 bg-amber-50 dark:bg-amber-950 p-4 shadow-2xl text-left">
+            <p className="text-xs font-bold text-amber-700 dark:text-amber-300 mb-1">🛠️ Dev-Only Admin Tool</p>
+            <p className="text-[11px] text-amber-600 dark:text-amber-400 leading-relaxed">
+              This selector impersonates any user's notification inbox. It is <strong>only visible to Admins</strong> and intended for development and QA testing purposes.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function NotificationHubPage() {
   const me = useAuthStore((s) => s.profile);
+  const isAdmin = me?.role === "admin";
+
   const [activeTab, setActiveTab] = useState<"outlook" | "teams">("outlook");
   const [activeFolder, setActiveFolder] = useState<"inbox" | "sent" | "junk" | "deleted">("inbox");
   const [selectedMailId, setSelectedMailId] = useState<string | null>(null);
-  
-  // Compose Notification Form States
+  // Admin simulate — default to Neha Kapoor
+  const [simulatedEmail, setSimulatedEmail] = useState("admin@company.com");
+
+  // Compose Form States
   const [showCompose, setShowCompose] = useState(false);
   const [composeType, setComposeType] = useState("email");
   const [composeRecipient, setComposeRecipient] = useState("");
   const [composeSubject, setComposeSubject] = useState("");
   const [composeBody, setComposeBody] = useState("");
 
-  const { data: notifications = [], isLoading, refetch } = useMockNotifications(me?.email);
+  // Actual email used to scope data
+  const activeEmail = isAdmin ? simulatedEmail : (me?.email ?? "");
+
+  const { data: notifications = [], isLoading } = useMockNotifications(activeEmail);
   const { data: allUsers = [] } = useUsers();
-  
+
   const markReadMutation = useMarkNotifRead();
   const moveFolderMutation = useMoveNotificationFolder();
   const composeMutation = useComposeNotification();
@@ -101,82 +146,50 @@ function NotificationHubPage() {
 
   if (!me) return null;
 
-  // Filter Outlook vs Teams
+  // Outlook emails vs Teams messages — always scoped to activeEmail
   const emails = notifications.filter((n) => n.type === "email");
-  const teamsMessages = notifications.filter((n) => n.type === "teams" && n.recipient_email === me.email);
+  const teamsMessages = notifications.filter((n) => n.type === "teams" && n.recipient_email === activeEmail);
 
-  // Folder level filters for Outlook corporate emails
+  // Folder filters — use activeEmail for proper sent/inbox scoping
   const filteredEmails = emails.filter((mail) => {
-    if (activeFolder === "inbox") {
-      return mail.recipient_email === me.email && mail.folder === "inbox";
-    }
-    if (activeFolder === "sent") {
-      return mail.sender_email === me.email && mail.folder !== "deleted";
-    }
-    if (activeFolder === "junk") {
-      return mail.recipient_email === me.email && mail.folder === "junk";
-    }
-    if (activeFolder === "deleted") {
-      return mail.folder === "deleted" && (mail.recipient_email === me.email || mail.sender_email === me.email);
-    }
+    const isSender = (mail.sender_email ?? "") === activeEmail;
+    const isRecipient = mail.recipient_email === activeEmail;
+    if (activeFolder === "inbox") return isRecipient && mail.folder === "inbox";
+    if (activeFolder === "sent") return isSender && mail.folder !== "deleted";
+    if (activeFolder === "junk") return isRecipient && mail.folder === "junk";
+    if (activeFolder === "deleted") return mail.folder === "deleted" && (isRecipient || isSender);
     return false;
   });
 
-  const selectedMail = filteredEmails.find((e) => e.id === selectedMailId) || filteredEmails[0];
+  const selectedMail = filteredEmails.find((e) => e.id === selectedMailId) ?? filteredEmails[0] ?? null;
 
-  const handleMarkRead = (id: string) => {
-    markReadMutation.mutate(id);
-  };
+  // Folder counts — also use activeEmail
+  const inboxCount = emails.filter((e) => e.recipient_email === activeEmail && e.folder === "inbox").length;
+  const sentCount = emails.filter((e) => (e.sender_email ?? "") === activeEmail && e.folder !== "deleted").length;
+  const junkCount = emails.filter((e) => e.recipient_email === activeEmail && e.folder === "junk").length;
+  const deletedCount = emails.filter(
+    (e) => e.folder === "deleted" && (e.recipient_email === activeEmail || (e.sender_email ?? "") === activeEmail)
+  ).length;
+
+  const handleMarkRead = (id: string) => markReadMutation.mutate(id);
 
   const handleTeamsCallback = (sheetId: string, action: string) => {
-    teamsActionMutation.mutate({
-      sheet_id: sheetId,
-      action,
-      recipient_email: me.email,
-    });
+    teamsActionMutation.mutate({ sheet_id: sheetId, action, recipient_email: activeEmail });
   };
 
-  const handleSendCompose = () => {
-    if (!composeRecipient) {
-      toast.error("Please select a target recipient.");
-      return;
-    }
-    if (composeType === "email" && !composeSubject) {
-      toast.error("Please enter an email subject.");
-      return;
-    }
-    if (!composeBody) {
-      toast.error("Please write message body content.");
-      return;
-    }
+  // Sender email for compose is always the real logged-in user (not simulated)
+  const realSenderEmail = me?.email ?? "";
 
+  const handleSendCompose = () => {
+    if (!composeRecipient) { toast.error("Please select a recipient."); return; }
+    if (composeType === "email" && !composeSubject) { toast.error("Please enter a subject."); return; }
+    if (!composeBody) { toast.error("Please write a message body."); return; }
     composeMutation.mutate(
-      {
-        sender_email: me.email,
-        recipient_email: composeRecipient,
-        subject: composeType === "email" ? composeSubject : undefined,
-        body: composeBody,
-        type: composeType,
-      },
-      {
-        onSuccess: () => {
-          setShowCompose(false);
-          setComposeRecipient("");
-          setComposeSubject("");
-          setComposeBody("");
-          setActiveFolder("sent"); // Focus sent folder to view created mail!
-        },
-      }
+      { sender_email: realSenderEmail, recipient_email: composeRecipient, subject: composeType === "email" ? composeSubject : undefined, body: composeBody, type: composeType },
+      { onSuccess: () => { setShowCompose(false); setComposeRecipient(""); setComposeSubject(""); setComposeBody(""); setActiveFolder("sent"); } }
     );
   };
 
-  // Folder Counts
-  const inboxCount = emails.filter((e) => e.recipient_email === me.email && e.folder === "inbox").length;
-  const sentCount = emails.filter((e) => e.sender_email === me.email && e.folder !== "deleted").length;
-  const junkCount = emails.filter((e) => e.recipient_email === me.email && e.folder === "junk").length;
-  const deletedCount = emails.filter(
-    (e) => e.folder === "deleted" && (e.recipient_email === me.email || e.sender_email === me.email)
-  ).length;
 
   return (
     <div className="flex h-[calc(100vh-6rem)] flex-col space-y-4">
@@ -184,15 +197,26 @@ function NotificationHubPage() {
       <div className="flex flex-col justify-between gap-4 border-b pb-4 sm:flex-row sm:items-center">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-primary" /> Mock Notification Sandbox Hub
+            <Sparkles className="h-5 w-5 text-primary" /> Notification Hub
           </h1>
           <p className="text-sm text-muted-foreground">
-            View warnings dispatched by the SLA rules engine. Currently logged in as: <strong className="text-primary">{me.full_name} ({me.email})</strong>
+            {isAdmin
+              ? <>Viewing as: <strong className="text-amber-600">{allUsers.find((u: any) => u.email === simulatedEmail)?.full_name ?? simulatedEmail}</strong> &mdash; Admin simulation mode</>  
+              : <>Logged in as: <strong className="text-primary">{me.full_name}</strong></>}
           </p>
         </div>
-        <Button onClick={() => setShowCompose(!showCompose)} className="gap-2 shrink-0">
-          <PenSquare className="h-4 w-4" /> Compose Notification
-        </Button>
+        <div className="flex items-center gap-3 shrink-0">
+          {isAdmin && (
+            <AdminSimulateBanner
+              value={simulatedEmail}
+              onChange={(v) => { setSimulatedEmail(v); setSelectedMailId(null); setActiveFolder("inbox"); }}
+              users={allUsers as any[]}
+            />
+          )}
+          <Button onClick={() => setShowCompose(!showCompose)} className="gap-2">
+            <PenSquare className="h-4 w-4" /> Compose
+          </Button>
+        </div>
       </div>
 
       {/* Main Tabs */}
@@ -499,11 +523,11 @@ function NotificationHubPage() {
 
                     {/* Action buttons (Move folders) */}
                     <div className="flex items-center gap-2 shrink-0">
-                      {selectedMail.folder !== "inbox" && (
+                       {selectedMail.folder !== "inbox" && (
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => moveFolderMutation.mutate({ id: selectedMail.id, folder: "inbox" })}
+                          onClick={() => { moveFolderMutation.mutate({ id: selectedMail.id, folder: "inbox" }); setSelectedMailId(null); }}
                           className="h-8 gap-1.5 text-xs"
                         >
                           <Inbox className="h-3.5 w-3.5" /> Move to Inbox
@@ -513,7 +537,7 @@ function NotificationHubPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => moveFolderMutation.mutate({ id: selectedMail.id, folder: "junk" })}
+                          onClick={() => { moveFolderMutation.mutate({ id: selectedMail.id, folder: "junk" }); setSelectedMailId(null); }}
                           className="h-8 gap-1.5 text-xs text-amber-600 border-amber-200 hover:bg-amber-500/10"
                         >
                           <AlertTriangle className="h-3.5 w-3.5" /> Move to Junk
@@ -523,7 +547,7 @@ function NotificationHubPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => moveFolderMutation.mutate({ id: selectedMail.id, folder: "deleted" })}
+                          onClick={() => { moveFolderMutation.mutate({ id: selectedMail.id, folder: "deleted" }); setSelectedMailId(null); }}
                           className="h-8 gap-1.5 text-xs text-rose-600 border-rose-200 hover:bg-rose-500/10"
                         >
                           <Trash2 className="h-3.5 w-3.5" /> Delete
