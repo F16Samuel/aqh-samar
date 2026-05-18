@@ -28,8 +28,16 @@ const MIME_TYPES = {
 
 http.createServer(async (req, res) => {
   try {
-    // 1. Sanitize the path to prevent directory traversal
+    // 0. Dedicated lightweight health check endpoint
     const safeUrl = new URL(req.url, 'http://localhost');
+    if (safeUrl.pathname === '/health') {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({ status: 'ok', service: 'frontend' }));
+      return;
+    }
+
+    // 1. Sanitize the path to prevent directory traversal
     const safePath = path.normalize(safeUrl.pathname).replace(/^(\.\.[\/\\])+/, '');
     const filePath = path.join(CLIENT_DIR, safePath);
 
