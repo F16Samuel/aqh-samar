@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from app.core.config import settings
 
 import urllib.parse
+import ssl
 
 db_url = settings.DATABASE_URL
 parsed_url = urllib.parse.urlparse(db_url)
@@ -17,7 +18,10 @@ clean_db_url = urllib.parse.urlunparse(parsed_url)
 
 connect_args = {}
 if sslmode or "pooler.supabase.com" in clean_db_url:
-    connect_args["ssl"] = True
+    ssl_context = ssl.create_default_context()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_NONE
+    connect_args["ssl"] = ssl_context
 
 engine = create_async_engine(
     clean_db_url,
