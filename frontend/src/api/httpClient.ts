@@ -1,6 +1,10 @@
 import { supabase } from "../lib/supabase";
 
-const BASE_URL = (import.meta.env.VITE_API_BASE_URL as string) || "/api/v1";
+let rawBase = (import.meta.env.VITE_API_BASE_URL as string) || "/api/v1";
+if (rawBase && !rawBase.endsWith("/api/v1")) {
+  rawBase = rawBase.replace(/\/+$/, "") + "/api/v1";
+}
+const BASE_URL = rawBase;
 
 export class ApiError extends Error {
   code: string;
