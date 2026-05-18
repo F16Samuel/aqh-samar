@@ -17,6 +17,9 @@ from app.api.v1.achievements import router as achievements_router
 from app.api.v1.checkins import router as checkins_router
 from app.api.v1.reports import router as reports_router
 from app.api.v1.admin import router as admin_router
+from app.api.v1.automation import router as automation_router
+from app.core.scheduler import start_automation_scheduler, stop_automation_scheduler
+
 
 app = FastAPI(
     title="AQH-SAMAR — Goal Setting & Tracking Portal",
@@ -80,6 +83,16 @@ async def global_exception_handler(request: Request, exc: Exception) -> JSONResp
     )
 
 
+
+@app.on_event("startup")
+async def startup_event():
+    start_automation_scheduler()
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    stop_automation_scheduler()
+
+
 # ── Health check ──────────────────────────────────────────────────────────────
 @app.get("/health", tags=["Health"])
 async def health() -> dict:
@@ -97,3 +110,5 @@ app.include_router(achievements_router, prefix=f"{API_V1}/achievements", tags=["
 app.include_router(checkins_router, prefix=f"{API_V1}/checkins", tags=["Check-ins"])
 app.include_router(reports_router, prefix=f"{API_V1}/reports", tags=["Reports"])
 app.include_router(admin_router, prefix=f"{API_V1}/admin", tags=["Admin"])
+app.include_router(automation_router, prefix=f"{API_V1}/automation", tags=["Automation"])
+

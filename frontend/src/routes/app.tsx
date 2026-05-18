@@ -15,6 +15,8 @@ import {
   Share2,
   Unlock,
   ListChecks,
+  Cpu,
+  Mail,
 } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { useEffect } from "react";
@@ -176,6 +178,7 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
         { title: "Progress Tracker", url: "/app/admin/progress", icon: LayoutDashboard },
         { title: "Cycles", url: "/app/admin/cycles", icon: Calendar },
         { title: "Escalations", url: "/app/admin/escalations", icon: AlertTriangle },
+        { title: "SLA Automations", url: "/app/admin/automation", icon: Cpu },
         { title: "Shared Goals", url: "/app/admin/shared-goals", icon: Share2 },
         { title: "Goal Unlock", url: "/app/admin/unlock", icon: Unlock },
         { title: "User Mgmt", url: "/app/admin/users", icon: Users },
@@ -187,6 +190,11 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
   groups.push({
     label: "Insights",
     items: [{ title: "Reports", url: "/app/reports", icon: FileBarChart }],
+  });
+
+  groups.push({
+    label: "Sandbox Hub",
+    items: [{ title: "Notification Hub", url: "/app/notifications", icon: Mail }],
   });
 
   return groups;

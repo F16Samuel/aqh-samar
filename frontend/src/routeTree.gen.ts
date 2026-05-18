@@ -16,6 +16,7 @@ import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppTeamSheetsRouteImport } from './routes/app.team-sheets'
 import { Route as AppTeamRouteImport } from './routes/app.team'
 import { Route as AppReportsRouteImport } from './routes/app.reports'
+import { Route as AppNotificationsRouteImport } from './routes/app.notifications'
 import { Route as AppAchievementsRouteImport } from './routes/app.achievements'
 import { Route as AppGoalSheetsIndexRouteImport } from './routes/app.goal-sheets.index'
 import { Route as AppGoalSheetsSheetIdRouteImport } from './routes/app.goal-sheets.$sheetId'
@@ -25,6 +26,7 @@ import { Route as AppAdminSharedGoalsRouteImport } from './routes/app.admin.shar
 import { Route as AppAdminProgressRouteImport } from './routes/app.admin.progress'
 import { Route as AppAdminEscalationsRouteImport } from './routes/app.admin.escalations'
 import { Route as AppAdminCyclesRouteImport } from './routes/app.admin.cycles'
+import { Route as AppAdminAutomationRouteImport } from './routes/app.admin.automation'
 import { Route as AppAdminAuditRouteImport } from './routes/app.admin.audit'
 
 const LoginRoute = LoginRouteImport.update({
@@ -60,6 +62,11 @@ const AppTeamRoute = AppTeamRouteImport.update({
 const AppReportsRoute = AppReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNotificationsRoute = AppNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
   getParentRoute: () => AppRoute,
 } as any)
 const AppAchievementsRoute = AppAchievementsRouteImport.update({
@@ -107,6 +114,11 @@ const AppAdminCyclesRoute = AppAdminCyclesRouteImport.update({
   path: '/admin/cycles',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAdminAutomationRoute = AppAdminAutomationRouteImport.update({
+  id: '/admin/automation',
+  path: '/admin/automation',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAdminAuditRoute = AppAdminAuditRouteImport.update({
   id: '/admin/audit',
   path: '/admin/audit',
@@ -118,11 +130,13 @@ export interface FileRoutesByFullPath {
   '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
   '/app/achievements': typeof AppAchievementsRoute
+  '/app/notifications': typeof AppNotificationsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
   '/app/team-sheets': typeof AppTeamSheetsRoute
   '/app/': typeof AppIndexRoute
   '/app/admin/audit': typeof AppAdminAuditRoute
+  '/app/admin/automation': typeof AppAdminAutomationRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
   '/app/admin/progress': typeof AppAdminProgressRoute
@@ -136,11 +150,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/app/achievements': typeof AppAchievementsRoute
+  '/app/notifications': typeof AppNotificationsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
   '/app/team-sheets': typeof AppTeamSheetsRoute
   '/app': typeof AppIndexRoute
   '/app/admin/audit': typeof AppAdminAuditRoute
+  '/app/admin/automation': typeof AppAdminAutomationRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
   '/app/admin/progress': typeof AppAdminProgressRoute
@@ -156,11 +172,13 @@ export interface FileRoutesById {
   '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
   '/app/achievements': typeof AppAchievementsRoute
+  '/app/notifications': typeof AppNotificationsRoute
   '/app/reports': typeof AppReportsRoute
   '/app/team': typeof AppTeamRoute
   '/app/team-sheets': typeof AppTeamSheetsRoute
   '/app/': typeof AppIndexRoute
   '/app/admin/audit': typeof AppAdminAuditRoute
+  '/app/admin/automation': typeof AppAdminAutomationRoute
   '/app/admin/cycles': typeof AppAdminCyclesRoute
   '/app/admin/escalations': typeof AppAdminEscalationsRoute
   '/app/admin/progress': typeof AppAdminProgressRoute
@@ -177,11 +195,13 @@ export interface FileRouteTypes {
     | '/app'
     | '/login'
     | '/app/achievements'
+    | '/app/notifications'
     | '/app/reports'
     | '/app/team'
     | '/app/team-sheets'
     | '/app/'
     | '/app/admin/audit'
+    | '/app/admin/automation'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
     | '/app/admin/progress'
@@ -195,11 +215,13 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/app/achievements'
+    | '/app/notifications'
     | '/app/reports'
     | '/app/team'
     | '/app/team-sheets'
     | '/app'
     | '/app/admin/audit'
+    | '/app/admin/automation'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
     | '/app/admin/progress'
@@ -214,11 +236,13 @@ export interface FileRouteTypes {
     | '/app'
     | '/login'
     | '/app/achievements'
+    | '/app/notifications'
     | '/app/reports'
     | '/app/team'
     | '/app/team-sheets'
     | '/app/'
     | '/app/admin/audit'
+    | '/app/admin/automation'
     | '/app/admin/cycles'
     | '/app/admin/escalations'
     | '/app/admin/progress'
@@ -286,6 +310,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppReportsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/notifications': {
+      id: '/app/notifications'
+      path: '/notifications'
+      fullPath: '/app/notifications'
+      preLoaderRoute: typeof AppNotificationsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/achievements': {
       id: '/app/achievements'
       path: '/achievements'
@@ -349,6 +380,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAdminCyclesRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/admin/automation': {
+      id: '/app/admin/automation'
+      path: '/admin/automation'
+      fullPath: '/app/admin/automation'
+      preLoaderRoute: typeof AppAdminAutomationRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/admin/audit': {
       id: '/app/admin/audit'
       path: '/admin/audit'
@@ -361,11 +399,13 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppAchievementsRoute: typeof AppAchievementsRoute
+  AppNotificationsRoute: typeof AppNotificationsRoute
   AppReportsRoute: typeof AppReportsRoute
   AppTeamRoute: typeof AppTeamRoute
   AppTeamSheetsRoute: typeof AppTeamSheetsRoute
   AppIndexRoute: typeof AppIndexRoute
   AppAdminAuditRoute: typeof AppAdminAuditRoute
+  AppAdminAutomationRoute: typeof AppAdminAutomationRoute
   AppAdminCyclesRoute: typeof AppAdminCyclesRoute
   AppAdminEscalationsRoute: typeof AppAdminEscalationsRoute
   AppAdminProgressRoute: typeof AppAdminProgressRoute
@@ -378,11 +418,13 @@ interface AppRouteChildren {
 
 const AppRouteChildren: AppRouteChildren = {
   AppAchievementsRoute: AppAchievementsRoute,
+  AppNotificationsRoute: AppNotificationsRoute,
   AppReportsRoute: AppReportsRoute,
   AppTeamRoute: AppTeamRoute,
   AppTeamSheetsRoute: AppTeamSheetsRoute,
   AppIndexRoute: AppIndexRoute,
   AppAdminAuditRoute: AppAdminAuditRoute,
+  AppAdminAutomationRoute: AppAdminAutomationRoute,
   AppAdminCyclesRoute: AppAdminCyclesRoute,
   AppAdminEscalationsRoute: AppAdminEscalationsRoute,
   AppAdminProgressRoute: AppAdminProgressRoute,
