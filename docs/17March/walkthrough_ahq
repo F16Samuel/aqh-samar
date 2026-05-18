@@ -1,0 +1,59 @@
+# AWS Fargate Deployment Stabilization Walkthrough
+
+We have successfully diagnosed, stabilized, and verified the high-stakes deployment of the **AQH-SAMAR Performance Management Portal** on AWS Fargate! Both services (React SSR Frontend & FastAPI Backend) are running flawlessly under the Application Load Balancer (ALB) and connected to the Supabase database.
+
+---
+
+## 🛠️ Changes Implemented
+
+### 1. Database Connectivity Stabilization
+* **Diagnosis:** Direct connections to the Supabase database in Tokyo (`db.f16sam.supabase.co`) were failing due to local network resolve issues on AWS ECS Fargate task startup.
+* **Resolution:** Switched database connection configurations to utilize the Supabase **Transaction Pooler** (`aws-0-ap-northeast-1.pooler.supabase.com:6543`), which resolved connection handshakes and stabilized db pool availability.
+
+### 2. FastAPI Backend Routing & Health Remapping
+* **Health Endpoint:** Corrected the Application Load Balancer target group path from `/` to `/health` to match the lightweight FastAPI endpoint.
+* **OpenAPI Routing:** Remapped `/openapi.json` traffic in the ALB listener rules to route directly to the backend. This ensures the frontend and backend can share the same DNS host while allowing interactive Swagger UI documentation to load flawlessly.
+
+### 3. Frontend TanStack Start Server Adapter (`runner.js`)
+* **Custom Server Adapter:** Implemented `runner.js` to wrap the compiled TanStack Start fetch handler, hosting it via standard Node.js `http` on **Port 3000** with high-performance routing.
+* **Custom `/health` Interceptor:** Added a lightning-fast `/health` HTTP interceptor in the HTTP listener to instantly respond to ALB health checks with `200 OK` (bypassing heavy SSR rendering routes).
+
+### 4. Node.js 22 Runtime Upgrade (Supabase SSR Fix)
+* **Diagnosis:** Supabase client initialization during Server-Side Rendering (SSR) failed under Node.js 20 with `Error: Node.js 20 detected without native WebSocket support`.
+* **Resolution:** Upgraded the Docker container base images in [Dockerfile](file:///s:/aqh-samar/frontend/Dockerfile) from `node:20-slim` to **`node:22-slim`** (which has built-in global WebSocket support).
+
+---
+
+## 🧪 Verification & Health Status
+
+Both target groups are registered as **`State: healthy`** on the Application Load Balancer:
+
+| Service | Target Port | Status Check Path | Active Target IP | State |
+| :--- | :--- | :--- | :--- | :--- |
+| **FastAPI Backend** | 8000 | `/health` | `172.31.25.10` | **healthy** 🟢 |
+| **React SSR Frontend** | 3000 | `/health` | `172.31.10.231` | **healthy** 🟢 |
+
+---
+
+## 📺 Live Visual Validation
+
+### 1. Interactive Subagent Run Recording
+The recorded session shows the browser navigating to the live portal, successfully logging in, and pulling up the interactive Swagger shell:
+
+![Subagent Session WebP](/C:/Users/f16sa/.gemini/antigravity/brain/0597faf7-6a70-49c5-be0b-9177b2016b54/portal_integration_final_1779088681251.webp)
+
+---
+
+### 2. Verified SAMAR Workspace Sign-In Page
+* **URL:** `https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws`
+* **Layout:** Pure, premium HSL/CSS gradient loading centered around a clean, functional workspace portal.
+
+![Verified Workspace Login](/C:/Users/f16sa/.gemini/antigravity/brain/0597faf7-6a70-49c5-be0b-9177b2016b54/homepage_verified_1779088724665.png)
+
+---
+
+### 3. Interactive Swagger UI Docs Shell
+* **URL:** `https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/docs`
+* **Layout:** Complete API catalog successfully loading OpenAPI specifications from `/openapi.json` without any CORS or SSL errors.
+
+![Verified Swagger Docs](/C:/Users/f16sa/.gemini/antigravity/brain/0597faf7-6a70-49c5-be0b-9177b2016b54/api_docs_verified_1779088741262.png)
