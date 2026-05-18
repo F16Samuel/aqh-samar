@@ -88,7 +88,7 @@ def stop_automation_scheduler():
     """
     Clean shutdown triggers
     """
-    global _loop_active, _scheduler_task
+    global _loop_active
     logger.info("Stopping automation engine background task...")
     _loop_active = False
     if _scheduler_task:
