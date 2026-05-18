@@ -187,7 +187,6 @@ backend/.venv/
 backend/venv/
 backend/env/
 backend/.env
-backend/alembic.ini
 
 # Node / Frontend
 frontend/node_modules/
