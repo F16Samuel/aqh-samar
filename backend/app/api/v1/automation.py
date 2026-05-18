@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from typing import List, Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi import APIRouter, Depends, HTTPException, Request, status, Query
 from sqlalchemy import select, delete, text, func
 from sqlalchemy.orm import selectinload
 
@@ -14,6 +14,7 @@ from app.models.goal import GoalSheet, Goal, Achievement, CheckIn
 from app.models.cycle import Cycle
 from app.core.automation_engine import run_simulation_dryrun, calculate_sheet_progress, calculate_quarterly_score
 from app.core.utils import compute_progress_score
+from app.core.security import require_roles
 
 router = APIRouter()
 
@@ -22,7 +23,8 @@ router = APIRouter()
 # =============================================================================
 
 @router.get("/rules", response_model=None)
-async def list_rules():
+@require_roles("admin")
+async def list_rules(request: Request):
     """
     Fetch all SLA escalation and automation rules
     """
@@ -44,7 +46,8 @@ async def list_rules():
 
 
 @router.post("/rules", response_model=None)
-async def create_rule(data: dict):
+@require_roles("admin")
+async def create_rule(request: Request, data: dict):
     """
     Add a new custom automation rule
     """
@@ -63,7 +66,8 @@ async def create_rule(data: dict):
 
 
 @router.put("/rules/{rule_id}", response_model=None)
-async def update_rule(rule_id: UUID, data: dict):
+@require_roles("admin")
+async def update_rule(rule_id: UUID, request: Request, data: dict):
     """
     Update an existing automation rule configuration
     """
@@ -85,7 +89,8 @@ async def update_rule(rule_id: UUID, data: dict):
 
 
 @router.delete("/rules/{rule_id}", response_model=None)
-async def delete_rule(rule_id: UUID):
+@require_roles("admin")
+async def delete_rule(rule_id: UUID, request: Request):
     """
     Remove an automation rule
     """
@@ -105,7 +110,8 @@ async def delete_rule(rule_id: UUID):
 # =============================================================================
 
 @router.post("/simulate", response_model=None)
-async def simulate_rule(data: dict):
+@require_roles("admin")
+async def simulate_rule(request: Request, data: dict):
     """
     Dry-run simulation mode evaluates rule parameters immediately and displays
     affected employees and timeline schedules without modifying the database.
@@ -119,7 +125,8 @@ async def simulate_rule(data: dict):
 # =============================================================================
 
 @router.get("/analytics", response_model=None)
-async def fetch_sla_analytics():
+@require_roles("admin")
+async def fetch_sla_analytics(request: Request):
     """
     High-fidelity analytics computed dynamically:
     - Compliance Index: Rate of employee submissions on time.
@@ -281,7 +288,8 @@ async def fetch_sla_analytics():
 # =============================================================================
 
 @router.get("/history", response_model=None)
-async def list_escalation_history():
+@require_roles("admin")
+async def list_escalation_history(request: Request):
     """
     Chronological audit log trace of SLA notifications and reassignments
     """
@@ -307,7 +315,8 @@ async def list_escalation_history():
 
 
 @router.get("/tasks", response_model=None)
-async def list_active_tasks():
+@require_roles("admin")
+async def list_active_tasks(request: Request):
     """
     Lists currently active running escalation timelines
     """
@@ -337,29 +346,37 @@ async def list_active_tasks():
 # =============================================================================
 
 @router.get("/notifications", response_model=None)
-async def fetch_mock_notifications(recipient_email: Optional[str] = Query(None)):
+@require_roles("employee", "manager", "admin")
+async def fetch_mock_notifications(request: Request, recipient_email: Optional[str] = Query(None)):
     """
-    Returns Outlook Emails and Teams Adaptive Cards for the specific authenticated user (sent by or sent to them)
+    Returns Outlook Emails and Teams Adaptive Cards for the specific authenticated user (sent by or sent to them).
+    Admins may pass recipient_email to simulate another user's inbox.
+    Non-admins are always scoped to their own email, regardless of the query param.
     """
+    caller = request.state.user
+    # Security: non-admins can only view their own notifications
+    if caller.platform_role != "admin":
+        recipient_email = caller.email
+
     async with AsyncSessionLocal() as session:
         query = select(MockNotification).options(
             selectinload(MockNotification.recipient),
             selectinload(MockNotification.sender)
         )
-        
+
         if recipient_email:
             res_usr = await session.execute(select(User).filter(User.email == recipient_email))
-            user = res_usr.scalar_one_or_none()
-            if user:
+            scoped_user = res_usr.scalar_one_or_none()
+            if scoped_user:
                 # Filter notifications where user is recipient OR user is sender
                 query = query.filter(
-                    (MockNotification.recipient_id == user.id) | 
-                    (MockNotification.sender_id == user.id)
+                    (MockNotification.recipient_id == scoped_user.id) |
+                    (MockNotification.sender_id == scoped_user.id)
                 )
-                
+
         res = await session.execute(query.order_by(MockNotification.created_at.desc()))
         notifs = res.scalars().all()
-        
+
         return [
             {
                 "id": str(n.id),
@@ -379,7 +396,8 @@ async def fetch_mock_notifications(recipient_email: Optional[str] = Query(None))
 
 
 @router.post("/notifications/{notif_id}/read", response_model=None)
-async def mark_notification_read(notif_id: UUID):
+@require_roles("employee", "manager", "admin")
+async def mark_notification_read(notif_id: UUID, request: Request):
     """
     Dismiss or mark notification read in mock hub workspace
     """
@@ -395,32 +413,36 @@ async def mark_notification_read(notif_id: UUID):
 
 
 @router.post("/notifications/compose", response_model=None)
-async def compose_mock_notification(data: dict):
+@require_roles("employee", "manager", "admin")
+async def compose_mock_notification(request: Request, data: dict):
     """
-    Allows composing and sending a custom email or Teams adaptive card to another user
+    Allows composing and sending a custom email or Teams adaptive card to another user.
+    The sender is always the authenticated user — the sender_email field in the body is
+    accepted for UI convenience but overridden with the caller's verified identity.
     """
-    sender_email = data.get("sender_email")
+    caller = request.state.user
+    # Security: sender is always the authenticated caller, not the body-supplied email
     recipient_email = data.get("recipient_email")
     subject = data.get("subject")
     body = data.get("body")
     notif_type = data.get("type", "email")  # email, teams
-    
-    if not sender_email or not recipient_email or not body:
-        raise HTTPException(status_code=400, detail="Missing sender, recipient, or body fields.")
-        
+
+    if not recipient_email or not body:
+        raise HTTPException(status_code=400, detail="Missing recipient or body fields.")
+
     async with AsyncSessionLocal() as session:
-        # Find sender
-        res_sender = await session.execute(select(User).filter(User.email == sender_email))
+        # Sender is the authenticated user — resolved from JWT, not body
+        res_sender = await session.execute(select(User).filter(User.id == caller.id))
         sender = res_sender.scalar_one_or_none()
         if not sender:
-            raise HTTPException(status_code=404, detail="Sender not found.")
-            
+            raise HTTPException(status_code=404, detail="Authenticated sender not found.")
+
         # Find recipient
         res_rec = await session.execute(select(User).filter(User.email == recipient_email))
         recipient = res_rec.scalar_one_or_none()
         if not recipient:
             raise HTTPException(status_code=404, detail="Recipient not found.")
-            
+
         # Create notification
         notif = MockNotification(
             type=notif_type,
@@ -438,7 +460,8 @@ async def compose_mock_notification(data: dict):
 
 
 @router.put("/notifications/{notif_id}/folder", response_model=None)
-async def update_notification_folder(notif_id: UUID, data: dict):
+@require_roles("employee", "manager", "admin")
+async def update_notification_folder(notif_id: UUID, request: Request, data: dict):
     """
     Move a notification to a specific folder (inbox, sent, junk, deleted)
     """
@@ -458,41 +481,50 @@ async def update_notification_folder(notif_id: UUID, data: dict):
 
 
 @router.post("/notifications/interactive-action", response_model=None)
-async def handle_teams_interactive_callback(data: dict):
+@require_roles("manager", "admin")
+async def handle_teams_interactive_callback(request: Request, data: dict):
     """
     Handles live MS Teams Adaptive Card Submit Actions!
     Action buttons (e.g. 'Approve Goal Sheet') dynamically trigger database workflows.
+    The reviewer is always the authenticated user — recipient_email in the body is ignored
+    to prevent privilege escalation via request body manipulation.
     """
     sheet_id = data.get("sheet_id")
     action = data.get("action")
-    recipient_email = data.get("recipient_email", "mgr3@company.com")
-    
+    caller = request.state.user  # BUG-003 fix: use authenticated user, not body email
+
     if not sheet_id or not action:
-         raise HTTPException(status_code=400, detail="Missing parameters.")
-         
+        raise HTTPException(status_code=400, detail="Missing parameters.")
+
     async with AsyncSessionLocal() as session:
         res_sheet = await session.execute(select(GoalSheet).filter(GoalSheet.id == UUID(sheet_id)))
         sheet = res_sheet.scalar_one_or_none()
         if not sheet:
             raise HTTPException(status_code=404, detail="Goal sheet not found.")
-            
-        res_usr = await session.execute(select(User).filter(User.email == recipient_email))
-        reviewer = res_usr.scalar_one_or_none()
+
+        # Resolve the full reviewer record from the authenticated user's ID
+        res_reviewer = await session.execute(select(User).filter(User.id == caller.id))
+        reviewer = res_reviewer.scalar_one_or_none()
         if not reviewer:
-            raise HTTPException(status_code=404, detail="Reviewer not found.")
-            
+            raise HTTPException(status_code=404, detail="Authenticated reviewer not found.")
+
         if action == "approve":
+            if sheet.status != "submitted":
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Sheet cannot be approved — current status is '{sheet.status}'."
+                )
             sheet.status = "approved"
             sheet.approved_at = datetime.utcnow()
             sheet.approved_by = reviewer.id
-            
-            # Lock goals
+
+            # Lock goals (UUID cast to str for raw SQL compatibility)
             await session.execute(
                 text("UPDATE goals SET is_locked = True WHERE sheet_id = :sid"),
-                {"sid": sheet.id}
+                {"sid": str(sheet.id)}
             )
-            
-            # Create a success Teams response notification
+
+            # Create a success Teams response notification for the reviewer
             notif = MockNotification(
                 type="teams",
                 recipient_id=reviewer.id,
@@ -519,5 +551,5 @@ async def handle_teams_interactive_callback(data: dict):
             session.add(notif)
             await session.commit()
             return {"message": "Goal Sheet Approved directly via Adaptive Card callback!"}
-            
+
         return {"message": "Callback executed successfully."}

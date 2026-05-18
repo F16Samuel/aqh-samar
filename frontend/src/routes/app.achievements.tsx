@@ -9,7 +9,7 @@ import { EmptyState } from "@/components/feedback/EmptyState";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ACHIEVEMENT_STATUSES, QUARTERS } from "@/constants/rbac";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { AchievementStatus, GoalOut } from "@/types/api";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
@@ -26,11 +26,13 @@ function AchievementsPage() {
   );
   
   const [selectedSheetId, setSelectedSheetId] = useState<string | null>(null);
-  
-  // Auto-select the first approved sheet if none selected
-  if (!selectedSheetId && approvedSheets.length > 0) {
-    setSelectedSheetId(approvedSheets[0].id);
-  }
+
+  // Auto-select the first approved sheet, but do it in an effect not during render
+  useEffect(() => {
+    if (!selectedSheetId && approvedSheets.length > 0) {
+      setSelectedSheetId(approvedSheets[0].id);
+    }
+  }, [approvedSheets.length, selectedSheetId]);
 
   const activeSheet = approvedSheets.find((s) => s.id === selectedSheetId);
   const { data: goals, isLoading: gLoad } = useGoalsBySheet(activeSheet?.id);

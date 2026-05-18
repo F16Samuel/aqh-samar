@@ -139,61 +139,72 @@ function navFor(role: Role): { label: string; items: NavItem[] }[] {
 
   if (role === "employee") {
     groups.push({
-      label: "Workspace",
+      label: "My Performance",
       items: [
         { title: "Dashboard", url: "/app/", icon: LayoutDashboard },
-        { title: "My Goal Sheets", url: "/app/goal-sheets/", icon: Target },
+        { title: "Goal Sheets", url: "/app/goal-sheets/", icon: Target },
         { title: "Achievements", url: "/app/achievements", icon: CheckSquare },
       ],
     });
-  } else {
+  } else if (role === "manager") {
     groups.push({
-      label: "Workspace",
+      label: "My Performance",
       items: [
         { title: "Dashboard", url: "/app/", icon: LayoutDashboard },
+        { title: "Goal Sheets", url: "/app/goal-sheets/", icon: Target },
+        { title: "Achievements", url: "/app/achievements", icon: CheckSquare },
       ],
     });
-  }
-
-  if (role === "manager") {
     groups.push({
-      label: "Manager",
+      label: "Team Management",
       items: [
         { title: "Team Dashboard", url: "/app/team", icon: Users },
-        { title: "Team Goal Sheets", url: "/app/team-sheets", icon: CheckSquare },
+        { title: "Review Goal Sheets", url: "/app/team-sheets", icon: ListChecks },
       ],
     });
-  }
-
-  if (role === "admin") {
+  } else if (role === "admin") {
     groups.push({
-      label: "Admin Workspace",
+      label: "Executive Overview",
       items: [
-        { title: "Team Goal Sheets", url: "/app/team-sheets", icon: CheckSquare },
+        { title: "Main Dashboard", url: "/app/", icon: LayoutDashboard },
+        { title: "Progress Tracker", url: "/app/admin/progress", icon: FileBarChart },
       ],
     });
     groups.push({
-      label: "Admin Operations",
+      label: "Core Administration",
       items: [
-        { title: "Progress Tracker", url: "/app/admin/progress", icon: LayoutDashboard },
-        { title: "Cycles", url: "/app/admin/cycles", icon: Calendar },
-        { title: "Escalations", url: "/app/admin/escalations", icon: AlertTriangle },
+        { title: "Cycles & Timelines", url: "/app/admin/cycles", icon: Calendar },
+        { title: "User Directory", url: "/app/admin/users", icon: Users },
+        { title: "Shared KPIs", url: "/app/admin/shared-goals", icon: Share2 },
+        { title: "All Goal Sheets", url: "/app/team-sheets", icon: ListChecks },
+      ],
+    });
+    groups.push({
+      label: "Compliance & Ops",
+      items: [
         { title: "SLA Automations", url: "/app/admin/automation", icon: Cpu },
-        { title: "Shared Goals", url: "/app/admin/shared-goals", icon: Share2 },
-        { title: "Goal Unlock", url: "/app/admin/unlock", icon: Unlock },
-        { title: "User Mgmt", url: "/app/admin/users", icon: Users },
-        { title: "Audit Logs", url: "/app/admin/audit", icon: Settings },
+        { title: "Active Escalations", url: "/app/admin/escalations", icon: AlertTriangle },
+        { title: "Goal Unlocks", url: "/app/admin/unlock", icon: Unlock },
+        { title: "System Audit Logs", url: "/app/admin/audit", icon: Settings },
       ],
     });
   }
 
-  groups.push({
-    label: "Insights",
-    items: [{ title: "Reports", url: "/app/reports", icon: FileBarChart }],
-  });
+  // Common Sections
+  if (role !== "admin") {
+    groups.push({
+      label: "Insights",
+      items: [{ title: "Analytics & Reports", url: "/app/reports", icon: FileBarChart }],
+    });
+  } else {
+    groups.push({
+      label: "Data & Exports",
+      items: [{ title: "Standard Reports", url: "/app/reports", icon: FileBarChart }],
+    });
+  }
 
   groups.push({
-    label: "Sandbox Hub",
+    label: "Messaging",
     items: [{ title: "Notification Hub", url: "/app/notifications", icon: Mail }],
   });
 
