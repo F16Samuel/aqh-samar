@@ -63,13 +63,41 @@ jobs:
         run: |
           aws ecs update-service --cluster ${{ secrets.AWS_ECS_CLUSTER_NAME }} --service ${{ secrets.AWS_ECS_SERVICE_NAME }} --force-new-deployment --region ap-south-1
 
-  # ─── JOB 3: Deploy Frontend to Vercel ──────────────────────────────────────
+  # ─── JOB 3: Build and Deploy Frontend to AWS ────────────────────────────────
   deploy-frontend:
-    name: Trigger Vercel Build
+    name: Build & Deploy Frontend
     needs: [deploy-backend]
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Vercel Deployment via Webhook
-        # Vercel provides deploy hooks that trigger a build on standard POST requests
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, Tag, and Push Frontend Image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: f16sam/aqh-samar-frontend
+          IMAGE_TAG: ${{ github.sha }}
         run: |
-          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
+          docker build \
+            --build-arg VITE_SUPABASE_URL="${{ secrets.VITE_SUPABASE_URL }}" \
+            --build-arg VITE_SUPABASE_ANON_KEY="${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
+            --build-arg VITE_API_BASE_URL="${{ secrets.VITE_API_BASE_URL }}" \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./frontend
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY --all-tags
+
+      - name: Deploy to Amazon ECS Express Mode
+        # Force a new rolling deployment to pull the newly pushed latest Docker image from ECR
+        run: |
+          aws ecs update-service --cluster ${{ secrets.AWS_ECS_CLUSTER_NAME }} --service ${{ secrets.AWS_ECS_FRONTEND_SERVICE_NAME }} --force-new-deployment --region ap-south-1
+
