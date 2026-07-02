@@ -302,7 +302,7 @@ async def execute_action_step(session, task, step) -> bool:
         html_body = f"""
         <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #e0e0e0; border-radius: 8px;">
             <div style="background-color: #f43f5e; padding: 12px; border-radius: 6px; color: #fff; font-weight: bold; font-size: 16px; margin-bottom: 20px;">
-                ⚠️ AQH-SAMAR SLA Escalation Warning
+                ⚠️ HMT-360 SLA Escalation Warning
             </div>
             <p>Hello <strong>{recipient.full_name}</strong>,</p>
             <p>This is an automated system notification regarding performance management windows and SLA compliance logs.</p>
@@ -311,13 +311,13 @@ async def execute_action_step(session, task, step) -> bool:
             </blockquote>
             <p style="margin-top: 25px;">Please log in to the Performance Portal immediately to take necessary action.</p>
             <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
-            <p style="font-size: 11px; color: #888;">AQH-SAMAR Escalation & Automated Workflow Engine. Confidential corporate notice.</p>
+            <p style="font-size: 11px; color: #888;">HMT-360 Escalation & Automated Workflow Engine. Confidential corporate notice.</p>
         </div>
         """
         notif = MockNotification(
             type="email",
             recipient_id=recipient.id,
-            sender_name="AQH-SAMAR Automator",
+            sender_name="HMT-360 Automator",
             subject=step.get("subject", "SLA Escalation Warning"),
             body=html_body,
             status="unread"

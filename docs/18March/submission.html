@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQH-SAMAR — Hackathon Submission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg2: #111118;
+            --bg3: #18181f;
+            --surface: #1c1c26;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-em: rgba(255, 255, 255, 0.14);
+            --text: #e8e8f0;
+            --muted: #8888a0;
+            --accent: #7c6af5;
+            --accent2: #5af0c0;
+            --accent3: #f0925a;
+            --danger: #f05a6e;
+            --warn: #f0c45a;
+            --info: #5aaaf0;
+            --success: #5af0a0;
+            --r: 10px;
+            --r2: 6px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Sora', sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--accent2);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        /* Header */
+        .hero {
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: -80px;
+            width: 400px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(124, 106, 245, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            width: 300px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(90, 240, 192, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(124, 106, 245, 0.12);
+            border: 1px solid rgba(124, 106, 245, 0.3);
+            color: #a89ef8;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge::before {
+            content: '◉';
+            font-size: 8px;
+            color: var(--accent2);
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            max-width: 560px;
+        }
+
+        .meta-row {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .meta-item strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Nav */
+        .nav {
+            display: flex;
+            gap: 0;
+            margin: 2.5rem 0 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-item {
+            padding: 0.6rem 1.2rem;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--muted);
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .nav-item:hover {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-item.active {
+            color: var(--accent2);
+            border-bottom-color: var(--accent2);
+        }
+
+        /* Sections */
+        .section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            padding-top: 3px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 1.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .card-grid.cols-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .card-grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* URL cards */
+        .url-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r2);
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .url-card .url-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .url-card .url-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--accent2);
+            word-break: break-all;
+        }
+
+        .url-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(90, 240, 192, 0.1);
+            border: 1px solid rgba(90, 240, 192, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        /* Pill */
+        .pill {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .pill-purple {
+            background: rgba(124, 106, 245, 0.15);
+            color: #a89ef8;
+            border: 1px solid rgba(124, 106, 245, 0.25);
+        }
+
+        .pill-teal {
+            background: rgba(90, 240, 192, 0.12);
+            color: #5af0c0;
+            border: 1px solid rgba(90, 240, 192, 0.25);
+        }
+
+        .pill-orange {
+            background: rgba(240, 146, 90, 0.12);
+            color: #f0a06a;
+            border: 1px solid rgba(240, 146, 90, 0.25);
+        }
+
+        .pill-red {
+            background: rgba(240, 90, 110, 0.12);
+            color: #f0707e;
+            border: 1px solid rgba(240, 90, 110, 0.25);
+        }
+
+        .pill-green {
+            background: rgba(90, 240, 160, 0.12);
+            color: #5af0a0;
+            border: 1px solid rgba(90, 240, 160, 0.25);
+        }
+
+        .pill-yellow {
+            background: rgba(240, 196, 90, 0.12);
+            color: #f0d06a;
+            border: 1px solid rgba(240, 196, 90, 0.25);
+        }
+
+        .pill-blue {
+            background: rgba(90, 170, 240, 0.12);
+            color: #7ab8f0;
+            border: 1px solid rgba(90, 170, 240, 0.25);
+        }
+
+        .pill-gray {
+            background: rgba(150, 150, 160, 0.12);
+            color: #aaaabc;
+            border: 1px solid rgba(150, 150, 160, 0.2);
+        }
+
+        /* Tables */
+        .tbl-wrap {
+            overflow-x: auto;
+            border-radius: var(--r);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        thead th {
+            background: var(--bg3);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            padding: 2px 6px;
+            color: var(--accent2);
+        }
+
+        /* Diagrams */
+        .diagram-wrap {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .diagram-title {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mermaid {
+            text-align: center;
+        }
+
+        /* Steps */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.25rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .step:last-child {
+            padding-bottom: 0;
+        }
+
+        .step-line {
+            position: absolute;
+            left: 17px;
+            top: 36px;
+            bottom: 0;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .step:last-child .step-line {
+            display: none;
+        }
+
+        .step-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: rgba(124, 106, 245, 0.12);
+            border: 1px solid rgba(124, 106, 245, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .step-content {
+            padding-top: 6px;
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Edge case grid */
+        .edge-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .edge-row {
+            display: grid;
+            grid-template-columns: 32px 140px 100px 1fr;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r2);
+            align-items: start;
+            transition: border-color 0.2s;
+        }
+
+        .edge-row:hover {
+            border-color: var(--border-em);
+        }
+
+        .edge-id {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            padding-top: 2px;
+        }
+
+        .edge-who {
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .edge-desc {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Credential cards */
+        .cred-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cred-role {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 2px;
+        }
+
+        .cred-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .cred-email {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--accent2);
+        }
+
+        .cred-dept {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .cred-pw {
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .cred-pw-label {
+            color: var(--muted);
+        }
+
+        .cred-pw-val {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent);
+        }
+
+        /* Walkthrough */
+        .walk-role {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .walk-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .walk-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .walk-steps {
+            padding-left: 1.25rem;
+        }
+
+        .walk-steps li {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        .walk-steps li strong {
+            color: var(--text);
+        }
+
+        /* Stack labels */
+        .stack-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .stack-tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Infra box */
+        .infra-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .infra-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r2);
+            padding: 1rem;
+        }
+
+        .infra-card-label {
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .infra-card-val {
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid.cols-2,
+            .card-grid.cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .edge-row {
+                grid-template-columns: 32px 1fr;
+            }
+
+            .edge-row .edge-status,
+            .edge-row .edge-desc {
+                grid-column: 2;
+            }
+        }
+
+        /* Print */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- Hero -->
+        <div class="hero">
+            <div class="badge">Hackathon Submission · 2026</div>
+            <h1><span>AQH-SAMAR</span><br>Performance Management Portal</h1>
+            <p class="subtitle">A full-stack performance management system built on FastAPI + React (TanStack Start) +
+                Supabase + AWS ECS Fargate, featuring a goal lifecycle engine, automation rules, multi-role RBAC, and
+                org-wide analytics.</p>
+            <div class="meta-row">
+                <div class="meta-item"><strong>Submitted by</strong><br>F16Samuel / SamarVermaCasamed</div>
+                <div class="meta-item"><strong>Version</strong><br>Portal 0.1.0</div>
+                <div class="meta-item"><strong>Date</strong><br>19 May 2026</div>
+                <div class="meta-item"><strong>Region</strong><br>AWS ap-south-1</div>
+            </div>
+            <div class="stack-row">
+                <span class="stack-tag">FastAPI</span>
+                <span class="stack-tag">TanStack Start</span>
+                <span class="stack-tag">Supabase</span>
+                <span class="stack-tag">PostgreSQL</span>
+                <span class="stack-tag">AWS ECS Fargate</span>
+                <span class="stack-tag">ALB</span>
+                <span class="stack-tag">APScheduler</span>
+                <span class="stack-tag">SQLAlchemy</span>
+                <span class="stack-tag">Alembic</span>
+                <span class="stack-tag">PgBouncer</span>
+            </div>
+        </div>
+
+        <!-- Nav -->
+        <nav class="nav">
+            <a class="nav-item active" href="#d1">01 · Demo URL</a>
+            <a class="nav-item" href="#d2">02 · Source Code</a>
+            <a class="nav-item" href="#d3">03 · Architecture</a>
+            <a class="nav-item" href="#d4">04 · Credentials</a>
+            <a class="nav-item" href="#d5">05 · Edge Cases</a>
+        </nav>
+
+        <!-- D1 -->
+        <section class="section" id="d1">
+            <div class="section-header">
+                <span class="section-num">DELIVERABLE 01</span>
+                <h2>Live Hosted Demo</h2>
+            </div>
+
+            <div class="card-grid" style="grid-template-columns: 1fr; gap: 0.75rem;">
+                <div class="url-card">
+                    <div class="url-icon">🌐</div>
+                    <div>
+                        <div class="url-label">Frontend Portal</div>
+                        <div class="url-value"><a
+                                href="https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/app"
+                                target="_blank">https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/app</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="url-card">
+                    <div class="url-icon">🔑</div>
+                    <div>
+                        <div class="url-label">Login Page</div>
+                        <div class="url-value"><a
+                                href="https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/login"
+                                target="_blank">https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/login</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="url-card">
+                    <div class="url-icon">⚡</div>
+                    <div>
+                        <div class="url-label">API Base</div>
+                        <div class="url-value"><a
+                                href="https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/api/v1"
+                                target="_blank">https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/api/v1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="url-card">
+                    <div class="url-icon">📖</div>
+                    <div>
+                        <div class="url-label">Interactive Swagger Docs</div>
+                        <div class="url-value"><a
+                                href="https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/docs"
+                                target="_blank">https://aq-1aa8fca0a10f495da9fb8da1ae96cefc.ecs.ap-south-1.on.aws/docs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h3>Infrastructure</h3>
+                <div class="infra-row">
+                    <div class="infra-card">
+                        <div class="infra-card-label">Platform</div>
+                        <div class="infra-card-val">AWS ECS Fargate</div>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-card-label">Region</div>
+                        <div class="infra-card-val">ap-south-1 (Mumbai)</div>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-card-label">Load Balancer</div>
+                        <div class="infra-card-val">Application Load Balancer</div>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-card-label">Frontend Port</div>
+                        <div class="infra-card-val">3000 (Node 22 / SSR)</div>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-card-label">Backend Port</div>
+                        <div class="infra-card-val">80 (FastAPI / Uvicorn)</div>
+                    </div>
+                    <div class="infra-card">
+                        <div class="infra-card-label">Routing</div>
+                        <div class="infra-card-val">Path-pattern listener rules</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- D2 -->
+        <section class="section" id="d2">
+            <div class="section-header">
+                <span class="section-num">DELIVERABLE 02</span>
+                <h2>Source Code Repository</h2>
+            </div>
+
+            <div class="url-card" style="margin-bottom: 1.5rem;">
+                <div class="url-icon">🐙</div>
+                <div>
+                    <div class="url-label">GitHub Repository</div>
+                    <div class="url-value"><a href="https://github.com/F16Samuel/aqh-samar"
+                            target="_blank">https://github.com/F16Samuel/aqh-samar</a></div>
+                </div>
+            </div>
+
+            <div class="card-grid cols-2" style="margin-bottom: 1.5rem;">
+                <div class="card">
+                    <h3>Backend — FastAPI</h3>
+                    <div style="color: var(--muted); font-size: 12px; line-height: 2;">
+                        <code>api/v1/auth.py</code> JWT / Supabase auth<br>
+                        <code>api/v1/users.py</code> User CRUD + hierarchy<br>
+                        <code>api/v1/cycles.py</code> Performance cycle management<br>
+                        <code>api/v1/goal_sheets.py</code> GoalSheet lifecycle<br>
+                        <code>api/v1/goals.py</code> Goal CRUD + sharing<br>
+                        <code>api/v1/achievements.py</code> Quarterly KPI tracking<br>
+                        <code>api/v1/checkins.py</code> Manager check-ins<br>
+                        <code>api/v1/reports.py</code> Analytics + heatmaps<br>
+                        <code>api/v1/admin.py</code> Admin overrides + audit<br>
+                        <code>api/v1/automation.py</code> Rules engine + escalations<br>
+                        <code>core/scheduler.py</code> APScheduler / asyncio<br>
+                        <code>core/automation_engine.py</code> Rule evaluation core
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Frontend — TanStack Start SSR</h3>
+                    <div style="color: var(--muted); font-size: 12px; line-height: 2;">
+                        <code>routes/app.tsx</code> Root layout + navigation<br>
+                        <code>routes/app.achievements.tsx</code><br>
+                        <code>routes/app.admin.automation.tsx</code><br>
+                        <code>routes/app.admin.escalations.tsx</code><br>
+                        <code>routes/app.notifications.tsx</code><br>
+                        <br>
+                        <div style="border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.25rem;">
+                            <strong style="color: var(--text);">CI/CD</strong><br>
+                            <code>.github/workflows/deploy.yml</code><br>
+                            <code>scripts/wipe_and_seed.py</code> Full DB reseed
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>CI/CD Pipeline</h3>
+            <div class="steps" style="margin-top: 1rem;">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-line"></div>
+                    <div class="step-content">
+                        <div class="step-title">Test &amp; Lint Backend</div>
+                        <div class="step-desc"><code>flake8</code> syntax and undefined-name checks against Python 3.11
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-line"></div>
+                    <div class="step-content">
+                        <div class="step-title">Build &amp; Deploy Backend</div>
+                        <div class="step-desc">Docker → ECR → ECS <code>force-new-deployment</code> on FastAPI service
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Build &amp; Deploy Frontend</div>
+                        <div class="step-desc">Docker (Node 22) → ECR → ECS <code>force-new-deployment</code> on SSR
+                            service</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- D3 -->
+        <section class="section" id="d3">
+            <div class="section-header">
+                <span class="section-num">DELIVERABLE 03</span>
+                <h2>Architecture Diagrams — DFD Style</h2>
+            </div>
+
+            <!-- L0 -->
+            <div class="diagram-wrap">
+                <div class="diagram-title">Level 0 — Context Diagram</div>
+                <div class="mermaid">
+                    graph TD
+                    EMPLOYEE["👤 Employee"]
+                    MANAGER["👔 Manager"]
+                    ADMIN["🔑 Admin"]
+                    SYSTEM["⚙️ AQH-SAMAR\nPerformance Portal"]
+                    SUPABASE[("🗄️ Supabase\nPostgreSQL + Auth")]
+                    AWS["☁️ AWS ECS Fargate\n+ ALB"]
+
+                    EMPLOYEE -- "Login / Draft Goals / Log Achievements" --> SYSTEM
+                    MANAGER -- "Review / Approve Goals\nLog Check-ins / Team Analytics" --> SYSTEM
+                    ADMIN -- "Manage Cycles / Unlock Goals\nConfigure Rules / All Reports" --> SYSTEM
+
+                    SYSTEM -- "JWT Verification + DB R/W" --> SUPABASE
+                    SYSTEM -- "Containerised Deploy + HTTPS Routing" --> AWS
+
+                    SYSTEM -- "Goal Sheets\nProgress Scores\nEscalation Alerts" --> EMPLOYEE
+                    SYSTEM -- "Approval Queue\nTeam Heatmaps\nCheck-in Log" --> MANAGER
+                    SYSTEM -- "Org-wide Analytics\nAudit Trails\nNotifications" --> ADMIN
+
+                    classDef actor fill:#1c1c36,stroke:#7c6af5,stroke-width:1px,color:#a89ef8
+                    classDef system fill:#0f2820,stroke:#5af0c0,stroke-width:2px,color:#5af0c0
+                    classDef infra fill:#1c2030,stroke:#5aaaf0,stroke-width:1px,color:#7ab8f0
+
+                    class EMPLOYEE,MANAGER,ADMIN actor
+                    class SYSTEM system
+                    class SUPABASE,AWS infra
+                </div>
+            </div>
+
+            <!-- L1 -->
+            <div class="diagram-wrap">
+                <div class="diagram-title">Level 1 — System Decomposition (Major Modules)</div>
+                <div class="mermaid">
+                    flowchart TB
+                    USER["User Browser"]
+
+                    subgraph BACKEND["Backend — FastAPI (Uvicorn / Gunicorn)"]
+                    AUTH["Auth Module\n/api/v1/auth"]
+                    USERS["Users Module\n/api/v1/users"]
+                    CYCLES["Cycles Module\n/api/v1/cycles"]
+                    SHEETS["Goal Sheets Module\n/api/v1/goal-sheets"]
+                    GOALS["Goals Module\n/api/v1/goals"]
+                    ACH["Achievements Module\n/api/v1/achievements"]
+                    CHECKINS["Check-ins Module\n/api/v1/checkins"]
+                    REPORTS["Reports Module\n/api/v1/reports"]
+                    ADMIN_MOD["Admin Module\n/api/v1/admin"]
+                    AUTO["Automation Module\n/api/v1/automation"]
+                    end
+
+                    subgraph FRONTEND["Frontend — TanStack Start SSR (Node 22)"]
+                    FE_AUTH["Auth Pages\n/login"]
+                    FE_EMP["Employee Workspace\nDraft · Submit · Track"]
+                    FE_MGR["Manager Workspace\nApprove · Check-in · Escalate"]
+                    FE_ADMIN["Admin Operations\nCycles · Users · Reports · Automation"]
+                    FE_NOTIF["Notifications Inbox\nMock Email / Teams Cards"]
+                    end
+
+
+                    subgraph DATA["Data Layer"]
+                    SUPABASE_AUTH["Supabase Auth\nJWT · JWKS"]
+                    PG[("PostgreSQL\nvia PgBouncer\nTransaction Pool")]
+                    end
+
+                    FRONTEND --> BACKEND
+                    BACKEND --> DATA
+                    linkStyle 0 stroke:#7c6af5,stroke-width:2px,stroke-dasharray: 5 5;
+                    linkStyle 1 stroke:#5af0c0,stroke-width:2px,stroke-dasharray: 5 5;
+
+                    USER --> FE_AUTH
+                    USER --> FE_EMP
+                    USER --> FE_MGR
+                    USER --> FE_ADMIN
+                    USER --> FE_NOTIF
+
+                    FE_AUTH --> AUTH
+                    FE_EMP --> GOALS
+                    FE_EMP --> ACH
+                    FE_EMP --> SHEETS
+                    FE_MGR --> SHEETS
+                    FE_MGR --> CHECKINS
+                    FE_MGR --> REPORTS
+                    FE_ADMIN --> REPORTS
+                    FE_ADMIN --> CYCLES
+                    FE_ADMIN --> USERS
+                    FE_ADMIN --> AUTO
+                    FE_ADMIN --> ADMIN_MOD
+
+
+                    AUTH --> SUPABASE_AUTH
+                    USERS --> PG
+                    CYCLES --> PG
+                    SHEETS --> PG
+                    GOALS --> PG
+                    ACH --> PG
+                    CHECKINS --> PG
+                    REPORTS --> PG
+                    ADMIN_MOD --> PG
+                    AUTO --> PG
+
+                    classDef fe fill:#1a1030,stroke:#7c6af5,stroke-width:1px,color:#c4b8ff
+                    classDef be fill:#0f2820,stroke:#5af0c0,stroke-width:1px,color:#9af0d4
+                    classDef db fill:#1a1420,stroke:#f0925a,stroke-width:1px,color:#f0b08a
+                    classDef user fill:#0f1520,stroke:#5aaaf0,stroke-width:2px,color:#7ab8f0
+
+                    class FE_AUTH,FE_EMP,FE_MGR,FE_ADMIN,FE_NOTIF fe
+                    class AUTH,USERS,CYCLES,SHEETS,GOALS,ACH,CHECKINS,REPORTS,ADMIN_MOD,AUTO,SCHED be
+                    class SUPABASE_AUTH,PG db
+                    class USER user
+                </div>
+            </div>
+
+            <!-- L2a -->
+            <div class="diagram-wrap">
+                <div class="diagram-title">Level 2a — Authentication &amp; Authorization Flow</div>
+                <div class="mermaid">
+                    sequenceDiagram
+                    participant Browser
+                    participant Frontend
+                    participant AuthMiddleware
+                    participant SupabaseAuth
+                    participant UsersDB
+
+                    Browser->>Frontend: POST /login {email, password}
+                    Frontend->>SupabaseAuth: signInWithPassword()
+                    SupabaseAuth-->>Frontend: JWT (ES256 or HS256) + refresh_token
+                    Frontend->>Frontend: Store token in memory/cookie
+                    Browser->>AuthMiddleware: GET /api/v1/auth/me [Bearer JWT]
+                    AuthMiddleware->>AuthMiddleware: Peek alg header (ES256 / HS256)
+                    alt ES256 (modern)
+                    AuthMiddleware->>SupabaseAuth: Fetch JWKS (cached 1hr)
+                    AuthMiddleware->>AuthMiddleware: Verify with matching kid key
+                    else HS256 (legacy)
+                    AuthMiddleware->>AuthMiddleware: Verify with SUPABASE_JWT_SECRET
+                    end
+                    AuthMiddleware->>UsersDB: SELECT user WHERE id = sub
+                    UsersDB-->>AuthMiddleware: User{id, email, platform_role}
+                    AuthMiddleware->>AuthMiddleware: request.state.user = user
+                    AuthMiddleware-->>Browser: 200 {id, email, role, ...}
+                </div>
+            </div>
+
+            <!-- L2b -->
+            <div class="diagram-wrap">
+                <div class="diagram-title">Level 2b — Goal Sheet Lifecycle (Employee → Manager → Admin)</div>
+                <div class="mermaid">
+                    stateDiagram-v2
+                    [*] --> draft : Employee creates sheet
+                    draft --> draft : Add or edit goals - weightage must total 100
+                    draft --> submitted : Employee submits when window is open
+                    submitted --> approved : Manager approves
+                    submitted --> rework : Manager returns for revision
+                    rework --> draft : Employee revises and resubmits
+                    approved --> locked : Admin or System locks after window closes
+                    locked --> locked : Admin unlocks individual goals - audit logged
+                    locked --> [*] : Cycle ends
+                </div>
+            </div>
+
+            <!-- L2c -->
+            <div class="diagram-wrap">
+                <div class="diagram-title">Level 2c — Achievements &amp; Progress Scoring</div>
+                <div class="mermaid">
+                    graph LR
+                    EMP["Employee"] -- "PATCH /achievements/id" --> ACH_RT["Achievement\nRoute Handler"]
+                    ACH_RT -- "Validate: window_open\nand quarter active" --> WG["WindowGuardMiddleware"]
+                    WG -- "Store actual value\nand status" --> DB[("achievements\ntable")]
+                    DB --> SCORE["compute_progress_score()\nper UOM type"]
+                    SCORE --> UOM1["min: score = target/actual x 100\ncapped at 100"]
+                    SCORE --> UOM2["max: score = actual/target x 100\ncapped at 100"]
+                    SCORE --> UOM3["timeline: score = actual percent\ndirect"]
+                    SCORE --> UOM4["zero: actual=0 gives 100\notherwise gives 0"]
+                    UOM1 --> WEIGHTED["Weighted Average\nsum of score x weight / sum of weight"]
+                    UOM2 --> WEIGHTED
+                    UOM3 --> WEIGHTED
+                    UOM4 --> WEIGHTED
+                    WEIGHTED --> REPORT["Reports API\nHeatmaps - Analytics - Bias Detection"]
+
+                    classDef score fill:#0f2820,stroke:#5af0c0,stroke-width:1px,color:#9af0d4
+                    class UOM1,UOM2,UOM3,UOM4 score
+                </div>
+            </div>
+
+            <!-- L2d -->
+            <div class="diagram-wrap">
+                <div class="diagram-title">Level 2d — Automation &amp; Escalation Engine</div>
+                <div class="mermaid">
+                    graph TD
+                    SCHED["Scheduler every 30s"] --> ENGINE["AutomationEngine\nevaluate_rules_and_create_tasks()"]
+                    ENGINE --> LOCK["Acquire pg_advisory_xact_lock\nprevents multi-pod race"]
+                    LOCK --> RULES["Load active AutomationRules\nfrom DB"]
+
+                    RULES --> T1["overdue_submission\ndays since submit over threshold"]
+                    RULES --> T2["pending_approval\nno approval after N days"]
+                    RULES --> T3["low_completion\nprogress below threshold"]
+                    RULES --> T4["missing_checkin\nno checkin in quarter"]
+                    RULES --> T5["declining_performance\nQ-o-Q drop over delta"]
+
+                    T1 --> TASKS["Create EscalationTask\nor advance current step_index"]
+                    T2 --> TASKS
+                    T3 --> TASKS
+                    T4 --> TASKS
+                    T5 --> TASKS
+
+                    TASKS --> STEP["Execute current Action Step"]
+                    STEP --> A1["email: MockNotification\ninbox, HTML body"]
+                    STEP --> A2["teams: MockNotification\nadaptive card JSON"]
+                    STEP --> A3["manager_escalation\nnotify manager"]
+                    STEP --> A4["hr_escalation\nnotify admin/HR"]
+
+                    A1 --> HIST["Log to EscalationHistory\nsuccess / failed"]
+                    A2 --> HIST
+                    A3 --> HIST
+                    A4 --> HIST
+                    HIST --> NEXT["Advance step_index\nSet next_run_at = now + delay_days"]
+
+                    classDef rule fill:#1a1420,stroke:#f0925a,stroke-width:1px,color:#f0b08a
+                    classDef action fill:#0f1a20,stroke:#5aaaf0,stroke-width:1px,color:#7ab8f0
+                    class T1,T2,T3,T4,T5 rule
+                    class A1,A2,A3,A4 action
+                </div>
+            </div>
+
+            <!-- L2e -->
+            <div class="diagram-wrap">
+                <div class="diagram-title">Level 2e — Reporting &amp; Analytics</div>
+                <div class="mermaid">
+                    graph LR
+                    UI["Admin / Manager UI"] --> RPT["Reports API\n/api/v1/reports/"]
+                    RPT --> R1["/completion\nOverall sheet status breakdown"]
+                    RPT --> R2["/performance-heatmap\nEmployee x Quarter grid"]
+                    RPT --> R3["/department-summary\nAvg score per dept"]
+                    RPT --> R4["/manager-bias\nLenient vs Strict detection\nstd-dev of check-in sentiment"]
+                    RPT --> R5["/top-performers\nRanked by weighted avg score"]
+                    RPT --> R6["/at-risk\nEmployees below threshold"]
+                    RPT --> R7["/cycle-comparison\nYoY performance delta"]
+                    R1 --> DB[("PostgreSQL")]
+                    R2 --> DB
+                    R3 --> DB
+                    R4 --> DB
+                    R5 --> DB
+                    R6 --> DB
+                    R7 --> DB
+
+                    classDef report fill:#0f2820,stroke:#5af0c0,stroke-width:1px,color:#9af0d4
+                    class R1,R2,R3,R4,R5,R6,R7 report
+                </div>
+            </div>
+        </section>
+
+        <!-- D4 -->
+        <section class="section" id="d4">
+            <div class="section-header">
+                <span class="section-num">DELIVERABLE 04</span>
+                <h2>Login Credentials &amp; Roles</h2>
+            </div>
+
+            <div
+                style="background: rgba(124,106,245,0.08); border: 1px solid rgba(124,106,245,0.2); border-radius: var(--r2); padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 13px; color: var(--muted);">
+                🔐 Universal password for all seeded accounts: <code>password123</code>
+            </div>
+
+            <!-- Admin -->
+            <h3
+                style="margin-bottom: 0.75rem; color: var(--muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+                Admin</h3>
+            <div class="card-grid" style="grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <div class="cred-card">
+                    <div class="cred-role">Admin · Human Resources</div>
+                    <div class="cred-name">Neha Kapoor</div>
+                    <div class="cred-email">admin@company.com</div>
+                    <div class="cred-dept">Head of People Ops — full system access, no role restrictions</div>
+                    <div class="cred-pw"><span class="cred-pw-label">Password:</span><span
+                            class="cred-pw-val">password123</span></div>
+                </div>
+            </div>
+
+            <!-- Managers -->
+            <h3
+                style="margin-bottom: 0.75rem; color: var(--muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+                Managers</h3>
+            <div class="card-grid cols-2" style="margin-bottom: 1.5rem; gap: 0.5rem;">
+                <div class="cred-card">
+                    <div class="cred-role">Manager · Engineering</div>
+                    <div class="cred-name">Aman Sethi</div>
+                    <div class="cred-email">mgr1@company.com</div>
+                    <div class="cred-dept">Trait: <span class="pill pill-red">Strict</span></div>
+                    <div class="cred-pw"><span class="cred-pw-label">Password:</span><span
+                            class="cred-pw-val">password123</span></div>
+                </div>
+                <div class="cred-card">
+                    <div class="cred-role">Manager · Product</div>
+                    <div class="cred-name">Elena Rostova</div>
+                    <div class="cred-email">mgr2@company.com</div>
+                    <div class="cred-dept">Trait: <span class="pill pill-green">Lenient</span></div>
+                    <div class="cred-pw"><span class="cred-pw-label">Password:</span><span
+                            class="cred-pw-val">password123</span></div>
+                </div>
+                <div class="cred-card">
+                    <div class="cred-role">Manager · Customer Success</div>
+                    <div class="cred-name">Sarah Jenkins</div>
+                    <div class="cred-email">mgr3@company.com</div>
+                    <div class="cred-dept">Trait: <span class="pill pill-blue">Detail-oriented</span></div>
+                    <div class="cred-pw"><span class="cred-pw-label">Password:</span><span
+                            class="cred-pw-val">password123</span></div>
+                </div>
+                <div class="cred-card">
+                    <div class="cred-role">Manager · Security</div>
+                    <div class="cred-name">Marcus Aurelius</div>
+                    <div class="cred-email">mgr4@company.com</div>
+                    <div class="cred-dept">Trait: <span class="pill pill-gray">Disengaged</span></div>
+                    <div class="cred-pw"><span class="cred-pw-label">Password:</span><span
+                            class="cred-pw-val">password123</span></div>
+                </div>
+            </div>
+
+            <!-- Employees -->
+            <h3
+                style="margin-bottom: 0.75rem; color: var(--muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+                Employees — Key Accounts</h3>
+            <div class="tbl-wrap" style="margin-bottom: 2rem;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Dept</th>
+                            <th>Key Trait / Scenario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>emp1@company.com</code></td>
+                            <td>Rhea Mukherjee</td>
+                            <td>Engineering</td>
+                            <td><span class="pill pill-green">Stellar performer</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp2@company.com</code></td>
+                            <td>Tariq Mahmood</td>
+                            <td>Engineering</td>
+                            <td><span class="pill pill-teal">150% outlier</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp8@company.com</code></td>
+                            <td>Yasmine Belkacem</td>
+                            <td>Product</td>
+                            <td><span class="pill pill-purple">Admin-unlocked goal</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp13@company.com</code></td>
+                            <td>Hannah Abbott</td>
+                            <td>Customer Success</td>
+                            <td><span class="pill pill-red">Active escalation</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp14@company.com</code></td>
+                            <td>Pedro Gomez</td>
+                            <td>Customer Support</td>
+                            <td><span class="pill pill-orange">Underweight draft</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp16@company.com</code></td>
+                            <td>James Sterling</td>
+                            <td>Finance</td>
+                            <td><span class="pill pill-yellow">Stalled pending approval</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp17@company.com</code></td>
+                            <td>Alana Vance</td>
+                            <td>Security</td>
+                            <td><span class="pill pill-orange">Overweight draft</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp18@company.com</code></td>
+                            <td>Kojo Mensah</td>
+                            <td>Security</td>
+                            <td><span class="pill pill-purple">Rework loop</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp22@company.com</code></td>
+                            <td>Alice Walker</td>
+                            <td>Finance</td>
+                            <td><span class="pill pill-blue">Cross-dept shared goal</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp23@company.com</code></td>
+                            <td>Chloe Vance</td>
+                            <td>Customer Success</td>
+                            <td><span class="pill pill-yellow">Inconsistent: 95%→45%</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp24@company.com</code></td>
+                            <td>Robert Frost</td>
+                            <td>Customer Support</td>
+                            <td><span class="pill pill-red">Chronic underperformer</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp27@company.com</code></td>
+                            <td>Sarah Connor</td>
+                            <td>Human Resources</td>
+                            <td><span class="pill pill-gray">Late joiner (admin-created)</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>emp5@company.com</code></td>
+                            <td>Jia-Hao Lin</td>
+                            <td>Engineering</td>
+                            <td><span class="pill pill-gray">Resigned — is_active=False</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- D5 Edge Cases -->
+        <section class="section" id="d5">
+            <div class="section-header">
+                <span class="section-num">DELIVERABLE 04 — EXTENDED</span>
+                <h2>All Edge Cases &amp; Cycle Scenarios</h2>
+            </div>
+
+            <div class="tbl-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Scenario</th>
+                            <th>Who</th>
+                            <th>Status</th>
+                            <th>What to verify</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>A</strong></td>
+                            <td>Stellar Performer</td>
+                            <td><code>emp1</code> / Aman Sethi</td>
+                            <td><span class="pill pill-gray">locked</span></td>
+                            <td>Q1 latency 340ms (on_track), Q2 280ms (completed). One Sev-1 incident. Strict manager
+                                check-ins with critical commentary.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B</strong></td>
+                            <td>Outlier 150% Achievement</td>
+                            <td><code>emp2</code> / Aman Sethi</td>
+                            <td><span class="pill pill-gray">locked</span></td>
+                            <td>Goal target = 10 backups, actual = 15 (150%). System caps score at 100. Over-achievement
+                                visible in reports.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C</strong></td>
+                            <td>Active Escalation — Long Pending</td>
+                            <td><code>emp13</code> / Sarah Jenkins</td>
+                            <td><span class="pill pill-orange">submitted</span></td>
+                            <td>Submitted 16+ days ago with no approval. Automation engine creates escalation task and
+                                notifies manager. Check notifications inbox.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D</strong></td>
+                            <td>Underweight Draft</td>
+                            <td><code>emp14</code> / Sarah Jenkins</td>
+                            <td><span class="pill pill-purple">draft</span></td>
+                            <td>Only 1 goal with weightage = 30%. Business rule blocks submission until total = 100%.
+                                Frontend shows validation error on submit.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E</strong></td>
+                            <td>Overweight Draft</td>
+                            <td><code>emp17</code> / Marcus Aurelius</td>
+                            <td><span class="pill pill-purple">draft</span></td>
+                            <td>2 goals totalling 120% weightage. Business rule blocks submission. Frontend shows "total
+                                weightage exceeds 100%" error.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>F</strong></td>
+                            <td>Stalled Approval</td>
+                            <td><code>emp16</code> / Sarah Jenkins</td>
+                            <td><span class="pill pill-orange">submitted</span></td>
+                            <td>Submitted 6 days ago. Approaching escalation SLA. Automation creates pending_approval
+                                task at threshold.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>G</strong></td>
+                            <td>Rework Loop</td>
+                            <td><code>emp18</code> / Marcus Aurelius</td>
+                            <td><span class="pill pill-yellow">rework</span></td>
+                            <td>Manager returned sheet. Employee must revise goal (target changed 120→90 days per
+                                check-in comment). Re-submit flow.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>H</strong></td>
+                            <td>Admin Goal Unlock Override</td>
+                            <td><code>emp8</code> / Elena Rostova</td>
+                            <td><span class="pill pill-green">approved</span></td>
+                            <td>Sheet is approved but admin unlocked one goal (SOC2 Compliance, is_locked=False). Audit
+                                log shows override. Admin can update that goal while others remain locked.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>I</strong></td>
+                            <td>Cross-Dept Shared Goals</td>
+                            <td><code>emp22</code>, <code>emp3</code></td>
+                            <td><span class="pill pill-green">approved</span></td>
+                            <td>Admin pushed "Reduce sales cycle 45→32 days" to Finance and Security employees. Goal has
+                                shared_from FK. Achievement on child mirrors parent.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>J</strong></td>
+                            <td>Chronic Underperformer</td>
+                            <td><code>emp24</code> / Sarah Jenkins</td>
+                            <td><span class="pill pill-green">approved</span></td>
+                            <td>Q1: 25/100, Q2: 15/100 (scores 25% and 15%). Triggers low_completion automation rule.
+                                Escalation task created. Check-in demands turnaround plan.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>K</strong></td>
+                            <td>Inconsistent (Q-o-Q Decline)</td>
+                            <td><code>emp23</code> / Sarah Jenkins</td>
+                            <td><span class="pill pill-green">approved</span></td>
+                            <td>Q1 NPS at 95% (excellent), Q2 at 45% (at_risk). Triggers declining_performance rule.
+                                Visible in cycle-comparison report.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L</strong></td>
+                            <td>Late Joiner — Admin-Created Sheet</td>
+                            <td><code>emp27</code> / Neha Kapoor</td>
+                            <td><span class="pill pill-green">approved</span></td>
+                            <td>Sheet created and approved by Admin directly (bypassing normal submit flow).
+                                Demonstrates admin super-powers.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin: 2rem 0 1rem;">Recommended Demo Walkthrough — Judges</h3>
+            <div class="walk-role">
+                <div class="walk-header">
+                    <div class="walk-icon"
+                        style="background: rgba(124,106,245,0.12); border: 1px solid rgba(124,106,245,0.25);">🔑</div>
+                    <div>
+                        <div style="font-weight: 600;">Step 1 — Admin Login</div>
+                        <code>admin@company.com</code>
+                    </div>
+                </div>
+                <ol class="walk-steps">
+                    <li>View <strong>Reports → Performance Heatmap</strong> (org-wide view)</li>
+                    <li>View <strong>Admin → Escalations</strong> (active automation tasks)</li>
+                    <li>View <strong>Admin → Automation</strong> (rule engine configuration)</li>
+                    <li>View <strong>Notifications</strong> (escalation emails / Teams cards)</li>
+                    <li>Unlock a goal on <strong>emp8's sheet</strong> via Goal Unlock page</li>
+                </ol>
+            </div>
+            <div class="walk-role">
+                <div class="walk-header">
+                    <div class="walk-icon"
+                        style="background: rgba(90,240,192,0.1); border: 1px solid rgba(90,240,192,0.2);">👔</div>
+                    <div>
+                        <div style="font-weight: 600;">Step 2 — Manager Login — Sarah Jenkins</div>
+                        <code>mgr3@company.com</code>
+                    </div>
+                </div>
+                <ol class="walk-steps">
+                    <li>View <strong>Team Goal Sheets</strong> → see <strong>emp13</strong> (escalation),
+                        <strong>emp16</strong> (pending)
+                    </li>
+                    <li><strong>Approve emp16's sheet</strong></li>
+                    <li>Return or approve <strong>emp14's sheet</strong> with note</li>
+                    <li>Add <strong>Q2 check-in on emp24</strong> (Chronic underperformer)</li>
+                    <li>View <strong>Progress Tracker</strong> (heatmap for own team)</li>
+                </ol>
+            </div>
+            <div class="walk-role">
+                <div class="walk-header">
+                    <div class="walk-icon"
+                        style="background: rgba(240,146,90,0.1); border: 1px solid rgba(240,146,90,0.2);">👤</div>
+                    <div>
+                        <div style="font-weight: 600;">Step 3 — Employee Login — Rework Loop</div>
+                        <code>emp18@company.com</code>
+                    </div>
+                </div>
+                <ol class="walk-steps">
+                    <li>See sheet in <strong>"rework" status</strong> with manager comment</li>
+                    <li>Edit the goal target (120 → 90 days per check-in comment)</li>
+                    <li>Re-submit the sheet</li>
+                </ol>
+            </div>
+            <div class="walk-role">
+                <div class="walk-header">
+                    <div class="walk-icon"
+                        style="background: rgba(240,196,90,0.1); border: 1px solid rgba(240,196,90,0.2);">👤</div>
+                    <div>
+                        <div style="font-weight: 600;">Step 4 — Employee Login — Underweight Draft</div>
+                        <code>emp14@company.com</code>
+                    </div>
+                </div>
+                <ol class="walk-steps">
+                    <li>Try to submit → see <strong>weightage validation error</strong> (only 30% assigned)</li>
+                    <li>Add a second goal to reach 100%</li>
+                    <li>Submit successfully</li>
+                </ol>
+            </div>
+            <div class="walk-role">
+                <div class="walk-header">
+                    <div class="walk-icon"
+                        style="background: rgba(90,240,160,0.1); border: 1px solid rgba(90,240,160,0.2);">👤</div>
+                    <div>
+                        <div style="font-weight: 600;">Step 5 — Employee Login — Stellar Performer</div>
+                        <code>emp1@company.com</code>
+                    </div>
+                </div>
+                <ol class="walk-steps">
+                    <li>View locked goals (Q1 latency 340ms → on_track, Q2 280ms → completed)</li>
+                    <li>Log Q3 achievement</li>
+                    <li>Check progress score calculation</li>
+                </ol>
+            </div>
+        </section>
+
+        <div
+            style="padding: 2rem 0; text-align: center; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 2rem;">
+            AQH-SAMAR Performance Management Portal · Portal Version 0.1.0 · Generated 2026-05-19
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true,
+                background: '#0a0a0f',
+                primaryColor: '#1c1c36',
+                primaryBorderColor: '#7c6af5',
+                primaryTextColor: '#e8e8f0',
+                secondaryColor: '#0f2820',
+                secondaryBorderColor: '#5af0c0',
+                secondaryTextColor: '#e8e8f0',
+                tertiaryColor: '#1a1420',
+                tertiaryBorderColor: '#f0925a',
+                tertiaryTextColor: '#e8e8f0',
+                lineColor: '#444466',
+                textColor: '#e8e8f0',
+                fontSize: '13px',
+                fontFamily: 'Sora, sans-serif',
+                edgeLabelBackground: '#111118',
+                clusterBkg: '#0f0f18',
+                clusterBorder: '#333355',
+                nodeTextColor: '#e8e8f0',
+                labelTextColor: '#e8e8f0',
+                activationBorderColor: '#7c6af5',
+                activationBkgColor: '#1c1c36',
+                sequenceNumberColor: '#5af0c0',
+                signalColor: '#a89ef8',
+                signalTextColor: '#e8e8f0',
+                labelBoxBkgColor: '#0f0f18',
+                labelBoxBorderColor: '#333355',
+                loopTextColor: '#e8e8f0',
+                noteBkgColor: '#1c1c26',
+                noteTextColor: '#e8e8f0',
+                noteBorderColor: '#444466',
+                altSectionBkgColor: '#111118',
+                fillType0: '#1c1c36',
+                fillType1: '#0f2820',
+                fillType2: '#1a1420',
+            },
+            flowchart: { htmlLabels: true, curve: 'basis' },
+            sequence: { actorMargin: 60, showSequenceNumbers: false },
+        });
+
+        // Nav active state
+        const sections = document.querySelectorAll('.section');
+        const navItems = document.querySelectorAll('.nav-item');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navItems.forEach(n => n.classList.remove('active'));
+                    const id = entry.target.getAttribute('id');
+                    const active = document.querySelector(`.nav-item[href="#${id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+
+</html>

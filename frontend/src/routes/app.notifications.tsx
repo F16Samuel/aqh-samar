@@ -35,7 +35,7 @@ export const Route = createFileRoute("/app/notifications")({
 
 const TEMPLATES = {
   email_warning: {
-    subject: "⚠️ ACTION REQUIRED: AQH Performance Window Closing Soon",
+    subject: "⚠️ ACTION REQUIRED: HMT-360 Performance Window Closing Soon",
     body: `<div style="font-family: sans-serif; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; max-width: 600px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);">
   <h2 style="color: #e11d48; margin-top: 0; font-size: 20px; border-bottom: 2px solid #fda4af; padding-bottom: 8px;">Operational SLA Escalation Notice</h2>
   <p style="font-size: 15px; color: #334155; line-height: 1.6;">Your Q2 goal sheet submission is currently <strong>overdue</strong>. Delay in goal submission holds back team tracking dashboards and review cycles.</p>

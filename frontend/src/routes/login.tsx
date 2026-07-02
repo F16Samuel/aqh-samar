@@ -65,8 +65,8 @@ function LoginPage() {
               <Target className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold tracking-tight">AQH-SAMAR</h1>
-              <p className="text-xs text-muted-foreground">Goal Setting & Tracking</p>
+              <h1 className="text-lg font-semibold tracking-tight">HMT-360</h1>
+              <p className="text-xs text-muted-foreground">Hyper Management Tool - 360</p>
             </div>
           </div>
           <Card className="border-border/60 shadow-xl">

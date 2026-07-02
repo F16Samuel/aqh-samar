@@ -1,5 +1,5 @@
 /**
- * Statistical utility functions for the AQH-SAMAR analytics engine.
+ * Statistical utility functions for the HMT-360 analytics engine.
  */
 
 export function mean(values: number[]): number {

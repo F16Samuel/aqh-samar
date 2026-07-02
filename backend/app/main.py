@@ -22,7 +22,7 @@ from app.core.scheduler import start_automation_scheduler, stop_automation_sched
 
 
 app = FastAPI(
-    title="AQH-SAMAR — Goal Setting & Tracking Portal",
+    title="HMT-360 — Hyper Management Tool - 360",
     description="In-House Employee Performance Management System API",
     version="0.1.0",
     docs_url="/docs",

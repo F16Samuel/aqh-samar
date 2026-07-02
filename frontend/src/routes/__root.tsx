@@ -18,11 +18,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AQH-SAMAR — Goal Setting & Tracking" },
+      { title: "HMT-360 — Hyper Management Tool - 360" },
       {
         name: "description",
         content:
-          "Enterprise goal setting, quarterly check-ins, and performance tracking portal.",
+          "Hyper Management Tool - 360: Enterprise performance management, quarterly check-ins, and goal tracking portal.",
       },
     ],
     links: [{ rel: "stylesheet", href: appCss }],

@@ -137,7 +137,7 @@ def run_dump():
         f.write("# Supabase Database Schema & Relations Documentation\n\n")
         f.write(f"*Generated on: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
         
-        f.write("This document provides a highly detailed schematic of the AQH-SAMAR portal tables, columns, constraints, and relational mappings, along with the physical records exported to JSON files.\n\n")
+        f.write("This document provides a highly detailed schematic of the HMT-360 portal tables, columns, constraints, and relational mappings, along with the physical records exported to JSON files.\n\n")
         
         # Mermaid Diagram
         f.write("## Entity Relationship Diagram (ERD)\n\n")

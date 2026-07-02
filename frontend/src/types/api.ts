@@ -1,4 +1,4 @@
-// DTOs mirror the AQH-SAMAR API documentation 1:1.
+// DTOs mirror the HMT-360 API documentation 1:1.
 
 export type Role = "employee" | "manager" | "admin";
 

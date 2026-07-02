@@ -113,7 +113,7 @@ function Topbar() {
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-border/60 bg-background/80 px-4 backdrop-blur md:px-6">
       <SidebarTrigger />
-      <div className="hidden text-sm font-medium md:block">AQH-SAMAR</div>
+      <div className="hidden text-sm font-medium md:block">HMT-360</div>
       <div className="ml-auto flex items-center gap-2">
         {cycle ? (
           <Badge variant={cycle.is_active ? "default" : "secondary"} className="gap-1">
@@ -222,7 +222,7 @@ function AppSidebar({ role, fullName, email, jobTitle }: { role: Role; fullName:
             <ListChecks className="h-4 w-4" />
           </div>
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold">AQH-SAMAR</p>
+            <p className="truncate text-sm font-semibold">HMT-360</p>
             <p className="truncate text-xs text-muted-foreground">{ROLE_LABEL[role]}</p>
           </div>
         </div>
