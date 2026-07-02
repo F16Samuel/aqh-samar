@@ -55,7 +55,7 @@ jobs:
           ECR_REPOSITORY: f16sam/aqh-samar
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./backend
+          docker build --no-cache -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./backend
           docker push $ECR_REGISTRY/$ECR_REPOSITORY --all-tags
 
       - name: Deploy to Amazon ECS Express Mode
@@ -66,7 +66,7 @@ jobs:
   # ─── JOB 3: Build and Deploy Frontend to AWS ────────────────────────────────
   deploy-frontend:
     name: Build & Deploy Frontend
-    needs: [deploy-backend]
+    needs: [test-backend]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -88,7 +88,7 @@ jobs:
           ECR_REPOSITORY: f16sam/aqh-samar-frontend
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build \
+          docker build --no-cache \
             --build-arg VITE_SUPABASE_URL="${{ secrets.VITE_SUPABASE_URL }}" \
             --build-arg VITE_SUPABASE_ANON_KEY="${{ secrets.VITE_SUPABASE_ANON_KEY }}" \
             --build-arg VITE_API_BASE_URL="${{ secrets.VITE_API_BASE_URL }}" \
